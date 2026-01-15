@@ -14,7 +14,7 @@
 #define ALIEN_WIDTH   4
 #define ALIEN_HEIGHT   3
 
-void drawAlien(uint16_t x, uint16_t y);
+void drawAlien();
 
 
 void borders();
