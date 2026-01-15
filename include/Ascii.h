@@ -11,8 +11,8 @@
 #define Y_COORDINATE    (DISPLAY_HEIGHT << 8)
 
 // Alien sprite definition
-#define ALIEN_WIDTH   (4 << 8)
-#define ALIEN_HEIGHT   (3 << 8)
+#define ALIEN_WIDTH   4
+#define ALIEN_HEIGHT   3
 
 void drawAlien(uint16_t x, uint16_t y);
 
