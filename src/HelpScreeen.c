@@ -1,7 +1,4 @@
-#include "stm32f30x_conf.h"
 #include "30010_io.h"
-#include <stdint.h>
-#include <stdio.h>
 #include "HAL.h"
 #include "Physics.h"
 #include "menu.h"
@@ -64,6 +61,8 @@ void displayHelpScreen(int w, int h) {  // w=width, h=height
         }
     }
 }
+
+
 
 void help_update(void) {
     if (joystick_center_pressed() == 0x1) {
