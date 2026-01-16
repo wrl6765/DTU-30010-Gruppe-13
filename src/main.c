@@ -17,19 +17,19 @@ int main(){
 	player_init();
     //---------ikke-loop-Ascii------------------
     borders();
+
+	uint8_t joystick;
     	while(1){
 
 			//joystick variable
-		uint8_t joystick_pressed = joystick_center_pressed();
-		uint8_t joystickdown_pressed = joystick_down_pressed();
+		joystick |= joystick_center_pressed();
+		joystick |= joystick_down_pressed() << 1;
 
     		if (tim2_flag){ //30 Hz timer flag, bruges til main time
     						//player movement, bullet movement, osv.
-					update_player(&p);
+					update_player(&p, joystick);
 					drawAlien(&p);
     			tim2_flag = 0;
-
-
     			}
     	}
 }

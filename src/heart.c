@@ -23,7 +23,7 @@ uint8_t *lcd_get_buffer(void) {
 
 void lcd_commit(void) {
     lcd_push_buffer(lcd_buffer);
-
+}
 // ------------ Hjerte Full: 16 kolonner x 13 rækker ------------------
 const uint16_t full_heart_data[13] = {
     0x1E3C, 0x3F7E, 0x7FFF, 0x7FFF,

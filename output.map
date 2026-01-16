@@ -142,6 +142,7 @@ __lock___env_recursive_mutex
                     0x1               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
 __lock___sinit_recursive_mutex
                     0x1               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+lcd_buffer          0x200             .pio\build\nucleo_f302r8\src\heart.o
 __lock___malloc_recursive_mutex
                     0x1               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
 __lock___at_quick_exit_mutex
@@ -1501,6 +1502,8 @@ Discarded input sections
                 0x00000000       0x48 .pio\build\nucleo_f302r8\src\charset.o
  .text.lcd_text
                 0x00000000       0x4c .pio\build\nucleo_f302r8\src\charset.o
+ .text.score_update
+                0x00000000       0x54 .pio\build\nucleo_f302r8\src\charset.o
  .rodata.character_data
                 0x00000000      0x1db .pio\build\nucleo_f302r8\src\charset.o
  .rodata.lcd_text.str1.1
@@ -1511,12 +1514,20 @@ Discarded input sections
  .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\heart.o
  .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\heart.o
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\heart.o
+ .text.lcd_manager_init
+                0x00000000       0x28 .pio\build\nucleo_f302r8\src\heart.o
+ .text.lcd_get_buffer
+                0x00000000       0x10 .pio\build\nucleo_f302r8\src\heart.o
+ .text.lcd_commit
+                0x00000000        0xc .pio\build\nucleo_f302r8\src\heart.o
  .text.heart_full
                 0x00000000       0x64 .pio\build\nucleo_f302r8\src\heart.o
  .text.heart_tom
                 0x00000000       0x64 .pio\build\nucleo_f302r8\src\heart.o
  .text.display_lives
                 0x00000000       0x40 .pio\build\nucleo_f302r8\src\heart.o
+ .bss.lcd_initialized
+                0x00000000        0x1 .pio\build\nucleo_f302r8\src\heart.o
  .rodata.full_heart_data
                 0x00000000       0x1a .pio\build\nucleo_f302r8\src\heart.o
  .rodata.heart_x
@@ -1528,6 +1539,7 @@ Discarded input sections
  .comment       0x00000000       0x7f .pio\build\nucleo_f302r8\src\heart.o
  .ARM.attributes
                 0x00000000       0x33 .pio\build\nucleo_f302r8\src\heart.o
+ COMMON         0x00000000      0x200 .pio\build\nucleo_f302r8\src\heart.o
  .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\main.o
  .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\main.o
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\main.o
@@ -2111,39 +2123,40 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x080015e8       0x20 .pio\build\nucleo_f302r8\src\Physics.o
                 0x080015e8                player_init
  .text.update_player
-                0x08001608       0x48 .pio\build\nucleo_f302r8\src\Physics.o
+                0x08001608       0x3a .pio\build\nucleo_f302r8\src\Physics.o
                 0x08001608                update_player
+ *fill*         0x08001642        0x2 
  .text.uart_put_char
-                0x08001650       0x20 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x08001650                uart_put_char
+                0x08001644       0x20 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08001644                uart_put_char
  .text._write_r
-                0x08001670       0x2a .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x08001670                _write_r
- *fill*         0x0800169a        0x2 
+                0x08001664       0x2a .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08001664                _write_r
+ *fill*         0x0800168e        0x2 
  .text.USART2_IRQHandler
-                0x0800169c       0x50 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x0800169c                USART2_IRQHandler
+                0x08001690       0x50 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08001690                USART2_IRQHandler
  .text.uart_init
-                0x080016ec      0x13c .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080016ec                uart_init
- .text._read    0x08001828       0x1c .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08001828                _read
- .text._close   0x08001844        0x6 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08001844                _close
- .text._fstat   0x0800184a        0xa .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x0800184a                _fstat
- .text._isatty  0x08001854        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08001854                _isatty
- .text._lseek   0x08001858        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08001858                _lseek
- .text._sbrk    0x0800185c       0x34 .pio\build\nucleo_f302r8\src\bsp\sysmem.o
-                0x0800185c                _sbrk
+                0x080016e0      0x13c .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x080016e0                uart_init
+ .text._read    0x0800181c       0x1c .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x0800181c                _read
+ .text._close   0x08001838        0x6 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08001838                _close
+ .text._fstat   0x0800183e        0xa .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x0800183e                _fstat
+ .text._isatty  0x08001848        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08001848                _isatty
+ .text._lseek   0x0800184c        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x0800184c                _lseek
+ .text._sbrk    0x08001850       0x34 .pio\build\nucleo_f302r8\src\bsp\sysmem.o
+                0x08001850                _sbrk
  .text.SystemInit
-                0x08001890       0xb0 .pio\build\nucleo_f302r8\src\bsp\system_stm32f30x.o
-                0x08001890                SystemInit
+                0x08001884       0xb0 .pio\build\nucleo_f302r8\src\bsp\system_stm32f30x.o
+                0x08001884                SystemInit
  .text.startup.main
-                0x08001940       0x4c .pio\build\nucleo_f302r8\src\main.o
-                0x08001940                main
+                0x08001934       0x58 .pio\build\nucleo_f302r8\src\main.o
+                0x08001934                main
  .text.__errno  0x0800198c        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
                 0x0800198c                __errno
  .text.__libc_init_array
@@ -2370,11 +2383,11 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x080061f0       0x15 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawAlien.str1.1
                 0x08006205        0x3 .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level1.8143
+ .rodata.level1.8144
                 0x08006208        0xf .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level2.8144
+ .rodata.level2.8145
                 0x08006217       0x14 .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level3.8145
+ .rodata.level3.8146
                 0x0800622b       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata._global_impure_ptr
                 0x08006244        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)

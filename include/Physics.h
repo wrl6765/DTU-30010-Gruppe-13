@@ -18,7 +18,7 @@ typedef struct{
 
 extern player p;
 
-void update_player(player *p);
+void update_player(player *p, uint8_t joystick);
 
 void player_init(void);
 
