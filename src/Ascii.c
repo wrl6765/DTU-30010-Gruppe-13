@@ -66,15 +66,15 @@ void drawAlien(player *p)
 	int height;
 
 	switch(p->alien_level){
-	case 2:
+	case 2: // level 2
 		sprite = level2;
 		height = ALIEN_HEIGHT_LVL_2;
 		break;
-	case 3:
+	case 3: // level 3
 		sprite = level3;
 		height = ALIEN_HEIGHT_LVL_3;
 		break;
-	default:
+	default: // level 1
 		sprite = level1;
 		height = ALIEN_HEIGHT_LVL_1;
 		break;
@@ -89,6 +89,7 @@ void drawAlien(player *p)
 // ---------- Bullet drawing ----------
 void drawBullet(bullet *b)
 {
+	// x og y position af øvre venstre hjørne af bullet. Bullet tegnes som læst herfra
 	uint16_t x = (b->x >> 8);
 	uint16_t y = (b->y >> 8);
 
@@ -118,8 +119,8 @@ void drawBullet(bullet *b)
 		switch(b->type){
 		case 1: printf("---"); break; //regular
 		case 2: printf("==="); break; // bouncing
-		case 3: printf("#####"); break; // cannonball
-		case 4: printf("*"); break; // sniper
+		case 3: printf("OOO"); break; // cannonball
+		case 4: printf("**"); break; // sniper
 		}
 	}
 }
