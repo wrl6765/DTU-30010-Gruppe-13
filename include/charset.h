@@ -2,7 +2,7 @@
 #define _CHARSET_H_
 
 #include <stdint.h>
-#include "30010_io.h"
+#include "bsp/30010_io.h"
 
 extern const char character_data[95][5];
 
