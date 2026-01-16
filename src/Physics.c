@@ -19,17 +19,17 @@ void update_player(player *p, uint8_t joystick){
 		p->ay = -16; //op
 	}
 	else if (!(joystick == 0x01)){
-		p->ay = 8; //ned
+		p->ay = 8; //gravity
 	}
 	p->score+=1;
 	p->vy += p->ay;
 	p->y += p->vy;
-	if (p->y < Y_MIN){
-		p->y = Y_MIN;
+	if (p->y < Y_MIN + 256){
+		p->y = Y_MIN + 256;
 		p->vy = 0;
 	}
-	else if (p->y > Y_MAX){
-		p->y = Y_MAX;
+	else if (p->y > Y_MAX - 512){
+		p->y = Y_MAX - 512;
 		p->vy = 0;
 	}
 }
