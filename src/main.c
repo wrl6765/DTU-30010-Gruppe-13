@@ -22,6 +22,7 @@ int main(){
     	while(1){
 
 			//joystick variable
+		joystick = 0;
 		joystick |= joystick_center_pressed();
 		joystick |= joystick_down_pressed() << 1;
 		

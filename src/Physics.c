@@ -15,18 +15,23 @@ void player_init(void){
 }
 
 void update_player(player *p, uint8_t joystick){
-	if (joystick & 0x01 && p->y > Y_MIN){
-		p->ay = -512; //op
+	if (joystick & 0x01){
+		p->ay = -16; //op
 	}
-	else if (!(joystick & 0x01) && p->y < Y_MAX){
-		p->ay = 256; //ned
-	}
-	else{
-		p->ay = 0; //ingen bevægelse
+	else if (!(joystick == 0x01)){
+		p->ay = 8; //ned
 	}
 	p->score+=1;
 	p->vy += p->ay;
-	p->y += p->vy;	
+	p->y += p->vy;
+	if (p->y < Y_MIN){
+		p->y = Y_MIN;
+		p->vy = 0;
+	}
+	else if (p->y > Y_MAX){
+		p->y = Y_MAX;
+		p->vy = 0;
+	}
 }
 
 
