@@ -1,4 +1,5 @@
 #include "charset.h"
+#include <stdint.h>
 #include "bsp/30010_io.h"
 #include <string.h>
 
@@ -137,4 +138,21 @@ void lcd_text(int a, int b, uint8_t *buffer){
     // Skriv til LCD-buffer
     lcd_write_string(line1, 0, 0, buffer);
     lcd_write_string(line2, 0, 1, buffer);
+}
+
+
+// ------------ updatere palyers status ------------------
+void score_update(int high, int score) {
+    uint8_t *buffer = lcd_get_buffer();
+
+    memset(buffer, 0x00, 256); // ryd top
+
+    char line1[20], line2[20];
+    sprintf(line1, "Highscore: %d", high);
+    sprintf(line2, "Score: %d", score);
+
+    lcd_write_string(line1, 0, 0, buffer);
+    lcd_write_string(line2, 0, 1, buffer);
+
+    lcd_commit();
 }

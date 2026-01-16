@@ -14,8 +14,13 @@
 #define X_COORDINATE    (DISPLAY_WIDTH << 8)
 #define Y_COORDINATE    (DISPLAY_HEIGHT << 8)
 
+<<<<<<< HEAD
 #define Y_MIN          (1 << 8)
 #define Y_MAX          ((DISPLAY_HEIGHT - 2) << 8)
+=======
+#define Y_MIN    (1 << 8)
+#define Y_MAX    ((DISPLAY_HEIGHT-2) << 8)
+>>>>>>> e61cbaad82bb0f8c125e789b9e89b38fb2e07530
 
 // Alien sprite definition
 #define ALIEN_WIDTH   4
@@ -27,11 +32,11 @@
 
 // Bullet sizes
 #define BULLET_SMALL_HEIGHT   1
-#define BULLET_SMALL_WIDTH   1
+#define BULLET_SMALL_WIDTH   2
 #define BULLET_MEDIUM_HEIGHT   1
 #define BULLET_MEDIUM_WIDTH   3
-#define BULLET_LARGE_HEIGHT   2
-#define BULLET_LARGE_WIDTH   5
+#define BULLET_LARGE_HEIGHT   3
+#define BULLET_LARGE_WIDTH   3
 
 void borders(void);
 void drawAlien(player *p);

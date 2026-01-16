@@ -1,6 +1,30 @@
 #include "heart.h"
+#include "bsp/30010_io.h"
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
 
-// Hjerte Full: 16 kolonner x 13 rækker
+// ---------------- LCD manager -----------------
+uint8_t lcd_buffer[512];
+static uint8_t lcd_initialized = 0;
+
+void lcd_manager_init(void) {
+    if (!lcd_initialized) {
+        lcd_init();
+        memset(lcd_buffer, 0x00, 512);
+        lcd_initialized = 1;
+    }
+}
+
+uint8_t *lcd_get_buffer(void) {
+    lcd_manager_init();
+    return lcd_buffer;
+}
+
+void lcd_commit(void) {
+    lcd_push_buffer(lcd_buffer);
+
+// ------------ Hjerte Full: 16 kolonner x 13 rækker ------------------
 const uint16_t full_heart_data[13] = {
     0x1E3C, 0x3F7E, 0x7FFF, 0x7FFF,
     0x7FFF, 0x7FFF, 0x3FFE, 0x1FFC,
@@ -8,7 +32,7 @@ const uint16_t full_heart_data[13] = {
     0x0080
 };
 
-// Hjerte Tom: 16 kolonner x 13 rækker
+// ------------- Hjerte Tom: 16 kolonner x 13 rækker ------------------
 const uint16_t tom_heart_data[13] = {
     0x1E3C, 0x2142, 0x4081, 0x4001,
     0x4001, 0x4001, 0x2002, 0x1004,
@@ -16,7 +40,7 @@ const uint16_t tom_heart_data[13] = {
     0x0080
 };
 
-// Tegn fyldt hjerte
+// --------------- Tegn fyldt hjerte -------------------------------
 void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
     for (int row = 0; row < 13; row++) {
         uint16_t row_data = full_heart_data[row];
@@ -37,7 +61,7 @@ void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
     }
 }
 
-// Tegn tomt hjerte
+// ------------------ Tegn tomt hjerte ---------------------------
 void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer) {
     for (int row = 0; row < 13; row++) {
         uint16_t row_data = tom_heart_data[row];
@@ -59,11 +83,11 @@ void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer) {
 }
 
 
-// Koordinater for de 5 hjerter (y = lodret, x = vandret)
+// ------------ Koordinater for de 5 hjerter (y = lodret, x = vandret) -------------- 
 static const uint8_t heart_x[5] = {16, 36, 56, 76, 96}; // vandret med 20 pixels mellemrum
 static const uint8_t heart_y[5] = {19, 19, 19, 19, 19}; // lodret samme linje
 
-// display for de 5 hjærter
+// ------------- display for de 5 hjærter ---------------------------------------------
 void display_lives(uint8_t lives, uint8_t *buffer) {
     if (lives > 5) lives = 5; // begræns til max 5
 
