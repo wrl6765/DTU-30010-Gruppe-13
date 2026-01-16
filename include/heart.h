@@ -12,5 +12,7 @@ void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer);
 // Life display 0 til 5
 void display_lives(uint8_t lives, uint8_t *buffer);
 
+// opdatere lives
+void liv_update(int liv);
 
 #endif /* _HEART_H_ */
