@@ -8,6 +8,8 @@ typedef struct{
 
 	}player;
 
+extern player p;
+
 void update_player(player *p);
 
 void player_init(void);

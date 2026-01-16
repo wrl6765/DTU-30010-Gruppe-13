@@ -34,15 +34,15 @@ void borders(){
 }
 
 
-// ---------- Alien sprite ----------
-void drawAlien(uint16_t x, uint16_t y) {
-	static const char sprite[(ALIEN_HEIGHT >> 8)][(ALIEN_WIDTH >> 8)] = {
+// ---------- Player sprite ----------
+void drawPlayer(uint16_t x, uint16_t y) {
+	static const char sprite[(PLAYER_HEIGHT >> 8)][(PLAYER_WIDTH >> 8)] = {
 	" (@@)",
 	"/||\\",
 	"/__\\"
 	};
 
-	for (int i = 0; i < (ALIEN_HEIGHT >> 8); i++) {
+	for (int i = 0; i < (PLAYER_HEIGHT >> 8); i++) {
 		gotoxy((x >> 8), (y >> 8)+ i);
 		printf("%s", sprite[i]);
 	}

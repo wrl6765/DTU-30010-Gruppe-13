@@ -10,11 +10,12 @@
 #define X_COORDINATE    (DISPLAY_WIDTH << 8)
 #define Y_COORDINATE    (DISPLAY_HEIGHT << 8)
 
-// Alien sprite definition
-#define ALIEN_WIDTH   (4 << 8)
-#define ALIEN_HEIGHT   (3 << 8)
+#define Y_MIN          (1 << 8)
+#define Y_MAX          ((DISPLAY_HEIGHT - 2) << 8)
 
-void drawAlien(uint16_t x, uint16_t y);
+// Player sprite definition
+#define PLAYER_WIDTH   (4 << 8)
+#define PLAYER_HEIGHT   (3 << 8)
 
-
+void drawPlayer(uint16_t x, uint16_t y);
 void borders();
