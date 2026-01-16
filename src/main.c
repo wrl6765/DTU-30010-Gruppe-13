@@ -24,6 +24,7 @@ int main(){
 			//joystick variable
 		joystick |= joystick_center_pressed();
 		joystick |= joystick_down_pressed() << 1;
+		
 
     		if (tim2_flag){ //30 Hz timer flag, bruges til main time
     						//player movement, bullet movement, osv.
