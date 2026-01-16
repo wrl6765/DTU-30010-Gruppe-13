@@ -1,4 +1,8 @@
-#include "bsp/30010_io.h"
+#ifndef ASCII_H_
+#define ASCII_H_
+
+#include "30010_io.h"
+#include "Physics.h"
 
 #define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
 #define clear() printf("\x1B[2J")
@@ -12,9 +16,22 @@
 
 // Alien sprite definition
 #define ALIEN_WIDTH   4
-#define ALIEN_HEIGHT   3
 
-void drawAlien();
+// Alien height definitions
+#define ALIEN_HEIGHT_LVL_1   3
+#define ALIEN_HEIGHT_LVL_2   4
+#define ALIEN_HEIGHT_LVL_3   5
 
+// Bullet sizes
+#define BULLET_SMALL_HEIGHT   1
+#define BULLET_SMALL_WIDTH   1
+#define BULLET_MEDIUM_HEIGHT   1
+#define BULLET_MEDIUM_WIDTH   3
+#define BULLET_LARGE_HEIGHT   2
+#define BULLET_LARGE_WIDTH   5
 
-void borders();
+void borders(void);
+void drawAlien(player *p);
+void drawBullet(bullet *b);
+
+#endif /* ASCII_H_ */
