@@ -3,6 +3,8 @@
 
 //----------------player Physics----------------------
 player p; 
+//----------------player Physics----------------------
+player p; 
 
 void player_init(void){
 	p.x=X_COORDINATE/5;
