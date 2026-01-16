@@ -8,6 +8,7 @@ typedef struct{
 	uint8_t alien_level;
 }player;
 
+extern player p
 // Bullet struct
 typedef struct{
 	int16_t x, y;   // 8.8
