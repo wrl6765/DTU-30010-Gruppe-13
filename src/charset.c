@@ -1,6 +1,5 @@
 #include "charset.h"
-#include <stdint.h>
-#include "30010_io.h"
+#include "bsp/30010_io.h"
 #include <string.h>
 
 // ------------- Supported ASCII characters -------------------

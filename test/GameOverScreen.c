@@ -1,7 +1,5 @@
-#include "stm32f30x_conf.h"
-#include "30010_io.h"
-#include <stdint.h>
-#include <stdio.h>
+#include "bsp/stm32f30x_conf.h"
+#include "bsp/30010_io.h"
 
 void my_gotoxy(uint8_t x, uint8_t y) {
     printf("\033[%d;%dH", y, x);
@@ -45,7 +43,7 @@ void displayGameOver(int w, int h, uint32_t score, uint32_t highscore) {  // w=w
     }
 }
 
-int main(void) {
+int test_main(void) {
     uart_init(115200);
     printf("\033[2J"); // clear screen
 

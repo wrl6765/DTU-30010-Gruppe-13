@@ -1,8 +1,7 @@
 #include "Physics.h"
 #include "Ascii.h"
-
-//----------------player Physics----------------------
-player p; 
+#include "HAL.h"
+ 
 //----------------player Physics----------------------
 player p; 
 

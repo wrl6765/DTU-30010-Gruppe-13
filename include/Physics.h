@@ -1,6 +1,6 @@
 #ifndef PHYSICS_H_
 #define PHYSICS_H_
-#include "30010_io.h"
+#include "bsp/30010_io.h"
 
 typedef struct{
 	int16_t x, y, vy, ay, score, highscore;
@@ -8,7 +8,7 @@ typedef struct{
 	uint8_t alien_level;
 }player;
 
-extern player p
+
 // Bullet struct
 typedef struct{
 	int16_t x, y;   // 8.8
@@ -20,6 +20,6 @@ extern player p;
 
 void update_player(player *p);
 
-void player_init(player *p);
+void player_init(void);
 
 #endif /* PHYSICS_H_ */

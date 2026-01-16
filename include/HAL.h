@@ -1,8 +1,8 @@
 #ifndef HAL_H
 #define HAL_H
 
-#include "stm32f30x.h"
-#include "30010_io.h"
+#include "bsp/stm32f30x.h"
+#include "bsp/30010_io.h"
 
 // Joystick
 void joystick_init(void);

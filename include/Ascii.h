@@ -1,7 +1,7 @@
 #ifndef ASCII_H_
 #define ASCII_H_
 
-#include "30010_io.h"
+#include "bsp/30010_io.h"
 #include "Physics.h"
 
 #define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
@@ -13,6 +13,9 @@
 
 #define X_COORDINATE    (DISPLAY_WIDTH << 8)
 #define Y_COORDINATE    (DISPLAY_HEIGHT << 8)
+
+#define Y_MIN          (1 << 8)
+#define Y_MAX          ((DISPLAY_HEIGHT - 2) << 8)
 
 // Alien sprite definition
 #define ALIEN_WIDTH   4

@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdint.h>
 #include "escape.h"
 #include <termios.h>
@@ -93,3 +93,4 @@ int main(){
     displaymenu(90, 25);
     return 0;
 }
+*/
