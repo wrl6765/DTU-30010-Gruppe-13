@@ -4,6 +4,9 @@
 #include "Ascii.h"
 #include "main.h"
 #include "Physics.h"
+#include "charset.h"
+#include "heart.h"
+#include <string.h>
 
 
 int main(){
@@ -30,5 +33,7 @@ int main(){
     			}
     	}
 }
+
+
 
 
