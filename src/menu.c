@@ -51,17 +51,17 @@ void menu_update(GameContext *ctx, uint8_t joystick)
 uint8_t h=DISPLAY_HEIGHT; uint8_t w = DISPLAY_WIDTH;
 
     /* Draw selection */
-    if (ctx->menu_mode == MENU_MODE_PLAY) {
+    if (ctx->menu_mode == MENU_MODE_PLAY && ctx->game_state == GAME_STATE_MENU) {
         printf("\x1B[%d;%dH\033[41mPLAY\033[0m",(h/2)+2,(w/2)-2);
         printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
         printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
     }
-    else if (ctx->menu_mode == MENU_MODE_HELP) {
+    else if (ctx->menu_mode == MENU_MODE_HELP && ctx->game_state == GAME_STATE_MENU) {
         printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
         printf("\x1B[%d;%dH\033[41mHELP\033[0m",(h/2)+4,(w/2)-2);
         printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
     }
-    else {
+    else if (ctx->menu_mode == MENU_MODE_QUIT && ctx->game_state == GAME_STATE_MENU) {
         printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
         printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
         printf("\x1B[%d;%dH\033[41mQUIT\033[0m",(h/2)+6,(w/2)-2);
