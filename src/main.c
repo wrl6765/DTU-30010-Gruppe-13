@@ -6,6 +6,8 @@
 #include "charset.h"
 #include "heart.h"
 #include <string.h>
+#include "menu.h"
+#include "Game_state.h"
 
 
 int main(){
@@ -14,25 +16,29 @@ int main(){
     joystick_init();
     joystickdown_init();
     TIM2_Init();
-	player_init();
-    //---------ikke-loop-Ascii------------------
-    borders();
+	clear();
+    
+	GameContext ctx = {
+    .game_state = GAME_STATE_MENU,
+    .menu_mode  = MENU_MODE_PLAY,
+	.prev_joystick = 0
+};
 
-	uint8_t joystick;
+	// uint8_t game_state = GAME_STATE_MENU; // 0=menu, 1=game, 2=help
+	// uint8_t menuMode = MENU_MODE_HELP; // 0=play, 1=help, 2=quit
+	// uint8_t *menu_mode = &menuMode;
+	uint8_t joystick = 0;
+	game_state_init(&ctx);
     	while(1){
-
-			//joystick variable
-		joystick = 0;
-		joystick |= joystick_center_pressed();
-		joystick |= joystick_down_pressed() << 1;
-		
-
+//
+			joystick = read_joystick();
+//
     		if (tim2_flag){ //30 Hz timer flag, bruges til main time
-    						//player movement, bullet movement, osv.
-					update_player(&p, joystick);
-					drawAlien(&p);
+    //						//player movement, bullet movement, osv.
+
+				game_state_update(&ctx, joystick);
     			tim2_flag = 0;
-    			}
+    		}
     	}
 }
 
