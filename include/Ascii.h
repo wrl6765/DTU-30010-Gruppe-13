@@ -1,7 +1,7 @@
 #ifndef ASCII_H_
 #define ASCII_H_
 
-#include "bsp/30010_io.h"
+#include "30010_io.h"
 #include "Physics.h"
 
 #define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
@@ -34,6 +34,7 @@
 #define BULLET_LARGE_WIDTH   3
 
 void borders(void);
+void drawSaturn(void);
 void drawAlien(player *p);
 void drawBullet(bullet *b);
 
