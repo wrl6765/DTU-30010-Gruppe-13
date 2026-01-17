@@ -9,6 +9,7 @@ void joystick_init(void);
 void joystickdown_init(void);
 uint8_t joystick_center_pressed(void);
 uint8_t joystick_down_pressed(void);
+uint8_t read_joystick(void);
 
 // Timer
 void TIM2_Init(void);

@@ -34,6 +34,7 @@
 #define BULLET_LARGE_WIDTH   3
 
 void borders(void);
+void bgcolor(uint8_t background);
 void drawSaturn(void);
 void drawAlien(player *p);
 void drawBullet(bullet *b);

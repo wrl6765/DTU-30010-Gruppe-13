@@ -27,6 +27,11 @@ uint8_t joystick_down_pressed(void)
 {
     return (GPIOB->IDR & (1 << 0)) ? 1 : 0;
 }
+uint8_t read_joystick(void){
+	uint8_t val = 0;
+	val |= ((GPIOB->IDR & (0x0001 << 5)) ? 1 : 0); // center
+	val |= ((GPIOB->IDR & (0x0001 << 0)) ? 2 : 0); // down
+	return val;}
 	//-----------------------------------Joystick stuff end------------------------------------------
 	//-----------------------------------timer stuff start------------------------------------------
 
