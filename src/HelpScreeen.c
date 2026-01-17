@@ -66,7 +66,7 @@ void displayHelpScreen(int w, int h) {  // w=width, h=height
 
 void help_update(void) {
     if (joystick_center_pressed() == 0x1) {
-        display_menu();
-        menu_update();
+   //     display_menu();
+   //     menu_update();
     }
 }
