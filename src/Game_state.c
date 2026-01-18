@@ -1,4 +1,4 @@
-#include "game_state.h"
+#include "Game_state.h"
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
