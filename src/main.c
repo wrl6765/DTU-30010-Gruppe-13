@@ -17,7 +17,6 @@ int main(){
     joystick_init();
     joystickdown_init();
     TIM2_Init();
-    bullets_init();  // Initialize bullet system
 	clear();
     
 	GameContext ctx = {

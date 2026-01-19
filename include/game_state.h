@@ -11,7 +11,7 @@
 #define MENU_MODE_PLAY 0
 #define MENU_MODE_HELP 1
 #define MENU_MODE_QUIT 2
-
+    
 typedef struct {
     uint8_t game_state;
     uint8_t menu_mode;

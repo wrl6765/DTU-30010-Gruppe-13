@@ -22,8 +22,8 @@ void spawn_simple_bullet(){
         if(!bullets[i].alive){
             int angle = (rand()%60) - 30;  // angle in degrees (-30 to 30)
 
-            bullets[i].x = W;
-            bullets[i].y = rand()%H + 1;
+            bullets[i].x = DISPLAY_WIDTH;
+            bullets[i].y = rand()%DISPLAY_HEIGHT + 1;
 
             // Use integer velocity based on angle
             bullets[i].vx = -((angle + 90) / 45);  // Simplified velocity calculation
@@ -58,17 +58,17 @@ void update_bullets(){
 
             if(bullets[i].type == 1) {
                 // Bouncing bullet - reflects at edges
-                if(bullets[i].x < 1 || bullets[i].x > W) {
+                if(bullets[i].x < 1 || bullets[i].x > DISPLAY_WIDTH) {
                     bullets[i].vx = -bullets[i].vx;  // Bounce off left/right edges
                 }
-                if(bullets[i].y < 1 || bullets[i].y > H) {
+                if(bullets[i].y < 1 || bullets[i].y > DISPLAY_HEIGHT) {
                     bullets[i].vy = -bullets[i].vy;  // Bounce off top/bottom edges
                 }
                 // Keep bouncing bullet in bounds
                 if(bullets[i].x < 1) bullets[i].x = 1;
-                if(bullets[i].x > W) bullets[i].x = W;
+                if(bullets[i].x > DISPLAY_WIDTH) bullets[i].x = DISPLAY_WIDTH;
                 if(bullets[i].y < 1) bullets[i].y = 1;
-                if(bullets[i].y > H) bullets[i].y = H;
+                if(bullets[i].y > DISPLAY_HEIGHT) bullets[i].y = DISPLAY_HEIGHT;
             } else {
                 // Normal bullet - dies at edges
                 if(bullets[i].x < 1 || bullets[i].y < 1 || bullets[i].y > H)
@@ -80,12 +80,12 @@ void update_bullets(){
 
 
 
-void draw_bullets(){
-    for(int i=0;i<MAX_BULLETS;i++){
-        if(bullets[i].alive){
-            // TODO: Replace with your display function
-            // For now, using printf for reference
-            printf("oo");
-        }
-    }
-}
+//void draw_bullets(){
+//    for(int i=0;i<MAX_BULLETS;i++){
+//        if(bullets[i].alive){
+//            // TODO: Replace with your display function
+//            // For now, using printf for reference
+//            printf("oo");
+//        }
+//    }
+//}
