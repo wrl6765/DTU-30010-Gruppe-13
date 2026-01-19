@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 
-#define W 100
-#define H 32
+
 #define MAX_BULLETS 20
 
 typedef struct {

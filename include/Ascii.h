@@ -3,6 +3,7 @@
 
 #include "30010_io.h"
 #include "Physics.h"
+#include "bullets.h"
 
 #define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
 #define clear() printf("\x1B[2J")
@@ -40,6 +41,6 @@ void borders(void);
 void bgcolor(uint8_t background);
 void drawSaturn(void);
 void drawAlien(player *p);
-void drawBullet(bullet *b);
+void drawBullet(Bullet *b);
 
 #endif /* ASCII_H_ */

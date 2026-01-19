@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
+#include "HAL.h"
 #include "bullets.h"
 #include "powerup.h"
 
@@ -58,10 +59,11 @@ void game_loop(void){
     // main game loop here
     update_player(&p, joystick_center_pressed());
     drawAlien(&p); 
-    
+
     // Update and draw bullets
     spawn_simple_bullet();
     update_bullets();
+    erase_bullet();
     //powerup_repel_bullets(&p);  // Repel bullets on player contact
     draw_bullets();
 }

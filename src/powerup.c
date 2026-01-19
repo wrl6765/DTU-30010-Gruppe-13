@@ -1,6 +1,5 @@
 #include "Physics.h"
 #include "bullets.h"
-#include <stdlib.h>
 #include <math.h>
 
 // Player repel powerup - repels bullets away in random direction when they contact player
