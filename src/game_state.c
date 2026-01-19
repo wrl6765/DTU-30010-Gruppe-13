@@ -19,7 +19,7 @@ void game_state_init(GameContext *ctx)
             break;
 
         case GAME_STATE_PLAY:
-            game_init();
+            game_init(ctx);
             break;
 
         case GAME_STATE_HELP:
@@ -48,10 +48,10 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 }
 
 
-void game_init(void){
+void game_init(GameContext *ctx){
     // initialize game variables here
     bullets_init();      // Initialize bullet system
-    player_init();
+    player_init();   // Initialize player
     borders();
 
 }
@@ -70,8 +70,10 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     }
 
     print_level(ctx);
-    drawAlien(&p, ctx);
+    eraseAlienAt(&p, ctx);
     update_player(&p, joystick, ctx);
+    drawAlien(&p, ctx);
+    
     
     
     // Update and draw bullets

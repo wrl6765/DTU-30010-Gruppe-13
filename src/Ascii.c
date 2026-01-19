@@ -153,7 +153,7 @@ void drawAlien(player *p, GameContext *ctx)
 	}
 }
 
-void eraseAlienAt(uint16_t x, uint16_t y, GameContext *ctx)
+void eraseAlienAt(player *p, GameContext *ctx)
 {
     int height;
 
@@ -165,12 +165,13 @@ void eraseAlienAt(uint16_t x, uint16_t y, GameContext *ctx)
     }
 
     for (int i=0; i<height; i++) {
-        gotoxy(x, y+i);
+        gotoxy((p->prev_x)>>8, (p->prev_y>>8)+i);
         for (int j=0; j<ALIEN_WIDTH; j++) {
             printf(BG_DOT, 250);
-            p.prev_y = p.y;
+            
         }
     }
+	p->prev_y = p->y;
 }
 
 // ---------- Bullet drawing ----------

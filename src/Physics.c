@@ -5,16 +5,18 @@
 //----------------player Physics----------------------
 player p; 
 
-void player_init(void){
+void player_init(){
 	p.x=X_COORDINATE/6;
 	p.y=Y_COORDINATE/2;
 	p.vy=0;
 	p.ay=0;
 	p.score=0;
 	p.hp=5;
+	p.prev_x=p.x;
+	p.prev_y=p.y;
 }
 
-void update_player(player *p, uint8_t joystick, GameContext *ctx){
+void update_player(player* p, uint8_t joystick, GameContext *ctx){
 	if (joystick & 0x01){
 		p->ay = -16; //op
 	}
@@ -29,10 +31,10 @@ void update_player(player *p, uint8_t joystick, GameContext *ctx){
 	{
 	case 1:
 		/* code */
-		if (p->y < Y_MIN + 256){
+	if (p->y < Y_MIN + 256){
 		p->y = Y_MIN + 256;
 		p->vy = 0;
-		break;
+		
 	}
 	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8)){
 		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8);
@@ -48,6 +50,7 @@ void update_player(player *p, uint8_t joystick, GameContext *ctx){
 		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8);
 		p->vy = 0;
 	}
+		break;
 	case 3:
 	if (p->y < Y_MIN + 256){
 		p->y = Y_MIN + 256;

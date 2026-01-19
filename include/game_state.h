@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 
-
 #define GAME_STATE_MENU 0
 #define GAME_STATE_PLAY 1
 #define GAME_STATE_HELP 2
@@ -23,7 +22,7 @@ typedef struct {
 
 void game_state_init(GameContext *ctx);
 void game_state_update(GameContext *ctx, uint8_t joystick);
-void game_init(void);
+void game_init(GameContext *ctx);
 void game_loop(GameContext *ctx, uint8_t joystick);
 void menu_state_init(void);
 void help_state_init(void);

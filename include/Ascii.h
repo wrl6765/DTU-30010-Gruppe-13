@@ -1,7 +1,7 @@
 #ifndef ASCII_H_
 #define ASCII_H_
 
-#include "30010_io.h"½½
+#include "30010_io.h"
 #include "Physics.h"
 #include "bullets.h"
 #include "game_state.h"
@@ -43,5 +43,6 @@ void bgcolor(uint8_t background);
 void drawSaturn(void);
 void drawAlien(player *p, GameContext *ctx);
 void drawBullet(Bullet *b);
+void eraseAlienAt(player *p, GameContext *ctx);
 
 #endif /* ASCII_H_ */
