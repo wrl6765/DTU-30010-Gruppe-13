@@ -1,6 +1,7 @@
 #include "Ascii.h"
 #include "30010_io.h"
 #include "Physics.h"
+#include "Game_state.h"
 
 #define BG_DOT "\033[90m%c\033[0m"  // grå tegn i baggrunden
 
@@ -100,7 +101,7 @@ void drawSaturn()
 }
 
 // ---------- Alien sprite ----------
-void drawAlien(player *p)
+void drawAlien(player *p, GameContext *ctx)
 {
 	uint16_t x = (p->x >> 8);
 	uint16_t y = (p->y >> 8);
@@ -130,7 +131,11 @@ void drawAlien(player *p)
 	const char (*sprite)[ALIEN_WIDTH +1];
 	int height;
 
-	switch(p->alien_level){
+	switch(ctx->level){
+	case 1: // level 1
+		sprite = level1;
+		height = ALIEN_HEIGHT_LVL_1;
+		break;
 	case 2: // level 2
 		sprite = level2;
 		height = ALIEN_HEIGHT_LVL_2;
@@ -139,10 +144,7 @@ void drawAlien(player *p)
 		sprite = level3;
 		height = ALIEN_HEIGHT_LVL_3;
 		break;
-	default: // level 1
-		sprite = level1;
-		height = ALIEN_HEIGHT_LVL_1;
-		break;
+	
 	}
 
 	for (int i = 0; i < height; i++) {
@@ -167,4 +169,9 @@ void drawBullet(Bullet *b)
 		case 4: printf("**"); break; // sniper
 		}
 	}
+}
+//--------------print level--------------
+void print_level(GameContext *ctx){
+	gotoxy(DISPLAY_WIDTH - 15, 1);
+	printf("Level: %d", ctx->level);
 }
