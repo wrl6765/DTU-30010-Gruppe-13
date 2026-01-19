@@ -1,7 +1,9 @@
-#include "Game_state.h"
+#include "game_state.h"
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
+#include "bullets.h"
+#include "powerup.h"
 
 void game_state_init(GameContext *ctx)
 {
@@ -24,7 +26,7 @@ void game_state_init(GameContext *ctx)
     }
 }
 
-
+ 
 void game_state_update(GameContext *ctx, uint8_t joystick)
 {
     switch (ctx->game_state) {
@@ -47,6 +49,7 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 
 void game_init(void){
     // initialize game variables here
+    bullets_init();      // Initialize bullet system
     player_init();
     borders();
 }
@@ -55,6 +58,12 @@ void game_loop(void){
     // main game loop here
     update_player(&p, joystick_center_pressed());
     drawAlien(&p); 
+    
+    // Update and draw bullets
+    spawn_simple_bullet();
+    update_bullets();
+    //powerup_repel_bullets(&p);  // Repel bullets on player contact
+    draw_bullets();
 }
 
 void menu_state_init(void){

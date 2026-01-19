@@ -16,6 +16,34 @@ typedef struct{
 	uint8_t size;   // 1=small, 2=medium, 3=large
 }bullet;
 
+// Bouncing bullet struct - bounces at frame edges with random chance spawn
+typedef struct {
+	int x, y;
+	int vx, vy;
+	int alive;
+	int type;  // 0=normal (dies at edge), 1=bouncing (reflects at edge)
+	int ax,ay;
+} BouncingBullet;
+
+
+typedef struct Cannonball
+{
+	int16_t x,y;
+	int16_t type;
+	int16_t vy,vx;
+	int16_t ax,ay;
+} cannonball;
+
+typedef struct sniper
+{
+	int16_t x,y;
+	int16_t type;
+	int16_t vy,vx;
+	int16_t ax,ay;
+} sniper;
+
+
+
 extern player p;
 
 void update_player(player *p, uint8_t joystick);

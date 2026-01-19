@@ -7,7 +7,8 @@
 #include "heart.h"
 #include <string.h>
 #include "menu.h"
-#include "Game_state.h"
+#include "game_state.h"
+#include "bullets.h"
 
 
 int main(){
@@ -16,6 +17,7 @@ int main(){
     joystick_init();
     joystickdown_init();
     TIM2_Init();
+    bullets_init();  // Initialize bullet system
 	clear();
     
 	GameContext ctx = {
