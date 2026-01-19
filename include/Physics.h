@@ -14,7 +14,7 @@ typedef struct{
 	int16_t x, y;   // 8.8
 	uint8_t type;   // 1=regular, 2=bouncing, 3=cannonball, 4=sniper
 	uint8_t size;   // 1=small, 2=medium, 3=large
-}bullet;
+} simple_bullet;
 
 // Bouncing bullet struct - bounces at frame edges with random chance spawn
 typedef struct {

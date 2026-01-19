@@ -1,7 +1,7 @@
 #include "Ascii.h"
 #include "30010_io.h"
 #include "Physics.h"
-#include "Game_state.h"
+#include "game_state.h"
 
 #define BG_DOT "\033[90m%c\033[0m"  // grå tegn i baggrunden
 
@@ -154,34 +154,13 @@ void drawAlien(player *p, GameContext *ctx)
 }
 
 // ---------- Bullet drawing ----------
-void drawBullet(bullet *b)
+void drawBullet(Bullet *b)
 {
 	// x og y position af øvre venstre hjørne af bullet. Bullet tegnes som læst herfra
 	uint16_t x = (b->x >> 8);
 	uint16_t y = (b->y >> 8);
 
-	int w, h;
-
-	switch(b->size){
-	case 1: // small
-		w = BULLET_SMALL_WIDTH;
-		h = BULLET_SMALL_HEIGHT;
-		break;
-	case 2: // medium
-		w = BULLET_MEDIUM_WIDTH;
-		h = BULLET_MEDIUM_HEIGHT;
-		break;
-	case 3: // large
-		w = BULLET_LARGE_WIDTH;
-		h = BULLET_LARGE_HEIGHT;
-		break;
-	default:
-		w = BULLET_MEDIUM_WIDTH;
-		h = BULLET_MEDIUM_HEIGHT;
-		break;
-	}
-
-	for(int i=0; i<h; i++){
+	for(int i=0; i<1; i++){
 		gotoxy(x, y+i);
 		switch(b->type){
 		case 1: printf("---"); break; //regular
