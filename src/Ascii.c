@@ -144,13 +144,33 @@ void drawAlien(player *p, GameContext *ctx)
 		sprite = level3;
 		height = ALIEN_HEIGHT_LVL_3;
 		break;
-	
+
 	}
 
 	for (int i = 0; i < height; i++) {
 		gotoxy(x, y + i);
 		printf("%s", sprite[i]);
 	}
+}
+
+void eraseAlienAt(uint16_t x, uint16_t y, GameContext *ctx)
+{
+    int height;
+
+    switch(ctx->level){
+    case 1: height = ALIEN_HEIGHT_LVL_1; break;
+    case 2: height = ALIEN_HEIGHT_LVL_2; break;
+    case 3: height = ALIEN_HEIGHT_LVL_3; break;
+    default: height = ALIEN_HEIGHT_LVL_1;
+    }
+
+    for (int i=0; i<height; i++) {
+        gotoxy(x, y+i);
+        for (int j=0; j<ALIEN_WIDTH; j++) {
+            printf(BG_DOT, 250);
+            p.prev_y = p.y;
+        }
+    }
 }
 
 // ---------- Bullet drawing ----------
@@ -160,7 +180,13 @@ void drawBullet(Bullet *b)
 	uint16_t x = (b->x >> 8);
 	uint16_t y = (b->y >> 8);
 
-	for(int i=0; i<1; i++){
+	int height = 1;
+
+	if (b->type == 3) {
+		height = 3;
+	}
+
+	for(int i=0; i<height; i++){
 		gotoxy(x, y+i);
 		switch(b->type){
 		case 1: printf("---"); break; //regular
@@ -170,6 +196,7 @@ void drawBullet(Bullet *b)
 		}
 	}
 }
+
 //--------------print level--------------
 void print_level(GameContext *ctx){
 	gotoxy(DISPLAY_WIDTH - 15, 1);
