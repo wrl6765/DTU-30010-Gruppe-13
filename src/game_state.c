@@ -1,4 +1,4 @@
-#include "game_state.h"
+#include "Game_state.h"
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
@@ -36,7 +36,7 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
             break;
 
         case GAME_STATE_PLAY:
-            game_loop();
+            game_loop(ctx);
             break;
 
         case GAME_STATE_HELP:
@@ -46,24 +46,37 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 }
 
 
-
 void game_init(void){
     // initialize game variables here
     bullets_init();      // Initialize bullet system
     player_init();
     borders();
+
 }
 
-void game_loop(void){
-    // main game loop here
+void game_loop(GameContext *ctx){
+    ctx->timer_counter++;
+
+    if(ctx->timer_counter > 2700){
+        ctx->timer_counter = 1800; // reset to avoid overflow
+    }
+    if(ctx->timer_counter % 900 == 0){
+        // Every 30 seconds (assuming 30Hz), increase level
+        if(ctx->level < 3){
+            ctx->level++;
+        }
+    }
+
+    print_level(ctx);
+    drawAlien(&p, ctx);
     update_player(&p, joystick_center_pressed());
-    drawAlien(&p); 
+    
     
     // Update and draw bullets
-    spawn_simple_bullet();
-    update_bullets();
+    //spawn_simple_bullet();
+    //update_bullets();
     //powerup_repel_bullets(&p);  // Repel bullets on player contact
-    draw_bullets();
+    //draw_bullets();
 }
 
 void menu_state_init(void){

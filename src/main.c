@@ -17,13 +17,15 @@ int main(){
     joystick_init();
     joystickdown_init();
     TIM2_Init();
-    bullets_init();  // Initialize bullet system
+     
 	clear();
     
 	GameContext ctx = {
     .game_state = GAME_STATE_MENU,
     .menu_mode  = MENU_MODE_PLAY,
-	.prev_joystick = 0
+	.prev_joystick = 0,
+	.timer_counter = 0,
+	.level = 1
 };
 
 	// uint8_t game_state = GAME_STATE_MENU; // 0=menu, 1=game, 2=help
@@ -39,6 +41,7 @@ int main(){
     //						//player movement, bullet movement, osv.
 
 				game_state_update(&ctx, joystick);
+				
     			tim2_flag = 0;
     		}
     	}
