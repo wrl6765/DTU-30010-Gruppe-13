@@ -17,6 +17,9 @@
 #define Y_MIN    (1 << 8)
 #define Y_MAX    ((DISPLAY_HEIGHT-2) << 8)
 
+#define X_MIN    (1 << 8)
+#define X_MAX    ((DISPLAY_WIDTH-2) << 8)
+
 // Alien sprite definition
 #define ALIEN_WIDTH   4
 

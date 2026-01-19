@@ -1,6 +1,7 @@
 #ifndef HELP_H_
 #define HELP_H_
+#include "Game_state.h"
 
-void displayHelpScreen(int w, int h);
-void help_update();
+void displayHelpScreen();
+void help_update(GameContext *ctx, uint8_t joystick);
 #endif /* HELP_H_ */
