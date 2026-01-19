@@ -69,7 +69,7 @@ void game_loop(GameContext *ctx){
 
     print_level(ctx);
     drawAlien(&p, ctx);
-    update_player(&p, joystick_center_pressed());
+    update_player(&p, joystick_center_pressed(), ctx);
     
     
     // Update and draw bullets
