@@ -15,7 +15,6 @@
 typedef struct {
     uint8_t game_state;
     uint8_t menu_mode;
-    uint8_t joystick;
     uint8_t prev_joystick;
     uint32_t timer_counter;
     uint8_t level;
@@ -25,7 +24,7 @@ typedef struct {
 void game_state_init(GameContext *ctx);
 void game_state_update(GameContext *ctx, uint8_t joystick);
 void game_init(void);
-void game_loop(GameContext *ctx);
+void game_loop(GameContext *ctx, uint8_t joystick);
 void menu_state_init(void);
 void help_state_init(void);
 void print_level(GameContext *ctx);

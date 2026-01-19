@@ -34,8 +34,8 @@ void update_player(player *p, uint8_t joystick, GameContext *ctx){
 		p->vy = 0;
 		break;
 	}
-	else if (p->y > Y_MAX - (ALIEN_HEIGHT_LVL_1 + 1) << 8){
-		p->y = Y_MAX - (ALIEN_HEIGHT_LVL_1 + 1) << 8;
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8);
 		p->vy = 0;
 	}
 		break;
@@ -44,8 +44,8 @@ void update_player(player *p, uint8_t joystick, GameContext *ctx){
 		p->y = Y_MIN + 256;
 		p->vy = 0;
 	}
-	else if (p->y > Y_MAX - (ALIEN_HEIGHT_LVL_2 + 1) << 8){
-		p->y = Y_MAX - (ALIEN_HEIGHT_LVL_2 + 1) << 8;
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8);
 		p->vy = 0;
 	}
 	case 3:
@@ -53,8 +53,8 @@ void update_player(player *p, uint8_t joystick, GameContext *ctx){
 		p->y = Y_MIN + 256;
 		p->vy = 0;
 	}
-	else if (p->y > Y_MAX - (ALIEN_HEIGHT_LVL_3 + 1) << 8){
-		p->y = Y_MAX - (ALIEN_HEIGHT_LVL_3 + 1) << 8;
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_3 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_3 - 1) << 8);
 		p->vy = 0;
 	}
 		break;

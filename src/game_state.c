@@ -4,6 +4,7 @@
 #include "Ascii.h"
 #include "bullets.h"
 #include "powerup.h"
+#include "Physics.h"
 
 void game_state_init(GameContext *ctx)
 {
@@ -36,7 +37,7 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
             break;
 
         case GAME_STATE_PLAY:
-            game_loop(ctx);
+            game_loop(ctx, joystick);
             break;
 
         case GAME_STATE_HELP:
@@ -54,7 +55,7 @@ void game_init(void){
 
 }
 
-void game_loop(GameContext *ctx){
+void game_loop(GameContext *ctx, uint8_t joystick){
     ctx->timer_counter++;
 
     if(ctx->timer_counter > 2700){
@@ -69,7 +70,7 @@ void game_loop(GameContext *ctx){
 
     print_level(ctx);
     drawAlien(&p, ctx);
-    update_player(&p, joystick_center_pressed(), ctx);
+    update_player(&p, joystick, ctx);
     
     
     // Update and draw bullets
