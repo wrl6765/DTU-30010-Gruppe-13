@@ -1,7 +1,7 @@
 #include "Ascii.h"
 #include "30010_io.h"
 #include "Physics.h"
-#include "Game_state.h"
+#include "game_state.h"
 
 #define BG_DOT "\033[90m%c\033[0m"  // grå tegn i baggrunden
 

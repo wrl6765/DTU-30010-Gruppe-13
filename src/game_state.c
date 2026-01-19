@@ -1,4 +1,4 @@
-#include "Game_state.h"
+#include "game_state.h"
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
@@ -71,20 +71,11 @@ void game_loop(GameContext *ctx){
     print_level(ctx);
     drawAlien(&p, ctx);
     update_player(&p, joystick_center_pressed());
-<<<<<<< HEAD
-    drawAlien(&p); 
-
-    // Update and draw bullets
-    spawn_simple_bullet();
-    update_bullets();
-    erase_bullet();
-=======
     
     
     // Update and draw bullets
     //spawn_simple_bullet();
     //update_bullets();
->>>>>>> 0b88d00693e8890aaeb8b016030d2f6d7081dd3a
     //powerup_repel_bullets(&p);  // Repel bullets on player contact
     //draw_bullets();
 }
