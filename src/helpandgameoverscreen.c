@@ -4,6 +4,8 @@
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
+#include "game_state.h"
+#include "charset.h"
 
 
 void displayHelpScreen() {
@@ -84,4 +86,34 @@ void help_update(GameContext *ctx, uint8_t joystick) {
    //     display_menu();
    //     menu_update();
     }
+}
+
+void gameoverscreen(GameContext *ctx, uint8_t joystick){
+    static uint8_t screen_drawn = 0;
+    if (!screen_drawn) {
+        borders();
+        gotoxy(50-5,16);{printf("GAME OVER");}
+        gotoxy(50-12,18);{printf("your score: %d", p.score);}
+
+        gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
+                   printf("\x1b[41m");
+                   printf("[ GO TO MENU ]");
+                   printf("\x1b[40m");
+               }
+               gotoxy((DISPLAY_WIDTH >> 1) - 21, DISPLAY_HEIGHT - 4);{
+                   printf("Press CENTER joystick to return to menu.");
+               }
+        if (ctx->game_state == GAME_STATE_GAME_OVER) {
+            uint8_t pressed = joystick & ~ctx->prev_joystick;
+            /* CENTER pressed once */
+        if (pressed & 0x01) {
+            ctx->game_state = GAME_STATE_MENU;
+            screen_drawn = 0;
+            game_state_init(ctx);
+        }
+        ctx->prev_joystick = joystick;
+        screen_drawn = 1;
+        }
+    }
+    
 }

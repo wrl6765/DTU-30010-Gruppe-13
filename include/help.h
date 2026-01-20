@@ -4,4 +4,5 @@
 
 void displayHelpScreen();
 void help_update(GameContext *ctx, uint8_t joystick);
+void gameoverscreen(GameContext *ctx, uint8_t joystick);
 #endif /* HELP_H_ */

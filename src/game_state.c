@@ -23,7 +23,11 @@ void game_state_init(GameContext *ctx)
             break;
 
         case GAME_STATE_HELP:
-            displayHelpScreen(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+            displayHelpScreen();
+            break;
+
+        case GAME_STATE_GAME_OVER:
+            // Game over screen will be drawn in update
             break;
     }
 }
@@ -43,6 +47,10 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 
         case GAME_STATE_HELP:
             help_update(ctx, joystick);
+            break;
+
+        case GAME_STATE_GAME_OVER:
+            gameoverscreen(ctx, joystick);
             break;
     }
 }
@@ -92,6 +100,6 @@ void menu_state_init(void){
 
 
 void help_state_init(void){
-    displayHelpScreen(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+    displayHelpScreen();
 }
 

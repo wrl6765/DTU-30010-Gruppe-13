@@ -6,6 +6,7 @@
 #define GAME_STATE_MENU 0
 #define GAME_STATE_PLAY 1
 #define GAME_STATE_HELP 2
+#define GAME_STATE_GAME_OVER 3
 
 #define MENU_MODE_PLAY 0
 #define MENU_MODE_HELP 1

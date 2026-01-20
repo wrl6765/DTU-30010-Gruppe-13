@@ -3,6 +3,7 @@
 #include "bsp/30010_io.h"
 #include "bullets.h"
 #include <stdlib.h>
+#include "help.h"
 
 Bullet bullets[MAX_BULLETS];
 
@@ -89,10 +90,9 @@ void update_bullets(GameContext *ctx){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bullets[i])){
                 // Handle collision (e.g., reduce player HP)
+                p.hp--;
                 if (p.hp <= 0) {
-                    p.hp = 0;
-                } else {
-                    p.hp--;
+                    ctx->game_state = GAME_STATE_GAME_OVER;
                 }
                 bullets[i].alive = 0;  // Destroy bullet on hit
                 continue;  // Skip further processing for this bullet
