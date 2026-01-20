@@ -1,7 +1,7 @@
 #ifndef PHYSICS_H_
 #define PHYSICS_H_
 #include "30010_io.h"
-#include "Game_state.h"
+#include "game_state.h"
 
 
 
