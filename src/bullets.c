@@ -90,8 +90,9 @@ void update_bullets(GameContext *ctx){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bullets[i])){
                 // Handle collision (e.g., reduce player HP)
-                if (p.hp <= 0) {
-                    p.hp = 0;
+                if (p.hp == 0) {
+                    ctx->game_state = GAME_STATE_MENU;
+                    game_state_init(ctx); // Reset game if HP is 0
                 } else {
                     p.hp--;
                 }
