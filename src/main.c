@@ -53,6 +53,3 @@ int main(){
 
 // score_update(3, 3475);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
 // liv_update(4);               // antal liv (1 til 5)
-
-
-
