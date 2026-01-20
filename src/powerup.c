@@ -1,5 +1,6 @@
 #include "Physics.h"
 #include "bullets.h"
+#include "Ascii.h"
 #include <math.h>
 #include "game_state.h"
 
