@@ -27,10 +27,10 @@ void displayHelpScreen() {
                 printf("Controls:");
             }
             gotoxy(8, 9);{
-                printf("- Hold joystick down: move up");
+                printf("- Press SW1: move up");
             }
             gotoxy(8, 10);{
-                printf("- Release joystick: move down");
+                printf("- Release SW1: move down");
             }
             gotoxy(8, 11);{
                 printf("- Press SPACE: pause game");

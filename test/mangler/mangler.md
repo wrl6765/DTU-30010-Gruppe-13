@@ -6,6 +6,6 @@
 
 * lcd opdatering (kode er klar og køer, mangler integrering)
 
-* mangler kdoe til de resterence bullets
+* mangler kcdoe til de resterence bullets
 
-* 
+* heart.c integrering med 
