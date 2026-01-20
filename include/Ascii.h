@@ -52,5 +52,8 @@ void drawBullet(Bullet *b);
 void eraseAlien(player *p, GameContext *ctx);
 void drawPowerup(Powerup *pu);
 void erasePowerup(Powerup *pu);
+void print_level(GameContext *ctx);
+void print_score(player *p);
+void print_hp(player *p);
 
 #endif /* ASCII_H_ */

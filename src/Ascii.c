@@ -2,6 +2,7 @@
 #include "30010_io.h"
 #include "Physics.h"
 #include "game_state.h"
+#include "bullets.h"
 
   // grå tegn i baggrunden
 
@@ -268,4 +269,8 @@ void print_level(GameContext *ctx){
 void print_score(player *p){
 	gotoxy(2, 1);
 	printf("Score: %d  Highscore: %d", p->score, p->highscore);
+}
+void print_hp(player *p){
+	gotoxy(40, 1);
+	printf("HP: %d  ", p->hp);
 }

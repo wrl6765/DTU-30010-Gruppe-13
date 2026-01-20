@@ -5,10 +5,13 @@
 
 
 #define MAX_BULLETS 20
+#define BULLET_HEIGHT 1
+#define BULLET_WIDTH 3
 
 typedef struct {
     int x, y;
     int vx, vy;
+    int ax, ay;
     int alive;
     int type;  // 0=normal (dies at edge), 1=bouncing (reflects at edge)
 } Bullet;
@@ -25,7 +28,7 @@ void spawn_simple_bullet(void);
 void erase_bullet(void);
 
 // Update bullet positions and check bounds
-void update_bullets(void);
+void update_bullets(GameContext *ctx);
 
 // Draw bullets on screen
 void draw_bullets(void);

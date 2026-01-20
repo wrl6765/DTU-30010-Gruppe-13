@@ -14,6 +14,8 @@ void bullets_init(void){
         bullets[i].y = 0;
         bullets[i].vx = 0;
         bullets[i].vy = 0;
+        bullets[i].ax = 0;
+        bullets[i].ay = 0;
         bullets[i].type = 1;  // Default to type 1 (regular)
     }
 }
@@ -75,12 +77,23 @@ void erase_bullet(){
     }
 }
 
-void update_bullets(){
+void update_bullets(GameContext *ctx){
     for(int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].alive){
-
+            // Update positions
             bullets[i].x += bullets[i].vx;
             bullets[i].y += bullets[i].vy;
+            bullets[i].vx += bullets[i].ax;
+            bullets[i].vy += bullets[i].ay;
+
+            //-----player bullet collision-----
+            if(player_collides_with_bullet(&p, &bullets[i])){
+                // Handle collision (e.g., reduce player HP)
+                p.hp--;
+                bullets[i].alive = 0;  // Destroy bullet on hit
+                continue;  // Skip further processing for this bullet
+            }
+
 
             int screen_x = bullets[i].x >> 8;
             int screen_y = bullets[i].y >> 8;
