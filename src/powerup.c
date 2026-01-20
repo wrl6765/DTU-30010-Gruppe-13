@@ -85,3 +85,62 @@ void powerup_repel_bullets(player *p) {
         }
     }
 }
+
+// Updates powerups using random test powerups
+// Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
+void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *shield, int *heart_dir, int *shield_dir) {
+    // Only do anything if the game is in play mode
+    if (ctx->game_state != GAME_STATE_PLAY) return;
+
+    // Initialize powerups if they are inactive (test values)
+    if (!heart->active) {
+        heart->x = 10 << 8;
+        heart->y = 5 << 8;
+        heart->prev_x = heart->x;
+        heart->prev_y = heart->y;
+        heart->type = POWERUP_HEART;
+        heart->active = 1;
+    }
+
+    if (!shield->active) {
+        shield->x = 50 << 8;
+        shield->y = 12 << 8;
+        shield->prev_x = shield->x;
+        shield->prev_y = shield->y;
+        shield->type = POWERUP_SHIELD;
+        shield->active = 1;
+    }
+
+    // --- Erase old powerups ---
+    erasePowerup(heart);
+    erasePowerup(shield);
+
+    // --- Move powerups horizontally ---
+    heart->x += (*heart_dir) << 8;
+    shield->x += (*shield_dir) << 8;
+
+    // --- Bounce off screen edges ---
+    if ((heart->x >> 8) <= 1 || (heart->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
+        *heart_dir *= -1;
+
+    if ((shield->x >> 8) <= 1 || (shield->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
+        *shield_dir *= -1;
+
+    // --- Draw updated powerups ---
+    drawPowerup(heart);
+    drawPowerup(shield);
+}
+
+/*
+Dette kan bruges senere i main loopet
+
+// Define powerups and directions
+Powerup heart = {.active = 0};
+Powerup shield = {.active = 0};
+int heart_dir = 1;
+int shield_dir = -1;
+
+// In your main loop (inside tim2_flag)
+testPowerupsUpdate(&ctx, &heart, &shield, &heart_dir, &shield_dir);
+
+*/
