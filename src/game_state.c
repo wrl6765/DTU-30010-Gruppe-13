@@ -70,7 +70,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     }
 
     print_level(ctx);
-    eraseAlienAt(&p, ctx);
+    eraseAlien(&p, ctx);
     update_player(&p, joystick, ctx);
     drawAlien(&p, ctx);
     
