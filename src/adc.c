@@ -1,0 +1,51 @@
+#include "adc.h"
+#include <stdio.h>
+
+
+// ------------------- aktivere ure / kalibrere ADC -------------
+void init_adc(void) {
+    // Aktiver clock til Port C og ADC12
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_ADC12;
+
+    // 2. Konfigurer PC2 og PC3 som analog (ADC)
+    GPIOC->MODER &= ~((0x3 << (2 * 2)) | (0x3 << (3 * 2)));
+    GPIOC->MODER |=  ((0x3 << (2 * 2)) | (0x3 << (3 * 2)));
+
+    // Ingen pull-up/pull-down
+    GPIOC->PUPDR &= ~((0x0 << (2 * 2)) | (0x0 << (3 * 2)));
+
+    RCC->CFGR2 &= ~RCC_CFGR2_ADCPRE12; // Clear ADC12 prescaler bits
+    RCC->CFGR2 |= RCC_CFGR2_ADCPRE12_DIV6; // Set ADC12 prescaler to 6
+
+    ADC1->CR = 0x00000000; // Clear CR register
+    ADC1->CFGR &= 0xFDFFC007; // Clear ADC1 config register
+    ADC1->SQR1 &= ~ADC_SQR1_L; // Clear regular sequence register 1
+
+    ADC1->CR |= 0x10000000; // Enable internal voltage regulator
+    for (int i = 0; i < 1000; i++); // Wait for about 16 microseconds
+
+    ADC1->CR |= 0x80000000; // Start ADC1 calibration
+    while (!(ADC1->CR & 0x80000000)); // Wait for calibration to finish
+    for (int i = 0; i < 100; i++); // Wait for a little while
+
+    ADC1->CR |= 0x00000001; // Enable ADC1 (0x01 - Enable, 0x02 - Disable
+    while (!(ADC1->ISR & 0x00000001)); // Wait until ready
+}
+
+// ----------- returnere en værdi mellem 0 og 4095 --------------
+uint16_t read_adc(uint8_t abs) {
+    ADC_RegularChannelConfig(ADC1, abs, 1, ADC_SampleTime_1Cycles5);
+
+    ADC_StartConversion(ADC1); // Start ADC read
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
+
+    return ADC_GetConversionValue(ADC1);
+}
+
+// -------------- print for potentiometer ----------------------
+void update_display_with_adc(void) {
+    uint16_t readjoyupdown = read_adc(ADC_Channel_8); //Read the ADC value fra PC2
+    uint16_t readjoyleftright = read_adc(ADC_Channel_9); //Read the ADC value fra PC3
+
+    printf("Pot1: %04d | Pot2: %04d\n", readjoyupdown, readjoyleftright);
+}

@@ -153,7 +153,7 @@ void drawAlien(player *p, GameContext *ctx)
 	}
 }
 
-void eraseAlienAt(player *p, GameContext *ctx)
+void eraseAlien(player *p, GameContext *ctx)
 {
     int height;
 
@@ -196,6 +196,67 @@ void drawBullet(Bullet *b)
 		case 4: printf("**"); break; // sniper
 		}
 	}
+}
+
+void drawPowerup(Powerup *pu)
+{
+	// Powerup sprites
+	static const char heartSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
+	    " *** ",
+	    "*   *",
+	    "*<3 *",
+	    "*   *",
+	    " *** "
+	};
+
+	static const char shieldSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
+	    " *** ",
+	    "*   *",
+	    "*[ ]*",
+	    "*   *",
+	    " *** "
+	};
+
+    if (!pu->active) return;
+
+    uint16_t x = (pu->x >> 8);
+    uint16_t y = (pu->y >> 8);
+
+    const char (*sprite)[POWERUP_WIDTH +1];
+
+    switch (pu->type) {
+    case POWERUP_HEART:
+        sprite = heartSprite;
+        break;
+    case POWERUP_SHIELD:
+        sprite = shieldSprite;
+        break;
+    default:
+        return;
+    }
+
+    for (int i=0; i<POWERUP_HEIGHT; i++) {
+        gotoxy(x, y+i);
+        for (int j = 0; sprite[i][j] != '\0'; j++) {
+            char c = sprite[i][j];
+            printf("%c", c);
+        }
+    }
+}
+
+void erasePowerup(Powerup *pu)
+{
+    if (!pu->active) return;
+
+    for (int i=0; i<POWERUP_HEIGHT; i++) {
+        gotoxy((pu->prev_x >> 8), (pu->prev_y >> 8) + i);
+        for (int j = 0; j < POWERUP_WIDTH; j++) {
+            printf(BG_DOT, 250);
+        }
+    }
+
+    pu->prev_x = pu->x;
+    pu->prev_y = pu->y;
 }
 
 //--------------print level--------------

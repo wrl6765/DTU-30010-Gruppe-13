@@ -40,13 +40,17 @@
 #define BULLET_LARGE_HEIGHT   3
 #define BULLET_LARGE_WIDTH   3
 
+// Powerup sizes
+#define POWERUP_WIDTH   5
+#define POWERUP_HEIGHT   5
+
 void borders(void);
 void bgcolor(uint8_t background);
 void drawSaturn(void);
 void drawAlien(player *p, GameContext *ctx);
 void drawBullet(Bullet *b);
-void eraseAlienAt(player *p, GameContext *ctx);
-void print_level(GameContext *ctx);
-void print_score(player *p);
+void eraseAlien(player *p, GameContext *ctx);
+void drawPowerup(Powerup *pu);
+void erasePowerup(Powerup *pu);
 
 #endif /* ASCII_H_ */
