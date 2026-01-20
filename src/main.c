@@ -13,7 +13,7 @@
 
 int main(){
 	//-----------inits------------------
-    uart_init(1000000);
+    uart_init(950000); // Baud rate 950000, compiler didnt like it :( 
 	printf("\x1b[?25l"); // Hide terminal cursor
     joystick_init();
     joystickdown_init();
