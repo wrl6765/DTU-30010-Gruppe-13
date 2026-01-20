@@ -3,6 +3,7 @@
 #include "bsp/30010_io.h"
 #include "bullets.h"
 #include <stdlib.h>
+#include "powerup.h"
 
 Bullet bullets[MAX_BULLETS];
 
@@ -129,6 +130,9 @@ void update_bullets(GameContext *ctx){
                 
                 if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 2))
                     bullets[i].alive = 0;
+            }
+            if (ctx->forcefield_active) {
+                powerup_forcefield(&p, &bullets[i], ctx);
             }
         }
     }

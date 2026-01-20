@@ -2,9 +2,10 @@
 #define POWERUP_H
 
 #include "Physics.h"
+#include "bullets.h"
 
 // Player repel powerup - repels bullets away in random direction when they contact player
-void powerup_repel_bullets(player *p);
+void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx);
 
 void powerup_score_multiplier(player *p, GameContext *ctx);
 void powerup_heal_player(player *p);

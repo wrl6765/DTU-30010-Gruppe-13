@@ -78,6 +78,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     
     
     
+    
     // Update and draw bullets
     spawn_simple_bullet();
     erase_bullet();

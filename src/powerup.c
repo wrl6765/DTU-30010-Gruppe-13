@@ -3,6 +3,8 @@
 #include "Ascii.h"
 #include <math.h>
 #include "game_state.h"
+#include "powerup.h"
+#include <stdbool.h>
 
 void powerup_heal_player(player *p) { //should be called when there is collision with heal powerup
     p->hp += 2; // Heal 2 HP
@@ -21,69 +23,26 @@ void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called 
 
 }
 // Player repel powerup - repels bullets away in random direction when they contact player
-void powerup_repel_bullets(player *p) {
-    // Define player collision box (approximate hitbox around player position)
-    int player_width = 4;   // Player character width
-    int player_height = 3;  // Player character height
+void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx) {
+    uint32_t timer = ctx->timer_counter;
+    if (timer % 300 == 0)
+    {
+        ctx->forcefield_active = 0;  // Deactivate forcefield after 300 ticks
+    }
+    int player_center_x = p->x + (p->width << 7); // Center x in 8.8 format
+    int player_center_y = p->y + (p->height << 7); // Center y in 8.8 format
+
+    int bullet_center_x = b->x + (BULLET_WIDTH << 7); // Center x in 8.8 format
+    int bullet_center_y = b->y + (BULLET_HEIGHT << 7); // Center y in 8.8 format
+
+    int16_t dx = bullet_center_x - player_center_x;
+    int16_t dy = bullet_center_y - player_center_y;
     
-    for(int i = 0; i < MAX_BULLETS; i++) {
-        if(bullets[i].alive) {
-            // Check collision between bullet and player
-            if(bullets[i].x >= p->x - player_width && 
-               bullets[i].x <= p->x + player_width &&
-               bullets[i].y >= p->y - player_height && 
-               bullets[i].y <= p->y + player_height) {
-                
-                // Bullet hit player - repel in random direction
-                int random_angle = rand() % 360;  // Random angle 0-359 degrees
-                
-                // Convert angle to velocity components
-                // Using simplified integer math for 8 directions
-                int direction = random_angle / 45;  // 0-7 for 8 directions
-                
-                switch(direction) {
-                    case 0:  // Right
-                        bullets[i].vx = 2;
-                        bullets[i].vy = 0;
-                        break;
-                    case 1:  // Down-Right
-                        bullets[i].vx = 1;
-                        bullets[i].vy = 1;
-                        break;
-                    case 2:  // Down
-                        bullets[i].vx = 0;
-                        bullets[i].vy = 2;
-                        break;
-                    case 3:  // Down-Left
-                        bullets[i].vx = -1;
-                        bullets[i].vy = 1;
-                        break;
-                    case 4:  // Left
-                        bullets[i].vx = -2;
-                        bullets[i].vy = 0;
-                        break;
-                    case 5:  // Up-Left
-                        bullets[i].vx = -1;
-                        bullets[i].vy = -1;
-                        break;
-                    case 6:  // Up
-                        bullets[i].vx = 0;
-                        bullets[i].vy = -2;
-                        break;
-                    case 7:  // Up-Right
-                        bullets[i].vx = 1;
-                        bullets[i].vy = -1;
-                        break;
-                    default:
-                        bullets[i].vx = 2;
-                        bullets[i].vy = 0;
-                }
-                
-                // Move bullet away from player to avoid multiple collisions
-                bullets[i].x = p->x + (bullets[i].vx * 2);
-                bullets[i].y = p->y + (bullets[i].vy * 2);
-            }
-        }
+    float distance = sqrtf((dx * dx) + (dy * dy));
+    if (distance == 0) return; // Prevent division by zero
+    if (distance < 20 << 8) { // If within 20 pixels
+        b->ax = -1/(dx); // Repel away
+        b->ay = -1/(dy);
     }
 }
 
