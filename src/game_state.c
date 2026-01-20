@@ -63,7 +63,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
         ctx->timer_counter = 1800; // reset to avoid overflow
     }
     if(ctx->timer_counter % 900 == 0){
-        // Every 30 seconds (assuming 30Hz), increase level
+        // Every 30 seconds (30Hz), increase level
         if(ctx->level < 3){
             ctx->level++;
         }
@@ -77,10 +77,11 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     
     
     // Update and draw bullets
-    //spawn_simple_bullet();
-    //update_bullets();
+    spawn_simple_bullet();
+    erase_bullet();
+    update_bullets();
     //powerup_repel_bullets(&p);  // Repel bullets on player contact
-    //draw_bullets();
+    draw_bullets();
 }
 
 void menu_state_init(void){

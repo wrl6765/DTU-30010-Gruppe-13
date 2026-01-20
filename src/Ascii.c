@@ -3,7 +3,7 @@
 #include "Physics.h"
 #include "game_state.h"
 
-#define BG_DOT "\033[90m%c\033[0m"  // grå tegn i baggrunden
+  // grå tegn i baggrunden
 
 void bgcolor(uint8_t background) {
 
