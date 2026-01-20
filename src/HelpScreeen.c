@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
+#include "Ascii.c"
 
 
 void displayHelpScreen() {
@@ -34,6 +35,9 @@ void displayHelpScreen() {
             }
             gotoxy(8, 11);{
                 printf("- Press SPACE: pause game");
+            }
+            gotoxy(6, 13);{
+                printf("Controls:");
             }
             gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
                 printf("\x1b[41m");
