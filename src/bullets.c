@@ -84,9 +84,11 @@ void update_bullets(){
 void draw_bullets(){
     for(int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].alive){
+            gotoxy((int)(bullets[i].x >> 8), (int)(bullets[i].y >> 8));
+            printf("o");
             // TODO: Replace with your display function
             // For now, using printf for reference
-            drawBullet(&bullets[i]);
+            //drawBullet(&bullets[i]);
         }
     }
 }

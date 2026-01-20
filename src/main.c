@@ -14,6 +14,7 @@
 int main(){
 	//-----------inits------------------
     uart_init(1000000);
+	printf("\x1b[?25l"); // Hide terminal cursor
     joystick_init();
     joystickdown_init();
     TIM2_Init();
