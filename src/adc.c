@@ -33,8 +33,8 @@ void init_adc(void) {
 }
 
 // ----------- returnere en værdi mellem 0 og 4095 --------------
-uint16_t read_adc(uint8_t channel) {
-    ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_1Cycles5);
+uint16_t read_adc(uint8_t abs) {
+    ADC_RegularChannelConfig(ADC1, abs, 1, ADC_SampleTime_1Cycles5);
 
     ADC_StartConversion(ADC1); // Start ADC read
     while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
@@ -44,8 +44,8 @@ uint16_t read_adc(uint8_t channel) {
 
 // -------------- print for potentiometer ----------------------
 void update_display_with_adc(void) {
-    uint16_t pot1 = read_adc(ADC_Channel_8); //Read the ADC value fra PC2
-    uint16_t pot2 = read_adc(ADC_Channel_9); //Read the ADC value fra PC3
+    uint16_t readjoyupdown = read_adc(ADC_Channel_8); //Read the ADC value fra PC2
+    uint16_t readjoyleftright = read_adc(ADC_Channel_9); //Read the ADC value fra PC3
 
-    printf("Pot1: %04d | Pot2: %04d\n", pot1, pot2);
+    printf("Pot1: %04d | Pot2: %04d\n", readjoyupdown, readjoyleftright);
 }
