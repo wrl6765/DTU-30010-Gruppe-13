@@ -6,7 +6,7 @@
 
 
 typedef struct{
-	int16_t x, y, vy, ay, score, highscore;
+	int16_t x, y, vy, ay, score, score_multiplier,highscore;
 	int16_t prev_x, prev_y;
 	uint8_t hp;
 	uint8_t alien_level;

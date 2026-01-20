@@ -203,3 +203,8 @@ void print_level(GameContext *ctx){
 	gotoxy(DISPLAY_WIDTH - 15, 1);
 	printf("Level: %d", ctx->level);
 }
+
+void print_score(player *p){
+	gotoxy(2, 1);
+	printf("Score: %d  Highscore: %d", p->score, p->highscore);
+}

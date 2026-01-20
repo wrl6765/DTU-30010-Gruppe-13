@@ -1,7 +1,24 @@
 #include "Physics.h"
 #include "bullets.h"
 #include <math.h>
+#include "game_state.h"
 
+void powerup_heal_player(player *p) { //should be called when there is collision with heal powerup
+    p->hp += 2; // Heal 2 HP
+    if (p->hp > 5) {  // Assuming max HP is 5
+        p->hp = 5;
+    }
+}
+
+void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called when there is collision with score multiplier powerup
+    uint32_t timer = ctx->timer_counter; 
+    p->score_multiplier = 2;  // Double score
+    if (timer % 300 == 0)
+    {
+        p->score_multiplier = 1;  // Reset to normal after 300 ticks
+    }
+
+}
 // Player repel powerup - repels bullets away in random direction when they contact player
 void powerup_repel_bullets(player *p) {
     // Define player collision box (approximate hitbox around player position)

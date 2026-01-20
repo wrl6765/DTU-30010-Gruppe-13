@@ -11,22 +11,31 @@ void player_init(){
 	p.vy=0;
 	p.ay=0;
 	p.score=0;
+	p.score_multiplier=1;
 	p.hp=5;
 	p.prev_x=p.x;
 	p.prev_y=p.y;
 }
 
 void update_player(player* p, uint8_t joystick, GameContext *ctx){
+// -----movement physics-----
 	if (joystick & 0x01){
 		p->ay = -16; //op
 	}
 	else if (!(joystick == 0x01)){
 		p->ay = 8; //gravity
 	}
-	p->score+=1;
+	// -----score update-----
+	p->score += p->score_multiplier;
+	
+    if (p->score > p->highscore) {
+        p->highscore = p->score;
+    }
+	// -----position update-----
 	p->vy += p->ay;
 	p->y += p->vy;
 
+	// -----boundary conditions-----
 	switch (ctx->level)
 	{
 	case 1:

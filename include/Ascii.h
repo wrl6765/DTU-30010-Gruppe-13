@@ -44,5 +44,7 @@ void drawSaturn(void);
 void drawAlien(player *p, GameContext *ctx);
 void drawBullet(Bullet *b);
 void eraseAlienAt(player *p, GameContext *ctx);
+void print_level(GameContext *ctx);
+void print_score(player *p);
 
 #endif /* ASCII_H_ */

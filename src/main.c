@@ -18,13 +18,13 @@ int main(){
     joystickdown_init();
     TIM2_Init();
 	clear();
-    
 	GameContext ctx = {
     .game_state = GAME_STATE_MENU,
     .menu_mode  = MENU_MODE_PLAY,
 	.prev_joystick = 0,
 	.timer_counter = 0,
-	.level = 1
+	.level = 1,
+	.highscore = 0
 };
 
 	uint8_t joystick = 0;
