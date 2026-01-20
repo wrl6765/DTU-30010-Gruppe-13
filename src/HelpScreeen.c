@@ -4,7 +4,6 @@
 #include "menu.h"
 #include "help.h"
 #include "Ascii.h"
-#include "Ascii.c"
 
 
 void displayHelpScreen() {
@@ -37,8 +36,26 @@ void displayHelpScreen() {
                 printf("- Press SPACE: pause game");
             }
             gotoxy(6, 13);{
-                printf("Controls:");
+                printf("Bullets:");
             }
+            gotoxy(8,14); {
+                printf("- Regular bullets: damage: -1 HP");
+            }
+            gotoxy(8,15); {
+                printf("- Bouncing bullets: damage: -1 HP");
+            }
+            gotoxy(8,16);{
+                printf("-Cannonball bullets: damage: -2 HP");
+            }
+
+            gotoxy(6, 17);{
+                printf("Power-ups:");
+            }
+            gotoxy(8,18); {printf("- Heart: +1 HP");}
+            gotoxy(8,19); {printf("- Shield: temporary invincibility");}
+
+
+            
             gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
                 printf("\x1b[41m");
                 printf("[ GO TO MENU ]");
@@ -47,6 +64,7 @@ void displayHelpScreen() {
             gotoxy((DISPLAY_WIDTH >> 1) - 21, DISPLAY_HEIGHT - 4);{
                 printf("Press CENTER joystick to return to menu.");
             }
+
         }
     
 
