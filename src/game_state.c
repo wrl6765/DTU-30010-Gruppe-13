@@ -84,13 +84,10 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     update_player(&p, joystick, ctx);
     drawAlien(&p, ctx);
     
-    
-    
     // Update and draw bullets
     spawn_simple_bullet();
     erase_bullet();
     update_bullets(ctx);
-    //powerup_repel_bullets(&p);  // Repel bullets on player contact
     draw_bullets();
 }
 

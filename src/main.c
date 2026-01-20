@@ -25,7 +25,9 @@ int main(){
 	.prev_joystick = 0,
 	.timer_counter = 0,
 	.level = 1,
-	.highscore = 0
+	.highscore = 0,
+	.forcefield_active = 0,
+	.multiplier_active = 0
 };
 
 	uint8_t joystick = 0;
@@ -51,6 +53,3 @@ int main(){
 
 // score_update(3, 3475);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
 // liv_update(4);               // antal liv (1 til 5)
-
-
-

@@ -20,7 +20,7 @@ void displayHelpScreen() {
                 printf("Explore a mysterious planet in an endless runner.");
             }
             gotoxy(6, 5);{
-                printf("Move up with joystick held down, otherwise fall down.");
+                printf("Move up with button held down, otherwise fall down.");
             }
             gotoxy(6, 6);{
                 printf("Avoid projectiles. Losing all lives ends the game.");
@@ -47,14 +47,17 @@ void displayHelpScreen() {
                 printf("- Bouncing bullets: damage: -1 HP");
             }
             gotoxy(8,16);{
-                printf("-Cannonball bullets: damage: -2 HP");
+                printf("- Cannonball bullets: damage: -2 HP");
+            }
+            gotoxy(8,17);{
+                printf("- Sniper bullets: damage: -3 HP");
             }
 
-            gotoxy(6, 17);{
+            gotoxy(6, 19);{
                 printf("Power-ups:");
             }
-            gotoxy(8,18); {printf("- Heart: +1 HP");}
-            gotoxy(8,19); {printf("- Shield: temporary invincibility");}
+            gotoxy(8,20); {printf("- Heart: +1 HP");}
+            gotoxy(8,21); {printf("- Shield: temporary invincibility");}
 
 
             
@@ -86,6 +89,7 @@ void help_update(GameContext *ctx, uint8_t joystick) {
    //     display_menu();
    //     menu_update();
     }
+<<<<<<< HEAD:src/helpandgameoverscreen.c
 }
 
 void gameoverscreen(GameContext *ctx, uint8_t joystick){
@@ -116,4 +120,6 @@ void gameoverscreen(GameContext *ctx, uint8_t joystick){
         }
     }
     
+=======
+>>>>>>> f4ca16c584f2721e761a88d1647aea31eb843103:src/HelpScreeen.c
 }

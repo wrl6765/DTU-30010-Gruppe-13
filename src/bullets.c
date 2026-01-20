@@ -3,7 +3,11 @@
 #include "bsp/30010_io.h"
 #include "bullets.h"
 #include <stdlib.h>
+<<<<<<< HEAD
 #include "help.h"
+=======
+#include "powerup.h"
+>>>>>>> f4ca16c584f2721e761a88d1647aea31eb843103
 
 Bullet bullets[MAX_BULLETS];
 
@@ -90,9 +94,17 @@ void update_bullets(GameContext *ctx){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bullets[i])){
                 // Handle collision (e.g., reduce player HP)
+<<<<<<< HEAD
                 p.hp--;
                 if (p.hp <= 0) {
                     ctx->game_state = GAME_STATE_GAME_OVER;
+=======
+                if (p.hp == 0) {
+                    ctx->game_state = GAME_STATE_MENU;
+                    game_state_init(ctx); // Reset game if HP is 0
+                } else {
+                    p.hp--;
+>>>>>>> f4ca16c584f2721e761a88d1647aea31eb843103
                 }
                 bullets[i].alive = 0;  // Destroy bullet on hit
                 continue;  // Skip further processing for this bullet
@@ -129,6 +141,9 @@ void update_bullets(GameContext *ctx){
                 
                 if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 2))
                     bullets[i].alive = 0;
+            }
+            if (ctx->forcefield_active) {
+                powerup_forcefield(&p, &bullets[i], ctx);
             }
         }
     }
