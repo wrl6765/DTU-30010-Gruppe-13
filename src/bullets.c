@@ -62,7 +62,7 @@ void erase_bullet(){
                 // Type 3 is 3 lines tall
                 for(int line = 0; line < 3; line++) {
                     gotoxy(x, y + line);
-                    printf("   ");  // 3 spaces for OOO
+                    printf("\033[90m%c%c%c\033[0m", 250, 250, 250);  // 3 spaces for OOO
                 }
             } else {
                 // Types 1, 2, 4 are 1 line
@@ -89,7 +89,11 @@ void update_bullets(GameContext *ctx){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bullets[i])){
                 // Handle collision (e.g., reduce player HP)
-                p.hp--;
+                if (p.hp <= 0) {
+                    p.hp = 0;
+                } else {
+                    p.hp--;
+                }
                 bullets[i].alive = 0;  // Destroy bullet on hit
                 continue;  // Skip further processing for this bullet
             }

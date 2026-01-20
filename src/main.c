@@ -13,7 +13,7 @@
 
 int main(){
 	//-----------inits------------------
-    uart_init(1000000);
+    uart_init(950000); // Baud rate 950000, compiler didnt like it :( 
 	printf("\x1b[?25l"); // Hide terminal cursor
     joystick_init();
     joystickdown_init();
@@ -51,6 +51,3 @@ int main(){
 
 // score_update(3, 3475);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
 // liv_update(4);               // antal liv (1 til 5)
-
-
-
