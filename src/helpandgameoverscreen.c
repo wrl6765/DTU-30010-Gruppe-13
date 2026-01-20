@@ -89,7 +89,6 @@ void help_update(GameContext *ctx, uint8_t joystick) {
    //     display_menu();
    //     menu_update();
     }
-<<<<<<< HEAD:src/helpandgameoverscreen.c
 }
 
 void gameoverscreen(GameContext *ctx, uint8_t joystick){
@@ -120,6 +119,4 @@ void gameoverscreen(GameContext *ctx, uint8_t joystick){
         }
     }
     
-=======
->>>>>>> f4ca16c584f2721e761a88d1647aea31eb843103:src/HelpScreeen.c
 }
