@@ -6,6 +6,7 @@
 #include "Ascii.h"
 #include "game_state.h"
 #include "charset.h"
+#include <stdio.h>
 
 
 void displayHelpScreen() {
@@ -92,7 +93,7 @@ void help_update(GameContext *ctx, uint8_t joystick) {
 }
 
 void game_over_init(GameContext *ctx){
-    
+        clear();
         borders();
         gotoxy(50-5,16);{printf("GAME OVER");}
         gotoxy(50-8,18);{printf("your score: %d", p.score);}

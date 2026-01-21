@@ -18,13 +18,16 @@ typedef struct {
     uint8_t max_bullets;
 } Bullet;
 
-extern Bullet bullets[MAX_BULLETS];
+typedef struct {
+    Bullet bullets[MAX_BULLETS];
+    uint8_t max_bullets;
+} BulletSystem;
 
-void bullets_init(void);
-void spawn_simple_bullet(void);
-void erase_bullet(void);
-void update_bullets(GameContext *ctx);
-void draw_bullets(void);
-void max_bullets(GameContext *ctx);
+void bullets_init(BulletSystem *bs);
+void spawn_simple_bullet(BulletSystem *bs);
+void erase_bullet(BulletSystem *bs);
+void update_bullets(GameContext *ctx, BulletSystem *bs);
+void draw_bullets(BulletSystem *bs);
+void bullets_set_max(GameContext *ctx, BulletSystem *bs);
 
 #endif

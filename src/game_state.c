@@ -8,6 +8,8 @@
 #include "charset.h"
 #include "heart.h"
 
+static BulletSystem bullet_system;
+
 void game_state_init(GameContext *ctx)
 {
     clear();
@@ -59,14 +61,12 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 
 void game_init(GameContext *ctx){
     // initialize game variables here
-    max_bullets(ctx); // Set max bullets based on level
-    bullets_init();      // Initialize bullet system
-    player_init();   // Initialize player
-    game_borders();      // Draw game borders
     ctx->timer_counter = 0;
     ctx->level = 1;
-    
-
+    bullets_set_max(ctx, &bullet_system);
+    bullets_init(&bullet_system);
+    player_init();   // Initialize player
+    game_borders();      // Draw game borders
 }
 
 void game_loop(GameContext *ctx, uint8_t joystick){
@@ -79,7 +79,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
         // Every 30 seconds (30Hz), increase level
         if(ctx->level < 3){
             ctx->level++;
-            max_bullets(ctx); // Update max bullets for new level
+            bullets_set_max(ctx, &bullet_system); // Update max bullets for new level
         }
     }
 
@@ -93,19 +93,23 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     drawAlien(&p, ctx);
                  // antal liv (1 til 5)
     // Update and draw bullets
-    erase_bullet();
+    erase_bullet(&bullet_system);
     // If forcefield is active, apply its repulsion to all bullets before physics update
     if (p.forcefield.active) {
         for (int i = 0; i < MAX_BULLETS; ++i) {
-            if (bullets[i].alive) {
-                powerup_forcefield(&p, &bullets[i], ctx);
+            if (bullet_system.bullets[i].alive) {
+                powerup_forcefield(&p, &bullet_system.bullets[i], ctx);
             }
         }
     }
-    update_bullets(ctx);
-    spawn_simple_bullet();
-    draw_bullets();
+    update_bullets(ctx, &bullet_system);
+    spawn_simple_bullet(&bullet_system);
+    draw_bullets(&bullet_system);
     liv_update(&p);
+    if (p.hp <= 0) {
+                    ctx->game_state = GAME_STATE_GAME_OVER;
+                    game_state_init(ctx);
+                }
 
 }
 

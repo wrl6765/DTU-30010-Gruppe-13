@@ -16,4 +16,6 @@ void display_lives(player *p, uint8_t *buffer);
 // opdatere lives
 void liv_update(player *p);
 
+uint8_t *lcd_get_buffer(void);
+
 #endif /* _HEART_H_ */
