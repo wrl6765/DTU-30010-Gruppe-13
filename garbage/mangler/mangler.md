@@ -1,7 +1,7 @@
-* konfiguerer powerups og gøre dem interaktive
+* konfiguere powerups og gøre dem interaktive
 
 * konfigure led
 
 * joystick koble den på
 
-* mangler kode til de resterence bullets
+* mangler kode til de resterende bullets

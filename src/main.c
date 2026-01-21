@@ -27,9 +27,7 @@ int main(){
 	.timer_counter = 0,
 	.level = 1,
 	.highscore = 0,
-
-	}
-;
+	};
 	
 	set_leds(1);
 	uint8_t joystick = 0;

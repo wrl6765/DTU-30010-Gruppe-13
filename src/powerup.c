@@ -85,14 +85,14 @@ void powerup_forcefield(player *p, Bullet *b, GameContext *ctx) { //should be ca
     float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
     if (dist <= 0.0f) return; // safety
 
-    const float EFFECT_RADIUS = 12; // pixels
+    const float EFFECT_RADIUS = 15; // pixels
     if (dist < EFFECT_RADIUS) {
         float nx = dx_pix / dist;
         float ny = dy_pix / dist;
 
         // Strength scales with proximity: closer -> stronger push
         // Tweak the constant to get desired gameplay feel
-        float strength_pixels = (EFFECT_RADIUS - dist) * 0.5f; // pixels/tick^2
+        float strength_pixels = (EFFECT_RADIUS - dist) * 0.005f; // pixels/tick^2
 
         // Convert to 8.8 fixed point for ax/ay
         int ax_fixed = (int)(nx * strength_pixels * 256.0f);

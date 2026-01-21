@@ -19,9 +19,8 @@ void player_init(){
 	p.prev_y=p.y;
 	p.height=ALIEN_HEIGHT_LVL_1;
 	p.width=ALIEN_WIDTH;	
-	p.forcefield_active = 1;
 	p.heart.active = 0;
-	p.forcefield.active = 0;
+	p.forcefield.active = 1;
 	p.multiplier.active = 0;
 	p.heart_dir = 1;
 	p.forcefield_dir = -1;
