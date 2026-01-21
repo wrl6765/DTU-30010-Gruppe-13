@@ -18,6 +18,7 @@ int main(){
     joystick_init();
     joystickdown_init();
     TIM2_Init();
+	led_init();
 	clear();
 	GameContext ctx = {
     .game_state = GAME_STATE_MENU,
@@ -25,11 +26,9 @@ int main(){
 	.prev_joystick = 0,
 	.timer_counter = 0,
 	.level = 1,
-	.highscore = 0,
-	.forcefield_active = 0,
-	.multiplier_active = 0
+	.highscore = 0
 };
-
+	set_leds(1);
 	uint8_t joystick = 0;
 	// uint8_t game_state = GAME_STATE_MENU; // 0=menu, 1=game, 2=help
 	// uint8_t menuMode = MENU_MODE_HELP; // 0=play, 1=help, 2=quit

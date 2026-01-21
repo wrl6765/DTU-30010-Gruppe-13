@@ -61,6 +61,8 @@ void game_init(GameContext *ctx){
     bullets_init();      // Initialize bullet system
     player_init();   // Initialize player
     borders();
+    ctx->timer_counter = 0;
+    ctx->level = 1;
 
 }
 
@@ -91,12 +93,4 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     draw_bullets();
 }
 
-void menu_state_init(void){
-    display_menu();
-}
-
-
-void help_state_init(void){
-    displayHelpScreen();
-}
 

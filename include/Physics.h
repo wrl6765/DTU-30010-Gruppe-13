@@ -19,7 +19,8 @@ extern player p;
 // Powerup struct
 typedef enum {
 	POWERUP_HEART = 0,
-	POWERUP_SHIELD = 1
+	POWERUP_FORCEFIELD = 1,
+	POWERUP_MULTIPLIER = 2
 } PowerupType;
 
 typedef struct{

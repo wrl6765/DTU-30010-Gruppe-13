@@ -63,3 +63,38 @@ uint8_t read_joystick(void){
 
 
 	//-----------------------------------timer stuff end------------------------------------------
+	//--------------------------LED stuff start--------------------------------------------
+	void led_init(void)
+	{
+	    RCC->AHBENR |= RCC_AHBPeriph_GPIOB; // Enable clock for GPIOB
+	    GPIOB->MODER &= ~(0x3) << (4 * 2);
+	    GPIOB->MODER |=  (0x1) << (4 * 2);
+
+		GPIOB->OSPEEDR &= ~(0x00000003 << (4 * 2));
+		GPIOB->OSPEEDR |= (0x00000002 << (4 * 2));
+		GPIOB->OTYPER &= ~(0x0001 << (4 * 1));
+		GPIOB->OTYPER |= (0x0000 << (4));
+		
+		
+		GPIOC->MODER &= ~(0x00000003 << (7 * 2));
+		GPIOC->MODER |= (0x00000001 << (7 * 2));
+
+		GPIOC->OSPEEDR &= ~(0x00000003 << (7 * 2));
+		GPIOC->OSPEEDR |= (0x00000002 << (7 * 2));
+		GPIOC->OTYPER &= ~(0x0001 << (7 * 1));
+		GPIOC->OTYPER |= (0x0001 << (7));
+	}
+	void set_leds(uint8_t value)
+	{
+	    // Set or reset PB4
+	    if (value & 0x01)
+	        GPIOB->ODR |= (1 << 4); // Turn on LED1
+	    else
+	        GPIOB->ODR &= ~(1 << 4); // Turn off LED1
+
+	    // Set or reset PC7
+	    if (value & 0x02)
+	        GPIOC->ODR |= (1 << 7); // Turn on LED2
+	    else
+	        GPIOC->ODR &= ~(1 << 7); // Turn off LED2
+	}

@@ -19,8 +19,6 @@ typedef struct {
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
-    uint8_t forcefield_active;
-    uint8_t multiplier_active;
 } GameContext;
 
 
@@ -28,8 +26,7 @@ void game_state_init(GameContext *ctx);
 void game_state_update(GameContext *ctx, uint8_t joystick);
 void game_init(GameContext *ctx);
 void game_loop(GameContext *ctx, uint8_t joystick);
-void menu_state_init(void);
-void help_state_init(void);
+
 
 
 #endif
