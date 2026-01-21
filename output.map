@@ -1,6 +1,10 @@
 Archive member included to satisfy reference by file (symbol)
 
+<<<<<<< HEAD
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+=======
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
                               .pio\build\nucleo_f302r8\src\bsp\syscalls.o (__errno)
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
                               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o (exit)
@@ -140,6 +144,18 @@ c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-
                               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
                               .pio\build\nucleo_f302r8\src\powerup.o (sqrtf)
+<<<<<<< HEAD
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+                              c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__ieee754_sqrtf)
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
+                              c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__fdlib_version)
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+                              c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (matherr)
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
+                              c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__aeabi_d2f)
+c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+                              c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__aeabi_fcmpun)
+=======
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
                               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__ieee754_sqrtf)
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
@@ -150,12 +166,17 @@ c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-
                               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__aeabi_d2f)
 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
                               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o) (__aeabi_fcmpun)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
 
 Allocating common symbols
 Common symbol       size              file
 
 __lock___atexit_recursive_mutex
+<<<<<<< HEAD
+                    0x1               c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+=======
                     0x1               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
 p                   0x18              .pio\build\nucleo_f302r8\src\Physics.o
 __lock___arc4random_mutex
                     0x1               c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
@@ -1461,11 +1482,27 @@ Discarded input sections
                 0x00000000       0x64 .pio\build\nucleo_f302r8\src\Ascii.o
  .text.erasePowerup
                 0x00000000       0x4c .pio\build\nucleo_f302r8\src\Ascii.o
+<<<<<<< HEAD
  .rodata.heartSprite.8721
+=======
+<<<<<<< HEAD
+ .rodata.heartSprite.8699
+                0x00000000       0x1e .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.saturnSprite.8633
+                0x00000000       0x5c .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.shieldSprite.8700
+=======
+ .rodata.heartSprite.8719
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
                 0x00000000       0x1e .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.saturnSprite.8655
                 0x00000000       0x5c .pio\build\nucleo_f302r8\src\Ascii.o
+<<<<<<< HEAD
  .rodata.shieldSprite.8722
+=======
+ .rodata.shieldSprite.8720
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
                 0x00000000       0x1e .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.str1.1
                 0x00000000      0x6e0 .pio\build\nucleo_f302r8\src\Ascii.o
@@ -1579,6 +1616,330 @@ Discarded input sections
                 0x00000000       0x1a .pio\build\nucleo_f302r8\src\powerup.o
  .text.powerupsUpdate
                 0x00000000       0x58 .pio\build\nucleo_f302r8\src\powerup.o
+<<<<<<< HEAD
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .text._printf_r
+                0x00000000       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .text._putchar_r
+                0x00000000        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .text.srand    0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .text._sprintf_r
+                0x00000000       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .text.vfprintf
+                0x00000000       0x18 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .text.fflush   0x00000000       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__fp_lock
+                0x00000000       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__fp_unlock
+                0x00000000       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__sfmoreglue
+                0x00000000       0x30 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text._cleanup
+                0x00000000       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__sfp    0x00000000       0xa4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__sinit_lock_acquire
+                0x00000000        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__sinit_lock_release
+                0x00000000        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__fp_lock_all
+                0x00000000       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text.__fp_unlock_all
+                0x00000000       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .text._fwalk   0x00000000       0x4c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .text.__localeconv_l
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .text.localeconv
+                0x00000000       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memchr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memchr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memcpy.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__s2b    0x00000000       0x98 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__ulp    0x00000000       0x44 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__b2d    0x00000000       0xc0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__ratio  0x00000000       0x5c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text._mprec_log10
+                0x00000000       0x38 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__copybits
+                0x00000000       0x48 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text.__any_on
+                0x00000000       0x54 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .rodata.__mprec_tinytens
+                0x00000000       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .text.putc     0x00000000       0x78 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .text.__seofread
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .text._svfiprintf_r
+                0x00000000      0xa68 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .rodata._svfiprintf_r.str1.4
+                0x00000000       0x2f c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .rodata.blanks.7256
+                0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .rodata.zeroes.7257
+                0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .text._vfiprintf_r
+                0x00000000      0xc24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .text.vfiprintf
+                0x00000000       0x18 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .text.__sbprintf
+                0x00000000       0x84 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .rodata._vfiprintf_r.str1.4
+                0x00000000       0x2f c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .rodata.blanks.7270
+                0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .rodata.zeroes.7271
+                0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .text.__swbuf  0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .text.fclose   0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .text.fputwc   0x00000000       0x38 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .text._setlocale_r
+                0x00000000       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .text.__locale_ctype_ptr_l
+                0x00000000        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .text.__locale_ctype_ptr
+                0x00000000       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .text.setlocale
+                0x00000000       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .bss._PathLocale
+                0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .text._mbtowc_r
+                0x00000000       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .text.cleanup_glue
+                0x00000000       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .text._reclaim_reent
+                0x00000000       0x88 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .text          0x00000000      0x2dc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strcmp.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strcmp.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strcmp.o)
+ .debug_frame   0x00000000       0x68 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strcmp.o)
+ .ARM.attributes
+                0x00000000       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strcmp.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .text.wcrtomb  0x00000000       0x54 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .text._wctomb_r
+                0x00000000       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivsf3.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpsf2.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpsf2.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixsfsi.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixsfsi.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtend.o
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtend.o
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtend.o
+ .eh_frame      0x00000000        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtend.o
+ .ARM.attributes
+                0x00000000       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtend.o
+ .text          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+ .data          0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+ .bss           0x00000000        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+=======
  .text          0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
  .data          0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
  .bss           0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
@@ -1901,6 +2262,7 @@ Discarded input sections
  .text          0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
  .data          0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
  .bss           0x00000000        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
 
 Memory Configuration
 
@@ -1911,9 +2273,15 @@ ROM              0x08000000         0x00010000         xr
 
 Linker script and memory map
 
+<<<<<<< HEAD
+LOAD c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+LOAD c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+LOAD c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o
+=======
 LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
 LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
 LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
 LOAD .pio\build\nucleo_f302r8\lib\SPL\src\stm32f30x_adc.o
 LOAD .pio\build\nucleo_f302r8\lib\SPL\src\stm32f30x_can.o
 LOAD .pio\build\nucleo_f302r8\lib\SPL\src\stm32f30x_comp.o
@@ -1977,7 +2345,15 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
+<<<<<<< HEAD
 .text           0x080001c0     0x9164
+=======
+<<<<<<< HEAD
+.text           0x080001c0     0x9084
+=======
+.text           0x080001c0     0x90dc
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
                 0x080001c0                . = ALIGN (0x4)
  *(.text)
  .text          0x080001c0       0x40 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
@@ -2262,6 +2638,355 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x08002378       0xa0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
                 0x08002378                lcd_reset
  .text.lcd_init
+<<<<<<< HEAD
+                0x080023a8      0x194 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x080023a8                lcd_init
+ .text._exit    0x0800253c        0xc .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x0800253c                _exit
+ .text._read    0x08002548       0x1c .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002548                _read
+ .text._close   0x08002564        0x6 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002564                _close
+ .text._fstat   0x0800256a        0xa .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x0800256a                _fstat
+ .text._isatty  0x08002574        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002574                _isatty
+ .text._lseek   0x08002578        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002578                _lseek
+ .text._sbrk    0x0800257c       0x34 .pio\build\nucleo_f302r8\src\bsp\sysmem.o
+                0x0800257c                _sbrk
+ .text.SystemInit
+                0x080025b0       0xb0 .pio\build\nucleo_f302r8\src\bsp\system_stm32f30x.o
+                0x080025b0                SystemInit
+ .text.bullets_init
+                0x08002660       0x28 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002660                bullets_init
+ .text.spawn_simple_bullet
+                0x08002688       0x90 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002688                spawn_simple_bullet
+ .text.erase_bullet
+                0x08002718       0x90 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002718                erase_bullet
+ .text.update_bullets
+                0x080027a8       0xc0 .pio\build\nucleo_f302r8\src\bullets.o
+                0x080027a8                update_bullets
+ .text.draw_bullets
+                0x08002868       0x34 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002868                draw_bullets
+ .text.lcd_write_string
+                0x0800289c       0x48 .pio\build\nucleo_f302r8\src\charset.o
+                0x0800289c                lcd_write_string
+ .text.score_update
+                0x080028e4       0x54 .pio\build\nucleo_f302r8\src\charset.o
+                0x080028e4                score_update
+ .text.game_init
+                0x08002938       0x1a .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002938                game_init
+ *fill*         0x08002952        0x2 
+ .text.game_state_init
+                0x08002954       0x48 .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002954                game_state_init
+ .text.game_loop
+                0x0800299c       0xbc .pio\build\nucleo_f302r8\src\game_state.o
+                0x0800299c                game_loop
+ .text.game_state_update
+                0x08002a58       0x20 .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002a58                game_state_update
+ .text.lcd_manager_init
+                0x08002a78       0x28 .pio\build\nucleo_f302r8\src\heart.o
+                0x08002a78                lcd_manager_init
+ .text.lcd_get_buffer
+                0x08002aa0       0x10 .pio\build\nucleo_f302r8\src\heart.o
+                0x08002aa0                lcd_get_buffer
+ .text.lcd_commit
+                0x08002ab0        0xc .pio\build\nucleo_f302r8\src\heart.o
+                0x08002ab0                lcd_commit
+ .text.heart_clear
+                0x08002abc       0x4c .pio\build\nucleo_f302r8\src\heart.o
+                0x08002abc                heart_clear
+ .text.heart_full
+                0x08002b08       0x6c .pio\build\nucleo_f302r8\src\heart.o
+                0x08002b08                heart_full
+ .text.heart_tom
+                0x08002b74       0x6c .pio\build\nucleo_f302r8\src\heart.o
+                0x08002b74                heart_tom
+ .text.display_lives
+                0x08002be0       0x48 .pio\build\nucleo_f302r8\src\heart.o
+                0x08002be0                display_lives
+ .text.liv_update
+                0x08002c28       0x1c .pio\build\nucleo_f302r8\src\heart.o
+                0x08002c28                liv_update
+ .text.displayHelpScreen
+                0x08002c44      0x18c .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+                0x08002c44                displayHelpScreen
+ .text.help_update
+                0x08002dd0       0x22 .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+                0x08002dd0                help_update
+ *fill*         0x08002df2        0x2 
+ .text.game_over_init
+                0x08002df4       0x80 .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+                0x08002df4                game_over_init
+ .text.game_over_update
+                0x08002e74       0x22 .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+                0x08002e74                game_over_update
+ *fill*         0x08002e96        0x2 
+ .text.startup.main
+                0x08002e98       0x6c .pio\build\nucleo_f302r8\src\main.o
+                0x08002e98                main
+ .text.display_menu
+                0x08002f04       0x80 .pio\build\nucleo_f302r8\src\menu.o
+                0x08002f04                display_menu
+ .text.menu_update
+                0x08002f84       0xf8 .pio\build\nucleo_f302r8\src\menu.o
+                0x08002f84                menu_update
+ .text.powerup_forcefield
+                0x0800307c       0xf0 .pio\build\nucleo_f302r8\src\powerup.o
+                0x0800307c                powerup_forcefield
+ .text.__errno  0x0800316c        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+                0x0800316c                __errno
+ .text.exit     0x08003178       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+                0x08003178                exit
+ .text.__libc_init_array
+                0x08003198       0x48 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+                0x08003198                __libc_init_array
+ .text.memset   0x080031e0       0x94 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+                0x080031e0                memset
+ .text.printf   0x08003274       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+                0x08003274                printf
+ .text.putchar  0x0800329c       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+                0x0800329c                putchar
+ .text.rand     0x080032b0       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+                0x080032b0                rand
+ .text.setbuf   0x080032ec       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+                0x080032ec                setbuf
+ .text.setvbuf  0x080032fc      0x180 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+                0x080032fc                setvbuf
+ .text.sprintf  0x0800347c       0x44 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+                0x0800347c                sprintf
+ .text._svfprintf_r
+                0x080034c0     0x14a0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+                0x080034c0                _svfprintf_r
+ .text._vfprintf_r
+                0x08004960     0x1504 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x08004960                _vfprintf_r
+ .text.__sbprintf
+                0x08005e64       0x84 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .text.__swsetup_r
+                0x08005ee8       0xcc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+                0x08005ee8                __swsetup_r
+ .text.startup.register_fini
+                0x08005fb4       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x08005fc8       0xe8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+                0x08005fc8                __call_exitprocs
+ .text.atexit   0x080060b0        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+                0x080060b0                atexit
+ .text.quorem   0x080060bc      0x124 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .text._dtoa_r  0x080061e0      0xdf4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+                0x080061e0                _dtoa_r
+ .text.__sflush_r
+                0x08006fd4      0x154 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+                0x08006fd4                __sflush_r
+ .text._fflush_r
+                0x08007128       0x5c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+                0x08007128                _fflush_r
+ .text.std      0x08007184       0x50 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .text._cleanup_r
+                0x080071d4        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x080071d4                _cleanup_r
+ .text.__sinit  0x080071e0       0x58 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x080071e0                __sinit
+ .text.__sfp_lock_acquire
+                0x08007238        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007238                __sfp_lock_acquire
+ .text.__sfp_lock_release
+                0x08007244        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007244                __sfp_lock_release
+ .text.__libc_fini_array
+                0x08007250       0x34 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+                0x08007250                __libc_fini_array
+ .text._malloc_trim_r
+                0x08007284       0xa0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+                0x08007284                _malloc_trim_r
+ .text._free_r  0x08007324      0x1e8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+                0x08007324                _free_r
+ .text._fwalk_reent
+                0x0800750c       0x54 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+                0x0800750c                _fwalk_reent
+ .text._localeconv_r
+                0x08007560       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+                0x08007560                _localeconv_r
+ .text.__retarget_lock_init_recursive
+                0x0800757c        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x0800757c                __retarget_lock_init_recursive
+ .text.__retarget_lock_close_recursive
+                0x08007580        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007580                __retarget_lock_close_recursive
+ .text.__retarget_lock_acquire_recursive
+                0x08007584        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007584                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_release_recursive
+                0x08007588        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007588                __retarget_lock_release_recursive
+ .text.__swhatbuf_r
+                0x0800758c       0x5c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+                0x0800758c                __swhatbuf_r
+ .text.__smakebuf_r
+                0x080075e8       0x94 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+                0x080075e8                __smakebuf_r
+ .text.malloc   0x0800767c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+                0x0800767c                malloc
+ .text.free     0x0800768c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+                0x0800768c                free
+ .text._malloc_r
+                0x0800769c      0x548 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+                0x0800769c                _malloc_r
+ .text.__malloc_lock
+                0x08007be4        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+                0x08007be4                __malloc_lock
+ .text.__malloc_unlock
+                0x08007bf0        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+                0x08007bf0                __malloc_unlock
+ .text._Balloc  0x08007bfc       0x4c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007bfc                _Balloc
+ .text._Bfree   0x08007c48       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007c48                _Bfree
+ .text.__multadd
+                0x08007c5c       0x80 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007c5c                __multadd
+ .text.__hi0bits
+                0x08007cdc       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007cdc                __hi0bits
+ .text.__lo0bits
+                0x08007d1c       0x60 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007d1c                __lo0bits
+ .text.__i2b    0x08007d7c       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007d7c                __i2b
+ .text.__multiply
+                0x08007d90      0x14c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007d90                __multiply
+ .text.__pow5mult
+                0x08007edc       0xa0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007edc                __pow5mult
+ .text.__lshift
+                0x08007f7c       0xac c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08007f7c                __lshift
+ .text.__mcmp   0x08008028       0x38 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008028                __mcmp
+ .text.__mdiff  0x08008060       0xec c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008060                __mdiff
+ .text.__d2b    0x0800814c       0xb0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800814c                __d2b
+ .text._putc_r  0x080081fc       0x70 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+                0x080081fc                _putc_r
+ .text._sbrk_r  0x0800826c       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+                0x0800826c                _sbrk_r
+ .text.__sread  0x08008290       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008290                __sread
+ .text.__swrite
+                0x080082b4       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x080082b4                __swrite
+ .text.__sseek  0x080082f0       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x080082f0                __sseek
+ .text.__sclose
+                0x08008310        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008310                __sclose
+ .text.__ssprint_r
+                0x08008318       0xf4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+                0x08008318                __ssprint_r
+ .text.__sprint_r.part.0
+                0x0800840c       0x78 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .text.__sprint_r
+                0x08008484       0x14 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+                0x08008484                __sprint_r
+ .text.__swbuf_r
+                0x08008498       0xb0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+                0x08008498                __swbuf_r
+ .text.__register_exitproc
+                0x08008548       0xc0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+                0x08008548                __register_exitproc
+ .text._calloc_r
+                0x08008608       0x68 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+                0x08008608                _calloc_r
+ .text._close_r
+                0x08008670       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+                0x08008670                _close_r
+ .text._fclose_r
+                0x08008694       0xd0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+                0x08008694                _fclose_r
+ .text.__fputwc
+                0x08008764       0xa0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+                0x08008764                __fputwc
+ .text._fputwc_r
+                0x08008804       0x64 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+                0x08008804                _fputwc_r
+ .text._fstat_r
+                0x08008868       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+                0x08008868                _fstat_r
+ .text.__sfvwrite_r
+                0x08008890      0x2fc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+                0x08008890                __sfvwrite_r
+ .text._isatty_r
+                0x08008b8c       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+                0x08008b8c                _isatty_r
+ .text.__locale_mb_cur_max
+                0x08008bb0       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+                0x08008bb0                __locale_mb_cur_max
+ .text._lseek_r
+                0x08008bcc       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+                0x08008bcc                _lseek_r
+ .text.__ascii_mbtowc
+                0x08008bf8       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+                0x08008bf8                __ascii_mbtowc
+ .text.memmove  0x08008c24       0xc8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+                0x08008c24                memmove
+ .text._read_r  0x08008cec       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+                0x08008cec                _read_r
+ .text._realloc_r
+                0x08008d18      0x35c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+                0x08008d18                _realloc_r
+ .text._wcrtomb_r
+                0x08009074       0x50 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+                0x08009074                _wcrtomb_r
+ .text.__ascii_wctomb
+                0x080090c4       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+                0x080090c4                __ascii_wctomb
+ .text.sqrtf    0x080090e0       0xa0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+                0x080090e0                sqrtf
+ .text.__ieee754_sqrtf
+                0x08009180       0xa8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+                0x08009180                __ieee754_sqrtf
+ .text.matherr  0x08009228        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+                0x08009228                matherr
+ *(.glue_7)
+ .glue_7        0x0800922c        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0800922c        0x0 linker stubs
+ *(.eh_frame)
+ .eh_frame      0x0800922c        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+ *(.init)
+ .init          0x0800922c        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+                0x0800922c                _init
+ .init          0x08009230        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+ *(.fini)
+ .fini          0x08009238        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+                0x08009238                _fini
+ .fini          0x0800923c        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+                0x08009244                . = ALIGN (0x4)
+                0x08009244                _etext = .
+
+.vfp11_veneer   0x08009244        0x0
+ .vfp11_veneer  0x08009244        0x0 linker stubs
+
+.v4_bx          0x08009244        0x0
+ .v4_bx         0x08009244        0x0 linker stubs
+
+.iplt           0x08009244        0x0
+ .iplt          0x08009244        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+
+.rodata         0x08009248      0x870
+                0x08009248                . = ALIGN (0x4)
+=======
                 0x08002418      0x194 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
                 0x08002418                lcd_init
  .text._exit    0x080025ac        0xc .pio\build\nucleo_f302r8\src\bsp\syscalls.o
@@ -2611,13 +3336,170 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
 .iplt           0x08009324        0x0
  .iplt          0x08009324        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
 
+<<<<<<< HEAD
 .rodata         0x08009328      0x880
                 0x08009328                . = ALIGN (0x4)
+=======
+.rodata         0x080092a0      0x880
+                0x080092a0                . = ALIGN (0x4)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
  *(.rodata)
  .rodata        0x08009328       0x14 .pio\build\nucleo_f302r8\src\main.o
  *(.rodata*)
  .rodata.bgcolor.str1.1
+<<<<<<< HEAD
                 0x0800933c        0x7 .pio\build\nucleo_f302r8\src\Ascii.o
+=======
+<<<<<<< HEAD
+                0x08009248        0x7 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.borders.str1.1
+                0x0800924f       0x21 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.drawAlien.str1.1
+                0x08009270        0x3 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.drawBullet.str1.1
+                0x08009273        0xf .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.level1.8650
+                0x08009282        0xf .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.level2.8651
+                0x08009291       0x14 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.level3.8652
+                0x080092a5       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.print_hp.str1.1
+                0x080092be        0x9 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.print_level.str1.1
+                0x080092c7        0xa .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.print_score.str1.1
+                0x080092d1       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
+ .rodata.erase_bullet.str1.1
+                0x080092ea       0x1e .pio\build\nucleo_f302r8\src\bullets.o
+                                 0x27 (size before relaxing)
+ .rodata.character_data
+                0x08009308      0x1db .pio\build\nucleo_f302r8\src\charset.o
+                0x08009308                character_data
+ .rodata.lcd_text.str1.1
+                0x080094e3        0xa .pio\build\nucleo_f302r8\src\charset.o
+                                 0x18 (size before relaxing)
+ .rodata.game_state_init.str1.1
+                0x080094ed        0x5 .pio\build\nucleo_f302r8\src\game_state.o
+ *fill*         0x080094ed        0x1 
+ .rodata.full_heart_data
+                0x080094ee       0x1a .pio\build\nucleo_f302r8\src\heart.o
+                0x080094ee                full_heart_data
+ .rodata.heart_x
+                0x08009508        0x5 .pio\build\nucleo_f302r8\src\heart.o
+ .rodata.heart_y
+                0x0800950d        0x5 .pio\build\nucleo_f302r8\src\heart.o
+ .rodata.tom_heart_data
+                0x08009512       0x1a .pio\build\nucleo_f302r8\src\heart.o
+                0x08009512                tom_heart_data
+ .rodata.displayHelpScreen.str1.1
+                0x0800952c      0x20e .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+                                0x217 (size before relaxing)
+ .rodata.game_over_init.str1.1
+                0x0800973a       0x19 .pio\build\nucleo_f302r8\src\helpandgameoverscreen.o
+ .rodata.main.str1.1
+                0x08009753        0x7 .pio\build\nucleo_f302r8\src\main.o
+                                  0xc (size before relaxing)
+ .rodata.display_menu.str1.1
+                0x0800975a       0x28 .pio\build\nucleo_f302r8\src\menu.o
+                                 0x40 (size before relaxing)
+ .rodata.menu_update.str1.1
+                0x08009782       0x80 .pio\build\nucleo_f302r8\src\menu.o
+                                 0x85 (size before relaxing)
+ *fill*         0x08009802        0x2 
+ .rodata._global_impure_ptr
+                0x08009804        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+                0x08009804                _global_impure_ptr
+ .rodata._svfprintf_r.str1.4
+                0x08009808       0x42 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ *fill*         0x0800984a        0x2 
+ .rodata.blanks.7276
+                0x0800984c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .rodata.zeroes.7277
+                0x0800985c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .rodata._vfprintf_r.str1.4
+                0x0800986c       0x42 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .rodata.blanks.7291
+                0x0800986c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .rodata.zeroes.7292
+                0x0800987c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .rodata._dtoa_r.str1.4
+                0x0800988c       0x10 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+                                 0x12 (size before relaxing)
+ *fill*         0x0800989c        0x4 
+ .rodata.__mprec_bigtens
+                0x080098a0       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x080098a0                __mprec_bigtens
+ .rodata.__mprec_tens
+                0x080098c8       0xc8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x080098c8                __mprec_tens
+ .rodata.p05.6092
+                0x08009990        0xc c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .rodata._setlocale_r.str1.4
+                0x0800999c        0xa c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+                                  0xd (size before relaxing)
+ *fill*         0x080099a6        0x2 
+ .rodata.str1.4
+                0x080099a8        0x2 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ *fill*         0x080099aa        0x2 
+ .rodata._ctype_
+                0x080099ac      0x101 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+                0x080099ac                _ctype_
+ *fill*         0x08009aad        0x3 
+ .rodata.sqrtf.str1.4
+                0x08009ab0        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+                                  0x6 (size before relaxing)
+                0x08009ab8                . = ALIGN (0x4)
+
+.ARM.extab      0x08009ab8        0x0
+                0x08009ab8                . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x08009ab8                . = ALIGN (0x4)
+
+.ARM            0x08009ab8        0x8
+                0x08009ab8                . = ALIGN (0x4)
+                0x08009ab8                __exidx_start = .
+ *(.ARM.exidx*)
+ .ARM.exidx     0x08009ab8        0x8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+                0x08009ac0                __exidx_end = .
+                0x08009ac0                . = ALIGN (0x4)
+
+.rel.dyn        0x08009ac0        0x0
+ .rel.iplt      0x08009ac0        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+
+.preinit_array  0x08009ac0        0x0
+                0x08009ac0                . = ALIGN (0x4)
+                0x08009ac0                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array*)
+                0x08009ac0                PROVIDE (__preinit_array_end, .)
+                0x08009ac0                . = ALIGN (0x4)
+
+.init_array     0x08009ac0        0x8
+                0x08009ac0                . = ALIGN (0x4)
+                0x08009ac0                PROVIDE (__init_array_start, .)
+ *(SORT_BY_NAME(.init_array.*))
+ .init_array.00000
+                0x08009ac0        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ *(.init_array*)
+ .init_array    0x08009ac4        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+                0x08009ac8                PROVIDE (__init_array_end, .)
+                0x08009ac8                . = ALIGN (0x4)
+
+.fini_array     0x08009ac8        0x4
+                0x08009ac8                . = ALIGN (0x4)
+                0x08009ac8                PROVIDE (__fini_array_start, .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+ .fini_array    0x08009ac8        0x4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+                0x08009acc                PROVIDE (__fini_array_end, .)
+                0x08009acc                . = ALIGN (0x4)
+                0x08009acc                _sidata = LOADADDR (.data)
+
+.data           0x20000000      0x9e4 load address 0x08009acc
+=======
+                0x080092b4        0x7 .pio\build\nucleo_f302r8\src\Ascii.o
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
  .rodata.borders.str1.1
                 0x08009343       0x21 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawAlien.str1.1
@@ -2760,7 +3642,12 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x08009bbc                . = ALIGN (0x4)
                 0x08009bbc                _sidata = LOADADDR (.data)
 
+<<<<<<< HEAD
 .data           0x20000000      0x9dc load address 0x08009bbc
+=======
+.data           0x20000000      0x9dc load address 0x08009b34
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -2797,13 +3684,27 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
  *fill*         0x200009d9        0x3 
                 0x200009dc                _edata = .
 
+<<<<<<< HEAD
 .igot.plt       0x200009dc        0x0 load address 0x0800a598
+=======
+<<<<<<< HEAD
+.igot.plt       0x200009e4        0x0 load address 0x0800a4b0
+ .igot.plt      0x200009e4        0x0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+                0x200009e4                . = ALIGN (0x4)
+
+.bss            0x200009e4      0x61c load address 0x0800a4b0
+                0x200009e4                _sbss = .
+                0x200009e4                __bss_start__ = _sbss
+=======
+.igot.plt       0x200009dc        0x0 load address 0x0800a510
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
  .igot.plt      0x200009dc        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
                 0x200009dc                . = ALIGN (0x4)
 
 .bss            0x200009dc      0x66c load address 0x0800a598
                 0x200009dc                _sbss = .
                 0x200009dc                __bss_start__ = _sbss
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
  *(.bss)
  .bss           0x200009dc       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
  *(.bss*)
@@ -2864,6 +3765,7 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x20001048                __bss_end__ = _ebss
 
 ._user_heap_stack
+<<<<<<< HEAD
                 0x20001048      0x600 load address 0x0800a598
                 0x20001048                . = ALIGN (0x8)
                 0x20001048                PROVIDE (end, .)
@@ -2873,6 +3775,29 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x20001648                . = (. + _Min_Stack_Size)
  *fill*         0x20001248      0x400 
                 0x20001648                . = ALIGN (0x8)
+=======
+<<<<<<< HEAD
+                0x20001000      0x600 load address 0x0800a4b0
+                0x20001000                . = ALIGN (0x8)
+                0x20001000                PROVIDE (end, .)
+                [!provide]                PROVIDE (_end, .)
+                0x20001200                . = (. + _Min_Heap_Size)
+ *fill*         0x20001000      0x200 
+                0x20001600                . = (. + _Min_Stack_Size)
+ *fill*         0x20001200      0x400 
+                0x20001600                . = ALIGN (0x8)
+=======
+                0x20000ff8      0x600 load address 0x0800a510
+                0x20000ff8                . = ALIGN (0x8)
+                0x20000ff8                PROVIDE (end, .)
+                [!provide]                PROVIDE (_end, .)
+                0x200011f8                . = (. + _Min_Heap_Size)
+ *fill*         0x20000ff8      0x200 
+                0x200015f8                . = (. + _Min_Stack_Size)
+ *fill*         0x200011f8      0x400 
+                0x200015f8                . = ALIGN (0x8)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
+>>>>>>> 14edd56dae72b840124654e5b0f41c3d3ce94e88
 
 /DISCARD/
  libc.a(*)
@@ -2883,9 +3808,15 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x00000000       0x2a
  *(.ARM.attributes)
  .ARM.attributes
+<<<<<<< HEAD
+                0x00000000       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+=======
                 0x00000000       0x1e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
  .ARM.attributes
                 0x0000001e       0x2e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
  .ARM.attributes
                 0x0000004c       0x33 .pio\build\nucleo_f302r8\lib\SPL\src\stm32f30x_rcc.o
  .ARM.attributes
@@ -2927,6 +3858,155 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
  .ARM.attributes
                 0x00000403       0x2e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
  .ARM.attributes
+<<<<<<< HEAD
+                0x00000431       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000045f       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000048d       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x000004bb       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000004e9       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .ARM.attributes
+                0x00000517       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .ARM.attributes
+                0x00000545       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .ARM.attributes
+                0x00000573       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+ .ARM.attributes
+                0x000005a1       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+ .ARM.attributes
+                0x000005cf       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .ARM.attributes
+                0x000005fd       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .ARM.attributes
+                0x0000062b       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .ARM.attributes
+                0x00000659       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+ .ARM.attributes
+                0x00000687       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000006b5       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x000006e3       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .ARM.attributes
+                0x00000711       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .ARM.attributes
+                0x0000073f       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .ARM.attributes
+                0x0000076d       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .ARM.attributes
+                0x0000079b       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+ .ARM.attributes
+                0x000007c9       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .ARM.attributes
+                0x000007f7       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .ARM.attributes
+                0x00000825       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .ARM.attributes
+                0x00000853       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+ .ARM.attributes
+                0x00000881       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+ .ARM.attributes
+                0x000008af       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+ .ARM.attributes
+                0x000008dd       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memchr.o)
+ .ARM.attributes
+                0x000008f9       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x00000915       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x00000943       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .ARM.attributes
+                0x00000971       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .ARM.attributes
+                0x0000099f       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x000009cd       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .ARM.attributes
+                0x000009fb       0x1c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000a17       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .ARM.attributes
+                0x00000a45       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .ARM.attributes
+                0x00000a73       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .ARM.attributes
+                0x00000aa1       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x00000acf       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+ .ARM.attributes
+                0x00000afd       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+ .ARM.attributes
+                0x00000b2b       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .ARM.attributes
+                0x00000b59       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .ARM.attributes
+                0x00000b87       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+ .ARM.attributes
+                0x00000bb5       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+ .ARM.attributes
+                0x00000be3       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+ .ARM.attributes
+                0x00000c11       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .ARM.attributes
+                0x00000c3f       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+ .ARM.attributes
+                0x00000c6d       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .ARM.attributes
+                0x00000c9b       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+ .ARM.attributes
+                0x00000cc9       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+ .ARM.attributes
+                0x00000cf7       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+ .ARM.attributes
+                0x00000d25       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000d53       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .ARM.attributes
+                0x00000d81       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .ARM.attributes
+                0x00000daf       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+ .ARM.attributes
+                0x00000ddd       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000dfb       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x00000e19       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x00000e37       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
+ .ARM.attributes
+                0x00000e55       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x00000e73       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x00000e91       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000eaf       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x00000ecd       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x00000eeb       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000f09       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000f37       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000f55       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+ .ARM.attributes
+                0x00000f83       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+ .ARM.attributes
+                0x00000fb1       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_lib_ver.o)
+ .ARM.attributes
+                0x00000fdf       0x2e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+ .ARM.attributes
+                0x0000100d       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
+ .ARM.attributes
+                0x0000102b       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+ .ARM.attributes
+                0x00001049       0x1e c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+=======
                 0x00000431       0x2e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
  .ARM.attributes
                 0x0000045f       0x2e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
@@ -3074,6 +4154,7 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x0000102b       0x1e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
  .ARM.attributes
                 0x00001049       0x1e c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726
 OUTPUT(.pio\build\nucleo_f302r8\firmware.elf elf32-littlearm)
 
 .comment        0x00000000       0x7e
@@ -3098,6 +4179,75 @@ OUTPUT(.pio\build\nucleo_f302r8\firmware.elf elf32-littlearm)
  .comment       0x0000007e       0x7f .pio\build\nucleo_f302r8\src\powerup.o
 
 .debug_frame    0x00000000     0x1794
+<<<<<<< HEAD
+ .debug_frame   0x00000000       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+ .debug_frame   0x00000020       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+ .debug_frame   0x00000048       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00000074       0x38 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x000000ac       0x74 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+ .debug_frame   0x00000120       0x30 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+ .debug_frame   0x00000150       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+ .debug_frame   0x0000018c       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+ .debug_frame   0x000001ac       0x44 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+ .debug_frame   0x000001f0       0x80 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+ .debug_frame   0x00000270       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ .debug_frame   0x000002b0       0x94 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+ .debug_frame   0x00000344       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+ .debug_frame   0x00000370       0x5c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000003cc       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x000003ec       0x90 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ .debug_frame   0x0000047c       0x5c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+ .debug_frame   0x000004d8      0x148 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+ .debug_frame   0x00000620       0x34 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00000654       0x80 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+ .debug_frame   0x000006d4       0x54 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+ .debug_frame   0x00000728       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+ .debug_frame   0x00000768       0xb0 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x00000818       0x64 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+ .debug_frame   0x0000087c       0x30 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+ .debug_frame   0x000008ac       0x54 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+ .debug_frame   0x00000900       0x30 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+ .debug_frame   0x00000930      0x25c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+ .debug_frame   0x00000b8c       0x50 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+ .debug_frame   0x00000bdc       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x00000c08       0x88 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+ .debug_frame   0x00000c90       0x78 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+ .debug_frame   0x00000d08       0xd8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+ .debug_frame   0x00000de0       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+ .debug_frame   0x00000e20       0x34 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000e54       0x28 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+ .debug_frame   0x00000e7c       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+ .debug_frame   0x00000ea8       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+ .debug_frame   0x00000ee4       0x9c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+ .debug_frame   0x00000f80       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+ .debug_frame   0x00000fac       0x64 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+ .debug_frame   0x00001010       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+ .debug_frame   0x0000103c       0x6c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ .debug_frame   0x000010a8       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+ .debug_frame   0x000010d4       0x4c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+ .debug_frame   0x00001120       0x40 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+ .debug_frame   0x00001160       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+ .debug_frame   0x0000118c       0x58 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+ .debug_frame   0x000011e4       0x68 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reent.o)
+ .debug_frame   0x0000124c       0x64 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+ .debug_frame   0x000012b0       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+ .debug_frame   0x000012ec       0xac c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00001398       0x50 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x000013e8       0xc4 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x000014ac       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x000014cc       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x000014f0       0x4c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x0000153c       0x38 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivsf3.o)
+ .debug_frame   0x00001574       0xc8 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_cmpsf2.o)
+ .debug_frame   0x0000163c       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixsfsi.o)
+ .debug_frame   0x00001660       0x2c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000168c       0x34 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000016c0       0x3c c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+ .debug_frame   0x000016fc       0x30 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+ .debug_frame   0x0000172c       0x20 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+ .debug_frame   0x0000174c       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00001770       0x24 c:/users/nikol/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+=======
  .debug_frame   0x00000000       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
  .debug_frame   0x00000020       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
  .debug_frame   0x00000048       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
@@ -3165,3 +4315,4 @@ OUTPUT(.pio\build\nucleo_f302r8\firmware.elf elf32-littlearm)
  .debug_frame   0x0000172c       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
  .debug_frame   0x0000174c       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_truncdfsf2.o)
  .debug_frame   0x00001770       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_unordsf2.o)
+>>>>>>> b08f8818e4288831d9cce934ff70bc2497624726

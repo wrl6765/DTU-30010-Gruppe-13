@@ -240,6 +240,14 @@ void drawPowerup(Powerup *pu)
 	    " *** "
 	};
 
+	static const char multiplierSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
+	    " *** ",
+	    "*\\ /*",
+	    "* X *",
+	    "*/ \\*",
+	    " *** "
+	};
+
     if (!pu->active) return;
 
     uint16_t x = (pu->x >> 8);
@@ -254,8 +262,9 @@ void drawPowerup(Powerup *pu)
     case POWERUP_FORCEFIELD:
         sprite = shieldSprite;
         break;
-    case POWERUP_MULTIPLIER: //multiplier powerup sprite
-        return;
+    case POWERUP_MULTIPLIER:
+        sprite = multiplierSprite;
+		break;
     }
 
     for (int i=0; i<POWERUP_HEIGHT; i++) {
