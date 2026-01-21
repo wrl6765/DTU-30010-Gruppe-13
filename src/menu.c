@@ -4,6 +4,7 @@
 #include "Physics.h"
 #include "menu.h"
 #include "help.h"
+#include <stdlib.h>
 
 
 void display_menu(void){
@@ -43,6 +44,14 @@ void menu_update(GameContext *ctx, uint8_t joystick)
         else if (ctx->menu_mode == MENU_MODE_HELP) {
             ctx->game_state = GAME_STATE_HELP;
             game_state_init(ctx);
+        }
+        else if (ctx->menu_mode == MENU_MODE_QUIT) {
+            clear();
+            gotoxy((DISPLAY_WIDTH >> 1)-7, 16);
+            printf("Exiting game...");
+            gotoxy(0, 0);
+            printf("\x1b[?25h"); // Show terminal cursor
+            exit(0);
         }
     }
 
