@@ -49,7 +49,7 @@ void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx) { //should
     float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
     if (dist <= 0.0f) return; // safety
 
-    const float EFFECT_RADIUS = 20.0f; // pixels
+    const float EFFECT_RADIUS = 12; // pixels
     if (dist < EFFECT_RADIUS) {
         float nx = dx_pix / dist;
         float ny = dy_pix / dist;
