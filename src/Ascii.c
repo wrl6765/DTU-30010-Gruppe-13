@@ -224,15 +224,15 @@ void drawPowerup(Powerup *pu)
     uint16_t y = (pu->y >> 8);
 
     const char (*sprite)[POWERUP_WIDTH +1];
-
+	sprite = NULL;
     switch (pu->type) {
     case POWERUP_HEART:
         sprite = heartSprite;
         break;
-    case POWERUP_SHIELD:
+    case POWERUP_FORCEFIELD:
         sprite = shieldSprite;
         break;
-    default:
+    case POWERUP_MULTIPLIER: //multiplier powerup sprite
         return;
     }
 

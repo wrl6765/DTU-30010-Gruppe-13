@@ -23,11 +23,11 @@ void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called 
 
 }
 // Player repel powerup - repels bullets away in random direction when they contact player
-void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx) {
+void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx, Powerup *forcefield) { //should be called when there is collision with forcefield powerup
     uint32_t timer = ctx->timer_counter;
     if (timer % 300 == 0)
     {
-        ctx->forcefield_active = 0;  // Deactivate forcefield after 300 ticks
+        forcefield->active = 0;  // Deactivate forcefield after 300 ticks
     }
     int player_center_x = p->x + (p->width << 7); // Center x in 8.8 format
     int player_center_y = p->y + (p->height << 7); // Center y in 8.8 format
@@ -48,7 +48,7 @@ void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx) {
 
 // Updates powerups using random test powerups
 // Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
-void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *shield, int *heart_dir, int *shield_dir) {
+void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *forcefield, Powerup *multiplier, int *heart_dir, int *forcefield_dir) {
     // Only do anything if the game is in play mode
     if (ctx->game_state != GAME_STATE_PLAY) return;
 
@@ -62,33 +62,46 @@ void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *shield, int *hear
         heart->active = 1;
     }
 
-    if (!shield->active) {
-        shield->x = 50 << 8;
-        shield->y = 12 << 8;
-        shield->prev_x = shield->x;
-        shield->prev_y = shield->y;
-        shield->type = POWERUP_SHIELD;
-        shield->active = 1;
+    if (!forcefield->active) {
+        forcefield->x = 50 << 8;
+        forcefield->y = 12 << 8;
+        forcefield->prev_x = forcefield->x;
+        forcefield->prev_y = forcefield->y;
+        forcefield->type = POWERUP_FORCEFIELD;
+        forcefield->active = 1;
     }
+
+        if (!multiplier->active) {
+        multiplier->x = 50 << 8;
+        multiplier->y = 12 << 8;
+        multiplier->prev_x = multiplier->x;
+        multiplier->prev_y = multiplier->y;
+        multiplier->type = POWERUP_MULTIPLIER;
+        multiplier->active = 1;
+    }
+    
 
     // --- Erase old powerups ---
     erasePowerup(heart);
-    erasePowerup(shield);
+    erasePowerup(forcefield);
+    erasePowerup(multiplier);
 
     // --- Move powerups horizontally ---
     heart->x += (*heart_dir) << 8;
-    shield->x += (*shield_dir) << 8;
+    forcefield->x += (*forcefield_dir) << 8;
+    multiplier->x += (*forcefield_dir) << 8;
 
     // --- Bounce off screen edges ---
     if ((heart->x >> 8) <= 1 || (heart->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
         *heart_dir *= -1;
 
-    if ((shield->x >> 8) <= 1 || (shield->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
-        *shield_dir *= -1;
+    if ((forcefield->x >> 8) <= 1 || (forcefield->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
+        *forcefield_dir *= -1;
 
     // --- Draw updated powerups ---
     drawPowerup(heart);
-    drawPowerup(shield);
+    drawPowerup(forcefield);
+    drawPowerup(multiplier);
 }
 
 /*
@@ -96,11 +109,11 @@ Dette kan bruges senere i main loopet
 
 // Define powerups and directions
 Powerup heart = {.active = 0};
-Powerup shield = {.active = 0};
+Powerup forcefield = {.active = 0};
 int heart_dir = 1;
-int shield_dir = -1;
+int forcefield_dir = -1;
 
 // In your main loop (inside tim2_flag)
-testPowerupsUpdate(&ctx, &heart, &shield, &heart_dir, &shield_dir);
+testPowerupsUpdate(&ctx, &heart, &forcefield, &heart_dir, &forcefield_dir);
 
 */
