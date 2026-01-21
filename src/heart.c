@@ -100,3 +100,10 @@ void display_lives(uint8_t lives, uint8_t *buffer) {
     }
 }
 
+void liv_update(int liv) {
+    uint8_t *buffer = lcd_get_buffer();
+
+    display_lives(liv, buffer);
+    lcd_commit();
+}
+

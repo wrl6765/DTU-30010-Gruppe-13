@@ -6,6 +6,8 @@
 #include "bullets.h"
 #include "powerup.h"
 #include "Physics.h"
+#include "charset.h"
+#include "heart.h"
 
 void game_state_init(GameContext *ctx)
 {
@@ -80,15 +82,19 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     print_level(ctx);
     print_score(&p);
     print_hp(&p);
+   
+    score_update(p.highscore, p.score);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
     eraseAlien(&p, ctx);
     update_player(&p, joystick, ctx);
     drawAlien(&p, ctx);
-    
+                 // antal liv (1 til 5)
     // Update and draw bullets
     spawn_simple_bullet();
     erase_bullet();
     update_bullets(ctx);
     draw_bullets();
+    liv_update(p.hp);
+
 }
 
 void menu_state_init(void){

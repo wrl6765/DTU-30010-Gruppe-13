@@ -13,7 +13,7 @@ void lcd_write_string(char *str, uint8_t slice, uint8_t line, uint8_t *buffer);
 void lcd_text(int a, int b, uint8_t *buffer);
 
 // ------------ opdatere palyers status --------
-void score_update(int highscore, int score);
+void score_update(int high, int score);
 
 #endif /*! _ACHARSET_H_ */
 
