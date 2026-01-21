@@ -91,9 +91,8 @@ void help_update(GameContext *ctx, uint8_t joystick) {
     }
 }
 
-void gameoverscreen(GameContext *ctx, uint8_t joystick){
-    static uint8_t screen_drawn = 0;
-    if (!screen_drawn) {
+void game_over_init(GameContext *ctx){
+    
         borders();
         gotoxy(50-5,16);{printf("GAME OVER");}
         gotoxy(50-12,18);{printf("your score: %d", p.score);}
@@ -106,17 +105,22 @@ void gameoverscreen(GameContext *ctx, uint8_t joystick){
                gotoxy((DISPLAY_WIDTH >> 1) - 21, DISPLAY_HEIGHT - 4);{
                    printf("Press CENTER joystick to return to menu.");
                }
-        if (ctx->game_state == GAME_STATE_GAME_OVER) {
-            uint8_t pressed = joystick & ~ctx->prev_joystick;
-            /* CENTER pressed once */
+        }
+    
+    
+
+void game_over_update(GameContext *ctx, uint8_t joystick) {
+    if (ctx->game_state == GAME_STATE_GAME_OVER) {
+        uint8_t pressed = joystick & ~ctx->prev_joystick;
+
+        /* CENTER pressed once */
         if (pressed & 0x01) {
             ctx->game_state = GAME_STATE_MENU;
-            screen_drawn = 0;
             game_state_init(ctx);
         }
+
         ctx->prev_joystick = joystick;
-        screen_drawn = 1;
-        }
+   //     display_menu();
+   //     menu_update();
     }
-    
 }

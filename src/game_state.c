@@ -27,7 +27,7 @@ void game_state_init(GameContext *ctx)
             break;
 
         case GAME_STATE_GAME_OVER:
-            // Game over screen will be drawn in update
+            game_over_init(ctx);
             break;
     }
 }
@@ -50,7 +50,7 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
             break;
 
         case GAME_STATE_GAME_OVER:
-            gameoverscreen(ctx, joystick);
+            game_over_update(ctx, joystick);
             break;
     }
 }

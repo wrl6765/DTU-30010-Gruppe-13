@@ -93,6 +93,7 @@ void update_bullets(GameContext *ctx){
                 p.hp--;
                 if (p.hp <= 0) {
                     ctx->game_state = GAME_STATE_GAME_OVER;
+                    game_state_init(ctx);
                 }
                 bullets[i].alive = 0;  // Destroy bullet on hit
                 continue;  // Skip further processing for this bullet
