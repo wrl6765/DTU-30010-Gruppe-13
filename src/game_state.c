@@ -95,7 +95,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     erase_bullet();
     update_bullets(ctx);
     draw_bullets();
-    liv_update(p.hp);
+    liv_update(&p);
 
 }
 

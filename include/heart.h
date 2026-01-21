@@ -2,6 +2,7 @@
 #define HEART_H
 
 #include <stdint.h>
+#include "Physics.h"
 
 // Tegn et fyldt hjerte: 16 kolonner x 13 rækker
 void heart_full(uint8_t x, uint8_t y, uint8_t *buffer);
@@ -10,9 +11,9 @@ void heart_full(uint8_t x, uint8_t y, uint8_t *buffer);
 void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer);
 
 // Life display 0 til 5
-void display_lives(uint8_t lives, uint8_t *buffer);
+void display_lives(player *p, uint8_t *buffer);
 
 // opdatere lives
-void liv_update(int liv);
+void liv_update(player *p);
 
 #endif /* _HEART_H_ */
