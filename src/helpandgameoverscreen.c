@@ -95,7 +95,7 @@ void game_over_init(GameContext *ctx){
     
         borders();
         gotoxy(50-5,16);{printf("GAME OVER");}
-        gotoxy(50-12,18);{printf("your score: %d", p.score);}
+        gotoxy(50-8,18);{printf("your score: %d", p.score);}
 
         gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
                    printf("\x1b[41m");
