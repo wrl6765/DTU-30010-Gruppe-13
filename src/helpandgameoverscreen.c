@@ -96,7 +96,7 @@ void gameoverscreen(GameContext *ctx, uint8_t joystick){
     if (!screen_drawn) {
         borders();
         gotoxy(50-5,16);{printf("GAME OVER");}
-        gotoxy(50-12,18);{printf("your score: %d", p.score);}
+        gotoxy(50-8,18);{printf("your score: %d", p.score);}
 
         gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
                    printf("\x1b[41m");
@@ -114,8 +114,8 @@ void gameoverscreen(GameContext *ctx, uint8_t joystick){
             screen_drawn = 0;
             game_state_init(ctx);
         }
-        ctx->prev_joystick = joystick;
-        screen_drawn = 1;
+            ctx->prev_joystick = joystick;
+            screen_drawn = 1;
         }
     }
     
