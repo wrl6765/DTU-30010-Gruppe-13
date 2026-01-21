@@ -4,6 +4,7 @@
 #include "bullets.h"
 #include <stdlib.h>
 #include "help.h"
+#include "game_state.h"
 
 Bullet bullets[MAX_BULLETS];
 

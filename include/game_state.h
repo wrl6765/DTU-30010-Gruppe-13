@@ -11,23 +11,19 @@
 #define MENU_MODE_PLAY 0
 #define MENU_MODE_HELP 1
 #define MENU_MODE_QUIT 2
-    
-typedef struct {
+
+typedef struct GameContext {
     uint8_t game_state;
     uint8_t menu_mode;
     uint8_t prev_joystick;
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
-    uint8_t forcefield_active;
 } GameContext;
-
 
 void game_state_init(GameContext *ctx);
 void game_state_update(GameContext *ctx, uint8_t joystick);
 void game_init(GameContext *ctx);
 void game_loop(GameContext *ctx, uint8_t joystick);
-
-
 
 #endif

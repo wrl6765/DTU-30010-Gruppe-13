@@ -2,6 +2,7 @@
 #include "Ascii.h"
 #include "HAL.h"
 #include "bullets.h"
+#include "game_state.h"
  
 //----------------player Physics----------------------
 player p; 
@@ -18,6 +19,12 @@ void player_init(){
 	p.prev_y=p.y;
 	p.height=ALIEN_HEIGHT_LVL_1;
 	p.width=ALIEN_WIDTH;	
+	p.forcefield_active = 1;
+	p.heart.active = 0;
+	p.forcefield.active = 0;
+	p.multiplier.active = 0;
+	p.heart_dir = 1;
+	p.forcefield_dir = -1;
 }
 
 bool player_collides_with_bullet(const player *p, const Bullet *b){

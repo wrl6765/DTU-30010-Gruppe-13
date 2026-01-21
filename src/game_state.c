@@ -4,7 +4,6 @@
 #include "Ascii.h"
 #include "HAL.h"
 #include "bullets.h"
-#include "powerup.h"
 #include "Physics.h"
 #include "charset.h"
 #include "heart.h"
@@ -94,7 +93,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     spawn_simple_bullet();
     erase_bullet();
     // If forcefield is active, apply its repulsion to all bullets before physics update
-    if (ctx->forcefield_active) {
+    if (p.forcefield.active) {
         for (int i = 0; i < MAX_BULLETS; ++i) {
             if (bullets[i].alive) {
                 powerup_forcefield(&p, &bullets[i], ctx);

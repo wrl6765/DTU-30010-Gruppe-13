@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+typedef struct GameContext GameContext;  // forward declaration OK
 
 #define MAX_BULLETS 20
 #define BULLET_HEIGHT 1
@@ -13,24 +14,15 @@ typedef struct {
     int vx, vy;
     int ax, ay;
     int alive;
-    int type;  // 0=normal (dies at edge), 1=bouncing (reflects at edge)
+    int type;
 } Bullet;
 
 extern Bullet bullets[MAX_BULLETS];
 
-// Initialize bullet system
 void bullets_init(void);
-
-// Spawn a new bullet with random angle
 void spawn_simple_bullet(void);
-
-// Erase bullets from display
 void erase_bullet(void);
-
-// Update bullet positions and check bounds
 void update_bullets(GameContext *ctx);
-
-// Draw bullets on screen
 void draw_bullets(void);
 
-#endif // BULLETS_H
+#endif

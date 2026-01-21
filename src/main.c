@@ -27,8 +27,10 @@ int main(){
 	.timer_counter = 0,
 	.level = 1,
 	.highscore = 0,
-	.forcefield_active = 1
-};
+
+	}
+;
+	
 	set_leds(1);
 	uint8_t joystick = 0;
 	// uint8_t game_state = GAME_STATE_MENU; // 0=menu, 1=game, 2=help
