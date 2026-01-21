@@ -24,10 +24,10 @@ void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called 
 
 }
 // Player repel powerup - repels bullets away in random direction when they contact player
-void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx, Powerup *forcefield) { //should be called when there is collision with forcefield powerup
+void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx) { //should be called when there is collision with forcefield powerup
     uint32_t timer = ctx->timer_counter;
     if (timer % 300 == 0) {
-        forcefield->active = 0;  // Deactivate forcefield after 300 ticks
+        ctx->forcefield_active = 0;  // Deactivate forcefield after 300 ticks
     }
 
     /*
@@ -49,7 +49,7 @@ void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx, Powerup *f
     float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
     if (dist <= 0.0f) return; // safety
 
-    const float EFFECT_RADIUS = 20.0f; // pixels
+    const float EFFECT_RADIUS = 12; // pixels
     if (dist < EFFECT_RADIUS) {
         float nx = dx_pix / dist;
         float ny = dy_pix / dist;

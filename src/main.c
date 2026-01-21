@@ -26,7 +26,8 @@ int main(){
 	.prev_joystick = 0,
 	.timer_counter = 0,
 	.level = 1,
-	.highscore = 0
+	.highscore = 0,
+	.forcefield_active = 1
 };
 	set_leds(1);
 	uint8_t joystick = 0;

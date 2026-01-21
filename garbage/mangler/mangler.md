@@ -4,8 +4,4 @@
 
 * joystick koble den på
 
-* lcd opdatering (kode er klar og køer, mangler integrering)
-
-* mangler kcdoe til de resterence bullets
-
-* heart.c integrering med 
+* mangler kode til de resterence bullets

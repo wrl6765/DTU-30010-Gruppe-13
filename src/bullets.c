@@ -108,11 +108,11 @@ void update_bullets(GameContext *ctx){
                 if(screen_x < 2) {
                     bullets[i].alive = 0;  // Die at left edge
                 } else {
-                    // Bounce off right edge
-                    if(screen_x > (DISPLAY_WIDTH - 3)) {
-                        bullets[i].vx = -bullets[i].vx;
-                        bullets[i].x = (DISPLAY_WIDTH - 3) << 8;
+                    // die at right edge
+                    if(screen_x > (DISPLAY_WIDTH)) {
+                        bullets[i].alive = 0;  // Die at right edge
                     }
+            
                     // Bounce off top/bottom edges
                     if(screen_y < 2) {
                         bullets[i].vy = -bullets[i].vy;

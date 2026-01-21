@@ -19,6 +19,7 @@ typedef struct {
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
+    uint8_t forcefield_active;
 } GameContext;
 
 
