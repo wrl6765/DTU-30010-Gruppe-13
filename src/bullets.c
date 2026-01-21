@@ -6,11 +6,21 @@
 #include "help.h"
 #include "game_state.h"
 
-Bullet bullets[MAX_BULLETS];
+
+Bullet bullets[MAX_BULLETS]; // Maximum of 20 bullets, actual used defined by max_bullets
+
+void max_bullets(GameContext *ctx, Bullet *b){
+    switch (ctx->level) {
+        case 1: b->max_bullets = 10; break;
+        case 2: b->max_bullets = 15; break;
+        case 3: b->max_bullets = 20; break;
+    }
+}
+
 
 // Initialize bullet system
-void bullets_init(void){
-    for(int i = 0; i < MAX_BULLETS; i++){
+void bullets_init(Bullet *b){
+    for(int i = 0; i < b->max_bullets; i++){
         bullets[i].alive = 0;
         bullets[i].x = 0;
         bullets[i].y = 0;
@@ -22,8 +32,8 @@ void bullets_init(void){
     }
 }
 
-void spawn_simple_bullet(){
-    for(int i=0;i<MAX_BULLETS;i++){
+void spawn_simple_bullet(Bullet *b){
+    for(int i=0;i<b->max_bullets;i++){
         if(!bullets[i].alive){
             // Spawn from right side of screen
             bullets[i].x = (DISPLAY_WIDTH - 3) << 8;  // -3 to be inside border
@@ -53,8 +63,8 @@ void spawn_simple_bullet(){
 
 
 
-void erase_bullet(){
-    for(int i=0;i<MAX_BULLETS;i++){
+void erase_bullet(Bullet *b){
+    for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             int x = bullets[i].x >> 8;
             int y = bullets[i].y >> 8;
@@ -79,8 +89,8 @@ void erase_bullet(){
     }
 }
 
-void update_bullets(GameContext *ctx){
-    for(int i=0;i<MAX_BULLETS;i++){
+void update_bullets(GameContext *ctx, Bullet *b){
+    for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             // Update positions
             bullets[i].x += bullets[i].vx;
@@ -140,8 +150,8 @@ void update_bullets(GameContext *ctx){
 
 
 
-void draw_bullets(){
-    for(int i=0;i<MAX_BULLETS;i++){
+void draw_bullets(Bullet *b){
+    for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             gotoxy((int)(bullets[i].x >> 8), (int)(bullets[i].y >> 8));
             // TODO: Replace with your display function

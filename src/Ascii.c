@@ -152,6 +152,7 @@ void drawAlien(player *p, GameContext *ctx)
 
 	const char (*sprite)[ALIEN_WIDTH +1];
 	int height;
+	sprite = NULL;
 
 	switch(ctx->level){
 	case 1: // level 1
