@@ -2,6 +2,7 @@
 #include "bullets.h"
 #include "Ascii.h"
 #include <math.h>
+#include <stdint.h>
 #include "game_state.h"
 #include "powerup.h"
 #include <stdbool.h>
@@ -25,26 +26,50 @@ void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called 
 // Player repel powerup - repels bullets away in random direction when they contact player
 void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx, Powerup *forcefield) { //should be called when there is collision with forcefield powerup
     uint32_t timer = ctx->timer_counter;
-    if (timer % 300 == 0)
-    {
+    if (timer % 300 == 0) {
         forcefield->active = 0;  // Deactivate forcefield after 300 ticks
     }
-    int player_center_x = p->x + (p->width << 7); // Center x in 8.8 format
-    int player_center_y = p->y + (p->height << 7); // Center y in 8.8 format
 
-    int bullet_center_x = b->x + (BULLET_WIDTH << 7); // Center x in 8.8 format
-    int bullet_center_y = b->y + (BULLET_HEIGHT << 7); // Center y in 8.8 format
+    /*
+     * Positions are stored in 8.8 fixed point. Convert to pixel floats,
+     * compute a normalized direction from player->bullet and apply a
+     * small acceleration (in 8.8 fixed point) away from the player when
+     * inside an effect radius.
+     */
+    int32_t player_center_x = (int32_t)p->x + ((int32_t)p->width << 8);
+    int32_t player_center_y = (int32_t)p->y + ((int32_t)p->height << 8);
+    int32_t bullet_center_x = (int32_t)b->x + ((int32_t)BULLET_WIDTH << 8);
+    int32_t bullet_center_y = (int32_t)b->y + ((int32_t)BULLET_HEIGHT << 8);
 
-    int16_t dx = bullet_center_x - player_center_x;
-    int16_t dy = bullet_center_y - player_center_y;
-    
-    float distance = sqrtf((dx * dx) + (dy * dy));
-    if (distance == 0) return; // Prevent division by zero
-    if (distance < 20 << 8) { // If within 20 pixels
-        b->ax = -1/(dx); // Repel away
-        b->ay = -1/(dy);
+    int32_t dx_fixed = bullet_center_x - player_center_x; // fixed 8.8
+    int32_t dy_fixed = bullet_center_y - player_center_y; // fixed 8.8
+
+    float dx_pix = dx_fixed / 256.0f;
+    float dy_pix = dy_fixed / 256.0f;
+    float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
+    if (dist <= 0.0f) return; // safety
+
+    const float EFFECT_RADIUS = 20.0f; // pixels
+    if (dist < EFFECT_RADIUS) {
+        float nx = dx_pix / dist;
+        float ny = dy_pix / dist;
+
+        // Strength scales with proximity: closer -> stronger push
+        // Tweak the constant to get desired gameplay feel
+        float strength_pixels = (EFFECT_RADIUS - dist) * 0.5f; // pixels/tick^2
+
+        // Convert to 8.8 fixed point for ax/ay
+        int ax_fixed = (int)(nx * strength_pixels * 256.0f);
+        int ay_fixed = (int)(ny * strength_pixels * 256.0f);
+
+        // Apply acceleration away from player (add because nx points from player->bullet)
+        b->ax += ax_fixed;
+        b->ay += ay_fixed;
+    } else {
+        // Outside effect radius: reset acceleration to 0
+        b->ax = 0;
+        b->ay = 0;
     }
-}
 
 // Updates powerups using random test powerups
 // Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
@@ -80,7 +105,7 @@ void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *forcefield, Power
         multiplier->active = 1;
     }
     
-
+/*
     // --- Erase old powerups ---
     erasePowerup(heart);
     erasePowerup(forcefield);
@@ -104,7 +129,7 @@ void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *forcefield, Power
     drawPowerup(multiplier);
 }
 
-/*
+
 Dette kan bruges senere i main loopet
 
 // Define powerups and directions
@@ -117,3 +142,4 @@ int forcefield_dir = -1;
 testPowerupsUpdate(&ctx, &heart, &forcefield, &heart_dir, &forcefield_dir);
 
 */
+}}

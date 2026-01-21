@@ -9,6 +9,9 @@
 #include "charset.h"
 #include "heart.h"
 
+// Minimal file-scoped forcefield instance for gameplay
+static Powerup forcefield = { .active = 1 };
+
 void game_state_init(GameContext *ctx)
 {
     clear();
@@ -93,6 +96,14 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     // Update and draw bullets
     spawn_simple_bullet();
     erase_bullet();
+    // If forcefield is active, apply its repulsion to all bullets before physics update
+    if (forcefield.active) {
+        for (int i = 0; i < MAX_BULLETS; ++i) {
+            if (bullets[i].alive) {
+                powerup_forcefield(&p, &bullets[i], ctx, &forcefield);
+            }
+        }
+    }
     update_bullets(ctx);
     draw_bullets();
     liv_update(p.hp);
