@@ -221,75 +221,69 @@ void drawBullet(Bullet *b)
 	}
 }
 
-void drawPowerup(Powerup *pu)
+void drawPowerup(player *p)
 {
 	// Powerup sprites
-	static const char heartSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
-	    " *** ",
-	    "*   *",
-	    "*<3 *",
-	    "*   *",
-	    " *** "
-	};
+	struct { Powerup *pu; const char sprite[POWERUP_HEIGHT][POWERUP_WIDTH+1]; } powerups[] = {
+	{ &p->heart_pickup, {
+            " *** ",
+			"*   *", 
+			"*<3 *", 
+			"*   *", 
+			" *** "
+        }},
+        { &p->forcefield_pickup, {
+            " *** ", 
+			"*   *", 
+			"*[ ]*", 
+			"*   *", 
+			" *** "
+        }},
+        { &p->multiplier_pickup, {
+            " *** ", 
+			"*\\ /*", 
+			"* X *", 
+			"*/ \\*", 
+			" *** "
+        }}
+    };
 
-	static const char shieldSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
-	    " *** ",
-	    "*   *",
-	    "*[ ]*",
-	    "*   *",
-	    " *** "
-	};
+   for (int k = 0; k < 3; k++) {
+        Powerup *pu = powerups[k].pu;
+        if (!pu->active) continue;
 
-	static const char multiplierSprite[POWERUP_HEIGHT][POWERUP_WIDTH +1] = {
-	    " *** ",
-	    "*\\ /*",
-	    "* X *",
-	    "*/ \\*",
-	    " *** "
-	};
-
-    if (!pu->active) return;
-
-    uint16_t x = (pu->x >> 8);
-    uint16_t y = (pu->y >> 8);
-
-    const char (*sprite)[POWERUP_WIDTH +1];
-	sprite = NULL;
-    switch (pu->type) {
-    case POWERUP_HEART:
-        sprite = heartSprite;
-        break;
-    case POWERUP_FORCEFIELD:
-        sprite = shieldSprite;
-        break;
-    case POWERUP_MULTIPLIER:
-        sprite = multiplierSprite;
-		break;
-    }
-
-    for (int i=0; i<POWERUP_HEIGHT; i++) {
-        gotoxy(x, y+i);
-        for (int j = 0; sprite[i][j] != '\0'; j++) {
-            char c = sprite[i][j];
-            printf("%c", c);
+        for (int i = 0; i < POWERUP_HEIGHT; i++) {
+            gotoxy(pu->x >> 8, (pu->y >> 8) + i);
+            for (int j = 0; j < POWERUP_WIDTH; j++) {
+                char c = powerups[k].sprite[i][j];
+                printf("%c", c);
+            }
         }
     }
 }
 
-void erasePowerup(Powerup *pu)
+
+void erasePowerup(player *p)
 {
-    if (!pu->active) return;
+    Powerup *pickups[] = { &p->heart_pickup, &p->forcefield_pickup, &p->multiplier_pickup }; //powerup array
 
-    for (int i=0; i<POWERUP_HEIGHT; i++) {
-        gotoxy((pu->prev_x >> 8), (pu->prev_y >> 8) + i);
-        for (int j = 0; j < POWERUP_WIDTH; j++) {
-            printf(BG_DOT, 250);
+    for (int k = 0; k < 3; k++) {
+        Powerup *pu = pickups[k];
+        if (!pu->active) continue;
+
+        for (int i = 0; i < POWERUP_HEIGHT; i++) {
+            gotoxy((pu->prev_x >> 8), (pu->prev_y >> 8) + i);
+            for (int j = 0; j < POWERUP_WIDTH; j++) {
+                printf(BG_DOT, 250);
+            }
         }
-    }
 
-    pu->prev_x = pu->x;
-    pu->prev_y = pu->y;
+        // Update prev position after erase
+        pu->prev_x = pu->x;
+        pu->prev_y = pu->y;
+    }
 }
+
 
 //--------------print level--------------
 void print_level(GameContext *ctx){

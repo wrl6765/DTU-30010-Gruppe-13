@@ -7,6 +7,7 @@
 #include "Physics.h"
 #include "charset.h"
 #include "heart.h"
+#include "powerup.h"
 
 static BulletSystem bullet_system;
 
@@ -80,6 +81,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
         if(ctx->level < 3){
             ctx->level++;
             bullets_set_max(ctx, &bullet_system); // Update max bullets for new level
+            bullets_init(&bullet_system); // Re-initialize bullets
         }
     }
 
@@ -91,21 +93,29 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     eraseAlien(&p, ctx);
     update_player(&p, joystick, ctx);
     drawAlien(&p, ctx);
-                 // antal liv (1 til 5)
+
+    spawn_powerup(&p, ctx);
+    powerups_Update(ctx, &p);
+    powerup_effects_update(&p);
     // Update and draw bullets
     erase_bullet(&bullet_system);
-    // If forcefield is active, apply its repulsion to all bullets before physics update
-    if (p.forcefield.active) {
-        for (int i = 0; i < MAX_BULLETS; ++i) {
-            if (bullet_system.bullets[i].alive) {
-                powerup_forcefield(&p, &bullet_system.bullets[i], ctx);
-            }
-        }
-    }
-    update_bullets(ctx, &bullet_system);
     spawn_simple_bullet(&bullet_system);
+    update_bullets(ctx, &bullet_system);
     draw_bullets(&bullet_system);
     liv_update(&p);
+    // If forcefield is active, apply its repulsion to all bullets before physics update
+if (p.forcefield_active) {
+    for (int i = 0; i < bullet_system.max_bullets; i++) {
+        Bullet *b = &bullet_system.bullets[i];
+        if (b->alive) {
+            powerup_forcefield_apply(&p, b);
+        }
+    }
+}
+
+
+
+
     if (p.hp <= 0) {
                     ctx->game_state = GAME_STATE_GAME_OVER;
                     game_state_init(ctx);

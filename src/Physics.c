@@ -19,14 +19,15 @@ void player_init(){
 	p.prev_y=p.y;
 	p.height=ALIEN_HEIGHT_LVL_1;
 	p.width=ALIEN_WIDTH;	
-	p.heart.active = 0;
-	p.forcefield.active = 1;
-	p.multiplier.active = 0;
+	p.forcefield_active = 0;
+	p.multiplier_active = 0;
 	p.heart_dir = 1;
 	p.forcefield_dir = -1;
+	p.forcefield_timer = 0;
+	p.multiplier_timer = 0;
 }
 
-bool player_collides_with_bullet(const player *p, const Bullet *b){
+bool player_collides_with_bullet(player *p, const Bullet *b){
 	// Define player collision box
 	int player_left = p->x >> 8;
 	int player_right = player_left + p->width;
@@ -49,6 +50,74 @@ bool player_collides_with_bullet(const player *p, const Bullet *b){
 	return false;  // No collision
 }
 
+bool heal_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define heal powerup collision box
+	int heal_left = p->heart_pickup.x >> 8;
+	int heal_right = heal_left + POWERUP_WIDTH;
+	int heal_top = p->heart_pickup.y >> 8;
+	int heal_bottom = heal_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < heal_right &&
+		player_right > heal_left &&
+		player_top < heal_bottom &&
+		player_bottom > heal_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+bool multiplier_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define multiplier powerup collision box
+	int mult_left = p->multiplier_pickup.x >> 8;
+	int mult_right = mult_left + POWERUP_WIDTH;
+	int mult_top = p->multiplier_pickup.y >> 8;
+	int mult_bottom = mult_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < mult_right &&
+		player_right > mult_left &&
+		player_top < mult_bottom &&
+		player_bottom > mult_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+bool forcefield_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define forcefield powerup collision box
+	int ff_left = p->forcefield_pickup.x >> 8;
+	int ff_right = ff_left + POWERUP_WIDTH;
+	int ff_top = p->forcefield_pickup.y >> 8;
+	int ff_bottom = ff_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < ff_right &&
+		player_right > ff_left &&
+		player_top < ff_bottom &&
+		player_bottom > ff_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
 
 void update_player(player* p, uint8_t joystick, GameContext *ctx){
 // -----movement physics-----

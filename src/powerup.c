@@ -5,68 +5,85 @@
 #include <stdint.h>
 #include "game_state.h"
 #include <stdbool.h>
+#include "powerup.h"
+
+void spawn_powerup(player *p, GameContext *ctx) {
+    uint32_t t = ctx->timer_counter;
+
+   if ((t+600) % 900 == 0 && !p->heart_pickup.active) {
+        p->heart_pickup.active = 1;
+        p->heart_pickup.type = POWERUP_HEART;
+        p->heart_pickup.x = DISPLAY_WIDTH << 8;
+        p->heart_pickup.y = 5 << 8;
+        p->heart_pickup.vx = -128;
+        p->heart_pickup.vy = 0;
+    }
+    
+
+    if ((t+300) % 900 == 0 && !p->forcefield_pickup.active) {
+        // spawn forcefield
+        p->forcefield_pickup.active = 1;
+        p->forcefield_pickup.type = POWERUP_FORCEFIELD;
+        p->forcefield_pickup.x = DISPLAY_WIDTH << 8;
+        p->forcefield_pickup.y = 12 << 8;
+        p->forcefield_pickup.vx = -128;
+        p->forcefield_pickup.vy = 0;
+    }
+
+    if (t % 900 == 0 && !p->multiplier_pickup.active) {
+        // spawn multiplier
+        p->multiplier_pickup.active = 1;
+        p->multiplier_pickup.type = POWERUP_MULTIPLIER;
+        p->multiplier_pickup.x = DISPLAY_WIDTH << 8;
+        p->multiplier_pickup.y = 20 << 8;
+        p->multiplier_pickup.vx = -128;
+        p->multiplier_pickup.vy = 0;
+    }
+}
 
 void powerup_heal_player(player *p) { //should be called when there is collision with heal powerup
-    p->hp += 2; // Heal 2 HP
-    if (p->hp > 5) {  // Assuming max HP is 5
-        p->hp = 5;
-    }
+        p->hp += 2; // Heal 2 HP
+        if (p->hp > 5) {  // Assuming max HP is 5
+            p->hp = 5;
+        }
 }
 
-void powerup_score_multiplier(player *p, GameContext *ctx) { //should be called when there is collision with score multiplier powerup
-    uint32_t timer = ctx->timer_counter; 
-    p->score_multiplier = 2;  // Double score
-    if (timer % 300 == 0)
+void powerup_score_multiplier_init(player *p) { //should be called when there is collision with score multiplier powerup
+            p->score_multiplier = 2;  // Double score
+            p->multiplier_active = 1;
+            p->multiplier_timer = 300;  // Set timer for 300 ticks
+    
+}
+
+
+void powerup_forcefield_init(player *p) { //should be called when there is collision with forcefield powerup
+            p->forcefield_active = 1;
+            p->forcefield_timer = 300;
+        
+   
+}
+
+void powerup_effects_update(player *p) {
+    //------multiplier effect update------
     {
-        p->score_multiplier = 1;  // Reset to normal after 300 ticks
+    if (p->multiplier_timer > 0) {
+        p->multiplier_timer--;
+        if (p->multiplier_timer == 0) {
+            p->score_multiplier = 1;  // Reset to normal score
+            p->multiplier_active = 0;
+        }
     }
-
 }
-// Player repel powerup - repels bullets away in random direction when they contact player
-void powerup_forcefield(player *p, Bullet *b, GameContext *ctx) { //should be called when there is collision with forcefield powerup
-    uint32_t timer = ctx->timer_counter;
-    if (timer % 300 == 0) {
-        p->forcefield.active = 0;  // Deactivate forcefield after 300 ticks
+    //------forcefield effect update------
+    if (p->forcefield_timer > 0) {
+        p->forcefield_timer--;
+        if (p->forcefield_timer == 0) {
+            p->forcefield_active = 0;
+        }
     }
-
-    if (timer % 301 == 0) {
-        // spawn heart
-        p->heart.x = DISPLAY_WIDTH << 8;
-        p->heart.y = 5 << 8;
-        p->heart.prev_x = p->heart.x;
-        p->heart.prev_y = p->heart.y;
-        p->heart.vx = -128;
-        p->heart.vy = 0;
-        p->heart.active = 1;
-        p->heart.type = POWERUP_HEART;
-    }
-
-    if (timer % 601 == 0) {
-        // spawn forcefield
-        p->forcefield.x = DISPLAY_WIDTH << 8;
-        p->forcefield.y = 12 << 8;
-        p->forcefield.prev_x = p->forcefield.x;
-        p->forcefield.prev_y = p->forcefield.y;
-        p->forcefield.vx = -128;
-        p->forcefield.vy = 0;
-        p->forcefield.active = 1;
-        p->forcefield.type = POWERUP_FORCEFIELD;
-    }
-
-    if (timer % 901 == 0) {
-        // spawn multiplier
-        p->multiplier.x = DISPLAY_WIDTH << 8;
-        p->multiplier.y = 20 << 8;
-        p->multiplier.prev_x = p->multiplier.x;
-        p->multiplier.prev_y = p->multiplier.y;
-        p->multiplier.vx = -128;
-        p->multiplier.vy = 0;
-        p->multiplier.active = 1;
-        p->multiplier.type = POWERUP_MULTIPLIER;
-    }
-
-
-    /*
+}
+void powerup_forcefield_apply(player *p, Bullet *b) {
+     /*
      * Positions are stored in 8.8 fixed point. Convert to pixel floats,
      * compute a normalized direction from player->bullet and apply a
      * small acceleration (in 8.8 fixed point) away from the player when
@@ -109,101 +126,77 @@ void powerup_forcefield(player *p, Bullet *b, GameContext *ctx) { //should be ca
 }
 
 
-/*
 // Updates powerups using random test powerups
 // Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
-void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *forcefield, Powerup *multiplier, int *heart_dir, int *forcefield_dir) {
+void powerups_Update(GameContext *ctx, player *p) {
     // Only do anything if the game is in play mode
-    if (ctx->game_state != GAME_STATE_PLAY) return;
+    
 
-    // Initialize powerups if they are inactive (test values)
-    if (!heart->active) {
-        heart->x = 10 << 8;
-        heart->y = 5 << 8;
-        heart->prev_x = heart->x;
-        heart->prev_y = heart->y;
-        heart->vx = (*heart_dir) << 8;
-        heart->vy = 0;
-        heart->type = POWERUP_HEART;
-        heart->active = 1;
-    }
-
-    if (!forcefield->active) {
-        forcefield->x = 50 << 8;
-        forcefield->y = 12 << 8;
-        forcefield->prev_x = forcefield->x;
-        forcefield->prev_y = forcefield->y;
-        forcefield->vx = (*forcefield_dir) << 8;
-        forcefield->vy = 0;
-        forcefield->type = POWERUP_FORCEFIELD;
-        forcefield->active = 1;
-    }
-
-        if (!multiplier->active) {
-        multiplier->x = 50 << 8;
-        multiplier->y = 12 << 8;
-        multiplier->prev_x = multiplier->x;
-        multiplier->prev_y = multiplier->y;
-        multiplier->vx = (*forcefield_dir) << 8;
-        multiplier->vy = 0;
-        multiplier->type = POWERUP_MULTIPLIER;
-        multiplier->active = 1;
-    }
-
-
-*/
-
-
-
-
-/*
     // --- Erase old powerups ---
-    erasePowerup(heart);
-    erasePowerup(forcefield);
-    erasePowerup(multiplier);
+    if (p->heart_pickup.active)
+        erasePowerup(p);
+    if (p->forcefield_pickup.active)
+        erasePowerup(p);
+    if (p->multiplier_pickup.active)
+        erasePowerup(p);
 
-    // --- Update prev positions ---
-    heart->prev_x = heart->x;
-    heart->prev_y = heart->y;
-    forcefield->prev_x = forcefield->x;
-    forcefield->prev_y = forcefield->y;
-    multiplier->prev_x = multiplier->x;
-    multiplier->prev_y = multiplier->y;
 
-    // --- Move powerups ---
-    heart->x += heart->vx;
-    heart->y += heart->vy;
-    forcefield->x += forcefield->vx;
-    forcefield->y += forcefield->vy;
-    multiplier->x += multiplier->vx;
-    multiplier->y += multiplier->vy;
+    // --- move ---
+ if (p->heart_pickup.active) {
+        p->heart_pickup.prev_x = p->heart_pickup.x;
+        p->heart_pickup.prev_y = p->heart_pickup.y;
+        p->heart_pickup.x += p->heart_pickup.vx;
+        p->heart_pickup.y += p->heart_pickup.vy;
+    }
 
-    // --- Bounce off screen edges (for test powerups) ---
-    if ((heart->x >> 8) <= 1 || (heart->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
-        heart->vx = -heart->vx;
+    if (p->forcefield_pickup.active) {
+        p->forcefield_pickup.prev_x = p->forcefield_pickup.x;
+        p->forcefield_pickup.prev_y = p->forcefield_pickup.y;
+        p->forcefield_pickup.x += p->forcefield_pickup.vx;
+        p->forcefield_pickup.y += p->forcefield_pickup.vy;
+    }
 
-    if ((forcefield->x >> 8) <= 1 || (forcefield->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
-        forcefield->vx = -forcefield->vx;
+    if (p->multiplier_pickup.active) {
+        p->multiplier_pickup.prev_x = p->multiplier_pickup.x;
+        p->multiplier_pickup.prev_y = p->multiplier_pickup.y;
+        p->multiplier_pickup.x += p->multiplier_pickup.vx;
+        p->multiplier_pickup.y += p->multiplier_pickup.vy;
+    }
+    //---------collision-----------
+     if (p->heart_pickup.active && heal_collides_with_player(p)) {
+        p->heart_pickup.active = 0;
+        powerup_heal_player(p);
+    }
 
-    if ((multiplier->x >> 8) <= 1 || (multiplier->x >> 8) >= DISPLAY_WIDTH - POWERUP_WIDTH)
-        multiplier->vx = -multiplier->vx;
+    if (p->multiplier_pickup.active && multiplier_collides_with_player(p)) {
+        p->multiplier_pickup.active = 0;
+        powerup_score_multiplier_init(p);
+    }
+
+    if (p->forcefield_pickup.active && forcefield_collides_with_player(p)) {
+        p->forcefield_pickup.active = 0;
+        powerup_forcefield_init(p);
+    }
+
+    //---------border checks-----------
+    if ((p->heart_pickup.x >> 8) < -POWERUP_WIDTH) {
+    p->heart_pickup.active = 0;
+}
+    if ((p->forcefield_pickup.x >> 8) < -POWERUP_WIDTH) {
+    p->forcefield_pickup.active = 0;
+    }
+    if ((p->multiplier_pickup.x >> 8) < -POWERUP_WIDTH) {
+    p->multiplier_pickup.active = 0;
+    }
 
     // --- Draw updated powerups ---
-    drawPowerup(heart);
-    drawPowerup(forcefield);
-    drawPowerup(multiplier);
+    if (p->heart_pickup.active)
+        drawPowerup(p);
+    if (p->forcefield_pickup.active)
+        drawPowerup(p);
+    if (p->multiplier_pickup.active)
+        drawPowerup(p);
+
 }
 
 
-Dette kan bruges senere i main loopet
-
-// Define powerups and directions
-Powerup heart = {.active = 0};
-Powerup forcefield = {.active = 0};
-int heart_dir = 1;
-int forcefield_dir = -1;
-
-// In your main loop (inside tim2_flag)
-testPowerupsUpdate(&ctx, &heart, &forcefield, &heart_dir, &forcefield_dir);
-
-*/

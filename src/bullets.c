@@ -152,8 +152,6 @@ void draw_bullets(BulletSystem *bs){
     for(int i=0;i<bs->max_bullets;i++){
         if(bs->bullets[i].alive){
             gotoxy((int)(bs->bullets[i].x >> 8), (int)(bs->bullets[i].y >> 8));
-            // TODO: Replace with your display function
-            // For now, using printf for reference
             drawBullet(&bs->bullets[i]);
         }
     }
