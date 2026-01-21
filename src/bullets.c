@@ -9,7 +9,7 @@
 
 Bullet bullets[MAX_BULLETS]; // Maximum of 20 bullets, actual used defined by max_bullets
 
-void max_bullets(GameContext *ctx, Bullet *b){
+void max_bullets(GameContext *ctx){
     switch (ctx->level) {
         case 1: b->max_bullets = 10; break;
         case 2: b->max_bullets = 15; break;
@@ -19,7 +19,7 @@ void max_bullets(GameContext *ctx, Bullet *b){
 
 
 // Initialize bullet system
-void bullets_init(Bullet *b){
+void bullets_init(void){
     for(int i = 0; i < b->max_bullets; i++){
         bullets[i].alive = 0;
         bullets[i].x = 0;
@@ -32,7 +32,7 @@ void bullets_init(Bullet *b){
     }
 }
 
-void spawn_simple_bullet(Bullet *b){
+void spawn_simple_bullet(void){
     for(int i=0;i<b->max_bullets;i++){
         if(!bullets[i].alive){
             // Spawn from right side of screen
@@ -63,7 +63,7 @@ void spawn_simple_bullet(Bullet *b){
 
 
 
-void erase_bullet(Bullet *b){
+void erase_bullet(void){
     for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             int x = bullets[i].x >> 8;
@@ -89,7 +89,7 @@ void erase_bullet(Bullet *b){
     }
 }
 
-void update_bullets(GameContext *ctx, Bullet *b){
+void update_bullets(GameContext *ctx){
     for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             // Update positions
@@ -150,7 +150,7 @@ void update_bullets(GameContext *ctx, Bullet *b){
 
 
 
-void draw_bullets(Bullet *b){
+void draw_bullets(void){
     for(int i=0;i<b->max_bullets;i++){
         if(bullets[i].alive){
             gotoxy((int)(bullets[i].x >> 8), (int)(bullets[i].y >> 8));

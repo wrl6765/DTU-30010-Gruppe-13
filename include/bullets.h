@@ -25,5 +25,6 @@ void spawn_simple_bullet(void);
 void erase_bullet(void);
 void update_bullets(GameContext *ctx);
 void draw_bullets(void);
+void max_bullets(GameContext *ctx);
 
 #endif

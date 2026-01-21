@@ -59,8 +59,8 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
 
 void game_init(GameContext *ctx){
     // initialize game variables here
-    max_bullets(ctx, bullets); // Set max bullets based on level
-    bullets_init(bullets);      // Initialize bullet system
+    max_bullets(ctx); // Set max bullets based on level
+    bullets_init();      // Initialize bullet system
     player_init();   // Initialize player
     game_borders();      // Draw game borders
     ctx->timer_counter = 0;
@@ -79,7 +79,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
         // Every 30 seconds (30Hz), increase level
         if(ctx->level < 3){
             ctx->level++;
-            max_bullets(ctx, bullets); // Update max bullets for new level
+            max_bullets(ctx); // Update max bullets for new level
         }
     }
 
@@ -93,7 +93,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     drawAlien(&p, ctx);
                  // antal liv (1 til 5)
     // Update and draw bullets
-    erase_bullet(bullets);
+    erase_bullet();
     // If forcefield is active, apply its repulsion to all bullets before physics update
     if (p.forcefield.active) {
         for (int i = 0; i < MAX_BULLETS; ++i) {
@@ -102,9 +102,9 @@ void game_loop(GameContext *ctx, uint8_t joystick){
             }
         }
     }
-    update_bullets(ctx, bullets);
-    spawn_simple_bullet(bullets);
-    draw_bullets(bullets);
+    update_bullets(ctx);
+    spawn_simple_bullet();
+    draw_bullets();
     liv_update(&p);
 
 }
