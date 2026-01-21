@@ -65,7 +65,7 @@ void game_init(GameContext *ctx){
     // initialize game variables here
     bullets_init();      // Initialize bullet system
     player_init();   // Initialize player
-    borders();
+    game_borders();      // Draw game borders
     ctx->timer_counter = 0;
     ctx->level = 1;
 

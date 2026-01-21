@@ -42,6 +42,27 @@ void borders(){
 			printf("%c", 188);
 }
 
+void game_borders(){
+	hide_cursor();
+	clear();
+	gotoxy(1,1);
+
+	for(int i=1; i<(DISPLAY_WIDTH); i++){
+		printf("%c", 205);
+	}
+
+	for (int f=1; f<DISPLAY_HEIGHT-2; f++){
+		gotoxy(1, f+1);
+		for (int j=1; j<DISPLAY_WIDTH;j++){
+			printf(BG_DOT, 250);  // 250 er en prik
+		}
+	}
+
+	gotoxy(1, DISPLAY_HEIGHT-1);
+			for(int i=1; i<(DISPLAY_WIDTH); i++){
+				printf("%c", 205);
+		}
+}
 // ---------- Saturn drawing ----------
 void drawSaturn()
 {

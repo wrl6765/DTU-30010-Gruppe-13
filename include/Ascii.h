@@ -45,6 +45,7 @@
 #define POWERUP_HEIGHT   5
 
 void borders(void);
+void game_borders();
 void bgcolor(uint8_t background);
 void drawSaturn(void);
 void drawAlien(player *p, GameContext *ctx);
