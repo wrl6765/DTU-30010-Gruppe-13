@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include "Physics.h"
 
 // ---------------- LCD manager -----------------
 uint8_t lcd_buffer[512];
@@ -40,8 +41,27 @@ const uint16_t tom_heart_data[13] = {
     0x0080
 };
 
+// --------------- Slet hjerte område -------------------------------
+void heart_clear(uint8_t x, uint8_t y, uint8_t *buffer) {
+    for (int row = 0; row < 13; row++) {
+        for (int col = 0; col < 16; col++) {
+            uint8_t pixel_x = x + col;
+            uint8_t pixel_y = y + row;
+
+            if (pixel_x >= 128 || pixel_y >= 32) continue;
+
+            uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+            uint8_t bit = pixel_y % 8;
+
+            buffer[byte_index] &= ~(1 << bit);  // Clear pixel
+        }
+    }
+}
+
 // --------------- Tegn fyldt hjerte -------------------------------
 void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
+    heart_clear(x, y, buffer);  // Clear area first
+    
     for (int row = 0; row < 13; row++) {
         uint16_t row_data = full_heart_data[row];
 
@@ -63,6 +83,8 @@ void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
 
 // ------------------ Tegn tomt hjerte ---------------------------
 void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer) {
+    heart_clear(x, y, buffer);  // Clear area first
+    
     for (int row = 0; row < 13; row++) {
         uint16_t row_data = tom_heart_data[row];
 
@@ -88,11 +110,11 @@ static const uint8_t heart_x[5] = {16, 36, 56, 76, 96}; // vandret med 20 pixels
 static const uint8_t heart_y[5] = {19, 19, 19, 19, 19}; // lodret samme linje
 
 // ------------- display for de 5 hjærter ---------------------------------------------
-void display_lives(uint8_t lives, uint8_t *buffer) {
-    if (lives > 5) lives = 5; // begræns til max 5
+void display_lives(player *p, uint8_t *buffer) {
+    if (p->hp > 5) p->hp = 5; // begræns til max 5
 
     for (int i = 0; i < 5; i++) {
-        if (i < lives) {
+        if (i < p->hp) {
             heart_full(heart_x[i], heart_y[i], buffer); // fyldt hjerte
         } else {
             heart_tom(heart_x[i], heart_y[i], buffer);  // tomt hjerte
@@ -100,10 +122,10 @@ void display_lives(uint8_t lives, uint8_t *buffer) {
     }
 }
 
-void liv_update(int liv) {
+void liv_update(player *p) {
     uint8_t *buffer = lcd_get_buffer();
 
-    display_lives(liv, buffer);
+    display_lives(p, buffer);
     lcd_commit();
 }
 
