@@ -70,7 +70,7 @@ void powerup_forcefield(const player *p, Bullet *b, GameContext *ctx, Powerup *f
         b->ax = 0;
         b->ay = 0;
     }
-
+}
 // Updates powerups using random test powerups
 // Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
 void powerupsUpdate(GameContext *ctx, Powerup *heart, Powerup *forcefield, Powerup *multiplier, int *heart_dir, int *forcefield_dir) {
@@ -142,4 +142,4 @@ int forcefield_dir = -1;
 testPowerupsUpdate(&ctx, &heart, &forcefield, &heart_dir, &forcefield_dir);
 
 */
-}}
+}
