@@ -3,6 +3,7 @@
 #include "HAL.h"
 #include "bullets.h"
 #include "game_state.h"
+#include "stm32f30x_flash.h"
  
 //----------------player Physics----------------------
 player p; 
@@ -225,5 +226,30 @@ void update_player(player* p, uint8_t joystick, GameContext *ctx){
 }
 
 
+
+
+
+void load_player() {
+    uint32_t magic = *(uint32_t*)SAVE_ADDRESS;
+    if (magic == 0x12345678) {
+        uint32_t *data = (uint32_t*)&p;
+        int size = sizeof(player);
+        for(int i = 0; i < size / 4; i++) {
+            data[i] = *(uint32_t*)(SAVE_ADDRESS + (i+1) * 4);
+        }
+    }
+}
+void save_player() {
+    FLASH_Unlock();
+    FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR);
+    FLASH_ErasePage(SAVE_ADDRESS);
+    FLASH_ProgramWord(SAVE_ADDRESS, 0x12345678); // magic
+    uint32_t *data = (uint32_t*)&p;
+    int size = sizeof(player);
+    for(int i = 0; i < size / 4; i++) {
+        FLASH_ProgramWord(SAVE_ADDRESS + (i+1) * 4, data[i]);
+    }
+    FLASH_Lock();
+}
 
 

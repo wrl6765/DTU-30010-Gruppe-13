@@ -59,7 +59,9 @@ bool multiplier_collides_with_player(player *p);
 bool forcefield_collides_with_player(player *p);
 void player_init(void);
 void update_player(player *p, uint8_t joystick, GameContext *ctx);
+void save_player(void);
+void load_player(void);
 
-
+#define SAVE_ADDRESS 0x0800F000 // Example flash address for saving player data
 
 #endif /* PHYSICS_H_ */

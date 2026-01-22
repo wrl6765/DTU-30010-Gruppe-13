@@ -71,6 +71,7 @@ void game_init(GameContext *ctx){
     bullets_init(&bullet_system);
     bullets_set_max(ctx, &bullet_system);
     player_init();   // Initialize player
+    load_player();   // Load saved progress if available
     game_borders();      // Draw game borders
 }
 
