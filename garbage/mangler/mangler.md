@@ -1,6 +1,4 @@
-* konfiguere powerups og gøre dem interaktive
-
-* konfigure led
+* konfigure led(bugged)
 
 * joystick koble den på
 
