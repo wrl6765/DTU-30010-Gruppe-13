@@ -32,9 +32,25 @@ uint8_t joystick_center_pressed(void)
     return (GPIOB->IDR & (1 << 5)) ? 1 : 0;
 }
 
+uint8_t sw1_pressed(){
+	uint16_t b1 = read_adcbuttons(ADC_Channel_10);
+	if (b1 > 3000){
+		return 0x1;
+	}
+		else
+		return 0x0;
+	
+}
 uint8_t joystick_down_pressed(void)
 {
-    return (GPIOB->IDR & (1 << 0)) ? 1 : 0;
+	    // Read joystick Y-axis for up/down
+    uint16_t joy_y = read_adc(ADC_Channel_8);
+    //return (GPIOB->IDR & (1 << 0)) ? 1 : 0;
+	if (joy_y > 3000) {
+        return 0x1;
+	}
+		else
+		return 0x0;
 }
 uint8_t read_joystick(void){
 	uint8_t val = 0;

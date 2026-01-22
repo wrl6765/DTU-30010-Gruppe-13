@@ -10,6 +10,8 @@ void init_adcbuttons(void);
 // Læser ADC-værdi (0–4095) fra valgt kanal (1 eller 2)
 uint16_t read_adcbuttons(uint8_t channel);
 
+uint8_t sw1_pressed(void);
+
 // Læser ADC og printer værdi
 void update_display_with_adcbuttons(void);
 

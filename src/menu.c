@@ -4,7 +4,6 @@
 #include "Physics.h"
 #include "menu.h"
 #include "help.h"
-#include "adc.h"
 #include <stdlib.h>
 
 
@@ -29,22 +28,15 @@ void display_menu(void){
 
 void menu_update(GameContext *ctx, uint8_t joystick)
 {
-    // Read joystick Y-axis for up/down
-    uint16_t joy_y = read_joystick_updown();
-    uint8_t sw1_pressed = joystick_center_pressed();
-    uint8_t sw1_prev = ctx->prev_sw1;
+    uint8_t pressed = joystick & ~ctx->prev_joystick;
 
-    // Up: if Y < 1000
-    if (joy_y < 1000) {
-        ctx->menu_mode = (ctx->menu_mode + 2) % 3; // +2 mod 3 is -1 mod 3
-    }
-    // Down: if Y > 3000
-    else if (joy_y > 3000) {
+    /* DOWN pressed once */
+    if (pressed & 0x02) {
         ctx->menu_mode = (ctx->menu_mode + 1) % 3;
     }
 
-    // SW1 pressed once for select
-    if (sw1_pressed && !sw1_prev) {
+    /* CENTER pressed once */
+    if (pressed & 0x01) {
         if (ctx->menu_mode == MENU_MODE_PLAY) {
             ctx->game_state = GAME_STATE_PLAY;
             game_state_init(ctx);
@@ -63,7 +55,7 @@ void menu_update(GameContext *ctx, uint8_t joystick)
         }
     }
 
-    ctx->prev_sw1 = sw1_pressed;
+    ctx->prev_joystick = joystick;
 
 uint8_t h=DISPLAY_HEIGHT; uint8_t w = DISPLAY_WIDTH;
 
@@ -86,4 +78,3 @@ uint8_t h=DISPLAY_HEIGHT; uint8_t w = DISPLAY_WIDTH;
 
   
 }
-

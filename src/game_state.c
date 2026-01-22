@@ -119,5 +119,3 @@ if (p.forcefield_active) {
                 }
 
 }
-
-
