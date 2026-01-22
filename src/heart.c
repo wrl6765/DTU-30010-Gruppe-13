@@ -21,7 +21,7 @@ const uint16_t tom_heart_data[13] = {
 };
 
 // ------------ Koordinater for de 5 hjerter -------------------------
-const uint8_t heart_x[5] = {16, 36, 56, 76, 96};
+const uint8_t heart_x[5] = {10, 30, 50, 70, 90};
 const uint8_t heart_y[5] = {19, 19, 19, 19, 19};
 
 // --------------- Slet hjerte område -------------------------------
