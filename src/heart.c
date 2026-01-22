@@ -2,8 +2,29 @@
 #include "bsp/30010_io.h"
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 #include "Physics.h"
 
+// ---------------- LCD manager -----------------
+uint8_t lcd_buffer[512];
+static uint8_t lcd_initialized = 0;
+
+void lcd_manager_init(void) {
+    if (!lcd_initialized) {
+        lcd_init();
+        memset(lcd_buffer, 0x00, 512);
+        lcd_initialized = 1;
+    }
+}
+
+uint8_t *lcd_get_buffer(void) {
+    lcd_manager_init();
+    return lcd_buffer;
+}
+
+void lcd_commit(void) {
+    lcd_push_buffer(lcd_buffer);
+}
 // ------------ Hjerte Full: 16 kolonner x 13 rækker ------------------
 const uint16_t full_heart_data[13] = {
     0x1E3C, 0x3F7E, 0x7FFF, 0x7FFF,
@@ -20,41 +41,41 @@ const uint16_t tom_heart_data[13] = {
     0x0080
 };
 
-// ------------ Koordinater for de 5 hjerter -------------------------
-const uint8_t heart_x[5] = {10, 30, 50, 70, 90};
-const uint8_t heart_y[5] = {19, 19, 19, 19, 19};
-
 // --------------- Slet hjerte område -------------------------------
 void heart_clear(uint8_t x, uint8_t y, uint8_t *buffer) {
     for (int row = 0; row < 13; row++) {
         for (int col = 0; col < 16; col++) {
+            uint8_t pixel_x = x + col;
+            uint8_t pixel_y = y + row;
 
-            uint8_t px = x + col;
-            uint8_t py = y + row;
-            if (px >= 128 || py >= 32) continue;
+            if (pixel_x >= 128 || pixel_y >= 32) continue;
 
-            uint16_t index = (py / 8) * 128 + px;
-            buffer[index] &= ~(1 << (py % 8));
+            uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+            uint8_t bit = pixel_y % 8;
+
+            buffer[byte_index] &= ~(1 << bit);  // Clear pixel
         }
     }
 }
 
 // --------------- Tegn fyldt hjerte -------------------------------
 void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
-    heart_clear(x, y, buffer);
-
+    heart_clear(x, y, buffer);  // Clear area first
+    
     for (int row = 0; row < 13; row++) {
-        uint16_t data = full_heart_data[row];
+        uint16_t row_data = full_heart_data[row];
 
         for (int col = 0; col < 16; col++) {
-            if (data & (1 << (15 - col))) {
+            if (row_data & (1 << (15 - col))) {
+                uint8_t pixel_x = x + col;
+                uint8_t pixel_y = y + row;
 
-                uint8_t px = x + col;
-                uint8_t py = y + row;
-                if (px >= 128 || py >= 32) continue;
+                if (pixel_x >= 128 || pixel_y >= 32) continue;
 
-                uint16_t index = (py / 8) * 128 + px;
-                buffer[index] |= (1 << (py % 8));
+                uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+                uint8_t bit = pixel_y % 8;
+
+                buffer[byte_index] |= (1 << bit);
             }
         }
     }
@@ -62,39 +83,45 @@ void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
 
 // ------------------ Tegn tomt hjerte ---------------------------
 void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer) {
-    heart_clear(x, y, buffer);
-
+    heart_clear(x, y, buffer);  // Clear area first
+    
     for (int row = 0; row < 13; row++) {
-        uint16_t data = tom_heart_data[row];
+        uint16_t row_data = tom_heart_data[row];
 
         for (int col = 0; col < 16; col++) {
-            if (data & (1 << (15 - col))) {
+            if (row_data & (1 << (15 - col))) {
+                uint8_t pixel_x = x + col;
+                uint8_t pixel_y = y + row;
 
-                uint8_t px = x + col;
-                uint8_t py = y + row;
-                if (px >= 128 || py >= 32) continue;
+                if (pixel_x >= 128 || pixel_y >= 32) continue;
 
-                uint16_t index = (py / 8) * 128 + px;
-                buffer[index] |= (1 << (py % 8));
+                uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+                uint8_t bit = pixel_y % 8;
+
+                buffer[byte_index] |= (1 << bit);
             }
         }
     }
 }
 
-// ------------- display for de 5 hjerter --------------------------
+
+// ------------ Koordinater for de 5 hjerter (y = lodret, x = vandret) -------------- 
+static const uint8_t heart_x[5] = {16, 36, 56, 76, 96}; // vandret med 20 pixels mellemrum
+static const uint8_t heart_y[5] = {19, 19, 19, 19, 19}; // lodret samme linje
+
+// ------------- display for de 5 hjærter ---------------------------------------------
 void display_lives(player *p, uint8_t *buffer) {
-    if (p->hp > 5) p->hp = 5;
+    if (p->hp > 5) p->hp = 5; // begræns til max 5
 
     for (int i = 0; i < 5; i++) {
         if (i < p->hp) {
-            heart_full(heart_x[i], heart_y[i], buffer);
+            heart_full(heart_x[i], heart_y[i], buffer); // fyldt hjerte
         } else {
-            heart_tom(heart_x[i], heart_y[i], buffer);
+            heart_tom(heart_x[i], heart_y[i], buffer);  // tomt hjerte
         }
     }
 }
 
-// ------------ opdater liv (samme stil som score_update) ----------
 void liv_update(player *p) {
     uint8_t *buffer = lcd_get_buffer();
 

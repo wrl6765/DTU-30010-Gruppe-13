@@ -20,6 +20,7 @@ typedef struct GameContext {
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
+    uint8_t lcd_buffer [512];
 } GameContext;
 
 void game_state_init(GameContext *ctx);
