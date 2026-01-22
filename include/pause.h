@@ -1,0 +1,6 @@
+
+#include "game_state.h"
+
+void pause_init(GameContext *ctx);
+void pause_update(GameContext *ctx);
+void pause_check(GameContext *ctx);

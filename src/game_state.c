@@ -8,6 +8,7 @@
 #include "charset.h"
 #include "heart.h"
 #include "powerup.h"
+#include "pause.h"
 
 static BulletSystem bullet_system;
 
@@ -32,6 +33,9 @@ void game_state_init(GameContext *ctx)
 
         case GAME_STATE_GAME_OVER:
             game_over_init(ctx);
+            break;
+        case GAME_STATE_PAUSE:
+            pause_init(ctx);
             break;
     }
 }
@@ -58,7 +62,7 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
             break;
 
         case GAME_STATE_PAUSE:
-            pause_update(ctx, joystick);
+            pause_update(ctx);
             break;
     }
 }
@@ -71,11 +75,12 @@ void game_init(GameContext *ctx){
     bullets_init(&bullet_system);
     bullets_set_max(ctx, &bullet_system);
     player_init();   // Initialize player
-    load_player();   // Load saved progress if available
+    //load_player();   // Load saved progress if available
     game_borders();      // Draw game borders
 }
 
 void game_loop(GameContext *ctx, uint8_t joystick){
+    pause_check(ctx);
     ctx->timer_counter++;
 
     if(ctx->timer_counter > 2700){

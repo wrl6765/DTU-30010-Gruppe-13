@@ -7,6 +7,7 @@
 #include "game_state.h"
 #include "charset.h"
 #include <stdio.h>
+#include "pause.h"
 
 
 void displayHelpScreen() {
@@ -138,18 +139,50 @@ void pause_init(GameContext *ctx){
             printf("[ PRESS M TO MENU ]");
         printf("\x1b[40m");
     }
-    save_player();
+    //save_player();
 }
 
-void pause_update(GameContext *ctx, uint8_t joystick) {
-    int input = getchar();
-    getchar(); // consume newline
-    input = getchar();
-    if (input == 'b' || input == 'B') {
+void pause_update(GameContext *ctx) {
+    int ch = uart_get_char();
+    if (ch == -1) return;
+    
+    if (ch == 'b' || ch == 'B') {
         ctx->game_state = GAME_STATE_PLAY;
-        game_state_update(ctx, joystick);
-    } else if (input == 'm' || input == 'M') {
+            gotoxy((DISPLAY_WIDTH >> 1) - 3,DISPLAY_HEIGHT >> 1);
+                for (int i; i<6; i++){
+        printf(BG_DOT, 250);
+        }
+    gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 4);
+        for (int i; i<21; i++){
+        printf(BG_DOT, 250);
+        }
+    
+        gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 2);
+        for (int i; i<19; i++){
+        printf(BG_DOT, 250);
+        }
+    }
+
+     else if (ch == 'm' || ch == 'M') {
         ctx->game_state = GAME_STATE_MENU;
-        game_state_update(ctx, joystick);
+        game_state_init(ctx);
+    }
+}
+
+#include "30010_io.h"
+
+void pause_check(GameContext *ctx)
+{
+    int ch = uart_get_char();   // NON-blocking
+
+    if (ch == -1)
+        return;                // no input = keep running
+
+    if (ctx->game_state == GAME_STATE_PLAY &&
+        (ch == 'b' || ch == 'B'))
+    {
+        ctx->game_state = GAME_STATE_PAUSE;
+        game_state_init(ctx);
+        //save_player();
     }
 }
