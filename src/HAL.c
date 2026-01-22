@@ -118,15 +118,13 @@ void led_trigger(player *p)
 
 void led_update(player *p)
 {
-    if (p->led_timer > 0)
-    {
-        set_leds(0x01);    // LED1 ON
+	gotoxy(5,5);
+	printf("led_timer: %2d\n", p->led_timer);
+    if(p->led_timer > 0){
+        set_leds(2);    // LED ON
         p->led_timer--;
-    }
-    else
-    {
-        set_leds(0x00);    // LED OFF
+    } else {
+        set_leds(0);    // LED OFF
     }
 }
-
 
