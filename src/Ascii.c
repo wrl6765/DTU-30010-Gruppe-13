@@ -206,10 +206,6 @@ void drawBullet(Bullet *b)
 
 	int height = 1;
 
-	if (b->type == 3) {
-		height = 3;
-	}
-
 	for(int i=0; i<height; i++){
 		gotoxy(x, y+i);
 		switch(b->type){
@@ -218,6 +214,9 @@ void drawBullet(Bullet *b)
 		case 3: printf("OOO"); break; // cannonball
 		case 4: printf("**"); break; // sniper
 		}
+	}
+	if (b->type == 3) {
+		height = 3;
 	}
 }
 

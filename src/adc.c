@@ -25,11 +25,11 @@ void init_adc(void) {
     for (int i = 0; i < 1000; i++); // Wait for about 16 microseconds
 
     ADC1->CR |= 0x80000000; // Start ADC1 calibration
-    while (!(ADC1->CR & 0x80000000)); // Wait for calibration to finish
+    //while (!(ADC1->CR & 0x80000000)); // Wait for calibration to finish
     for (int i = 0; i < 100; i++); // Wait for a little while
 
     ADC1->CR |= 0x00000001; // Enable ADC1 (0x01 - Enable, 0x02 - Disable
-    while (!(ADC1->ISR & 0x00000001)); // Wait until ready
+    //while (!(ADC1->ISR & 0x00000001)); // Wait until ready
 }
 
 // ----------- returnere en værdi mellem 0 og 4095 --------------

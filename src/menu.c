@@ -34,13 +34,9 @@ void menu_update(GameContext *ctx, uint8_t joystick)
     uint8_t sw1_pressed = joystick_center_pressed();
     uint8_t sw1_prev = ctx->prev_sw1;
 
-    // Up: if Y < 1000
-    if (joy_y < 1000) {
-        ctx->menu_mode = (ctx->menu_mode + 2) % 3; // +2 mod 3 is -1 mod 3
-    }
     // Down: if Y > 3000
-    else if (joy_y > 3000) {
-        ctx->menu_mode = (ctx->menu_mode + 1) % 3;
+    if (joy_y > 3000) {
+        ctx->menu_mode = sw1_pressed;
     }
 
     // SW1 pressed once for select

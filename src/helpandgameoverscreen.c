@@ -125,3 +125,6 @@ void game_over_update(GameContext *ctx, uint8_t joystick) {
    //     menu_update();
     }
 }
+
+void pause_update(GameContext *ctx, uint8_t joystick) {
+}

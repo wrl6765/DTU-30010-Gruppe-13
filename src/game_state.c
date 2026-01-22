@@ -56,6 +56,10 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
         case GAME_STATE_GAME_OVER:
             game_over_update(ctx, joystick);
             break;
+
+        case GAME_STATE_PAUSE:
+            pause_update(ctx, joystick);
+            break;
     }
 }
 
