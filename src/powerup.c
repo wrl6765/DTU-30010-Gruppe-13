@@ -196,16 +196,6 @@ void powerups_Update(GameContext *ctx, player *p) {
         powerup_forcefield_init(p);
     }
 
-    //---------border checks-----------
-    //if ((p->heart_pickup.x >> 8) < -POWERUP_WIDTH) {
-    //p->heart_pickup.active = 0;
-    //}  
-    //if ((p->forcefield_pickup.x >> 8) < -POWERUP_WIDTH) {
-    //p->forcefield_pickup.active = 0;
-    //}
-    //if ((p->multiplier_pickup.x >> 8) < -POWERUP_WIDTH) {
-    //p->multiplier_pickup.active = 0;
-    //}
 
     // --- Draw updated powerups ---
     if (p->heart_pickup.active)

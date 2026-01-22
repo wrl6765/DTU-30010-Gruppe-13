@@ -58,6 +58,9 @@ void player_init(){
     p.multiplier_pickup.vx = 0;
     p.multiplier_pickup.vy = 0;
     p.multiplier_pickup.type = POWERUP_MULTIPLIER;
+
+	//led stuff
+	p.led_timer = 0;
 }
 
 bool player_collides_with_bullet(player *p, const Bullet *b){

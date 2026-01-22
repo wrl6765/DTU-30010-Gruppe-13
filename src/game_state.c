@@ -103,6 +103,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     update_bullets(ctx, &bullet_system);
     draw_bullets(&bullet_system);
     liv_update(&p);
+    led_update(&p);
     // If forcefield is active, apply its repulsion to all bullets before physics update
 if (p.forcefield_active) {
     for (int i = 0; i < bullet_system.max_bullets; i++) {
@@ -112,9 +113,6 @@ if (p.forcefield_active) {
         }
     }
 }
-
-
-
 
     if (p.hp <= 0) {
                     ctx->game_state = GAME_STATE_GAME_OVER;

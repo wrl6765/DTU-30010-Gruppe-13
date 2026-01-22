@@ -1,6 +1,15 @@
 #include "HAL.h"
+#include "Physics.h"
+#include "game_state.h"
+#include "Ascii.h"
+
+// LED pins
+#define LED1_PIN   4   // PB4
+#define LED2_PIN   7   // PC7
+
+// LED timer max
+#define LED_BLINK_DURATION 15  // ticks (~0.5 sec at 30Hz)
 //-----------------------------------Joystick stuff start------------------------------------------
-// ---------------- Joystick ----------------
 
 void joystick_init(void)
 {
@@ -65,36 +74,59 @@ uint8_t read_joystick(void){
 	//-----------------------------------timer stuff end------------------------------------------
 	//--------------------------LED stuff start--------------------------------------------
 	void led_init(void)
-	{
-	    RCC->AHBENR |= RCC_AHBPeriph_GPIOB; // Enable clock for GPIOB
-	    GPIOB->MODER &= ~(0x3) << (4 * 2);
-	    GPIOB->MODER |=  (0x1) << (4 * 2);
+{
+    // Enable GPIO clocks
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOB | RCC_AHBPeriph_GPIOC;
 
-		GPIOB->OSPEEDR &= ~(0x00000003 << (4 * 2));
-		GPIOB->OSPEEDR |= (0x00000002 << (4 * 2));
-		GPIOB->OTYPER &= ~(0x0001 << (4 * 1));
-		GPIOB->OTYPER |= (0x0000 << (4));
-		
-		
-		GPIOC->MODER &= ~(0x00000003 << (7 * 2));
-		GPIOC->MODER |= (0x00000001 << (7 * 2));
+    // ---- PB4 (LED1) ----
+    GPIOB->MODER &= ~(0x3 << (LED1_PIN * 2));  // clear mode
+    GPIOB->MODER |=  (0x1 << (LED1_PIN * 2));  // output
+    GPIOB->OTYPER &= ~(1 << LED1_PIN);         // push-pull
+    GPIOB->OSPEEDR &= ~(0x3 << (LED1_PIN*2));
+    GPIOB->OSPEEDR |=  (0x2 << (LED1_PIN*2));  // medium speed
 
-		GPIOC->OSPEEDR &= ~(0x00000003 << (7 * 2));
-		GPIOC->OSPEEDR |= (0x00000002 << (7 * 2));
-		GPIOC->OTYPER &= ~(0x0001 << (7 * 1));
-		GPIOC->OTYPER |= (0x0001 << (7));
-	}
-	void set_leds(uint8_t value)
-	{
-	    // Set or reset PB4
-	    if (value & 0x01)
-	        GPIOB->ODR |= (1 << 4); // Turn on LED1
-	    else
-	        GPIOB->ODR &= ~(1 << 4); // Turn off LED1
+    // ---- PC7 (LED2) ----
+    GPIOC->MODER &= ~(0x3 << (LED2_PIN * 2));  // clear mode
+    GPIOC->MODER |=  (0x1 << (LED2_PIN * 2));  // output
+    GPIOC->OTYPER &= ~(1 << LED2_PIN);         // push-pull
+    GPIOC->OSPEEDR &= ~(0x3 << (LED2_PIN*2));
+    GPIOC->OSPEEDR |=  (0x2 << (LED2_PIN*2));  // medium speed
 
-	    // Set or reset PC7
-	    if (value & 0x02)
-	        GPIOC->ODR |= (1 << 7); // Turn on LED2
-	    else
-	        GPIOC->ODR &= ~(1 << 7); // Turn off LED2
-	}
+    // Turn off LEDs initially
+    GPIOB->ODR &= ~(1 << LED1_PIN);
+    GPIOC->ODR &= ~(1 << LED2_PIN);
+}
+	// Set LED states: bit0 = LED1, bit1 = LED2
+void set_leds(uint8_t state)
+{
+    if (state & 0x01)
+        GPIOB->ODR |= (1 << LED1_PIN);
+    else
+        GPIOB->ODR &= ~(1 << LED1_PIN);
+
+    if (state & 0x02)
+        GPIOC->ODR |= (1 << LED2_PIN);
+    else
+        GPIOC->ODR &= ~(1 << LED2_PIN);
+}
+
+// Trigger LED blink
+void led_trigger(player *p)
+{
+    p->led_timer = LED_BLINK_DURATION; // reset timer
+}
+
+void led_update(player *p)
+{
+    if (p->led_timer > 0)
+    {
+        set_leds(0x01);    // LED1 ON
+        p->led_timer--;
+    }
+    else
+    {
+        set_leds(0x00);    // LED OFF
+    }
+}
+
+

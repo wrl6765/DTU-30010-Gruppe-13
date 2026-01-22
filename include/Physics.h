@@ -45,6 +45,8 @@ typedef struct player {
 	uint16_t forcefield_timer;
 	uint16_t multiplier_timer;
 
+	uint16_t led_timer;
+
 } player;
 
 extern player p;
