@@ -14,7 +14,6 @@ void bullets_set_max(GameContext *ctx, BulletSystem *bs)
         case 1: bs->max_bullets = 10; break;
         case 2: bs->max_bullets = 15; break;
         case 3: bs->max_bullets = 20; break;
-        default: bs->max_bullets = 10; break;
     }
 }
 

@@ -39,8 +39,6 @@ typedef struct player {
     Powerup forcefield_pickup;
     Powerup multiplier_pickup;
 
-    int heart_dir;
-    int forcefield_dir;
 
 	uint16_t forcefield_active; // effect active
 	uint16_t multiplier_active; // effect active	

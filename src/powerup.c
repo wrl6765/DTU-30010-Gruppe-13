@@ -147,6 +147,12 @@ void powerups_Update(GameContext *ctx, player *p) {
         p->heart_pickup.prev_y = p->heart_pickup.y;
         p->heart_pickup.x += p->heart_pickup.vx;
         p->heart_pickup.y += p->heart_pickup.vy;
+
+        // Deactivate if off screen
+        if ((p->heart_pickup.x >> 8) < 0 || (p->heart_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->heart_pickup.y >> 8) < 0 || (p->heart_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->heart_pickup.active = 0;
+    }
     }
 
     if (p->forcefield_pickup.active) {
@@ -154,6 +160,12 @@ void powerups_Update(GameContext *ctx, player *p) {
         p->forcefield_pickup.prev_y = p->forcefield_pickup.y;
         p->forcefield_pickup.x += p->forcefield_pickup.vx;
         p->forcefield_pickup.y += p->forcefield_pickup.vy;
+
+        // Deactivate if off screen
+    if ((p->forcefield_pickup.x >> 8) < 0 || (p->forcefield_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->forcefield_pickup.y >> 8) < 0 || (p->forcefield_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->forcefield_pickup.active = 0;
+    }
     }
 
     if (p->multiplier_pickup.active) {
@@ -161,6 +173,12 @@ void powerups_Update(GameContext *ctx, player *p) {
         p->multiplier_pickup.prev_y = p->multiplier_pickup.y;
         p->multiplier_pickup.x += p->multiplier_pickup.vx;
         p->multiplier_pickup.y += p->multiplier_pickup.vy;
+
+        // Deactivate if off screen
+        if ((p->multiplier_pickup.x >> 8) < 0 || (p->multiplier_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->multiplier_pickup.y >> 8) < 0 || (p->multiplier_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->multiplier_pickup.active = 0;
+    }
     }
     //---------collision-----------
      if (p->heart_pickup.active && heal_collides_with_player(p)) {
@@ -179,15 +197,15 @@ void powerups_Update(GameContext *ctx, player *p) {
     }
 
     //---------border checks-----------
-    if ((p->heart_pickup.x >> 8) < -POWERUP_WIDTH) {
-    p->heart_pickup.active = 0;
-}
-    if ((p->forcefield_pickup.x >> 8) < -POWERUP_WIDTH) {
-    p->forcefield_pickup.active = 0;
-    }
-    if ((p->multiplier_pickup.x >> 8) < -POWERUP_WIDTH) {
-    p->multiplier_pickup.active = 0;
-    }
+    //if ((p->heart_pickup.x >> 8) < -POWERUP_WIDTH) {
+    //p->heart_pickup.active = 0;
+    //}  
+    //if ((p->forcefield_pickup.x >> 8) < -POWERUP_WIDTH) {
+    //p->forcefield_pickup.active = 0;
+    //}
+    //if ((p->multiplier_pickup.x >> 8) < -POWERUP_WIDTH) {
+    //p->multiplier_pickup.active = 0;
+    //}
 
     // --- Draw updated powerups ---
     if (p->heart_pickup.active)

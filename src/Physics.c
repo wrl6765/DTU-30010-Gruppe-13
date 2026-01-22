@@ -8,23 +8,56 @@
 player p; 
 
 void player_init(){
+	// movement
 	p.x=X_COORDINATE/6;
 	p.y=Y_COORDINATE/2;
 	p.vy=0;
 	p.ay=0;
+	p.prev_x=p.x;
+	p.prev_y=p.y;
+
+	//general attributes
 	p.score=0;
 	p.score_multiplier=1;
 	p.hp=5;
-	p.prev_x=p.x;
-	p.prev_y=p.y;
+
+	//physical attributes
 	p.height=ALIEN_HEIGHT_LVL_1;
-	p.width=ALIEN_WIDTH;	
+	p.width=ALIEN_WIDTH;
+	
+	//powerup effect status
 	p.forcefield_active = 0;
 	p.multiplier_active = 0;
-	p.heart_dir = 1;
-	p.forcefield_dir = -1;
 	p.forcefield_timer = 0;
 	p.multiplier_timer = 0;
+
+	//pickup inits
+	p.heart_pickup.active = 0;
+    p.heart_pickup.x = 0;
+    p.heart_pickup.y = 0;
+    p.heart_pickup.prev_x = 0;
+    p.heart_pickup.prev_y = 0;
+    p.heart_pickup.vx = 0;
+    p.heart_pickup.vy = 0;
+    p.heart_pickup.type = POWERUP_HEART;
+
+	p.forcefield_pickup.active = 0;
+    p.forcefield_pickup.x = 0;
+    p.forcefield_pickup.y = 0;
+    p.forcefield_pickup.prev_x = 0;
+    p.forcefield_pickup.prev_y = 0;
+    p.forcefield_pickup.vx = 0;
+    p.forcefield_pickup.vy = 0;
+    p.forcefield_pickup.type = POWERUP_FORCEFIELD;
+
+	p.multiplier_pickup.active = 0;
+    p.multiplier_pickup.x = 0;
+    p.multiplier_pickup.y = 0;
+    p.multiplier_pickup.prev_x = 0;
+    p.multiplier_pickup.prev_y = 0;
+    p.multiplier_pickup.vx = 0;
+    p.multiplier_pickup.vy = 0;
+    p.multiplier_pickup.type = POWERUP_MULTIPLIER;
 }
 
 bool player_collides_with_bullet(player *p, const Bullet *b){
