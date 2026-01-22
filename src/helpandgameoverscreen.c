@@ -125,3 +125,31 @@ void game_over_update(GameContext *ctx, uint8_t joystick) {
    //     menu_update();
     }
 }
+
+void pause_init(GameContext *ctx){
+    clear();
+    borders();
+    gotoxy((DISPLAY_WIDTH >> 1) - 3,DISPLAY_HEIGHT >> 1);{printf("PAUSED");}
+    gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 4);{
+        printf("\x1b[41m");
+        printf("[ PRESS B TO RESUME ]");
+    }
+        gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 2);{
+            printf("[ PRESS M TO MENU ]");
+        printf("\x1b[40m");
+    }
+    save_player();
+}
+
+void pause_update(GameContext *ctx, uint8_t joystick) {
+    int input = getchar();
+    getchar(); // consume newline
+    input = getchar();
+    if (input == 'b' || input == 'B') {
+        ctx->game_state = GAME_STATE_PLAY;
+        game_state_update(ctx, joystick);
+    } else if (input == 'm' || input == 'M') {
+        ctx->game_state = GAME_STATE_MENU;
+        game_state_update(ctx, joystick);
+    }
+}

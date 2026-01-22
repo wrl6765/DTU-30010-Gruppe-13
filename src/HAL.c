@@ -76,6 +76,7 @@ uint8_t read_joystick(void){
 	}
 
 	// TIM2 interrupt handler
+
 	void TIM2_IRQHandler(void)
 	{
 	    if (TIM2->SR & 0x0001) // UIF flag
@@ -83,9 +84,7 @@ uint8_t read_joystick(void){
 	        TIM2->SR &= ~0x0001; // clear flag
 	        tim2_flag = 1;
 	    }
-	}
-
-
+	} 
 
 	//-----------------------------------timer stuff end------------------------------------------
 	//--------------------------LED stuff start--------------------------------------------
@@ -97,7 +96,7 @@ uint8_t read_joystick(void){
     // ---- PB4 (LED1) ----
     GPIOB->MODER &= ~(0x3 << (LED1_PIN * 2));  // clear mode
     GPIOB->MODER |=  (0x1 << (LED1_PIN * 2));  // output
-    GPIOB->OTYPER &= ~(1 << LED1_PIN);         // push-pull
+    GPIOB->OTYPER &= ~(1 << (LED1_PIN * 1));         // push-pull
     GPIOB->OSPEEDR &= ~(0x3 << (LED1_PIN*2));
     GPIOB->OSPEEDR |=  (0x2 << (LED1_PIN*2));  // medium speed
 
@@ -126,6 +125,7 @@ void set_leds(uint8_t state)
         GPIOC->ODR &= ~(1 << LED2_PIN);
 }
 
+
 // Trigger LED blink
 void led_trigger(player *p)
 {
@@ -135,10 +135,11 @@ void led_trigger(player *p)
 void led_update(player *p)
 {
     if(p->led_timer > 0){
-        set_leds(2);    // LED ON
+        set_leds(1);    // LED ON
         p->led_timer--;
     } else {
         set_leds(0);    // LED OFF
     }
 }
 
+//--------------------------LED stuff end--------------------------------------------

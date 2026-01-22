@@ -56,6 +56,10 @@ void game_state_update(GameContext *ctx, uint8_t joystick)
         case GAME_STATE_GAME_OVER:
             game_over_update(ctx, joystick);
             break;
+
+        case GAME_STATE_PAUSE:
+            pause_update(ctx, joystick);
+            break;
     }
 }
 
@@ -67,6 +71,7 @@ void game_init(GameContext *ctx){
     bullets_init(&bullet_system);
     bullets_set_max(ctx, &bullet_system);
     player_init();   // Initialize player
+    load_player();   // Load saved progress if available
     game_borders();      // Draw game borders
 }
 

@@ -120,8 +120,11 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
                 bs->bullets[i].alive = 0;  // Destroy bullet on hit
                 continue;  // Skip further processing for this bullet
             }
-
-
+            // if bullet collides with cannonball, -2 hp
+            if(bs->bullets[i].type == 3 && player_collides_with_bullet(&p, &bs->bullets[i])){
+                p.hp -= 2;
+                led_trigger(&p);
+            }
             int screen_x = bs->bullets[i].x >> 8;
             int screen_y = bs->bullets[i].y >> 8;
 
@@ -145,6 +148,12 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
                     }
                 }
             } 
+            // cannonball -2 p.hp
+            else if(bs->bullets[i].type == 3) {
+                // Cannonball - dies when off left edge or bottom
+                if(screen_x < 2 || screen_y > (DISPLAY_HEIGHT - 2))
+                    bs->bullets[i].alive = 0;
+            }
             else {
                 // Normal bullet - dies when it goes off the left edge or top/bottom
                 int screen_x = bs->bullets[i].x >> 8;
