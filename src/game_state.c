@@ -64,8 +64,8 @@ void game_init(GameContext *ctx){
     // initialize game variables here
     ctx->timer_counter = 0;
     ctx->level = 1;
-    bullets_set_max(ctx, &bullet_system);
     bullets_init(&bullet_system);
+    bullets_set_max(ctx, &bullet_system);
     player_init();   // Initialize player
     game_borders();      // Draw game borders
 }
@@ -81,7 +81,6 @@ void game_loop(GameContext *ctx, uint8_t joystick){
         if(ctx->level < 3){
             ctx->level++;
             bullets_set_max(ctx, &bullet_system); // Update max bullets for new level
-            bullets_init(&bullet_system); // Re-initialize bullets
         }
     }
 

@@ -31,32 +31,45 @@ void bullets_init(BulletSystem *bs){
     }
 }
 
-void spawn_simple_bullet(BulletSystem *bs){
-    for(int i=0;i<bs->max_bullets;i++){
-        if(!bs->bullets[i].alive){
+void spawn_simple_bullet(BulletSystem *bs)
+{
+    int alive_count = 0;
 
+    // Count alive bullets
+    for (int i = 0; i < MAX_BULLETS; i++) {
+        if (bs->bullets[i].alive)
+            alive_count++;
+    }
+
+    // Respect max bullets for current level
+    if (alive_count >= bs->max_bullets)
+        return;
+
+    // Find ONE free slot and spawn ONE bullet
+    for (int i = 0; i < MAX_BULLETS; i++) {
+        if (!bs->bullets[i].alive) {
             Bullet *b = &bs->bullets[i];
-            // Spawn from right side of scre    en
-            b->x = (DISPLAY_WIDTH - 3) << 8;  // -3 to be inside border
-            
-            // Random Y position along the right side (inside borders)
-            b->y = (2 + rand() % (DISPLAY_HEIGHT - 4)) << 8;
-            // Random angle: -30 to +30 degrees (shooting left with some vertical component)
-            int angle = (rand() % 61) - 30;  // angle in degrees
-            
-            // Base leftward velocity (negative x direction)
-            // vx should be negative (moving left), scaled by 256 for fixed-point
-            b->vx = -128 - (rand() % 128);  // -128 to -255 (slower than before)
-
-            // vy based on angle: negative = up, positive = down
-            // Scale proportionally to angle
-            b->vy = (b->vx * angle) / 60;  // angle/60 gives ratio
-
-            // 30% chance to spawn type 2 (bouncing), 70% type 1 (regular)
-            b->type = (rand() % 10 < 3) ? 2 : 1;  // 1=regular, 2=bouncing
 
             b->alive = 1;
-            break;
+
+            // Spawn position (right side)
+            b->x = (DISPLAY_WIDTH - 3) << 8;
+            b->y = (2 + rand() % (DISPLAY_HEIGHT - 4)) << 8;
+
+            // Random angle (-30° to +30°)
+            int angle = (rand() % 61) - 30;
+
+            // Fixed-point velocity
+            b->vx = -160;
+            b->vy = (b->vx * angle) / 60;
+
+            b->ax = 0;
+            b->ay = 0;
+
+            // Bullet type
+            b->type = (rand() % 10 < 3) ? 2 : 1;
+
+            break; // IMPORTANT: only spawn one bullet
         }
     }
 }
@@ -101,7 +114,7 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bs->bullets[i])){
                 // Handle collision (e.g., reduce player HP)
-                p.hp--;
+            //    p.hp--;
                 led_trigger(&p);
                 
                 bs->bullets[i].alive = 0;  // Destroy bullet on hit

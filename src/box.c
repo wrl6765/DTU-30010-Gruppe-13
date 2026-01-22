@@ -1,4 +1,4 @@
-
+/*
 #include "box.h"
 #include "30010_io.h"
 #include <stdint.h>
@@ -119,3 +119,4 @@ void final_timer_bar(uint16_t timer_counter, uint8_t x, uint8_t y){
     lcd_commit();
 }
 
+*/
