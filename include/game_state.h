@@ -16,6 +16,7 @@ typedef struct GameContext {
     uint8_t game_state;
     uint8_t menu_mode;
     uint8_t prev_joystick;
+    uint8_t prev_sw1;
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
