@@ -114,7 +114,7 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bs->bullets[i])){
                 // Handle collision (e.g., reduce player HP)
-            //    p.hp--;
+                p.hp--;
                 led_trigger(&p);
                 
                 bs->bullets[i].alive = 0;  // Destroy bullet on hit
