@@ -9,6 +9,7 @@
 #include "heart.h"
 #include "powerup.h"
 #include "pause.h"
+#include "adc.h"
 
 static BulletSystem bullet_system;
 
@@ -108,7 +109,9 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     powerup_effects_update(&p);
     // Update and draw bullets
     erase_bullet(&bullet_system);
-    spawn_simple_bullet(&bullet_system);
+    //read_joystick_adc(ctx);
+    //update_display_with_adc();
+    spawn_simple_bullet(&bullet_system, ctx);
     update_bullets(ctx, &bullet_system);
     draw_bullets(&bullet_system);
     liv_update(&p);
@@ -123,9 +126,12 @@ if (p.forcefield_active) {
     }
 }
 
-    if (p.hp <= 0) {
-                    ctx->game_state = GAME_STATE_GAME_OVER;
-                    game_state_init(ctx);
-                }
+    
+
+
+
+
+
+
 
 }

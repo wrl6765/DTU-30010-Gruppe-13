@@ -6,9 +6,16 @@
 typedef struct GameContext GameContext;  // forward declaration OK
 
 #define MAX_BULLETS 20
-#define BULLET_HEIGHT 1
 #define BULLET_WIDTH 3
-#define MAX_BULLETS 20
+#define BULLET_HEIGHT_NORMAL   1
+#define BULLET_HEIGHT_CANNON   3
+
+
+#define BULLET_TYPE_REGULAR    1
+#define BULLET_TYPE_BOUNCE     2
+#define BULLET_TYPE_CANNON     3
+
+
 typedef struct {
     int x, y;
     int vx, vy;
@@ -24,10 +31,12 @@ typedef struct {
 } BulletSystem;
 
 void bullets_init(BulletSystem *bs);
-void spawn_simple_bullet(BulletSystem *bs);
+void spawn_simple_bullet(BulletSystem *bs, GameContext *ctx);
 void erase_bullet(BulletSystem *bs);
 void update_bullets(GameContext *ctx, BulletSystem *bs);
 void draw_bullets(BulletSystem *bs);
 void bullets_set_max(GameContext *ctx, BulletSystem *bs);
+int bullet_height(const Bullet *b);
+
 
 #endif

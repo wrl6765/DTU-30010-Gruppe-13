@@ -204,7 +204,7 @@ void drawBullet(Bullet *b)
 	uint16_t x = (b->x >> 8);
 	uint16_t y = (b->y >> 8);
 
-	int height = 1;
+	int height = bullet_height(b);
 
 	for(int i=0; i<height; i++){
 		gotoxy(x, y+i);

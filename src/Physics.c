@@ -64,6 +64,17 @@ void player_init(){
 	p.led_timer = 0;
 }
 
+inline int bullet_height(const Bullet *b)
+{
+    switch (b->type) {
+        case 3:  // cannonball
+            return BULLET_HEIGHT_CANNON;
+        default: // regular, bouncing, sniper, etc.
+            return BULLET_HEIGHT_NORMAL;
+    }
+}
+
+
 bool player_collides_with_bullet(player *p, const Bullet *b){
 	// Define player collision box
 	int player_left = p->x >> 8;
@@ -75,7 +86,7 @@ bool player_collides_with_bullet(player *p, const Bullet *b){
 	int bullet_left = b->x >> 8;
 	int bullet_right = bullet_left + BULLET_WIDTH;
 	int bullet_top = b->y >> 8;
-	int bullet_bottom = bullet_top + BULLET_HEIGHT;
+	int bullet_bottom = bullet_top + bullet_height(b);
 
 	// Check for overlap
 	if (player_left < bullet_right &&

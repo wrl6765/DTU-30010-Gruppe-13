@@ -31,7 +31,7 @@ uint8_t joystick_center_pressed(void)
 {
     return (GPIOB->IDR & (1 << 5)) ? 1 : 0;
 }
-
+/*
 uint8_t sw1_pressed(){
 	uint16_t b1 = read_adcbuttons(ADC_Channel_10);
 	if (b1 > 3000){
@@ -51,7 +51,7 @@ uint8_t joystick_down_pressed(void)
 	}
 		else
 		return 0x0;
-}
+}*/
 uint8_t read_joystick(void){
 	uint8_t val = 0;
 	val |= ((GPIOB->IDR & (0x0001 << 5)) ? 1 : 0); // center
@@ -115,14 +115,14 @@ uint8_t read_joystick(void){
 void set_leds(uint8_t state)
 {
     if (state & 0x01)
-        GPIOB->ODR |= (1 << LED1_PIN);
-    else
-        GPIOB->ODR &= ~(1 << LED1_PIN);
-
+        GPIOB->ODR |= (1 << LED1_PIN); //set green
+    
     if (state & 0x02)
-        GPIOC->ODR |= (1 << LED2_PIN);
-    else
-        GPIOC->ODR &= ~(1 << LED2_PIN);
+        GPIOC->ODR |= (1 << LED2_PIN); // set red
+    
+	if (state & 0x00)
+        GPIOC->ODR &= ~(1 << LED2_PIN); // clear red
+		GPIOB->ODR &= ~(1 << LED1_PIN); //clear green
 }
 
 

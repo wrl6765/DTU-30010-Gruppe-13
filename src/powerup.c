@@ -92,7 +92,7 @@ void powerup_forcefield_apply(player *p, Bullet *b) {
     int32_t player_center_x = (int32_t)p->x + ((int32_t)p->width << 8);
     int32_t player_center_y = (int32_t)p->y + ((int32_t)p->height << 8);
     int32_t bullet_center_x = (int32_t)b->x + ((int32_t)BULLET_WIDTH << 8);
-    int32_t bullet_center_y = (int32_t)b->y + ((int32_t)BULLET_HEIGHT << 8);
+    int32_t bullet_center_y = (int32_t)b->y + ((int32_t)bullet_height(b) << 8);
 
     int32_t dx_fixed = bullet_center_x - player_center_x; // fixed 8.8
     int32_t dy_fixed = bullet_center_y - player_center_y; // fixed 8.8

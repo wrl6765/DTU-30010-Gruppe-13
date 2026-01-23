@@ -21,8 +21,13 @@ typedef struct GameContext {
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
-    uint8_t lcd_buffer [512];
+    int16_t joy_ax;// resulting acceleration from joystick
+    int16_t joy_ay;
+    int16_t joy_x; // joystick positions
+    int16_t joy_y;
+
 } GameContext;
+
 
 void game_state_init(GameContext *ctx);
 void game_state_update(GameContext *ctx, uint8_t joystick);

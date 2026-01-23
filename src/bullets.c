@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "help.h"
 #include "game_state.h"
+#include "adc.h"
 
 
 
@@ -31,7 +32,7 @@ void bullets_init(BulletSystem *bs){
     }
 }
 
-void spawn_simple_bullet(BulletSystem *bs)
+void spawn_simple_bullet(BulletSystem *bs, GameContext *ctx)
 {
     int alive_count = 0;
 
@@ -56,18 +57,47 @@ void spawn_simple_bullet(BulletSystem *bs)
             b->x = (DISPLAY_WIDTH - 3) << 8;
             b->y = (2 + rand() % (DISPLAY_HEIGHT - 4)) << 8;
 
-            // Random angle (-30° to +30°)
+
+ 
+             //Random angle (-30° to +30°)
             int angle = (rand() % 61) - 30;
 
             // Fixed-point velocity
+            if (b->type == BULLET_TYPE_CANNON) {
+            b->vx = -96;          // slower than regular
+            } else {
             b->vx = -160;
+            }
             b->vy = (b->vx * angle) / 60;
 
-            b->ax = 0;
-            b->ay = 0;
+            // scale to fixed-point acceleration
+            b->ax = ctx->joy_ax >> 3;   
+            b->ay = ctx->joy_ay >> 3;
 
-            // Bullet type
-            b->type = (rand() % 10 < 3) ? 2 : 1;
+        // bullet type scales with level
+        switch (ctx->level) {
+            case 1:
+                b->type = 1; // only regular
+                break;
+        
+            case 2: {
+                int r = rand() % 10;
+                b->type = (r < 3) ? 2 : 1; // 30% bouncing
+                break;
+            }
+        
+            case 3: {
+                int r = rand() % 10;
+                if (r < 2)
+                    b->type = 3;      // 20% cannonball
+                else if (r < 5)
+                    b->type = 2;      // 30% bouncing
+                else
+                    b->type = 1;      // 50% regular
+                break;
+            }
+        }
+
 
             break; // IMPORTANT: only spawn one bullet
         }
@@ -114,17 +144,24 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
             //-----player bullet collision-----
             if(player_collides_with_bullet(&p, &bs->bullets[i])){
                 // Handle collision (e.g., reduce player HP)
-                p.hp--;
-                led_trigger(&p);
-                
-                bs->bullets[i].alive = 0;  // Destroy bullet on hit
-                continue;  // Skip further processing for this bullet
-            }
-            // if bullet collides with cannonball, -2 hp
-            if(bs->bullets[i].type == 3 && player_collides_with_bullet(&p, &bs->bullets[i])){
+            if (bs->bullets[i].type == BULLET_TYPE_CANNON) {
                 p.hp -= 2;
-                led_trigger(&p);
+            } else {
+                p.hp -= 1;
             }
+            if (p.hp <= 0) {
+                    ctx->game_state = GAME_STATE_GAME_OVER;
+                    game_state_init(ctx);
+                }
+
+
+            led_trigger(&p);
+            bs->bullets[i].alive = 0;
+             // Destroy bullet on hit
+                            continue;  // Skip further processing for this bullet
+            }
+
+
             int screen_x = bs->bullets[i].x >> 8;
             int screen_y = bs->bullets[i].y >> 8;
 
@@ -148,12 +185,6 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
                     }
                 }
             } 
-            // cannonball -2 p.hp
-            else if(bs->bullets[i].type == 3) {
-                // Cannonball - dies when off left edge or bottom
-                if(screen_x < 2 || screen_y > (DISPLAY_HEIGHT - 2))
-                    bs->bullets[i].alive = 0;
-            }
             else {
                 // Normal bullet - dies when it goes off the left edge or top/bottom
                 int screen_x = bs->bullets[i].x >> 8;

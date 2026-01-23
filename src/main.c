@@ -9,6 +9,7 @@
 #include "menu.h"
 #include "game_state.h"
 #include "bullets.h"
+#include "adc.h"
 
 
 int main(){
@@ -19,6 +20,9 @@ int main(){
     joystickdown_init();
     TIM2_Init();
 	led_init();
+	 
+	//init_adc();
+	
 	clear();
 	GameContext ctx = {
     .game_state = GAME_STATE_MENU,
