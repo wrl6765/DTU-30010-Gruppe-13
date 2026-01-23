@@ -208,6 +208,7 @@ void update_player(player* p, uint8_t joystick, GameContext *ctx){
 	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8)){
 		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8);
 		p->vy = 0;
+	
 	}
 		break;
 	case 3:
