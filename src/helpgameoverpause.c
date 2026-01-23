@@ -1,4 +1,4 @@
-#include "30010_io.h"
+#include "bsp/30010_io.h"
 #include "HAL.h"
 #include "Physics.h"
 #include "menu.h"
@@ -25,42 +25,46 @@ void displayHelpScreen() {
                 printf("Move up with button held down, otherwise fall down.");
             }
             gotoxy(6, 6);{
+                printf("An opposing player can control the initial acceleration of bullets.");
+            }
+            gotoxy(6, 7);{
                 printf("Avoid projectiles. Losing all lives ends the game.");
             }
-            gotoxy(6, 8);{
+            gotoxy(6, 9);{
                 printf("Controls:");
             }
-            gotoxy(8, 9);{
-                printf("- Press SW1: move up");
-            }
             gotoxy(8, 10);{
-                printf("- Release SW1: move down");
+                printf("- Press the non-analog joystick: accelerate upwards");
             }
             gotoxy(8, 11);{
-                printf("- Press SPACE: pause game");
+                printf("- Release the non-analog joystick: accelerate downwards");
             }
-            gotoxy(6, 13);{
+            gotoxy(8, 12);{
+                printf("- Press 'M': pause game");
+            }
+            gotoxy(8, 13);{
+                printf("- Use the analog joystick to control bullet acceleration");
+            }
+            gotoxy(6, 15);{
                 printf("Bullets:");
             }
-            gotoxy(8,14); {
+            gotoxy(8,16); {
                 printf("- Regular bullets: damage: -1 HP");
             }
-            gotoxy(8,15); {
+            gotoxy(8,17); {
                 printf("- Bouncing bullets: damage: -1 HP");
             }
-            gotoxy(8,16);{
+            gotoxy(8,18);{
                 printf("- Cannonball bullets: damage: -2 HP");
             }
-            gotoxy(8,17);{
-                printf("- Sniper bullets: damage: -3 HP");
-            }
 
-            gotoxy(6, 19);{
+
+            gotoxy(6, 20);{
                 printf("Power-ups:");
             }
-            gotoxy(8,20); {printf("- Heart: +1 HP");}
-            gotoxy(8,21); {printf("- Shield: temporary invincibility");}
-
+            gotoxy(8,21); {printf("- Heart: +1 HP");}
+            gotoxy(8,22); {printf("- Forcefield: Accelerate bullets away from the alien for 10s");}
+            gotoxy(8,23); {printf("- Multiplier: Gain 2X points for 10s");}
 
             
             gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
@@ -88,8 +92,7 @@ void help_update(GameContext *ctx, uint8_t joystick) {
         }
 
         ctx->prev_joystick = joystick;
-   //     display_menu();
-   //     menu_update();
+
     }
 }
 
@@ -122,14 +125,13 @@ void game_over_update(GameContext *ctx, uint8_t joystick) {
         }
 
         ctx->prev_joystick = joystick;
-   //     display_menu();
-   //     menu_update();
+
     }
 }
 
 void pause_init(GameContext *ctx){
     clear();
-    borders();
+    game_borders();
     gotoxy((DISPLAY_WIDTH >> 1) - 3,DISPLAY_HEIGHT >> 1);{printf("PAUSED");}
     gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 4);{
         printf("\x1b[41m");
@@ -139,7 +141,7 @@ void pause_init(GameContext *ctx){
             printf("[ PRESS M TO MENU ]");
         printf("\x1b[40m");
     }
-    //save_player();
+    
 }
 
 void pause_update(GameContext *ctx) {
@@ -169,7 +171,7 @@ void pause_update(GameContext *ctx) {
     }
 }
 
-#include "30010_io.h"
+
 
 void pause_check(GameContext *ctx)
 {
@@ -183,6 +185,6 @@ void pause_check(GameContext *ctx)
     {
         ctx->game_state = GAME_STATE_PAUSE;
         game_state_init(ctx);
-        //save_player();
+    
     }
 }

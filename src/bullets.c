@@ -150,10 +150,7 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
             } else {
                 p.hp -= 1;
             }
-            if (p.hp <= 0) {
-                    ctx->game_state = GAME_STATE_GAME_OVER;
-                    game_state_init(ctx);
-                }
+
 
 
             led_trigger(&p);

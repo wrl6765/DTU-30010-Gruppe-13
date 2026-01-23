@@ -109,7 +109,7 @@ void game_loop(GameContext *ctx, uint8_t joystick){
     // Update and draw bullets
     erase_bullet(&bullet_system);
    
-    update_display_with_adc();
+    //update_display_with_adc();
     spawn_simple_bullet(&bullet_system, ctx);
     update_bullets(ctx, &bullet_system);
     draw_bullets(&bullet_system);
@@ -124,7 +124,10 @@ if (p.forcefield_active) {
         }
     }
 }
-
+if (p.hp <= 0) {
+        ctx->game_state = GAME_STATE_GAME_OVER;
+        game_state_init(ctx);
+    }
     
 
 

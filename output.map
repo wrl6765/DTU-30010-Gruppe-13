@@ -1458,6 +1458,10 @@ Discarded input sections
  .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc.o
  .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc.o
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc.o
+ .text.update_display_with_adc
+                0x00000000       0x34 .pio\build\nucleo_f302r8\src\adc.o
+ .rodata.update_display_with_adc.str1.1
+                0x00000000       0x22 .pio\build\nucleo_f302r8\src\adc.o
  .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
  .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
@@ -1944,7 +1948,7 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x080001c0     0x9a54
+.text           0x080001c0     0x9a44
                 0x080001c0                . = ALIGN (0x4)
  *(.text)
  .text          0x080001c0       0x40 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
@@ -2218,604 +2222,596 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x0800219c        0x8 .pio\build\nucleo_f302r8\src\HAL.o
                 0x0800219c                led_trigger
  .text.led_update
-                0x080021a4       0x44 .pio\build\nucleo_f302r8\src\HAL.o
+                0x080021a4       0x26 .pio\build\nucleo_f302r8\src\HAL.o
                 0x080021a4                led_update
+ *fill*         0x080021ca        0x2 
  .text.player_init
-                0x080021e8       0x7c .pio\build\nucleo_f302r8\src\Physics.o
-                0x080021e8                player_init
+                0x080021cc       0x7c .pio\build\nucleo_f302r8\src\Physics.o
+                0x080021cc                player_init
  .text.bullet_height
-                0x08002264        0xa .pio\build\nucleo_f302r8\src\Physics.o
-                0x08002264                bullet_height
+                0x08002248        0xa .pio\build\nucleo_f302r8\src\Physics.o
+                0x08002248                bullet_height
  .text.player_collides_with_bullet
-                0x0800226e       0x44 .pio\build\nucleo_f302r8\src\Physics.o
-                0x0800226e                player_collides_with_bullet
+                0x08002252       0x44 .pio\build\nucleo_f302r8\src\Physics.o
+                0x08002252                player_collides_with_bullet
  .text.heal_collides_with_player
-                0x080022b2       0x3e .pio\build\nucleo_f302r8\src\Physics.o
-                0x080022b2                heal_collides_with_player
+                0x08002296       0x3e .pio\build\nucleo_f302r8\src\Physics.o
+                0x08002296                heal_collides_with_player
  .text.multiplier_collides_with_player
-                0x080022f0       0x3e .pio\build\nucleo_f302r8\src\Physics.o
-                0x080022f0                multiplier_collides_with_player
+                0x080022d4       0x3e .pio\build\nucleo_f302r8\src\Physics.o
+                0x080022d4                multiplier_collides_with_player
  .text.forcefield_collides_with_player
-                0x0800232e       0x3e .pio\build\nucleo_f302r8\src\Physics.o
-                0x0800232e                forcefield_collides_with_player
+                0x08002312       0x3e .pio\build\nucleo_f302r8\src\Physics.o
+                0x08002312                forcefield_collides_with_player
  .text.update_player
-                0x0800236c       0xae .pio\build\nucleo_f302r8\src\Physics.o
-                0x0800236c                update_player
- *fill*         0x0800241a        0x2 
+                0x08002350       0xae .pio\build\nucleo_f302r8\src\Physics.o
+                0x08002350                update_player
+ *fill*         0x080023fe        0x2 
  .text.init_adc
-                0x0800241c       0xac .pio\build\nucleo_f302r8\src\adc.o
-                0x0800241c                init_adc
+                0x08002400       0xac .pio\build\nucleo_f302r8\src\adc.o
+                0x08002400                init_adc
  .text.read_adc
-                0x080024c8       0x32 .pio\build\nucleo_f302r8\src\adc.o
-                0x080024c8                read_adc
- *fill*         0x080024fa        0x2 
+                0x080024ac       0x32 .pio\build\nucleo_f302r8\src\adc.o
+                0x080024ac                read_adc
+ *fill*         0x080024de        0x2 
  .text.read_joystick_adc
-                0x080024fc       0x3c .pio\build\nucleo_f302r8\src\adc.o
-                0x080024fc                read_joystick_adc
- .text.update_display_with_adc
-                0x08002538       0x34 .pio\build\nucleo_f302r8\src\adc.o
-                0x08002538                update_display_with_adc
+                0x080024e0       0x3c .pio\build\nucleo_f302r8\src\adc.o
+                0x080024e0                read_joystick_adc
  .text.uart_get_char
-                0x0800256c       0x34 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x0800256c                uart_get_char
+                0x0800251c       0x34 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x0800251c                uart_get_char
  .text.uart_put_char
-                0x080025a0       0x20 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080025a0                uart_put_char
+                0x08002550       0x20 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002550                uart_put_char
  .text._write_r
-                0x080025c0       0x2a .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080025c0                _write_r
- *fill*         0x080025ea        0x2 
+                0x08002570       0x2a .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002570                _write_r
+ *fill*         0x0800259a        0x2 
  .text.USART2_IRQHandler
-                0x080025ec       0x50 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080025ec                USART2_IRQHandler
+                0x0800259c       0x50 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x0800259c                USART2_IRQHandler
  .text.uart_init
-                0x0800263c      0x13c .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x0800263c                uart_init
+                0x080025ec      0x13c .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x080025ec                uart_init
  .text.lcd_transmit_byte
-                0x08002778       0x48 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x08002778                lcd_transmit_byte
+                0x08002728       0x48 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002728                lcd_transmit_byte
  .text.lcd_push_buffer
-                0x080027c0       0xf0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080027c0                lcd_push_buffer
+                0x08002770       0xf0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002770                lcd_push_buffer
  .text.lcd_reset
-                0x080028b0       0xa0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x080028b0                lcd_reset
+                0x08002860       0xa0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002860                lcd_reset
  .text.lcd_init
-                0x08002950      0x194 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
-                0x08002950                lcd_init
- .text._exit    0x08002ae4        0xc .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002ae4                _exit
- .text._read    0x08002af0       0x1c .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002af0                _read
- .text._close   0x08002b0c        0x6 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002b0c                _close
- .text._fstat   0x08002b12        0xa .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002b12                _fstat
- .text._isatty  0x08002b1c        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002b1c                _isatty
- .text._lseek   0x08002b20        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
-                0x08002b20                _lseek
- .text._sbrk    0x08002b24       0x34 .pio\build\nucleo_f302r8\src\bsp\sysmem.o
-                0x08002b24                _sbrk
+                0x08002900      0x194 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
+                0x08002900                lcd_init
+ .text._exit    0x08002a94        0xc .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002a94                _exit
+ .text._read    0x08002aa0       0x1c .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002aa0                _read
+ .text._close   0x08002abc        0x6 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002abc                _close
+ .text._fstat   0x08002ac2        0xa .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002ac2                _fstat
+ .text._isatty  0x08002acc        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002acc                _isatty
+ .text._lseek   0x08002ad0        0x4 .pio\build\nucleo_f302r8\src\bsp\syscalls.o
+                0x08002ad0                _lseek
+ .text._sbrk    0x08002ad4       0x34 .pio\build\nucleo_f302r8\src\bsp\sysmem.o
+                0x08002ad4                _sbrk
  .text.SystemInit
-                0x08002b58       0xb0 .pio\build\nucleo_f302r8\src\bsp\system_stm32f30x.o
-                0x08002b58                SystemInit
+                0x08002b08       0xb0 .pio\build\nucleo_f302r8\src\bsp\system_stm32f30x.o
+                0x08002b08                SystemInit
  .text.bullets_set_max
-                0x08002c08       0x1e .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002c08                bullets_set_max
+                0x08002bb8       0x1e .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002bb8                bullets_set_max
  .text.bullets_init
-                0x08002c26       0x30 .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002c26                bullets_init
+                0x08002bd6       0x30 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002bd6                bullets_init
  .text.spawn_simple_bullet
-                0x08002c56       0xe8 .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002c56                spawn_simple_bullet
- *fill*         0x08002d3e        0x2 
+                0x08002c06       0xe8 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002c06                spawn_simple_bullet
+ *fill*         0x08002cee        0x2 
  .text.erase_bullet
-                0x08002d40       0x94 .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002d40                erase_bullet
+                0x08002cf0       0x94 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002cf0                erase_bullet
  .text.update_bullets
-                0x08002dd4       0xd0 .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002dd4                update_bullets
+                0x08002d84       0xd0 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002d84                update_bullets
  .text.draw_bullets
-                0x08002ea4       0x38 .pio\build\nucleo_f302r8\src\bullets.o
-                0x08002ea4                draw_bullets
+                0x08002e54       0x38 .pio\build\nucleo_f302r8\src\bullets.o
+                0x08002e54                draw_bullets
  .text.lcd_write_string
-                0x08002edc       0x48 .pio\build\nucleo_f302r8\src\charset.o
-                0x08002edc                lcd_write_string
+                0x08002e8c       0x48 .pio\build\nucleo_f302r8\src\charset.o
+                0x08002e8c                lcd_write_string
  .text.score_update
-                0x08002f24       0x54 .pio\build\nucleo_f302r8\src\charset.o
-                0x08002f24                score_update
+                0x08002ed4       0x54 .pio\build\nucleo_f302r8\src\charset.o
+                0x08002ed4                score_update
  .text.game_init
-                0x08002f78       0x2c .pio\build\nucleo_f302r8\src\game_state.o
-                0x08002f78                game_init
+                0x08002f28       0x2c .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002f28                game_init
  .text.game_state_init
-                0x08002fa4       0x54 .pio\build\nucleo_f302r8\src\game_state.o
-                0x08002fa4                game_state_init
+                0x08002f54       0x54 .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002f54                game_state_init
  .text.game_loop
-                0x08002ff8       0xec .pio\build\nucleo_f302r8\src\game_state.o
-                0x08002ff8                game_loop
+                0x08002fa8      0x104 .pio\build\nucleo_f302r8\src\game_state.o
+                0x08002fa8                game_loop
  .text.game_state_update
-                0x080030e4       0x26 .pio\build\nucleo_f302r8\src\game_state.o
-                0x080030e4                game_state_update
- *fill*         0x0800310a        0x2 
+                0x080030ac       0x26 .pio\build\nucleo_f302r8\src\game_state.o
+                0x080030ac                game_state_update
+ *fill*         0x080030d2        0x2 
  .text.lcd_manager_init
-                0x0800310c       0x28 .pio\build\nucleo_f302r8\src\heart.o
-                0x0800310c                lcd_manager_init
+                0x080030d4       0x28 .pio\build\nucleo_f302r8\src\heart.o
+                0x080030d4                lcd_manager_init
  .text.lcd_get_buffer
-                0x08003134       0x10 .pio\build\nucleo_f302r8\src\heart.o
-                0x08003134                lcd_get_buffer
+                0x080030fc       0x10 .pio\build\nucleo_f302r8\src\heart.o
+                0x080030fc                lcd_get_buffer
  .text.lcd_commit
-                0x08003144        0xc .pio\build\nucleo_f302r8\src\heart.o
-                0x08003144                lcd_commit
+                0x0800310c        0xc .pio\build\nucleo_f302r8\src\heart.o
+                0x0800310c                lcd_commit
  .text.heart_clear
-                0x08003150       0x4c .pio\build\nucleo_f302r8\src\heart.o
-                0x08003150                heart_clear
+                0x08003118       0x4c .pio\build\nucleo_f302r8\src\heart.o
+                0x08003118                heart_clear
  .text.heart_full
-                0x0800319c       0x6c .pio\build\nucleo_f302r8\src\heart.o
-                0x0800319c                heart_full
+                0x08003164       0x6c .pio\build\nucleo_f302r8\src\heart.o
+                0x08003164                heart_full
  .text.heart_tom
-                0x08003208       0x6c .pio\build\nucleo_f302r8\src\heart.o
-                0x08003208                heart_tom
+                0x080031d0       0x6c .pio\build\nucleo_f302r8\src\heart.o
+                0x080031d0                heart_tom
  .text.display_lives
-                0x08003274       0x48 .pio\build\nucleo_f302r8\src\heart.o
-                0x08003274                display_lives
+                0x0800323c       0x48 .pio\build\nucleo_f302r8\src\heart.o
+                0x0800323c                display_lives
  .text.liv_update
-                0x080032bc       0x1c .pio\build\nucleo_f302r8\src\heart.o
-                0x080032bc                liv_update
+                0x08003284       0x1c .pio\build\nucleo_f302r8\src\heart.o
+                0x08003284                liv_update
  .text.displayHelpScreen
-                0x080032d8      0x18c .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x080032d8                displayHelpScreen
+                0x080032a0      0x1b4 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x080032a0                displayHelpScreen
  .text.help_update
-                0x08003464       0x22 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x08003464                help_update
- *fill*         0x08003486        0x2 
+                0x08003454       0x22 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003454                help_update
+ *fill*         0x08003476        0x2 
  .text.game_over_init
-                0x08003488       0x88 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x08003488                game_over_init
+                0x08003478       0x88 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003478                game_over_init
  .text.game_over_update
-                0x08003510       0x22 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x08003510                game_over_update
- *fill*         0x08003532        0x2 
+                0x08003500       0x22 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003500                game_over_update
+ *fill*         0x08003522        0x2 
  .text.pause_init
-                0x08003534       0x6c .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x08003534                pause_init
+                0x08003524       0x6c .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003524                pause_init
  .text.pause_update
-                0x080035a0       0x84 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x080035a0                pause_update
+                0x08003590       0x84 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003590                pause_update
  .text.pause_check
-                0x08003624       0x26 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                0x08003624                pause_check
- *fill*         0x0800364a        0x2 
+                0x08003614       0x26 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x08003614                pause_check
+ *fill*         0x0800363a        0x2 
  .text.startup.main
-                0x0800364c       0x6c .pio\build\nucleo_f302r8\src\main.o
-                0x0800364c                main
+                0x0800363c       0x6c .pio\build\nucleo_f302r8\src\main.o
+                0x0800363c                main
  .text.display_menu
-                0x080036b8       0x80 .pio\build\nucleo_f302r8\src\menu.o
-                0x080036b8                display_menu
+                0x080036a8       0x80 .pio\build\nucleo_f302r8\src\menu.o
+                0x080036a8                display_menu
  .text.menu_update
-                0x08003738       0xf8 .pio\build\nucleo_f302r8\src\menu.o
-                0x08003738                menu_update
+                0x08003728       0xf8 .pio\build\nucleo_f302r8\src\menu.o
+                0x08003728                menu_update
  .text.spawn_powerup
-                0x08003830       0xa8 .pio\build\nucleo_f302r8\src\powerup.o
-                0x08003830                spawn_powerup
+                0x08003820       0xa8 .pio\build\nucleo_f302r8\src\powerup.o
+                0x08003820                spawn_powerup
  .text.powerup_heal_player
-                0x080038d8       0x10 .pio\build\nucleo_f302r8\src\powerup.o
-                0x080038d8                powerup_heal_player
+                0x080038c8       0x10 .pio\build\nucleo_f302r8\src\powerup.o
+                0x080038c8                powerup_heal_player
  .text.powerup_effects_update
-                0x080038e8       0x2e .pio\build\nucleo_f302r8\src\powerup.o
-                0x080038e8                powerup_effects_update
- *fill*         0x08003916        0x2 
+                0x080038d8       0x2e .pio\build\nucleo_f302r8\src\powerup.o
+                0x080038d8                powerup_effects_update
+ *fill*         0x08003906        0x2 
  .text.powerup_forcefield_apply
-                0x08003918       0xe8 .pio\build\nucleo_f302r8\src\powerup.o
-                0x08003918                powerup_forcefield_apply
+                0x08003908       0xe8 .pio\build\nucleo_f302r8\src\powerup.o
+                0x08003908                powerup_forcefield_apply
  .text.powerups_Update
-                0x08003a00      0x138 .pio\build\nucleo_f302r8\src\powerup.o
-                0x08003a00                powerups_Update
- .text.__errno  0x08003b38        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
-                0x08003b38                __errno
- .text.exit     0x08003b44       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
-                0x08003b44                exit
+                0x080039f0      0x138 .pio\build\nucleo_f302r8\src\powerup.o
+                0x080039f0                powerups_Update
+ .text.__errno  0x08003b28        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-errno.o)
+                0x08003b28                __errno
+ .text.exit     0x08003b34       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
+                0x08003b34                exit
  .text.__libc_init_array
-                0x08003b64       0x48 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
-                0x08003b64                __libc_init_array
- .text.memset   0x08003bac       0x94 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
-                0x08003bac                memset
- .text.printf   0x08003c40       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
-                0x08003c40                printf
- .text.putchar  0x08003c68       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
-                0x08003c68                putchar
- .text.rand     0x08003c7c       0x3c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
-                0x08003c7c                rand
- .text.setbuf   0x08003cb8       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
-                0x08003cb8                setbuf
- .text.setvbuf  0x08003cc8      0x180 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
-                0x08003cc8                setvbuf
- .text.sprintf  0x08003e48       0x44 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
-                0x08003e48                sprintf
+                0x08003b54       0x48 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+                0x08003b54                __libc_init_array
+ .text.memset   0x08003b9c       0x94 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+                0x08003b9c                memset
+ .text.printf   0x08003c30       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-printf.o)
+                0x08003c30                printf
+ .text.putchar  0x08003c58       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putchar.o)
+                0x08003c58                putchar
+ .text.rand     0x08003c6c       0x3c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-rand.o)
+                0x08003c6c                rand
+ .text.setbuf   0x08003ca8       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setbuf.o)
+                0x08003ca8                setbuf
+ .text.setvbuf  0x08003cb8      0x180 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-setvbuf.o)
+                0x08003cb8                setvbuf
+ .text.sprintf  0x08003e38       0x44 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sprintf.o)
+                0x08003e38                sprintf
  .text._svfprintf_r
-                0x08003e8c     0x14a0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
-                0x08003e8c                _svfprintf_r
+                0x08003e7c     0x14a0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+                0x08003e7c                _svfprintf_r
  .text._vfprintf_r
-                0x0800532c     0x1504 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
-                0x0800532c                _vfprintf_r
+                0x0800531c     0x1504 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x0800531c                _vfprintf_r
  .text.__sbprintf
-                0x08006830       0x84 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x08006820       0x84 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
  .text.__swsetup_r
-                0x080068b4       0xcc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
-                0x080068b4                __swsetup_r
+                0x080068a4       0xcc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wsetup.o)
+                0x080068a4                __swsetup_r
  .text.startup.register_fini
-                0x08006980       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+                0x08006970       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x08006994       0xe8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
-                0x08006994                __call_exitprocs
- .text.atexit   0x08006a7c        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
-                0x08006a7c                atexit
- .text.quorem   0x08006a88      0x124 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
- *fill*         0x08006bac        0x4 
- .text._dtoa_r  0x08006bb0      0xdf4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
-                0x08006bb0                _dtoa_r
+                0x08006984       0xe8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+                0x08006984                __call_exitprocs
+ .text.atexit   0x08006a6c        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+                0x08006a6c                atexit
+ .text.quorem   0x08006a78      0x124 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+ *fill*         0x08006b9c        0x4 
+ .text._dtoa_r  0x08006ba0      0xdf4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+                0x08006ba0                _dtoa_r
  .text.__sflush_r
-                0x080079a4      0x154 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
-                0x080079a4                __sflush_r
+                0x08007994      0x154 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+                0x08007994                __sflush_r
  .text._fflush_r
-                0x08007af8       0x5c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
-                0x08007af8                _fflush_r
- .text.std      0x08007b54       0x50 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007ae8       0x5c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fflush.o)
+                0x08007ae8                _fflush_r
+ .text.std      0x08007b44       0x50 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x08007ba4        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
-                0x08007ba4                _cleanup_r
- .text.__sinit  0x08007bb0       0x58 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
-                0x08007bb0                __sinit
+                0x08007b94        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007b94                _cleanup_r
+ .text.__sinit  0x08007ba0       0x58 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007ba0                __sinit
  .text.__sfp_lock_acquire
-                0x08007c08        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
-                0x08007c08                __sfp_lock_acquire
+                0x08007bf8        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007bf8                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x08007c14        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
-                0x08007c14                __sfp_lock_release
+                0x08007c04        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-findfp.o)
+                0x08007c04                __sfp_lock_release
  .text.__libc_fini_array
-                0x08007c20       0x34 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
-                0x08007c20                __libc_fini_array
+                0x08007c10       0x34 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+                0x08007c10                __libc_fini_array
  .text._malloc_trim_r
-                0x08007c54       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
-                0x08007c54                _malloc_trim_r
- .text._free_r  0x08007cf4      0x1e8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
-                0x08007cf4                _free_r
+                0x08007c44       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+                0x08007c44                _malloc_trim_r
+ .text._free_r  0x08007ce4      0x1e8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-freer.o)
+                0x08007ce4                _free_r
  .text._fwalk_reent
-                0x08007edc       0x54 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
-                0x08007edc                _fwalk_reent
+                0x08007ecc       0x54 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fwalk.o)
+                0x08007ecc                _fwalk_reent
  .text._localeconv_r
-                0x08007f30       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
-                0x08007f30                _localeconv_r
+                0x08007f20       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-localeconv.o)
+                0x08007f20                _localeconv_r
  .text.__retarget_lock_init_recursive
-                0x08007f4c        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x08007f4c                __retarget_lock_init_recursive
+                0x08007f3c        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007f3c                __retarget_lock_init_recursive
  .text.__retarget_lock_close_recursive
-                0x08007f50        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x08007f50                __retarget_lock_close_recursive
+                0x08007f40        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007f40                __retarget_lock_close_recursive
  .text.__retarget_lock_acquire_recursive
-                0x08007f54        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x08007f54                __retarget_lock_acquire_recursive
+                0x08007f44        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007f44                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08007f58        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x08007f58                __retarget_lock_release_recursive
+                0x08007f48        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x08007f48                __retarget_lock_release_recursive
  .text.__swhatbuf_r
-                0x08007f5c       0x5c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
-                0x08007f5c                __swhatbuf_r
+                0x08007f4c       0x5c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+                0x08007f4c                __swhatbuf_r
  .text.__smakebuf_r
-                0x08007fb8       0x94 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
-                0x08007fb8                __smakebuf_r
- .text.malloc   0x0800804c       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
-                0x0800804c                malloc
- .text.free     0x0800805c       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
-                0x0800805c                free
+                0x08007fa8       0x94 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-makebuf.o)
+                0x08007fa8                __smakebuf_r
+ .text.malloc   0x0800803c       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+                0x0800803c                malloc
+ .text.free     0x0800804c       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-malloc.o)
+                0x0800804c                free
  .text._malloc_r
-                0x0800806c      0x548 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
-                0x0800806c                _malloc_r
+                0x0800805c      0x548 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mallocr.o)
+                0x0800805c                _malloc_r
  .text.__malloc_lock
-                0x080085b4        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
-                0x080085b4                __malloc_lock
+                0x080085a4        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+                0x080085a4                __malloc_lock
  .text.__malloc_unlock
-                0x080085c0        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
-                0x080085c0                __malloc_unlock
- .text._Balloc  0x080085cc       0x4c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x080085cc                _Balloc
- .text._Bfree   0x08008618       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x08008618                _Bfree
+                0x080085b0        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mlock.o)
+                0x080085b0                __malloc_unlock
+ .text._Balloc  0x080085bc       0x4c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x080085bc                _Balloc
+ .text._Bfree   0x08008608       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008608                _Bfree
  .text.__multadd
-                0x0800862c       0x80 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x0800862c                __multadd
+                0x0800861c       0x80 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800861c                __multadd
  .text.__hi0bits
-                0x080086ac       0x40 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x080086ac                __hi0bits
+                0x0800869c       0x40 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800869c                __hi0bits
  .text.__lo0bits
-                0x080086ec       0x60 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x080086ec                __lo0bits
- .text.__i2b    0x0800874c       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x0800874c                __i2b
+                0x080086dc       0x60 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x080086dc                __lo0bits
+ .text.__i2b    0x0800873c       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800873c                __i2b
  .text.__multiply
-                0x08008760      0x14c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x08008760                __multiply
+                0x08008750      0x14c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008750                __multiply
  .text.__pow5mult
-                0x080088ac       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x080088ac                __pow5mult
+                0x0800889c       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800889c                __pow5mult
  .text.__lshift
-                0x0800894c       0xac c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x0800894c                __lshift
- .text.__mcmp   0x080089f8       0x38 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x080089f8                __mcmp
- .text.__mdiff  0x08008a30       0xec c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x08008a30                __mdiff
- .text.__d2b    0x08008b1c       0xb0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x08008b1c                __d2b
- .text._putc_r  0x08008bcc       0x70 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
-                0x08008bcc                _putc_r
- .text._sbrk_r  0x08008c3c       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
-                0x08008c3c                _sbrk_r
- .text.__sread  0x08008c60       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
-                0x08008c60                __sread
+                0x0800893c       0xac c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800893c                __lshift
+ .text.__mcmp   0x080089e8       0x38 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x080089e8                __mcmp
+ .text.__mdiff  0x08008a20       0xec c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008a20                __mdiff
+ .text.__d2b    0x08008b0c       0xb0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x08008b0c                __d2b
+ .text._putc_r  0x08008bbc       0x70 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-putc.o)
+                0x08008bbc                _putc_r
+ .text._sbrk_r  0x08008c2c       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-sbrkr.o)
+                0x08008c2c                _sbrk_r
+ .text.__sread  0x08008c50       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008c50                __sread
  .text.__swrite
-                0x08008c84       0x3c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
-                0x08008c84                __swrite
- .text.__sseek  0x08008cc0       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
-                0x08008cc0                __sseek
+                0x08008c74       0x3c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008c74                __swrite
+ .text.__sseek  0x08008cb0       0x20 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008cb0                __sseek
  .text.__sclose
-                0x08008ce0        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
-                0x08008ce0                __sclose
+                0x08008cd0        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-stdio.o)
+                0x08008cd0                __sclose
  .text.__ssprint_r
-                0x08008ce8       0xf4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
-                0x08008ce8                __ssprint_r
+                0x08008cd8       0xf4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfiprintf.o)
+                0x08008cd8                __ssprint_r
  .text.__sprint_r.part.0
-                0x08008ddc       0x78 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+                0x08008dcc       0x78 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
  .text.__sprint_r
-                0x08008e54       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
-                0x08008e54                __sprint_r
+                0x08008e44       0x14 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfiprintf.o)
+                0x08008e44                __sprint_r
  .text.__swbuf_r
-                0x08008e68       0xb0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
-                0x08008e68                __swbuf_r
+                0x08008e58       0xb0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wbuf.o)
+                0x08008e58                __swbuf_r
  .text.__register_exitproc
-                0x08008f18       0xc0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
-                0x08008f18                __register_exitproc
+                0x08008f08       0xc0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+                0x08008f08                __register_exitproc
  .text._calloc_r
-                0x08008fd8       0x68 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
-                0x08008fd8                _calloc_r
+                0x08008fc8       0x68 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-callocr.o)
+                0x08008fc8                _calloc_r
  .text._close_r
-                0x08009040       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
-                0x08009040                _close_r
+                0x08009030       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-closer.o)
+                0x08009030                _close_r
  .text._fclose_r
-                0x08009064       0xd0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
-                0x08009064                _fclose_r
+                0x08009054       0xd0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fclose.o)
+                0x08009054                _fclose_r
  .text.__fputwc
-                0x08009134       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
-                0x08009134                __fputwc
+                0x08009124       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+                0x08009124                __fputwc
  .text._fputwc_r
-                0x080091d4       0x64 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
-                0x080091d4                _fputwc_r
+                0x080091c4       0x64 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fputwc.o)
+                0x080091c4                _fputwc_r
  .text._fstat_r
-                0x08009238       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
-                0x08009238                _fstat_r
+                0x08009228       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fstatr.o)
+                0x08009228                _fstat_r
  .text.__sfvwrite_r
-                0x08009260      0x2fc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
-                0x08009260                __sfvwrite_r
+                0x08009250      0x2fc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fvwrite.o)
+                0x08009250                __sfvwrite_r
  .text._isatty_r
-                0x0800955c       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
-                0x0800955c                _isatty_r
+                0x0800954c       0x24 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-isattyr.o)
+                0x0800954c                _isatty_r
  .text.__locale_mb_cur_max
-                0x08009580       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
-                0x08009580                __locale_mb_cur_max
+                0x08009570       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+                0x08009570                __locale_mb_cur_max
  .text._lseek_r
-                0x0800959c       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
-                0x0800959c                _lseek_r
+                0x0800958c       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lseekr.o)
+                0x0800958c                _lseek_r
  .text.__ascii_mbtowc
-                0x080095c8       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
-                0x080095c8                __ascii_mbtowc
- .text.memmove  0x080095f4       0xc8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
-                0x080095f4                memmove
- .text._read_r  0x080096bc       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
-                0x080096bc                _read_r
+                0x080095b8       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mbtowc_r.o)
+                0x080095b8                __ascii_mbtowc
+ .text.memmove  0x080095e4       0xc8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memmove.o)
+                0x080095e4                memmove
+ .text._read_r  0x080096ac       0x2c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-readr.o)
+                0x080096ac                _read_r
  .text._realloc_r
-                0x080096e8      0x35c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
-                0x080096e8                _realloc_r
+                0x080096d8      0x35c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-reallocr.o)
+                0x080096d8                _realloc_r
  .text._wcrtomb_r
-                0x08009a44       0x50 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
-                0x08009a44                _wcrtomb_r
+                0x08009a34       0x50 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wcrtomb.o)
+                0x08009a34                _wcrtomb_r
  .text.__ascii_wctomb
-                0x08009a94       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
-                0x08009a94                __ascii_wctomb
- .text.sqrtf    0x08009ab0       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
-                0x08009ab0                sqrtf
+                0x08009a84       0x1c c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-wctomb_r.o)
+                0x08009a84                __ascii_wctomb
+ .text.sqrtf    0x08009aa0       0xa0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+                0x08009aa0                sqrtf
  .text.__ieee754_sqrtf
-                0x08009b50       0xa8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
-                0x08009b50                __ieee754_sqrtf
- .text.matherr  0x08009bf8        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
-                0x08009bf8                matherr
+                0x08009b40       0xa8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-ef_sqrt.o)
+                0x08009b40                __ieee754_sqrtf
+ .text.matherr  0x08009be8        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-s_matherr.o)
+                0x08009be8                matherr
  *(.glue_7)
- .glue_7        0x08009bfc        0x0 linker stubs
+ .glue_7        0x08009bec        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08009bfc        0x0 linker stubs
+ .glue_7t       0x08009bec        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08009bfc        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+ .eh_frame      0x08009bec        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
  *(.init)
- .init          0x08009bfc        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
-                0x08009bfc                _init
- .init          0x08009c00        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+ .init          0x08009bec        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+                0x08009bec                _init
+ .init          0x08009bf0        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
  *(.fini)
- .fini          0x08009c08        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
-                0x08009c08                _fini
- .fini          0x08009c0c        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
-                0x08009c14                . = ALIGN (0x4)
-                0x08009c14                _etext = .
+ .fini          0x08009bf8        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crti.o
+                0x08009bf8                _fini
+ .fini          0x08009bfc        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtn.o
+                0x08009c04                . = ALIGN (0x4)
+                0x08009c04                _etext = .
 
-.vfp11_veneer   0x08009c14        0x0
- .vfp11_veneer  0x08009c14        0x0 linker stubs
+.vfp11_veneer   0x08009c04        0x0
+ .vfp11_veneer  0x08009c04        0x0 linker stubs
 
-.v4_bx          0x08009c14        0x0
- .v4_bx         0x08009c14        0x0 linker stubs
+.v4_bx          0x08009c04        0x0
+ .v4_bx         0x08009c04        0x0 linker stubs
 
-.iplt           0x08009c14        0x0
- .iplt          0x08009c14        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+.iplt           0x08009c04        0x0
+ .iplt          0x08009c04        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
 
-.rodata         0x08009c18      0x8e8
-                0x08009c18                . = ALIGN (0x4)
+.rodata         0x08009c08      0x9a0
+                0x08009c08                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.bgcolor.str1.1
-                0x08009c18        0x7 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c08        0x7 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.borders.str1.1
-                0x08009c1f       0x21 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c0f       0x21 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawAlien.str1.1
-                0x08009c40        0x3 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c30        0x3 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawBullet.str1.1
-                0x08009c43        0xf .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c33        0xf .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawPowerup.str1.1
-                0x08009c52       0x2a .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c42       0x2a .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.level1.8706
-                0x08009c7c        0xf .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c6c        0xf .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.level2.8707
-                0x08009c8b       0x14 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c7b       0x14 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.level3.8708
-                0x08009c9f       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009c8f       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.print_hp.str1.1
-                0x08009cb8        0x9 .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009ca8        0x9 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.print_level.str1.1
-                0x08009cc1        0xa .pio\build\nucleo_f302r8\src\Ascii.o
+                0x08009cb1        0xa .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.print_score.str1.1
-                0x08009ccb       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.led_update.str1.1
-                0x08009ce4        0x4 .pio\build\nucleo_f302r8\src\HAL.o
-                                  0xd (size before relaxing)
- .rodata.update_display_with_adc.str1.1
-                0x08009ce8       0x19 .pio\build\nucleo_f302r8\src\adc.o
-                                 0x22 (size before relaxing)
+                0x08009cbb       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.erase_bullet.str1.1
-                0x08009d01       0x1e .pio\build\nucleo_f302r8\src\bullets.o
+                0x08009cd4       0x1e .pio\build\nucleo_f302r8\src\bullets.o
                                  0x27 (size before relaxing)
  .rodata.character_data
-                0x08009d1f      0x1db .pio\build\nucleo_f302r8\src\charset.o
-                0x08009d1f                character_data
+                0x08009cf2      0x1db .pio\build\nucleo_f302r8\src\charset.o
+                0x08009cf2                character_data
  .rodata.lcd_text.str1.1
-                0x08009efa        0xa .pio\build\nucleo_f302r8\src\charset.o
+                0x08009ecd        0xa .pio\build\nucleo_f302r8\src\charset.o
                                  0x18 (size before relaxing)
  .rodata.game_state_init.str1.1
-                0x08009f04        0x5 .pio\build\nucleo_f302r8\src\game_state.o
+                0x08009ed7        0x5 .pio\build\nucleo_f302r8\src\game_state.o
+ *fill*         0x08009ed7        0x1 
  .rodata.full_heart_data
-                0x08009f04       0x1a .pio\build\nucleo_f302r8\src\heart.o
-                0x08009f04                full_heart_data
+                0x08009ed8       0x1a .pio\build\nucleo_f302r8\src\heart.o
+                0x08009ed8                full_heart_data
  .rodata.heart_x
-                0x08009f1e        0x5 .pio\build\nucleo_f302r8\src\heart.o
+                0x08009ef2        0x5 .pio\build\nucleo_f302r8\src\heart.o
  .rodata.heart_y
-                0x08009f23        0x5 .pio\build\nucleo_f302r8\src\heart.o
+                0x08009ef7        0x5 .pio\build\nucleo_f302r8\src\heart.o
  .rodata.tom_heart_data
-                0x08009f28       0x1a .pio\build\nucleo_f302r8\src\heart.o
-                0x08009f28                tom_heart_data
+                0x08009efc       0x1a .pio\build\nucleo_f302r8\src\heart.o
+                0x08009efc                tom_heart_data
  .rodata.displayHelpScreen.str1.1
-                0x08009f42      0x20e .pio\build\nucleo_f302r8\src\helpgameoverpause.o
-                                0x217 (size before relaxing)
+                0x08009f16      0x2e7 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                                0x2f0 (size before relaxing)
  .rodata.game_over_init.str1.1
-                0x0800a150       0x19 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x0800a1fd       0x19 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
                                  0x1e (size before relaxing)
  .rodata.pause_init.str1.1
-                0x0800a169       0x31 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x0800a216       0x31 .pio\build\nucleo_f302r8\src\helpgameoverpause.o
  .rodata.pause_update.str1.1
-                0x0800a19a        0xc .pio\build\nucleo_f302r8\src\helpgameoverpause.o
+                0x0800a247        0xc .pio\build\nucleo_f302r8\src\helpgameoverpause.o
  .rodata.main.str1.1
-                0x0800a19a        0x7 .pio\build\nucleo_f302r8\src\main.o
+                0x0800a247        0x7 .pio\build\nucleo_f302r8\src\main.o
                                   0xc (size before relaxing)
  .rodata.display_menu.str1.1
-                0x0800a1a1       0x28 .pio\build\nucleo_f302r8\src\menu.o
+                0x0800a24e       0x28 .pio\build\nucleo_f302r8\src\menu.o
                                  0x40 (size before relaxing)
  .rodata.menu_update.str1.1
-                0x0800a1c9       0x80 .pio\build\nucleo_f302r8\src\menu.o
+                0x0800a276       0x80 .pio\build\nucleo_f302r8\src\menu.o
                                  0x85 (size before relaxing)
- *fill*         0x0800a249        0x3 
+ *fill*         0x0800a2f6        0x2 
  .rodata._global_impure_ptr
-                0x0800a24c        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
-                0x0800a24c                _global_impure_ptr
+                0x0800a2f8        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+                0x0800a2f8                _global_impure_ptr
  .rodata._svfprintf_r.str1.4
-                0x0800a250       0x42 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
- *fill*         0x0800a292        0x2 
+                0x0800a2fc       0x42 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+ *fill*         0x0800a33e        0x2 
  .rodata.blanks.7276
-                0x0800a294       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+                0x0800a340       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
  .rodata.zeroes.7277
-                0x0800a2a4       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
+                0x0800a350       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-svfprintf.o)
  .rodata._vfprintf_r.str1.4
-                0x0800a2b4       0x42 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x0800a360       0x42 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
  .rodata.blanks.7291
-                0x0800a2b4       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x0800a360       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
  .rodata.zeroes.7292
-                0x0800a2c4       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
+                0x0800a370       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-vfprintf.o)
  .rodata._dtoa_r.str1.4
-                0x0800a2d4       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
+                0x0800a380       0x10 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-dtoa.o)
                                  0x12 (size before relaxing)
- *fill*         0x0800a2e4        0x4 
  .rodata.__mprec_bigtens
-                0x0800a2e8       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x0800a2e8                __mprec_bigtens
+                0x0800a390       0x28 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800a390                __mprec_bigtens
  .rodata.__mprec_tens
-                0x0800a310       0xc8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
-                0x0800a310                __mprec_tens
+                0x0800a3b8       0xc8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800a3b8                __mprec_tens
  .rodata.p05.6092
-                0x0800a3d8        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
+                0x0800a480        0xc c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-mprec.o)
  .rodata._setlocale_r.str1.4
-                0x0800a3e4        0xa c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+                0x0800a48c        0xa c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
                                   0xd (size before relaxing)
- *fill*         0x0800a3ee        0x2 
+ *fill*         0x0800a496        0x2 
  .rodata.str1.4
-                0x0800a3f0        0x2 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
- *fill*         0x0800a3f2        0x2 
+                0x0800a498        0x2 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-locale.o)
+ *fill*         0x0800a49a        0x2 
  .rodata._ctype_
-                0x0800a3f4      0x101 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
-                0x0800a3f4                _ctype_
- *fill*         0x0800a4f5        0x3 
+                0x0800a49c      0x101 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-ctype_.o)
+                0x0800a49c                _ctype_
+ *fill*         0x0800a59d        0x3 
  .rodata.sqrtf.str1.4
-                0x0800a4f8        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
+                0x0800a5a0        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libm.a(lib_a-wf_sqrt.o)
                                   0x6 (size before relaxing)
-                0x0800a500                . = ALIGN (0x4)
+                0x0800a5a8                . = ALIGN (0x4)
 
-.ARM.extab      0x0800a500        0x0
-                0x0800a500                . = ALIGN (0x4)
+.ARM.extab      0x0800a5a8        0x0
+                0x0800a5a8                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800a500                . = ALIGN (0x4)
+                0x0800a5a8                . = ALIGN (0x4)
 
-.ARM            0x0800a500        0x8
-                0x0800a500                . = ALIGN (0x4)
-                0x0800a500                __exidx_start = .
+.ARM            0x0800a5a8        0x8
+                0x0800a5a8                . = ALIGN (0x4)
+                0x0800a5a8                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800a500        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
-                0x0800a508                __exidx_end = .
-                0x0800a508                . = ALIGN (0x4)
+ .ARM.exidx     0x0800a5a8        0x8 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+                0x0800a5b0                __exidx_end = .
+                0x0800a5b0                . = ALIGN (0x4)
 
-.rel.dyn        0x0800a508        0x0
- .rel.iplt      0x0800a508        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+.rel.dyn        0x0800a5b0        0x0
+ .rel.iplt      0x0800a5b0        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
 
-.preinit_array  0x0800a508        0x0
-                0x0800a508                . = ALIGN (0x4)
-                0x0800a508                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0800a5b0        0x0
+                0x0800a5b0                . = ALIGN (0x4)
+                0x0800a5b0                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0800a508                PROVIDE (__preinit_array_end, .)
-                0x0800a508                . = ALIGN (0x4)
+                0x0800a5b0                PROVIDE (__preinit_array_end, .)
+                0x0800a5b0                . = ALIGN (0x4)
 
-.init_array     0x0800a508        0x8
-                0x0800a508                . = ALIGN (0x4)
-                0x0800a508                PROVIDE (__init_array_start, .)
+.init_array     0x0800a5b0        0x8
+                0x0800a5b0                . = ALIGN (0x4)
+                0x0800a5b0                PROVIDE (__init_array_start, .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x0800a508        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+                0x0800a5b0        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0800a50c        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
-                0x0800a510                PROVIDE (__init_array_end, .)
-                0x0800a510                . = ALIGN (0x4)
+ .init_array    0x0800a5b4        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+                0x0800a5b8                PROVIDE (__init_array_end, .)
+                0x0800a5b8                . = ALIGN (0x4)
 
-.fini_array     0x0800a510        0x4
-                0x0800a510                . = ALIGN (0x4)
-                0x0800a510                PROVIDE (__fini_array_start, .)
+.fini_array     0x0800a5b8        0x4
+                0x0800a5b8                . = ALIGN (0x4)
+                0x0800a5b8                PROVIDE (__fini_array_start, .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800a510        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
-                0x0800a514                PROVIDE (__fini_array_end, .)
-                0x0800a514                . = ALIGN (0x4)
-                0x0800a514                _sidata = LOADADDR (.data)
+ .fini_array    0x0800a5b8        0x4 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
+                0x0800a5bc                PROVIDE (__fini_array_end, .)
+                0x0800a5bc                . = ALIGN (0x4)
+                0x0800a5bc                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x9dc load address 0x0800a514
+.data           0x20000000      0x9dc load address 0x0800a5bc
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -2852,11 +2848,11 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
  *fill*         0x200009d9        0x3 
                 0x200009dc                _edata = .
 
-.igot.plt       0x200009dc        0x0 load address 0x0800aef0
+.igot.plt       0x200009dc        0x0 load address 0x0800af98
  .igot.plt      0x200009dc        0x0 c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/crtbegin.o
                 0x200009dc                . = ALIGN (0x4)
 
-.bss            0x200009dc      0x6d4 load address 0x0800aef0
+.bss            0x200009dc      0x6d4 load address 0x0800af98
                 0x200009dc                _sbss = .
                 0x200009dc                __bss_start__ = _sbss
  *(.bss)
@@ -2922,7 +2918,7 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x200010b0                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200010b0      0x600 load address 0x0800aef0
+                0x200010b0      0x600 load address 0x0800af98
                 0x200010b0                . = ALIGN (0x8)
                 0x200010b0                PROVIDE (end, .)
                 [!provide]                PROVIDE (_end, .)
