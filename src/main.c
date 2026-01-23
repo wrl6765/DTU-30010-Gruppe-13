@@ -20,8 +20,7 @@ int main(){
     joystickdown_init();
     TIM2_Init();
 	led_init();
-	 
-	//init_adc();
+	init_adc();
 	
 	clear();
 	GameContext ctx = {

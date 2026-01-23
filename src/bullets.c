@@ -70,9 +70,10 @@ void spawn_simple_bullet(BulletSystem *bs, GameContext *ctx)
             }
             b->vy = (b->vx * angle) / 60;
 
+            read_joystick_adc(ctx);
             // scale to fixed-point acceleration
-            b->ax = ctx->joy_ax >> 3;   
-            b->ay = ctx->joy_ay >> 3;
+            b->ax = (ctx->joy_ax >> 9);   
+            b->ay = -1*(ctx->joy_ay >> 10);
 
         // bullet type scales with level
         switch (ctx->level) {
@@ -185,7 +186,7 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
                     }
                 }
             } 
-            else {
+            else if (bs->bullets[i].type == 1){
                 // Normal bullet - dies when it goes off the left edge or top/bottom
                 int screen_x = bs->bullets[i].x >> 8;
                 int screen_y = bs->bullets[i].y >> 8;
@@ -193,7 +194,14 @@ void update_bullets(GameContext *ctx, BulletSystem *bs){
                 if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 2))
                     bs->bullets[i].alive = 0;
             }
-         
+            else if(bs->bullets[i].type == 3){
+                int screen_x = bs->bullets[i].x >> 8;
+                int screen_y = bs->bullets[i].y >> 8;
+                
+                if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 4))
+                    bs->bullets[i].alive = 0;
+            }
+
             }
         }
     }

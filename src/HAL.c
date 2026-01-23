@@ -116,29 +116,32 @@ void set_leds(uint8_t state)
 {
     if (state & 0x01)
         GPIOB->ODR |= (1 << LED1_PIN); //set green
+	else 
+			GPIOB->ODR &= ~(1 << LED1_PIN); //clear green
     
     if (state & 0x02)
         GPIOC->ODR |= (1 << LED2_PIN); // set red
-    
-	if (state & 0x00)
-        GPIOC->ODR &= ~(1 << LED2_PIN); // clear red
-		GPIOB->ODR &= ~(1 << LED1_PIN); //clear green
+    else
+	        GPIOC->ODR &= ~(1 << LED2_PIN); // clear red
+
+
 }
 
 
 // Trigger LED blink
 void led_trigger(player *p)
-{
+{	
+
     p->led_timer = LED_BLINK_DURATION; // reset timer
 }
 
 void led_update(player *p)
 {
     if(p->led_timer > 0){
-        set_leds(1);    // LED ON
+		set_leds(0x2);    // LED red
         p->led_timer--;
     } else {
-        set_leds(0);    // LED OFF
+        set_leds(0x1);    // LED green
     }
 }
 
