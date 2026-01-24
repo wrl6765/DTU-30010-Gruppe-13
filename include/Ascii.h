@@ -6,12 +6,14 @@
 #include "bullets.h"
 #include "game_state.h"
 
+// ansi codes
 #define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
 #define clear() printf("\x1B[2J")
 #define hide_cursor() printf("\x1B[?251")
 
 #define BG_DOT "\033[90m%c\033[0m"
 
+// 8.8 Coordinate definitions
 #define DISPLAY_HEIGHT  ((uint16_t)0x20)  // 32
 #define DISPLAY_WIDTH   ((uint16_t)0x64)  // 100
 

@@ -5,6 +5,7 @@
 
 typedef struct GameContext GameContext;  // forward declaration OK
 
+// Bullet definitions
 #define MAX_BULLETS 20
 #define BULLET_WIDTH 3
 #define BULLET_HEIGHT_NORMAL   1
@@ -15,7 +16,7 @@ typedef struct GameContext GameContext;  // forward declaration OK
 #define BULLET_TYPE_BOUNCE     2
 #define BULLET_TYPE_CANNON     3
 
-
+// Bullet struct
 typedef struct {
     int x, y;
     int vx, vy;
@@ -25,6 +26,7 @@ typedef struct {
     uint8_t max_bullets;
 } Bullet;
 
+// Bullet system struct, used for all things to do with the bullet array.
 typedef struct {
     Bullet bullets[MAX_BULLETS];
     uint8_t max_bullets;

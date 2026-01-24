@@ -18,7 +18,7 @@ uint8_t read_joystick(void);
 void TIM2_Init(void);
 void TIM2_IRQHandler(void);
 
-// Global timer flag
+// Global timer flag, most convenient for the timer flag
 extern volatile uint8_t tim2_flag;
 
 // Led

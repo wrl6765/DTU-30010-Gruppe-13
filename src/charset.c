@@ -125,7 +125,7 @@ void lcd_write_string(char *str, uint8_t slice, uint8_t line, uint8_t *buffer){
     }
 }
 
-// ------------ skriver spesifikt ift palyers status ------------------
+// ------------ skriver specifikt ift palyers status ------------------
 void lcd_text(int a, int b, uint8_t *buffer){
 
     memset(buffer, 0x00, 512);

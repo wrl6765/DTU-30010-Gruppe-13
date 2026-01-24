@@ -12,7 +12,7 @@
 #include "adc.h"
 
 static BulletSystem bullet_system;
-
+// game state initialization dependant on current state
 void game_state_init(GameContext *ctx)
 {
     clear();
@@ -41,7 +41,7 @@ void game_state_init(GameContext *ctx)
     }
 }
 
- 
+ // game state update dependant on current state
 void game_state_update(GameContext *ctx, uint8_t joystick)
 {
     switch (ctx->game_state) {
@@ -78,7 +78,7 @@ void game_init(GameContext *ctx){
     player_init();   // Initialize player
     game_borders();      // Draw game borders
 }
-
+// update game variables
 void game_loop(GameContext *ctx, uint8_t joystick){
     pause_check(ctx);
     ctx->timer_counter++;
@@ -93,29 +93,28 @@ void game_loop(GameContext *ctx, uint8_t joystick){
             bullets_set_max(ctx, &bullet_system); // Update max bullets for new level
         }
     }
-
+    //print variables
     print_level(ctx);
     print_score(&p);
     print_hp(&p);
-   
-    score_update(p.highscore, p.score);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
+    // update player adjacent stuff
+    score_update(p.highscore, p.score);      
     eraseAlien(&p, ctx);
     update_player(&p, joystick, ctx);
     drawAlien(&p, ctx);
-
+    // update powerups
     spawn_powerup(&p, ctx);
     powerups_Update(ctx, &p);
     powerup_effects_update(&p);
     // Update and draw bullets
     erase_bullet(&bullet_system);
-   
-    //update_display_with_adc();
     spawn_simple_bullet(&bullet_system, ctx);
     update_bullets(ctx, &bullet_system);
     draw_bullets(&bullet_system);
+    // LCD and LED update
     liv_update(&p);
     led_update(&p);
-    // If forcefield is active, apply its repulsion to all bullets before physics update
+    // If forcefield is active, apply its repulsion to all "living" bullets
 if (p.forcefield_active) {
     for (int i = 0; i < bullet_system.max_bullets; i++) {
         Bullet *b = &bullet_system.bullets[i];
@@ -124,16 +123,9 @@ if (p.forcefield_active) {
         }
     }
 }
+    // check for player hp = 0, is so = game over
 if (p.hp <= 0) {
         ctx->game_state = GAME_STATE_GAME_OVER;
         game_state_init(ctx);
     }
-    
-
-
-
-
-
-
-
 }

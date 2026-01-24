@@ -1443,7 +1443,7 @@ Discarded input sections
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\Ascii.o
  .text.drawSaturn
                 0x00000000       0x80 .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.saturnSprite.8689
+ .rodata.saturnSprite.8684
                 0x00000000       0x5c .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.str1.1
                 0x00000000      0x6e0 .pio\build\nucleo_f302r8\src\Ascii.o
@@ -1462,26 +1462,6 @@ Discarded input sections
                 0x00000000       0x34 .pio\build\nucleo_f302r8\src\adc.o
  .rodata.update_display_with_adc.str1.1
                 0x00000000       0x22 .pio\build\nucleo_f302r8\src\adc.o
- .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .text.init_adcbuttons
-                0x00000000       0x74 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .text.read_adcbuttons
-                0x00000000       0x32 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .text.update_display_with_adcbuttons
-                0x00000000       0x24 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .rodata.update_display_with_adcbuttons.str1.1
-                0x00000000       0x19 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .comment       0x00000000       0x7f .pio\build\nucleo_f302r8\src\adc_buttons.o
- .ARM.attributes
-                0x00000000       0x33 .pio\build\nucleo_f302r8\src\adc_buttons.o
- .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\box.o
- .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\box.o
- .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\box.o
- .comment       0x00000000       0x7f .pio\build\nucleo_f302r8\src\box.o
- .ARM.attributes
-                0x00000000       0x33 .pio\build\nucleo_f302r8\src\box.o
  .text          0x00000000        0x0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
  .data          0x00000000        0x0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
  .bss           0x00000000        0x0 .pio\build\nucleo_f302r8\src\bsp\30010_io.o
@@ -1911,8 +1891,6 @@ LOAD .pio\build\nucleo_f302r8\src\Ascii.o
 LOAD .pio\build\nucleo_f302r8\src\HAL.o
 LOAD .pio\build\nucleo_f302r8\src\Physics.o
 LOAD .pio\build\nucleo_f302r8\src\adc.o
-LOAD .pio\build\nucleo_f302r8\src\adc_buttons.o
-LOAD .pio\build\nucleo_f302r8\src\box.o
 LOAD .pio\build\nucleo_f302r8\src\bsp\30010_io.o
 LOAD .pio\build\nucleo_f302r8\src\bsp\syscalls.o
 LOAD .pio\build\nucleo_f302r8\src\bsp\sysmem.o
@@ -2670,11 +2648,11 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
                 0x08009c33        0xf .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.drawPowerup.str1.1
                 0x08009c42       0x2a .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level1.8706
+ .rodata.level1.8701
                 0x08009c6c        0xf .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level2.8707
+ .rodata.level2.8702
                 0x08009c7b       0x14 .pio\build\nucleo_f302r8\src\Ascii.o
- .rodata.level3.8708
+ .rodata.level3.8703
                 0x08009c8f       0x19 .pio\build\nucleo_f302r8\src\Ascii.o
  .rodata.print_hp.str1.1
                 0x08009ca8        0x9 .pio\build\nucleo_f302r8\src\Ascii.o
@@ -2861,7 +2839,7 @@ LOAD c:/users/dani5/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc
  .bss.tim2_flag
                 0x200009f8        0x1 .pio\build\nucleo_f302r8\src\HAL.o
                 0x200009f8                tim2_flag
- .bss.channel.8702
+ .bss.channel.8697
                 0x200009f9        0x1 .pio\build\nucleo_f302r8\src\adc.o
  .bss.UART_BUFFER
                 0x200009fa      0x100 .pio\build\nucleo_f302r8\src\bsp\30010_io.o

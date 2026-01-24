@@ -83,12 +83,7 @@ void powerup_effects_update(player *p) {
     }
 }
 void powerup_forcefield_apply(player *p, Bullet *b) {
-     /*
-     * Positions are stored in 8.8 fixed point. Convert to pixel floats,
-     * compute a normalized direction from player->bullet and apply a
-     * small acceleration (in 8.8 fixed point) away from the player when
-     * inside an effect radius.
-     */
+
     int32_t player_center_x = (int32_t)p->x + ((int32_t)p->width << 8);
     int32_t player_center_y = (int32_t)p->y + ((int32_t)p->height << 8);
     int32_t bullet_center_x = (int32_t)b->x + ((int32_t)BULLET_WIDTH << 8);

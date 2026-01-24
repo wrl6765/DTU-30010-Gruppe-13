@@ -43,7 +43,7 @@ uint16_t read_adcbuttons(uint8_t channel) {
 }
 
 
-// -------------- print for potentiometer ----------------------
+// -------------- print for potentiometer(debugging) ----------------------
 void update_display_with_adcbuttons(void) {
     uint16_t pot1 = read_adcbuttons(ADC_Channel_10); //Read the ADC value fra  PA6
     uint16_t pot2 = read_adcbuttons(ADC_Channel_15); //Read the ADC value fra  PA7

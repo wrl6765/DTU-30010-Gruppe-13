@@ -55,7 +55,7 @@ void read_joystick_adc(GameContext *ctx)
     static uint8_t channel = 0;
 
     if (channel == 0) {
-        ctx->joy_y = ((int)read_adc(0x08) - 2048);
+        ctx->joy_y = ((int)read_adc(0x08) - 2048);// Effectively convert to biased representation for calculations
         channel = 1;
         ctx->joy_ay = ctx->joy_y;
     } else {
@@ -66,7 +66,7 @@ void read_joystick_adc(GameContext *ctx)
 }
 
 
-// -------------- print for potentiometer ----------------------
+// -------------- print for potentiometer(debugging) ----------------------
 void update_display_with_adc(void) {
     uint16_t readjoyupdown = read_adc(ADC_Channel_8); //Read the ADC value fra PC2
     uint16_t readjoyleftright = read_adc(ADC_Channel_9); //Read the ADC value fra PC3

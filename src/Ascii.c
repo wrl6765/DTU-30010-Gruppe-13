@@ -41,7 +41,7 @@ void borders(){
 			}
 			printf("%c", 188);
 }
-
+// General borders
 void game_borders(){
 	hide_cursor();
 	clear();
@@ -63,7 +63,7 @@ void game_borders(){
 				printf("%c", 205);
 		}
 }
-// ---------- Saturn drawing ----------
+// ---------- Saturn drawing(not used) ----------
 void drawSaturn()
 {
     uint16_t saturn_x = 20;  // hard-coded kolonne start
@@ -212,7 +212,7 @@ void drawBullet(Bullet *b)
 		case 1: printf("---"); break; //regular
 		case 2: printf("==="); break; // bouncing
 		case 3: printf("OOO"); break; // cannonball
-		case 4: printf("**"); break; // sniper
+		case 4: printf("**"); break; // sniper(not used)
 		}
 	}
 	if (b->type == 3) {
@@ -289,11 +289,12 @@ void print_level(GameContext *ctx){
 	gotoxy(DISPLAY_WIDTH - 15, 1);
 	printf("Level: %d", ctx->level);
 }
-
+//-------------print score---------------
 void print_score(player *p){
 	gotoxy(2, 1);
 	printf("Score: %d  Highscore: %d", p->score, p->highscore);
 }
+//--------------print hp-----------------
 void print_hp(player *p){
 	gotoxy(40, 1);
 	printf("HP: %d  ", p->hp);

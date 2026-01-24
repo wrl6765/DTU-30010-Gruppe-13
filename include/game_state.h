@@ -13,11 +13,11 @@
 #define MENU_MODE_HELP 1
 #define MENU_MODE_QUIT 2
 
+// Gamecontext struct, used for various variables that arent connected to the player or bullet
 typedef struct GameContext {
-    uint8_t game_state;
-    uint8_t menu_mode;
+    uint8_t game_state; // What state the game is in eg. menu, pause, game over.
+    uint8_t menu_mode; // What the cursor is hovering in menu
     uint8_t prev_joystick;
-    uint8_t prev_sw1;
     uint32_t timer_counter;
     uint8_t level;
     uint32_t highscore;
@@ -29,9 +29,9 @@ typedef struct GameContext {
 } GameContext;
 
 
-void game_state_init(GameContext *ctx);
-void game_state_update(GameContext *ctx, uint8_t joystick);
-void game_init(GameContext *ctx);
-void game_loop(GameContext *ctx, uint8_t joystick);
+void game_state_init(GameContext *ctx); // initialize current game state
+void game_state_update(GameContext *ctx, uint8_t joystick); // update current game state
+void game_init(GameContext *ctx); // initialize game
+void game_loop(GameContext *ctx, uint8_t joystick); // update game
 
 #endif

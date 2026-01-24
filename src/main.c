@@ -13,7 +13,7 @@
 
 
 int main(){
-	//-----------inits------------------
+	//-----------inits start------------------
     uart_init(950000); // Baud rate 950000, compiler didnt like it :( 
 	printf("\x1b[?25l"); // Hide terminal cursor
     joystick_init();
@@ -21,7 +21,6 @@ int main(){
     TIM2_Init();
 	led_init();
 	init_adc();
-	
 	clear();
 	GameContext ctx = {
     .game_state = GAME_STATE_MENU,
@@ -31,18 +30,13 @@ int main(){
 	.level = 1,
 	.highscore = 0,
 	};
-	
 	uint8_t joystick = 0;
-	// uint8_t game_state = GAME_STATE_MENU; // 0=menu, 1=game, 2=help
-	// uint8_t menuMode = MENU_MODE_HELP; // 0=play, 1=help, 2=quit
-	// uint8_t *menu_mode = &menuMode;
 	game_state_init(&ctx);
+	//inits end
     	while(1){
-//
 			joystick = read_joystick();
-//
     		if (tim2_flag){ //30 Hz timer flag, bruges til main time
-    //						//player movement, bullet movement, osv.
+    						//player movement, bullet movement, etc.
 
 				game_state_update(&ctx, joystick);
 				

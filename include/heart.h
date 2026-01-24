@@ -10,10 +10,10 @@ void heart_full(uint8_t x, uint8_t y, uint8_t *buffer);
 // Tegn et tomt hjerte: 16 kolonner x 13 rækker
 void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer);
 
-// Life display 0 til 5
+// Lives display 0 til 5
 void display_lives(player *p, uint8_t *buffer);
 
-// opdatere lives
+// Opdatere lives
 void liv_update(player *p);
 
 uint8_t *lcd_get_buffer(void);
