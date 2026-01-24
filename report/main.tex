@@ -1,0 +1,82 @@
+
+\input{Setup/Statics.tex}
+\input{Setup/Preamble.tex}
+\input{Setup/Settings.tex}
+
+\begin{document}
+
+\pagenumbering{roman} % Definer at siderne før det første kapitel starter skal markeres med romertal
+\input{Frontmatter/Frontpage.tex}
+\pagecolor{white}
+\newgeometry{top=2.81cm, bottom=2.75cm, outer=2.5cm, inner=3.5cm}
+\pagestyle{empty}
+\clearpage 
+\input{Frontmatter/Abstract.tex}
+\clearpage 
+\tableofcontents
+\clearpage 
+
+% %  ======================================================
+% % % MAIN SECTION
+% %  ======================================================
+
+\pagenumbering{arabic} % Definer at alle sider der kommer herefter skal markeres med arabiske tal 
+
+\input{Chapters/01_Introduktion.tex} 
+\clearpage 
+
+\input{Chapters/02_blank.tex} 
+\clearpage 
+
+\input{Chapters/03_ProduktUdvikling.tex} 
+\clearpage
+
+\input{Chapters/04_Projekt_struktur.tex} 
+\clearpage 
+
+\input{Chapters/05_brugermanual} 
+\clearpage 
+
+\input{Chapters/06_Proces.tex} 
+\clearpage 
+
+\input{Chapters/07_Test_af_produkt}
+\clearpage 
+
+\input{Chapters/08_Diskussion} 
+\clearpage 
+
+\input{Chapters/09_Konklusion} 
+\clearpage 
+
+% %  ======================================================
+% % % BIBLIOGRAPHY
+% %  ======================================================
+
+\printbibliography[heading=bibintoc,title={Referencer}]
+\clearpage 
+
+% %  ======================================================
+% % % BACKMATTER
+% %  ======================================================
+
+\appendix
+\input{Backmatter/Appendix.tex}
+\clearpage
+\input{Backmatter/GanttChart.tex}
+\clearpage
+\input{Backmatter/Journal_1_2}
+\clearpage
+\input{Backmatter/Journal_3.tex}
+\clearpage
+\input{Backmatter/Journal_4_5.tex}
+\clearpage
+\input{Backmatter/Journal_weekend.tex}
+\clearpage
+\input{Backmatter/Journal_6.tex}
+\clearpage
+\input{Backmatter/fullcode.tex}
+\clearpage
+\input{Backmatter/Backpage.tex}
+
+\end{document}

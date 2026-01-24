@@ -1,0 +1,2357 @@
+\section{Full code}
+\label{sec:fullcode}
+
+Nedenunder er alle filerne til det komplete program.
+
+\texttt{adc\_buttons.h}
+\begin{lstlisting}
+    #ifndef ADC_H_
+#define ADC_H_
+
+#include <stdint.h>
+#include "stm32f30x_conf.h"
+
+// Initialiserer ADC og GPIO
+void init_adcbuttons(void);
+
+// Læser ADC-værdi (0–4095) fra valgt kanal (1 eller 2)
+uint16_t read_adcbuttons(uint8_t channel);
+
+uint8_t sw1_pressed(void);
+
+// Læser ADC og printer værdi
+void update_display_with_adcbuttons(void);
+
+#endif /* ADC_H_ */
+\end{lstlisting}
+
+\textbf{adc.h}
+\begin{lstlisting}
+    #ifndef ADC_H_
+#define ADC_H_
+
+#include <stdint.h>
+#include "stm32f30x_conf.h"
+#include "game_state.h"
+
+
+// Initialiserer ADC og GPIO
+void init_adc(void);
+
+// Læser ADC-værdi (0–4095) fra valgt kanal 8 og 9 (pins CP2 CP3) 
+uint16_t read_adc(uint8_t channel);
+
+// Behandler ADC-værdier
+void read_joystick_adc(GameContext *ctx);
+
+// Læser ADC og printer værdi
+void update_display_with_adc(void);
+
+
+#endif /* ADC_H_ */
+\end{lstlisting}
+
+\texttt{Ascii.h}
+\begin{lstlisting}
+    #ifndef ASCII_H_
+#define ASCII_H_
+
+#include "30010_io.h"
+#include "Physics.h"
+#include "bullets.h"
+#include "game_state.h"
+
+// ansi codes
+#define gotoxy(X,Y) printf("\x1B[%d;%dH",(int)(Y),(int)(X))
+#define clear() printf("\x1B[2J")
+#define hide_cursor() printf("\x1B[?251")
+
+#define BG_DOT "\033[90m%c\033[0m"
+
+// 8.8 Coordinate definitions
+#define DISPLAY_HEIGHT  ((uint16_t)0x20)  // 32
+#define DISPLAY_WIDTH   ((uint16_t)0x64)  // 100
+
+#define X_COORDINATE    (DISPLAY_WIDTH << 8)
+#define Y_COORDINATE    (DISPLAY_HEIGHT << 8)
+
+#define Y_MIN    (1 << 8)
+#define Y_MAX    ((DISPLAY_HEIGHT-2) << 8)
+
+#define X_MIN    (1 << 8)
+#define X_MAX    ((DISPLAY_WIDTH-2) << 8)
+
+// Alien sprite definition
+#define ALIEN_WIDTH   4
+
+// Alien height definitions
+#define ALIEN_HEIGHT_LVL_1   3
+#define ALIEN_HEIGHT_LVL_2   4
+#define ALIEN_HEIGHT_LVL_3   5
+
+// Bullet sizes
+#define BULLET_SMALL_HEIGHT   1
+#define BULLET_SMALL_WIDTH   2
+#define BULLET_MEDIUM_HEIGHT   1
+#define BULLET_MEDIUM_WIDTH   3
+#define BULLET_LARGE_HEIGHT   3
+#define BULLET_LARGE_WIDTH   3
+
+// Powerup sizes
+#define POWERUP_WIDTH   5
+#define POWERUP_HEIGHT   5
+
+void borders(void);
+void game_borders();
+void bgcolor(uint8_t background);
+void drawSaturn(void);
+void drawAlien(player *p, GameContext *ctx);
+void drawBullet(Bullet *b);
+void eraseAlien(player *p, GameContext *ctx);
+void drawPowerup(player *p);
+void erasePowerup(player *p);
+void print_level(GameContext *ctx);
+void print_score(player *p);
+void print_hp(player *p);
+
+#endif /* ASCII_H_ */
+\end{lstlisting}
+
+\texttt{bullets.h}
+\begin{lstlisting}
+    #ifndef BULLETS_H
+#define BULLETS_H
+
+#include <stdint.h>
+
+typedef struct GameContext GameContext;  // forward declaration OK
+
+// Bullet definitions
+#define MAX_BULLETS 20
+#define BULLET_WIDTH 3
+#define BULLET_HEIGHT_NORMAL   1
+#define BULLET_HEIGHT_CANNON   3
+
+
+#define BULLET_TYPE_REGULAR    1
+#define BULLET_TYPE_BOUNCE     2
+#define BULLET_TYPE_CANNON     3
+
+// Bullet struct
+typedef struct {
+    int x, y;
+    int vx, vy;
+    int ax, ay;
+    int alive;
+    int type;  // 0=normal (dies at edge), 1=bouncing (reflects at edge)
+    uint8_t max_bullets;
+} Bullet;
+
+// Bullet system struct, used for all things to do with the bullet array.
+typedef struct {
+    Bullet bullets[MAX_BULLETS];
+    uint8_t max_bullets;
+} BulletSystem;
+
+void bullets_init(BulletSystem *bs);
+void spawn_simple_bullet(BulletSystem *bs, GameContext *ctx);
+void erase_bullet(BulletSystem *bs);
+void update_bullets(GameContext *ctx, BulletSystem *bs);
+void draw_bullets(BulletSystem *bs);
+void bullets_set_max(GameContext *ctx, BulletSystem *bs);
+int bullet_height(const Bullet *b);
+
+
+#endif
+\end{lstlisting}
+
+\texttt{charset.h}
+\begin{lstlisting}
+    #ifndef _CHARSET_H_
+#define _CHARSET_H_
+
+#include <stdint.h>
+#include "bsp/30010_io.h"
+
+extern const char character_data[95][5];
+
+// ------------ skriver text på lcd ------------------------
+void lcd_write_string(char *str, uint8_t slice, uint8_t line, uint8_t *buffer);
+
+// ------------ skriver specifikt ift palyers status --------
+void lcd_text(int a, int b, uint8_t *buffer);
+
+// ------------ opdaterer palyers status --------
+void score_update(int high, int score);
+
+#endif /*! _CHARSET_H_ */
+\end{lstlisting}
+
+\texttt{game\_state.h}
+\begin{lstlisting}
+    #ifndef MODE_H
+#define MODE_H
+
+#include <stdint.h>
+
+#define GAME_STATE_MENU 0
+#define GAME_STATE_PLAY 1
+#define GAME_STATE_HELP 2
+#define GAME_STATE_GAME_OVER 3
+#define GAME_STATE_PAUSE 4
+
+#define MENU_MODE_PLAY 0
+#define MENU_MODE_HELP 1
+#define MENU_MODE_QUIT 2
+
+// Gamecontext struct, used for various variables that arent connected to the player or bullet
+typedef struct GameContext {
+    uint8_t game_state; // What state the game is in eg. menu, pause, game over.
+    uint8_t menu_mode; // What the cursor is hovering in menu
+    uint8_t prev_joystick;
+    uint32_t timer_counter;
+    uint8_t level;
+    uint32_t highscore;
+    int16_t joy_ax;// resulting acceleration from joystick
+    int16_t joy_ay;
+    int16_t joy_x; // joystick positions
+    int16_t joy_y;
+
+} GameContext;
+
+
+void game_state_init(GameContext *ctx); // initialize current game state
+void game_state_update(GameContext *ctx, uint8_t joystick); // update current game state
+void game_init(GameContext *ctx); // initialize game
+void game_loop(GameContext *ctx, uint8_t joystick); // update game
+
+#endif
+\end{lstlisting}
+
+\texttt{HAL.h}
+\begin{lstlisting}
+    #ifndef HAL_H
+#define HAL_H
+
+#include "bsp/stm32f30x.h"
+#include "bsp/30010_io.h"
+#include "Physics.h"
+#include "game_state.h"
+
+// Joystick
+void joystick_init(void);
+void joystickdown_init(void);
+uint8_t joystick_center_pressed(void);
+uint8_t joystick_down_pressed(void);
+uint8_t read_joystick(void);
+
+
+// Timer
+void TIM2_Init(void);
+void TIM2_IRQHandler(void);
+
+// Global timer flag, most convenient for the timer flag
+extern volatile uint8_t tim2_flag;
+
+// Led
+void led_update(player *p);
+void led_init();
+void set_leds(uint8_t led_state);
+void led_trigger(player *p);
+#endif
+\end{lstlisting}
+
+\texttt{heart.h}
+\begin{lstlisting}
+    #ifndef HEART_H
+#define HEART_H
+
+#include <stdint.h>
+#include "Physics.h"
+
+// Tegn et fyldt hjerte: 16 kolonner x 13 rækker
+void heart_full(uint8_t x, uint8_t y, uint8_t *buffer);
+
+// Tegn et tomt hjerte: 16 kolonner x 13 rækker
+void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer);
+
+// Lives display 0 til 5
+void display_lives(player *p, uint8_t *buffer);
+
+// Opdatere lives
+void liv_update(player *p);
+
+uint8_t *lcd_get_buffer(void);
+
+#endif /* _HEART_H_ */
+\end{lstlisting}
+
+\texttt{help.h}
+\begin{lstlisting}
+    #ifndef HELP_H_
+#define HELP_H_
+#include "game_state.h"
+
+void displayHelpScreen();
+void help_update(GameContext *ctx, uint8_t joystick);
+void game_over_update(GameContext *ctx, uint8_t joystick);
+void game_over_init(GameContext *ctx);
+void pause_update(GameContext *ctx, uint8_t joystick);
+#endif /* HELP_H_ */
+\end{lstlisting}
+
+\texttt{menu.h}
+\begin{lstlisting}
+    #ifndef MENU_H
+#define MENU_H
+#include "game_state.h"
+void display_menu(void);
+void menu_update(GameContext *ctx, uint8_t joystick);
+
+#endif /* MENU_H */
+\end{lstlisting}
+
+\texttt{pause.h}
+\begin{lstlisting}
+    #ifndef PAUSE_H
+#define PAUSE_H
+
+#include "game_state.h"
+
+void pause_init(GameContext *ctx);
+void pause_update(GameContext *ctx);
+void pause_check(GameContext *ctx);
+
+#endif // PAUSE_H
+\end{lstlisting}
+
+\texttt{Physics.h}
+\begin{lstlisting}
+    #ifndef PHYSICS_H_
+#define PHYSICS_H_
+
+#include "30010_io.h"
+#include "game_state.h"
+#include "bullets.h"
+#include <stdbool.h>
+#include <stdint.h>
+
+/* ---------------- POWERUPS ---------------- */
+
+typedef enum {
+	POWERUP_NONE = 0,
+    POWERUP_HEART = 1,
+    POWERUP_FORCEFIELD = 2,
+    POWERUP_MULTIPLIER = 3
+} PowerupType;
+
+typedef struct {
+    int32_t x, y;
+    int32_t prev_x, prev_y;
+    int32_t vx, vy;
+    PowerupType type;
+    uint8_t active;     // 1 = on screen, 0 = not present
+} Powerup;
+
+/* ---------------- PLAYER ---------------- */
+
+typedef struct player {
+    int16_t x, y, vy, ay;
+    int16_t score, score_multiplier, highscore;
+    int16_t width, height;
+    int16_t prev_x, prev_y;
+    uint8_t hp;
+    uint8_t alien_level;
+
+	// powerup pickups
+    Powerup heart_pickup;
+    Powerup forcefield_pickup;
+    Powerup multiplier_pickup;
+
+
+	uint16_t forcefield_active; // effect active
+	uint16_t multiplier_active; // effect active	
+	uint16_t forcefield_timer;
+	uint16_t multiplier_timer;
+
+	uint16_t led_timer;
+
+} player;
+
+extern player p;
+
+/* ---------------- FUNCTIONS ---------------- */
+// collision detections
+bool player_collides_with_bullet(player *p, const Bullet *b);
+bool heal_collides_with_player(player *p);
+bool multiplier_collides_with_player(player *p);
+bool forcefield_collides_with_player(player *p);
+
+void player_init(void);
+void update_player(player *p, uint8_t joystick, GameContext *ctx);
+
+
+#endif /* PHYSICS_H_ */
+\end{lstlisting}
+
+\texttt{powerup.h}
+\begin{lstlisting}
+    #ifndef POWERUP_H_
+#define POWERUP_H_
+#include "game_state.h"
+#include "Physics.h"
+
+void spawn_powerup(player *p, GameContext *ctx);
+void powerup_forcefield_init(player *p);
+void powerup_forcefield_apply(player *p, Bullet *b); // Forcefield effect
+void powerup_score_multiplier_init(player *p); // Multiplier and heal effects are simple enough to be in init
+void powerup_heal_player(player *p);
+
+void powerup_effects_update(player *p); // Reduce powerup timer and check if 0
+
+void powerups_Update(GameContext *ctx, player *p); // Physical powerup pickup update
+
+
+#endif /* POWERUP_H_ */
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+\texttt{adc.c}
+\begin{lstlisting}
+    #include "adc.h"
+#include <stdio.h>
+#include "game_state.h"
+#include "Ascii.h"
+#include "30010_io.h"
+#include "HAL.h"
+
+// ------------------- aktivere ure / kalibrere ADC -------------
+void init_adc(void) {
+    // Aktiver clock til Port C og ADC12
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_ADC12;
+
+    // 2. Konfigurer PC2 og PC3 som analog (ADC)
+    GPIOC->MODER &= ~((0x3 << (2 * 2)) | (0x3 << (3 * 2)));
+    GPIOC->MODER |=  ((0x3 << (2 * 2)) | (0x3 << (3 * 2)));
+    
+    // Ingen pull-up/pull-down
+    GPIOC->PUPDR &= ~((0x0 << (2 * 2)) | (0x0 << (3 * 2)));
+
+    RCC->CFGR2 &= ~RCC_CFGR2_ADCPRE12; // Clear ADC12 prescaler bits
+    RCC->CFGR2 |= RCC_CFGR2_ADCPRE12_DIV6; // Set ADC12 prescaler to 6
+
+    ADC1->CR = 0x00000000; // Clear CR register
+    ADC1->CFGR &= 0xFDFFC007; // Clear ADC1 config register
+    ADC1->SQR1 &= ~ADC_SQR1_L; // Clear regular sequence register 1
+
+    ADC1->CR |= 0x10000000; // Enable internal voltage regulator
+    for (volatile i = 0; i < 1000; i++); // Wait for about 16 microseconds
+    
+    ADC1->CR |= ADC_CR_ADCAL; // Start ADC1 calibration
+    while (!(ADC1->CR & ADC_CR_ADCAL)); // Wait for calibration to finish
+    for (volatile int i = 0; i < 100; i++); // Wait for a little while
+
+
+    ADC1->CR |= ADC_CR_ADEN; // Enable ADC1 (0x01 - Enable, 0x02 - Disable
+    while (!(ADC1->ISR & 0x00000001)); // Wait until ready
+    
+
+
+}
+
+// ----------- returnere en værdi mellem 0 og 4095 --------------
+uint16_t read_adc(uint8_t abs) {
+    ADC_RegularChannelConfig(ADC1, abs, 1, ADC_SampleTime_1Cycles5);
+    ADC_StartConversion(ADC1); // Start ADC read
+
+  
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
+
+    return ADC_GetConversionValue(ADC1);
+}
+
+void read_joystick_adc(GameContext *ctx)
+{
+    static uint8_t channel = 0;
+
+    if (channel == 0) {
+        ctx->joy_y = ((int)read_adc(0x08) - 2048);// Effectively convert to biased representation for calculations
+        channel = 1;
+        ctx->joy_ay = ctx->joy_y;
+    } else {
+        ctx->joy_x = ((int)read_adc(0x09) - 2048);
+        channel = 0;
+        ctx->joy_ax = ctx->joy_x;
+    }
+}
+
+
+// -------------- print for potentiometer(debugging) ----------------------
+void update_display_with_adc(void) {
+    uint16_t readjoyupdown = read_adc(ADC_Channel_8); //Read the ADC value fra PC2
+    uint16_t readjoyleftright = read_adc(ADC_Channel_9); //Read the ADC value fra PC3
+
+    gotoxy(10,10);
+    printf("Pot1: %04d | Pot2: %04d\n", readjoyupdown, readjoyleftright);
+}
+
+\end{lstlisting}
+
+\texttt{Ascii.c}
+\begin{lstlisting}
+    #include "Ascii.h"
+#include "30010_io.h"
+#include "Physics.h"
+#include "game_state.h"
+#include "bullets.h"
+
+  // grå tegn i baggrunden
+
+void bgcolor(uint8_t background) {
+
+    printf("\x1B[4%dm", background);
+}
+
+
+//--------------game begin borders-------------
+void borders(){
+
+	   hide_cursor();
+	   clear();
+	   gotoxy(1,1);
+
+	printf("%c", 201);
+		for(int i=1; i<(DISPLAY_WIDTH-2); i++){
+			printf("%c", 205);
+		}
+		printf("%c", 187);
+
+		for (int f=1; f<DISPLAY_HEIGHT-2; f++){
+			gotoxy(1, f+1);
+			printf("%c", 186);
+			for (int j=1; j<DISPLAY_WIDTH-2;j++){
+				printf(BG_DOT, 250);  // 250 er en prik
+			}
+			printf("%c", 186);
+		}
+
+		gotoxy(1, DISPLAY_HEIGHT-1);
+		printf("%c", 200);
+				for(int i=1; i<(DISPLAY_WIDTH-2); i++){
+					printf("%c", 205);
+			}
+			printf("%c", 188);
+}
+// General borders
+void game_borders(){
+	hide_cursor();
+	clear();
+	gotoxy(1,1);
+
+	for(int i=1; i<(DISPLAY_WIDTH); i++){
+		printf("%c", 205);
+	}
+
+	for (int f=1; f<DISPLAY_HEIGHT-2; f++){
+		gotoxy(1, f+1);
+		for (int j=1; j<DISPLAY_WIDTH;j++){
+			printf(BG_DOT, 250);  // 250 er en prik
+		}
+	}
+
+	gotoxy(1, DISPLAY_HEIGHT-1);
+			for(int i=1; i<(DISPLAY_WIDTH); i++){
+				printf("%c", 205);
+		}
+}
+// ---------- Saturn drawing(not used) ----------
+void drawSaturn()
+{
+    uint16_t saturn_x = 20;  // hard-coded kolonne start
+    uint16_t saturn_y = 8;  // hard-coded række start
+
+    int height = sizeof(saturnSprite) / sizeof(saturnSprite[0]);
+
+    // Saturn med grayscale mapping
+    for (int i = 0; i < height; i++) {
+        gotoxy(saturn_x, saturn_y + i);
+        for (int j = 0; saturnSprite[i][j] != '\0'; j++) {
+            char c = saturnSprite[i][j];
+
+            if (c == '.')
+                printf(BG_DOT, 250);           // background gray dot
+            else if (c == ':' || c == '-')
+                printf(BG_DOT, 248);           // slightly brighter
+            else if (c == '+' || c == '=')
+                printf(BG_DOT, 246);           // medium gray
+            else if (c == '*')
+                printf(BG_DOT, 244);           // darker gray
+            else if (c == '@' || c == '%')
+                printf(BG_DOT, 242);           // darkest gray
+            else if (c == '#')
+                printf(BG_DOT, 243);           // medium-dark gray
+            else
+                printf(BG_DOT, 250);           // background
+        }
+    }
+}
+
+// ---------- Alien sprite ----------
+void drawAlien(player *p, GameContext *ctx)
+{
+	uint16_t x = (p->x >> 8);
+	uint16_t y = (p->y >> 8);
+
+// Sprite bestemmes afhængigt af level
+	static const char level1[ALIEN_HEIGHT_LVL_1][ALIEN_WIDTH +1] = {
+	"<@@>",
+	"/||\\",
+	"/__\\"
+	};
+
+	static const char level2[ALIEN_HEIGHT_LVL_2][ALIEN_WIDTH +1] = {
+	"<@@>",
+	"/||\\",
+	"/__\\",
+	" /\\ "
+	};
+
+	static const char level3[ALIEN_HEIGHT_LVL_3][ALIEN_WIDTH +1] = {
+	"<@@>",
+	"/||\\",
+	"/__\\",
+	" /\\ ",
+	" || "
+	};
+
+	const char (*sprite)[ALIEN_WIDTH +1];
+	int height;
+	sprite = NULL;
+
+	switch(ctx->level){
+	case 1: // level 1
+		sprite = level1;
+		height = ALIEN_HEIGHT_LVL_1;
+		break;
+	case 2: // level 2
+		sprite = level2;
+		height = ALIEN_HEIGHT_LVL_2;
+		break;
+	case 3: // level 3
+		sprite = level3;
+		height = ALIEN_HEIGHT_LVL_3;
+		break;
+
+	}
+
+	for (int i = 0; i < height; i++) {
+		gotoxy(x, y + i);
+		printf("%s", sprite[i]);
+	}
+}
+
+void eraseAlien(player *p, GameContext *ctx)
+{
+    int height;
+
+    switch(ctx->level){
+    case 1: height = ALIEN_HEIGHT_LVL_1; break;
+    case 2: height = ALIEN_HEIGHT_LVL_2; break;
+    case 3: height = ALIEN_HEIGHT_LVL_3; break;
+    default: height = ALIEN_HEIGHT_LVL_1;
+    }
+
+    for (int i=0; i<height; i++) {
+        gotoxy((p->prev_x)>>8, (p->prev_y>>8)+i);
+        for (int j=0; j<ALIEN_WIDTH; j++) {
+            printf(BG_DOT, 250);
+            
+        }
+    }
+	p->prev_y = p->y;
+}
+
+// ---------- Bullet drawing ----------
+void drawBullet(Bullet *b)
+{
+	// x og y position af øvre venstre hjørne af bullet. Bullet tegnes som læst herfra
+	uint16_t x = (b->x >> 8);
+	uint16_t y = (b->y >> 8);
+
+	int height = bullet_height(b);
+
+	for(int i=0; i<height; i++){
+		gotoxy(x, y+i);
+		switch(b->type){
+		case 1: printf("---"); break; //regular
+		case 2: printf("==="); break; // bouncing
+		case 3: printf("OOO"); break; // cannonball
+		case 4: printf("**"); break; // sniper(not used)
+		}
+	}
+	if (b->type == 3) {
+		height = 3;
+	}
+}
+
+void drawPowerup(player *p)
+{
+	// Powerup sprites
+	struct { Powerup *pu; const char sprite[POWERUP_HEIGHT][POWERUP_WIDTH+1]; } powerups[] = {
+	{ &p->heart_pickup, {
+            " *** ",
+			"*   *", 
+			"*<3 *", 
+			"*   *", 
+			" *** "
+        }},
+        { &p->forcefield_pickup, {
+            " *** ", 
+			"*   *", 
+			"*[ ]*", 
+			"*   *", 
+			" *** "
+        }},
+        { &p->multiplier_pickup, {
+            " *** ", 
+			"*\\ /*", 
+			"* X *", 
+			"*/ \\*", 
+			" *** "
+        }}
+    };
+
+   for (int k = 0; k < 3; k++) {
+        Powerup *pu = powerups[k].pu;
+        if (!pu->active) continue;
+
+        for (int i = 0; i < POWERUP_HEIGHT; i++) {
+            gotoxy(pu->x >> 8, (pu->y >> 8) + i);
+            for (int j = 0; j < POWERUP_WIDTH; j++) {
+                char c = powerups[k].sprite[i][j];
+                printf("%c", c);
+            }
+        }
+    }
+}
+
+
+void erasePowerup(player *p)
+{
+    Powerup *pickups[] = { &p->heart_pickup, &p->forcefield_pickup, &p->multiplier_pickup }; //powerup array
+
+    for (int k = 0; k < 3; k++) {
+        Powerup *pu = pickups[k];
+        if (!pu->active) continue;
+
+        for (int i = 0; i < POWERUP_HEIGHT; i++) {
+            gotoxy((pu->prev_x >> 8), (pu->prev_y >> 8) + i);
+            for (int j = 0; j < POWERUP_WIDTH; j++) {
+                printf(BG_DOT, 250);
+            }
+        }
+
+        // Update prev position after erase
+        pu->prev_x = pu->x;
+        pu->prev_y = pu->y;
+    }
+}
+
+
+//--------------print level--------------
+void print_level(GameContext *ctx){
+	gotoxy(DISPLAY_WIDTH - 15, 1);
+	printf("Level: %d", ctx->level);
+}
+//-------------print score---------------
+void print_score(player *p){
+	gotoxy(2, 1);
+	printf("Score: %d  Highscore: %d", p->score, p->highscore);
+}
+//--------------print hp-----------------
+void print_hp(player *p){
+	gotoxy(40, 1);
+	printf("HP: %d  ", p->hp);
+}
+\end{lstlisting}
+
+\texttt{bullets.c}
+\begin{lstlisting}
+    #include "Ascii.h"
+#include "HAL.h"
+#include "bsp/30010_io.h"
+#include "bullets.h"
+#include <stdlib.h>
+#include "help.h"
+#include "game_state.h"
+#include "adc.h"
+
+
+
+void bullets_set_max(GameContext *ctx, BulletSystem *bs)
+{
+    switch (ctx->level) {
+        case 1: bs->max_bullets = 10; break;
+        case 2: bs->max_bullets = 15; break;
+        case 3: bs->max_bullets = 20; break;
+    }
+}
+
+// Initialize bullet system
+void bullets_init(BulletSystem *bs){
+    for(int i = 0; i < bs->max_bullets; i++){
+        bs->bullets[i].alive = 0;
+        bs->bullets[i].x = 0;
+        bs->bullets[i].y = 0;
+        bs->bullets[i].vx = 0;
+        bs->bullets[i].vy = 0;
+        bs->bullets[i].ax = 0;
+        bs->bullets[i].ay = 0;
+        bs->bullets[i].type = 1;  // Default to type 1 (regular)
+    }
+}
+
+void spawn_simple_bullet(BulletSystem *bs, GameContext *ctx)
+{
+    int alive_count = 0;
+
+    // Count alive bullets
+    for (int i = 0; i < MAX_BULLETS; i++) {
+        if (bs->bullets[i].alive)
+            alive_count++;
+    }
+
+    // Respect max bullets for current level
+    if (alive_count >= bs->max_bullets)
+        return;
+
+    // Find ONE free slot and spawn ONE bullet
+    for (int i = 0; i < MAX_BULLETS; i++) {
+        if (!bs->bullets[i].alive) {
+            Bullet *b = &bs->bullets[i];
+
+            b->alive = 1;
+
+            // Spawn position (right side)
+            b->x = (DISPLAY_WIDTH - 3) << 8;
+            b->y = (2 + rand() % (DISPLAY_HEIGHT - 4)) << 8;
+
+
+ 
+             //Random angle (-30° to +30°)
+            int angle = (rand() % 61) - 30;
+
+            // Fixed-point velocity
+            if (b->type == BULLET_TYPE_CANNON) {
+            b->vx = -96;          // slower than regular
+            } else {
+            b->vx = -160;
+            }
+            b->vy = (b->vx * angle) / 60;
+
+            read_joystick_adc(ctx);
+            // scale to fixed-point acceleration
+            b->ax = (ctx->joy_ax >> 9);   
+            b->ay = -1*(ctx->joy_ay >> 10);
+
+        // bullet type scales with level
+        switch (ctx->level) {
+            case 1:
+                b->type = 1; // only regular
+                break;
+        
+            case 2: {
+                int r = rand() % 10;
+                b->type = (r < 3) ? 2 : 1; // 30% bouncing
+                break;
+            }
+        
+            case 3: {
+                int r = rand() % 10;
+                if (r < 2)
+                    b->type = 3;      // 20% cannonball
+                else if (r < 5)
+                    b->type = 2;      // 30% bouncing
+                else
+                    b->type = 1;      // 50% regular
+                break;
+            }
+        }
+
+
+            break; // IMPORTANT: only spawn one bullet
+        }
+    }
+}
+
+
+
+void erase_bullet(BulletSystem *bs){
+    for(int i=0;i<bs->max_bullets;i++){
+        if(bs->bullets[i].alive){
+            int x = bs->bullets[i].x >> 8;
+            int y = bs->bullets[i].y >> 8;
+            
+            // Erase based on bullet type
+            if(bs->bullets[i].type == 3) {
+                // Type 3 is 3 lines tall
+                for(int line = 0; line < 3; line++) {
+                    gotoxy(x, y + line);
+                    printf("\033[90m%c%c%c\033[0m", 250, 250, 250);  // 3 spaces for OOO
+                }
+            } else {
+                // Types 1, 2, 4 are 1 line
+                gotoxy(x, y);
+                if(bs->bullets[i].type == 4) {
+                    printf("\033[90m%c%c\033[0m", 250, 250);  // 2 spaces for **
+                } else {
+                    printf("\033[90m%c%c%c\033[0m", 250, 250, 250);  // 3 spaces for --- or ===
+                }
+            }
+        }
+    }
+}
+
+void update_bullets(GameContext *ctx, BulletSystem *bs){
+    for(int i=0;i<bs->max_bullets;i++){
+        if(bs->bullets[i].alive){
+            // Update positions
+            bs->bullets[i].x += bs->bullets[i].vx;
+            bs->bullets[i].y += bs->bullets[i].vy;
+            bs->bullets[i].vx += bs->bullets[i].ax;
+            bs->bullets[i].vy += bs->bullets[i].ay;
+
+            //-----player bullet collision-----
+            if(player_collides_with_bullet(&p, &bs->bullets[i])){
+                // Handle collision (e.g., reduce player HP)
+            if (bs->bullets[i].type == BULLET_TYPE_CANNON) {
+                p.hp -= 2;
+            } else {
+                p.hp -= 1;
+            }
+
+
+
+            led_trigger(&p);
+            bs->bullets[i].alive = 0;
+             // Destroy bullet on hit
+                            continue;  // Skip further processing for this bullet
+            }
+
+
+            int screen_x = bs->bullets[i].x >> 8;
+            int screen_y = bs->bullets[i].y >> 8;
+
+            if(bs->bullets[i].type == 2) {
+                // Bouncing bullet - dies at left edge, bounces at other edges
+                if(screen_x < 2) {
+                    bs->bullets[i].alive = 0;  // Die at left edge
+                } else {
+                    // die at right edge
+                    if(screen_x > (DISPLAY_WIDTH)) {
+                        bs->bullets[i].alive = 0;  // Die at right edge
+                    }
+            
+                    // Bounce off top/bottom edges
+                    if(screen_y < 2) {
+                        bs->bullets[i].vy = -bs->bullets[i].vy;
+                        bs->bullets[i].y = 2 << 8;
+                    } else if(screen_y > (DISPLAY_HEIGHT - 2)) {
+                        bs->bullets[i].vy = -bs->bullets[i].vy;
+                        bs->bullets[i].y = (DISPLAY_HEIGHT - 2) << 8;
+                    }
+                }
+            } 
+            else if (bs->bullets[i].type == 1){
+                // Normal bullet - dies when it goes off the left edge or top/bottom
+                int screen_x = bs->bullets[i].x >> 8;
+                int screen_y = bs->bullets[i].y >> 8;
+                
+                if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 2))
+                    bs->bullets[i].alive = 0;
+            }
+            else if(bs->bullets[i].type == 3){
+                int screen_x = bs->bullets[i].x >> 8;
+                int screen_y = bs->bullets[i].y >> 8;
+                
+                if(screen_x < 2 || screen_y < 2 || screen_y > (DISPLAY_HEIGHT - 4))
+                    bs->bullets[i].alive = 0;
+            }
+
+            }
+        }
+    }
+
+
+
+
+void draw_bullets(BulletSystem *bs){
+    for(int i=0;i<bs->max_bullets;i++){
+        if(bs->bullets[i].alive){
+            gotoxy((int)(bs->bullets[i].x >> 8), (int)(bs->bullets[i].y >> 8));
+            drawBullet(&bs->bullets[i]);
+        }
+    }
+}
+\end{lstlisting}
+
+\texttt{chartset.c}
+\begin{lstlisting}
+    
+#include "charset.h"
+#include <stdint.h>
+#include "bsp/30010_io.h"
+#include <string.h>
+
+// ------------- Supported ASCII characters -------------------
+const char character_data[95][5] = {
+  {0x00, 0x00, 0x00, 0x00, 0x00},
+  {0x00, 0x5F, 0x5F, 0x00, 0x00},
+  {0x00, 0x07, 0x00, 0x07, 0x00},
+  {0x14, 0x7F, 0x14, 0x7F, 0x14},
+  {0x24, 0x2A, 0x7F, 0x2A, 0x12},
+  {0x23, 0x13, 0x08, 0x64, 0x62},
+  {0x36, 0x49, 0x55, 0x22, 0x50},
+  {0x00, 0x05, 0x03, 0x00, 0x00},
+  {0x00, 0x1C, 0x22, 0x41, 0x00},
+  {0x00, 0x41, 0x22, 0x1C, 0x00},
+  {0x14, 0x08, 0x3E, 0x08, 0x14},
+  {0x08, 0x08, 0x3E, 0x08, 0x08},
+  {0x00, 0x50, 0x30, 0x00, 0x00},
+  {0x08, 0x08, 0x08, 0x08, 0x08},
+  {0x00, 0x60, 0x60, 0x00, 0x00},
+  {0x20, 0x10, 0x08, 0x04, 0x02},
+  {0x3E, 0x51, 0x49, 0x45, 0x3E},
+  {0x00, 0x42, 0x7F, 0x40, 0x00},
+  {0x42, 0x61, 0x51, 0x49, 0x46},
+  {0x22, 0x49, 0x49, 0x49, 0x36},
+  {0x18, 0x14, 0x12, 0x7F, 0x10},
+  {0x2F, 0x49, 0x49, 0x49, 0x31},
+  {0x3E, 0x49, 0x49, 0x49, 0x32},
+  {0x03, 0x01, 0x71, 0x09, 0x07},
+  {0x36, 0x49, 0x49, 0x49, 0x36},
+  {0x26, 0x49, 0x49, 0x49, 0x3E},
+  {0x00, 0x36, 0x36, 0x00, 0x00},
+  {0x00, 0x56, 0x36, 0x00, 0x00},
+  {0x08, 0x14, 0x22, 0x41, 0x00},
+  {0x14, 0x14, 0x14, 0x14, 0x14},
+  {0x00, 0x41, 0x22, 0x14, 0x08},
+  {0x02, 0x01, 0x51, 0x09, 0x06},
+  {0x32, 0x49, 0x79, 0x41, 0x3E},
+  {0x7C, 0x0A, 0x09, 0x0A, 0x7C},
+  {0x7F, 0x49, 0x49, 0x49, 0x36},
+  {0x3E, 0x41, 0x41, 0x41, 0x22},
+  {0x7F, 0x41, 0x41, 0x41, 0x3E},
+  {0x7F, 0x49, 0x49, 0x49, 0x41},
+  {0x7F, 0x09, 0x09, 0x09, 0x01},
+  {0x3E, 0x41, 0x49, 0x49, 0x7A},
+  {0x7F, 0x08, 0x08, 0x08, 0x7F},
+  {0x00, 0x41, 0x7F, 0x41, 0x00},
+  {0x30, 0x40, 0x40, 0x40, 0x3F},
+  {0x7F, 0x08, 0x14, 0x22, 0x41},
+  {0x7F, 0x40, 0x40, 0x40, 0x40},
+  {0x7F, 0x02, 0x0C, 0x02, 0x7F},
+  {0x7F, 0x02, 0x04, 0x08, 0x7F},
+  {0x3E, 0x41, 0x41, 0x41, 0x3E},
+  {0x7F, 0x09, 0x09, 0x09, 0x06},
+  {0x3E, 0x41, 0x51, 0x21, 0x5E},
+  {0x7F, 0x09, 0x09, 0x09, 0x76},
+  {0x26, 0x49, 0x49, 0x49, 0x32},
+  {0x01, 0x01, 0x7F, 0x01, 0x01},
+  {0x3F, 0x40, 0x40, 0x40, 0x3F},
+  {0x1F, 0x20, 0x40, 0x20, 0x1F},
+  {0x3F, 0x40, 0x38, 0x40, 0x3F},
+  {0x63, 0x14, 0x08, 0x14, 0x63},
+  {0x03, 0x04, 0x78, 0x04, 0x03},
+  {0x61, 0x51, 0x49, 0x45, 0x43},
+  {0x7F, 0x41, 0x41, 0x00, 0x00},
+  {0x02, 0x04, 0x08, 0x10, 0x20},
+  {0x00, 0x41, 0x41, 0x7F, 0x00},
+  {0x04, 0x02, 0x01, 0x02, 0x04},
+  {0x40, 0x40, 0x40, 0x40, 0x40},
+  {0x00, 0x01, 0x02, 0x04, 0x00},
+  {0x20, 0x54, 0x54, 0x54, 0x78},
+  {0x7F, 0x48, 0x44, 0x44, 0x38},
+  {0x38, 0x44, 0x44, 0x44, 0x20},
+  {0x38, 0x44, 0x44, 0x48, 0x7F},
+  {0x38, 0x54, 0x54, 0x54, 0x18},
+  {0x08, 0x7E, 0x09, 0x01, 0x02},
+  {0x0C, 0x52, 0x52, 0x52, 0x3E},
+  {0x7F, 0x08, 0x04, 0x04, 0x78},
+  {0x00, 0x44, 0x7D, 0x40, 0x00},
+  {0x20, 0x40, 0x44, 0x3D, 0x00},
+  {0x7F, 0x10, 0x28, 0x44, 0x00},
+  {0x00, 0x41, 0x7F, 0x40, 0x00},
+  {0x7C, 0x04, 0x18, 0x04, 0x78},
+  {0x7C, 0x08, 0x04, 0x04, 0x78},
+  {0x38, 0x44, 0x44, 0x44, 0x38},
+  {0x7C, 0x14, 0x14, 0x14, 0x08},
+  {0x08, 0x14, 0x14, 0x18, 0x7C},
+  {0x7C, 0x08, 0x04, 0x04, 0x08},
+  {0x48, 0x54, 0x54, 0x54, 0x20},
+  {0x04, 0x3F, 0x44, 0x40, 0x20},
+  {0x3C, 0x40, 0x40, 0x20, 0x7C},
+  {0x1C, 0x20, 0x40, 0x20, 0x1C},
+  {0x3C, 0x40, 0x38, 0x40, 0x3C},
+  {0x44, 0x28, 0x10, 0x28, 0x44},
+  {0x0C, 0x50, 0x50, 0x50, 0x3C},
+  {0x44, 0x64, 0x54, 0x4C, 0x44},
+  {0x00, 0x08, 0x36, 0x41, 0x00},
+  {0x00, 0x00, 0x7F, 0x00, 0x00},
+  {0x00, 0x41, 0x36, 0x08, 0x00},
+  {0x08, 0x04, 0x08, 0x10, 0x08}};
+
+
+// ------------ skriver text på lcd --------------------------------
+void lcd_write_string(char *str, uint8_t slice, uint8_t line, uint8_t *buffer){
+    // char *str er texten
+	// uint8_t slice er startkoordinatet i x
+	// uint8_t line er startkoordinatet i y
+	// uint8_t *buffer noget med hvordan det sendes til LCD'en
+	uint16_t buffer_index = line * 128 + slice;
+
+    while (*str != '\0') {
+
+        if (*str >= 0x20 && *str <= 0x7E) {
+            uint8_t char_index = *str - 0x20;
+
+            for (int i = 0; i < 5; i++) {
+                buffer[buffer_index++] = character_data[char_index][i];
+            }
+            buffer[buffer_index++] = 0x00;
+        }
+        str++;
+    }
+}
+
+// ------------ skriver specifikt ift palyers status ------------------
+void lcd_text(int a, int b, uint8_t *buffer){
+
+    memset(buffer, 0x00, 512);
+
+    // Lav tekstene, inkl. tallet
+    char line1[20];
+    char line2[20];
+    sprintf(line1, "Highscore: %d", a);
+    sprintf(line2, "Score: %d", b);
+
+    // Skriv til LCD-buffer
+    lcd_write_string(line1, 0, 0, buffer);
+    lcd_write_string(line2, 0, 1, buffer);
+}
+
+
+// ------------ updatere palyers status ------------------
+void score_update(int high, int score) {
+    uint8_t *buffer = lcd_get_buffer();
+
+    memset(buffer, 0x00, 256); // ryd top
+
+    char line1[20], line2[20];
+    sprintf(line1, "Highscore: %d", high);
+    sprintf(line2, "Score: %d", score);
+
+    lcd_write_string(line1, 0, 0, buffer);
+    lcd_write_string(line2, 0, 1, buffer);
+
+    lcd_commit();
+}
+
+\end{lstlisting}
+
+\texttt{game\_state.c}
+\begin{lstlisting}
+    #include "game_state.h"
+#include "menu.h"
+#include "help.h"
+#include "Ascii.h"
+#include "HAL.h"
+#include "bullets.h"
+#include "Physics.h"
+#include "charset.h"
+#include "heart.h"
+#include "powerup.h"
+#include "pause.h"
+#include "adc.h"
+
+static BulletSystem bullet_system;
+// game state initialization dependant on current state
+void game_state_init(GameContext *ctx)
+{
+    clear();
+
+    switch (ctx->game_state) {
+
+        case GAME_STATE_MENU:
+            ctx->menu_mode = MENU_MODE_PLAY;   // reset selection
+            display_menu();
+            break;
+
+        case GAME_STATE_PLAY:
+            game_init(ctx);
+            break;
+
+        case GAME_STATE_HELP:
+            displayHelpScreen();
+            break;
+
+        case GAME_STATE_GAME_OVER:
+            game_over_init(ctx);
+            break;
+        case GAME_STATE_PAUSE:
+            pause_init(ctx);
+            break;
+    }
+}
+
+ // game state update dependant on current state
+void game_state_update(GameContext *ctx, uint8_t joystick)
+{
+    switch (ctx->game_state) {
+
+        case GAME_STATE_MENU:
+            menu_update(ctx, joystick);
+            break;
+
+        case GAME_STATE_PLAY:
+            game_loop(ctx, joystick);
+            break;
+
+        case GAME_STATE_HELP:
+            help_update(ctx, joystick);
+            break;
+
+        case GAME_STATE_GAME_OVER:
+            game_over_update(ctx, joystick);
+            break;
+
+        case GAME_STATE_PAUSE:
+            pause_update(ctx);
+            break;
+    }
+}
+
+
+void game_init(GameContext *ctx){
+    // initialize game variables here
+    ctx->timer_counter = 0;
+    ctx->level = 1;
+    bullets_init(&bullet_system);
+    bullets_set_max(ctx, &bullet_system);
+    player_init();   // Initialize player
+    game_borders();      // Draw game borders
+}
+// update game variables
+void game_loop(GameContext *ctx, uint8_t joystick){
+    pause_check(ctx);
+    ctx->timer_counter++;
+
+    if(ctx->timer_counter > 2700){
+        ctx->timer_counter = 1800; // reset to avoid overflow
+    }
+    if(ctx->timer_counter % 900 == 0){
+        // Every 30 seconds (30Hz), increase level
+        if(ctx->level < 3){
+            ctx->level++;
+            bullets_set_max(ctx, &bullet_system); // Update max bullets for new level
+        }
+    }
+    //print variables
+    print_level(ctx);
+    print_score(&p);
+    print_hp(&p);
+    // update player adjacent stuff
+    score_update(p.highscore, p.score);      
+    eraseAlien(&p, ctx);
+    update_player(&p, joystick, ctx);
+    drawAlien(&p, ctx);
+    // update powerups
+    spawn_powerup(&p, ctx);
+    powerups_Update(ctx, &p);
+    powerup_effects_update(&p);
+    // Update and draw bullets
+    erase_bullet(&bullet_system);
+    spawn_simple_bullet(&bullet_system, ctx);
+    update_bullets(ctx, &bullet_system);
+    draw_bullets(&bullet_system);
+    // LCD and LED update
+    liv_update(&p);
+    led_update(&p);
+    // If forcefield is active, apply its repulsion to all "living" bullets
+if (p.forcefield_active) {
+    for (int i = 0; i < bullet_system.max_bullets; i++) {
+        Bullet *b = &bullet_system.bullets[i];
+        if (b->alive) {
+            powerup_forcefield_apply(&p, b);
+        }
+    }
+}
+    // check for player hp = 0, is so = game over
+if (p.hp <= 0) {
+        ctx->game_state = GAME_STATE_GAME_OVER;
+        game_state_init(ctx);
+    }
+}
+\end{lstlisting}
+
+\texttt{HAL.c}
+\begin{lstlisting}
+    #include "HAL.h"
+#include "Physics.h"
+#include "game_state.h"
+#include "Ascii.h"
+
+// LED pins
+#define LED1_PIN   4   // PB4
+#define LED2_PIN   7   // PC7
+
+// LED timer max
+#define LED_BLINK_DURATION 15  // ticks (~0.5 sec at 30Hz)
+//-----------------------------------Joystick stuff start------------------------------------------
+
+void joystick_init(void)
+{
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOB;
+    GPIOB->MODER &= ~(0x3 << (5 * 2));   // PB5 input
+    GPIOB->PUPDR &= ~(0x3 << (5 * 2));
+    GPIOB->PUPDR |=  (0x2 << (5 * 2));   // pull-down
+}
+
+void joystickdown_init(void)
+{
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOB;
+    GPIOB->MODER &= ~(0x3 << (0 * 2));   // PB0 input
+    GPIOB->PUPDR &= ~(0x3 << (0 * 2));
+    GPIOB->PUPDR |=  (0x2 << (0 * 2));   // pull-down
+}
+
+uint8_t joystick_center_pressed(void)
+{
+    return (GPIOB->IDR & (1 << 5)) ? 1 : 0;
+}
+
+uint8_t read_joystick(void){
+	uint8_t val = 0;
+	val |= ((GPIOB->IDR & (0x0001 << 5)) ? 1 : 0); // center
+	val |= ((GPIOB->IDR & (0x0001 << 0)) ? 2 : 0); // down
+	return val;}
+	//-----------------------------------Joystick stuff end------------------------------------------
+	//-----------------------------------timer stuff start------------------------------------------
+
+	volatile uint8_t tim2_flag = 0;
+	// TIM2 init: 30 Hz interrupt
+	void TIM2_Init(void)
+	{
+	    RCC->APB1ENR |= 0x00000001; // TIM2 clock enable
+	    TIM2->PSC = 6399;           // prescaler
+	    TIM2->ARR = 332;            // auto-reload
+	    TIM2->CNT = 0x0000;         // clear counter
+	    TIM2->DIER = 0x0001;        // enable update interrupt
+	    TIM2->CR1 = 0x0001;         // enable timer
+
+	    NVIC->ISER[0] = 0x10000000; // enable TIM2 IRQ
+	    NVIC->IP[28] = 0x10;        // priority 1
+	}
+
+	// TIM2 interrupt handler
+
+	void TIM2_IRQHandler(void)
+	{
+	    if (TIM2->SR & 0x0001) // UIF flag
+	    {
+	        TIM2->SR &= ~0x0001; // clear flag
+	        tim2_flag = 1;
+	    }
+	} 
+
+	//-----------------------------------timer stuff end------------------------------------------
+	//--------------------------LED stuff start--------------------------------------------
+	void led_init(void)
+{
+    // Enable GPIO clocks
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOB | RCC_AHBPeriph_GPIOC;
+
+    // ---- PB4 (LED1) ----
+    GPIOB->MODER &= ~(0x3 << (LED1_PIN * 2));  // clear mode
+    GPIOB->MODER |=  (0x1 << (LED1_PIN * 2));  // output
+    GPIOB->OTYPER &= ~(1 << (LED1_PIN * 1));         // push-pull
+    GPIOB->OSPEEDR &= ~(0x3 << (LED1_PIN*2));
+    GPIOB->OSPEEDR |=  (0x2 << (LED1_PIN*2));  // medium speed
+
+    // ---- PC7 (LED2) ----
+    GPIOC->MODER &= ~(0x3 << (LED2_PIN * 2));  // clear mode
+    GPIOC->MODER |=  (0x1 << (LED2_PIN * 2));  // output
+    GPIOC->OTYPER &= ~(1 << LED2_PIN);         // push-pull
+    GPIOC->OSPEEDR &= ~(0x3 << (LED2_PIN*2));
+    GPIOC->OSPEEDR |=  (0x2 << (LED2_PIN*2));  // medium speed
+
+    // Turn off LEDs initially
+    GPIOB->ODR &= ~(1 << LED1_PIN);
+    GPIOC->ODR &= ~(1 << LED2_PIN);
+}
+	// Set LED states: bit0 = LED1, bit1 = LED2
+void set_leds(uint8_t state)
+{
+    if (state & 0x01)
+        GPIOB->ODR |= (1 << LED1_PIN); //set green
+	else 
+			GPIOB->ODR &= ~(1 << LED1_PIN); //clear green
+    
+    if (state & 0x02)
+        GPIOC->ODR |= (1 << LED2_PIN); // set red
+    else
+	        GPIOC->ODR &= ~(1 << LED2_PIN); // clear red
+
+
+}
+
+
+// Trigger LED blink
+void led_trigger(player *p)
+{	
+
+    p->led_timer = LED_BLINK_DURATION; // reset timer
+}
+
+void led_update(player *p)
+{
+    if(p->led_timer > 0){
+		set_leds(0x2);    // LED red
+        p->led_timer--;
+    } else {
+        set_leds(0x1);    // LED green
+    }
+}
+
+//--------------------------LED stuff end--------------------------------------------
+
+\end{lstlisting}
+
+\texttt{heart.c}
+\begin{lstlisting}
+    #include "heart.h"
+#include "bsp/30010_io.h"
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+#include "Physics.h"
+
+// ---------------- LCD manager -----------------
+uint8_t lcd_buffer[512];
+static uint8_t lcd_initialized = 0;
+
+void lcd_manager_init(void) {
+    if (!lcd_initialized) {
+        lcd_init();
+        memset(lcd_buffer, 0x00, 512);
+        lcd_initialized = 1;
+    }
+}
+
+uint8_t *lcd_get_buffer(void) {
+    lcd_manager_init();
+    return lcd_buffer;
+}
+
+void lcd_commit(void) {
+    lcd_push_buffer(lcd_buffer);
+}
+// ------------ Hjerte Full: 16 kolonner x 13 rækker ------------------
+const uint16_t full_heart_data[13] = {
+    0x1E3C, 0x3F7E, 0x7FFF, 0x7FFF,
+    0x7FFF, 0x7FFF, 0x3FFE, 0x1FFC,
+    0x0FF8, 0x07F0, 0x03E0, 0x01C0,
+    0x0080
+};
+
+// ------------- Hjerte Tom: 16 kolonner x 13 rækker ------------------
+const uint16_t tom_heart_data[13] = {
+    0x1E3C, 0x2142, 0x4081, 0x4001,
+    0x4001, 0x4001, 0x2002, 0x1004,
+    0x0808, 0x0410, 0x0220, 0x0140,
+    0x0080
+};
+
+// --------------- Slet hjerte område -------------------------------
+void heart_clear(uint8_t x, uint8_t y, uint8_t *buffer) {
+    for (int row = 0; row < 13; row++) {
+        for (int col = 0; col < 16; col++) {
+            uint8_t pixel_x = x + col;
+            uint8_t pixel_y = y + row;
+
+            if (pixel_x >= 128 || pixel_y >= 32) continue;
+
+            uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+            uint8_t bit = pixel_y % 8;
+
+            buffer[byte_index] &= ~(1 << bit);  // Clear pixel
+        }
+    }
+}
+
+// --------------- Tegn fyldt hjerte -------------------------------
+void heart_full(uint8_t x, uint8_t y, uint8_t *buffer) {
+    heart_clear(x, y, buffer);  // Clear area first
+    
+    for (int row = 0; row < 13; row++) {
+        uint16_t row_data = full_heart_data[row];
+
+        for (int col = 0; col < 16; col++) {
+            if (row_data & (1 << (15 - col))) {
+                uint8_t pixel_x = x + col;
+                uint8_t pixel_y = y + row;
+
+                if (pixel_x >= 128 || pixel_y >= 32) continue;
+
+                uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+                uint8_t bit = pixel_y % 8;
+
+                buffer[byte_index] |= (1 << bit);
+            }
+        }
+    }
+}
+
+// ------------------ Tegn tomt hjerte ---------------------------
+void heart_tom(uint8_t x, uint8_t y, uint8_t *buffer) {
+    heart_clear(x, y, buffer);  // Clear area first
+    
+    for (int row = 0; row < 13; row++) {
+        uint16_t row_data = tom_heart_data[row];
+
+        for (int col = 0; col < 16; col++) {
+            if (row_data & (1 << (15 - col))) {
+                uint8_t pixel_x = x + col;
+                uint8_t pixel_y = y + row;
+
+                if (pixel_x >= 128 || pixel_y >= 32) continue;
+
+                uint16_t byte_index = (pixel_y / 8) * 128 + pixel_x;
+                uint8_t bit = pixel_y % 8;
+
+                buffer[byte_index] |= (1 << bit);
+            }
+        }
+    }
+}
+
+
+// ------------ Koordinater for de 5 hjerter (y = lodret, x = vandret) -------------- 
+static const uint8_t heart_x[5] = {16, 36, 56, 76, 96}; // vandret med 20 pixels mellemrum
+static const uint8_t heart_y[5] = {19, 19, 19, 19, 19}; // lodret samme linje
+
+// ------------- display for de 5 hjærter ---------------------------------------------
+void display_lives(player *p, uint8_t *buffer) {
+    if (p->hp > 5) p->hp = 5; // begræns til max 5
+
+    for (int i = 0; i < 5; i++) {
+        if (i < p->hp) {
+            heart_full(heart_x[i], heart_y[i], buffer); // fyldt hjerte
+        } else {
+            heart_tom(heart_x[i], heart_y[i], buffer);  // tomt hjerte
+        }
+    }
+}
+
+void liv_update(player *p) {
+    uint8_t *buffer = lcd_get_buffer();
+
+    display_lives(p, buffer);
+    lcd_commit();
+}
+\end{lstlisting}
+
+\texttt{helpgameoverpause.c}
+\begin{lstlisting}
+    #include "bsp/30010_io.h"
+#include "HAL.h"
+#include "Physics.h"
+#include "menu.h"
+#include "help.h"
+#include "Ascii.h"
+#include "game_state.h"
+#include "charset.h"
+#include <stdio.h>
+#include "pause.h"
+
+
+void displayHelpScreen() {
+ 
+           borders();
+            // Tegn kanter
+
+            gotoxy(6, 3);{
+                printf("HELP - How to play");
+            }
+            gotoxy(6, 4);{
+                printf("Explore a mysterious planet in an endless runner.");
+            }
+            gotoxy(6, 5);{
+                printf("Move up with button held down, otherwise fall down.");
+            }
+            gotoxy(6, 6);{
+                printf("An opposing player can control the initial acceleration of bullets.");
+            }
+            gotoxy(6, 7);{
+                printf("Avoid projectiles. Losing all lives ends the game.");
+            }
+            gotoxy(6, 9);{
+                printf("Controls:");
+            }
+            gotoxy(8, 10);{
+                printf("- Press the non-analog joystick: accelerate upwards");
+            }
+            gotoxy(8, 11);{
+                printf("- Release the non-analog joystick: accelerate downwards");
+            }
+            gotoxy(8, 12);{
+                printf("- Press 'M': pause game");
+            }
+            gotoxy(8, 13);{
+                printf("- Use the analog joystick to control bullet acceleration");
+            }
+            gotoxy(6, 15);{
+                printf("Bullets:");
+            }
+            gotoxy(8,16); {
+                printf("- Regular bullets: damage: -1 HP");
+            }
+            gotoxy(8,17); {
+                printf("- Bouncing bullets: damage: -1 HP");
+            }
+            gotoxy(8,18);{
+                printf("- Cannonball bullets: damage: -2 HP");
+            }
+
+
+            gotoxy(6, 20);{
+                printf("Power-ups:");
+            }
+            gotoxy(8,21); {printf("- Heart: +1 HP");}
+            gotoxy(8,22); {printf("- Forcefield: Accelerate bullets away from the alien for 10s");}
+            gotoxy(8,23); {printf("- Multiplier: Gain 2X points for 10s");}
+
+            
+            gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
+                printf("\x1b[41m");
+                printf("[ GO TO MENU ]");
+                printf("\x1b[40m");
+            }
+            gotoxy((DISPLAY_WIDTH >> 1) - 21, DISPLAY_HEIGHT - 4);{
+                printf("Press CENTER joystick to return to menu.");
+            }
+
+        }
+    
+
+
+
+void help_update(GameContext *ctx, uint8_t joystick) {
+    if (ctx->game_state == GAME_STATE_HELP) {
+        uint8_t pressed = joystick & ~ctx->prev_joystick;
+
+        /* CENTER pressed once */
+        if (pressed & 0x01) {
+            ctx->game_state = GAME_STATE_MENU;
+            game_state_init(ctx);
+        }
+
+        ctx->prev_joystick = joystick;
+
+    }
+}
+
+void game_over_init(GameContext *ctx){
+        clear();
+        borders();
+        gotoxy(50-5,16);{printf("GAME OVER");}
+        gotoxy(50-8,18);{printf("your score: %d", p.score);}
+
+        gotoxy((DISPLAY_WIDTH >> 1) - 7, DISPLAY_HEIGHT - 2);{
+                   printf("\x1b[41m");
+                   printf("[ GO TO MENU ]");
+                   printf("\x1b[40m");
+               }
+               gotoxy((DISPLAY_WIDTH >> 1) - 21, DISPLAY_HEIGHT - 4);{
+                   printf("Press CENTER joystick to return to menu.");
+               }
+        }
+    
+    
+
+void game_over_update(GameContext *ctx, uint8_t joystick) {
+    if (ctx->game_state == GAME_STATE_GAME_OVER) {
+        uint8_t pressed = joystick & ~ctx->prev_joystick;
+
+        /* CENTER pressed once */
+        if (pressed & 0x01) {
+            ctx->game_state = GAME_STATE_MENU;
+            game_state_init(ctx);
+        }
+
+        ctx->prev_joystick = joystick;
+
+    }
+}
+
+void pause_init(GameContext *ctx){
+    clear();
+    game_borders();
+    gotoxy((DISPLAY_WIDTH >> 1) - 3,DISPLAY_HEIGHT >> 1);{printf("PAUSED");}
+    gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 4);{
+        printf("\x1b[41m");
+        printf("[ PRESS B TO RESUME ]");
+    }
+        gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 2);{
+            printf("[ PRESS M TO MENU ]");
+        printf("\x1b[40m");
+    }
+    
+}
+
+void pause_update(GameContext *ctx) {
+    int ch = uart_get_char();
+    if (ch == -1) return;
+    
+    if (ch == 'b' || ch == 'B') {
+        ctx->game_state = GAME_STATE_PLAY;
+            gotoxy((DISPLAY_WIDTH >> 1) - 3,DISPLAY_HEIGHT >> 1);
+                for (int i; i<6; i++){
+        printf(BG_DOT, 250);
+        }
+    gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 4);
+        for (int i; i<21; i++){
+        printf(BG_DOT, 250);
+        }
+    
+        gotoxy((DISPLAY_WIDTH >> 1) - 10, DISPLAY_HEIGHT - 2);
+        for (int i; i<19; i++){
+        printf(BG_DOT, 250);
+        }
+    }
+
+     else if (ch == 'm' || ch == 'M') {
+        ctx->game_state = GAME_STATE_MENU;
+        game_state_init(ctx);
+    }
+}
+
+
+
+void pause_check(GameContext *ctx)
+{
+    int ch = uart_get_char();   // NON-blocking
+
+    if (ch == -1)
+        return;                // no input = keep running
+
+    if (ctx->game_state == GAME_STATE_PLAY &&
+        (ch == 'b' || ch == 'B'))
+    {
+        ctx->game_state = GAME_STATE_PAUSE;
+        game_state_init(ctx);
+    
+    }
+}
+
+\end{lstlisting}
+
+\texttt{main.c}
+\begin{lstlisting}
+    #include "bsp/stm32f30x_conf.h" // STM32 config
+#include "bsp/30010_io.h" // Input/output library for this course
+#include "HAL.h"
+#include "Ascii.h"
+#include "Physics.h"
+#include "charset.h"
+#include "heart.h"
+#include <string.h>
+#include "menu.h"
+#include "game_state.h"
+#include "bullets.h"
+#include "adc.h"
+
+
+int main(){
+	//-----------inits start------------------
+    uart_init(950000); // Baud rate 950000, compiler didnt like it :( 
+	printf("\x1b[?25l"); // Hide terminal cursor
+    joystick_init();
+    joystickdown_init();
+    TIM2_Init();
+	led_init();
+	init_adc();
+	clear();
+	GameContext ctx = {
+    .game_state = GAME_STATE_MENU,
+    .menu_mode  = MENU_MODE_PLAY,
+	.prev_joystick = 0,
+	.timer_counter = 0,
+	.level = 1,
+	.highscore = 0,
+	};
+	uint8_t joystick = 0;
+	game_state_init(&ctx);
+	//inits end
+    	while(1){
+			joystick = read_joystick();
+    		if (tim2_flag){ //30 Hz timer flag, bruges til main time
+    						//player movement, bullet movement, etc.
+
+				game_state_update(&ctx, joystick);
+				
+    			tim2_flag = 0;
+    		}
+    	}
+} 
+
+
+
+// score_update(3, 3475);       // 1. værdig er highscore, 2. værdig er current score (er begger int)
+// liv_update(4);               // antal liv (1 til 5)
+\end{lstlisting}
+
+\texttt{menu.c}
+\begin{lstlisting}
+    #include "game_state.h"
+#include "Ascii.h"
+#include "HAL.h"
+#include "Physics.h"
+#include "menu.h"
+#include "help.h"
+#include <stdlib.h>
+
+
+void display_menu(void){
+    int w=DISPLAY_WIDTH,h=DISPLAY_HEIGHT;
+
+       borders();
+	
+        gotoxy(w/2-4,h/4);
+        printf("Rum Reje");
+        gotoxy(w/2-15,h/2);
+        printf("Press JOYSTICK to PLAY level 1");// 
+        gotoxy(w/2-2,h/2+2); 
+        bgcolor(1);printf("PLAY");bgcolor(9);
+        gotoxy(w/2-2,h/2+4); 
+        printf("HELP");
+        gotoxy(w/2-2,h/2+6);
+        printf("QUIT");
+         
+      }
+ 
+
+void menu_update(GameContext *ctx, uint8_t joystick)
+{
+    uint8_t pressed = joystick & ~ctx->prev_joystick;
+
+    /* DOWN pressed once */
+    if (pressed & 0x02) {
+        ctx->menu_mode = (ctx->menu_mode + 1) % 3;
+    }
+
+    /* CENTER pressed once */
+    if (pressed & 0x01) {
+        if (ctx->menu_mode == MENU_MODE_PLAY) {
+            ctx->game_state = GAME_STATE_PLAY;
+            game_state_init(ctx);
+        }
+        else if (ctx->menu_mode == MENU_MODE_HELP) {
+            ctx->game_state = GAME_STATE_HELP;
+            game_state_init(ctx);
+        }
+        else if (ctx->menu_mode == MENU_MODE_QUIT) {
+            clear();
+            gotoxy((DISPLAY_WIDTH >> 1)-7, 16);
+            printf("Exiting game...");
+            gotoxy(0, 0);
+            printf("\x1b[?25h"); // Show terminal cursor
+            exit(0);
+        }
+    }
+
+    ctx->prev_joystick = joystick;
+
+uint8_t h=DISPLAY_HEIGHT; uint8_t w = DISPLAY_WIDTH;
+
+    /* Draw selection */
+    if (ctx->menu_mode == MENU_MODE_PLAY && ctx->game_state == GAME_STATE_MENU) {
+        printf("\x1B[%d;%dH\033[41mPLAY\033[0m",(h/2)+2,(w/2)-2);
+        printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
+        printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
+    }
+    else if (ctx->menu_mode == MENU_MODE_HELP && ctx->game_state == GAME_STATE_MENU) {
+        printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
+        printf("\x1B[%d;%dH\033[41mHELP\033[0m",(h/2)+4,(w/2)-2);
+        printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
+    }
+    else if (ctx->menu_mode == MENU_MODE_QUIT && ctx->game_state == GAME_STATE_MENU) {
+        printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
+        printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
+        printf("\x1B[%d;%dH\033[41mQUIT\033[0m",(h/2)+6,(w/2)-2);
+    }
+
+  
+}
+\end{lstlisting}
+
+\texttt{Physics.c}
+\begin{lstlisting}
+    #include "Physics.h"
+#include "Ascii.h"
+#include "HAL.h"
+#include "bullets.h"
+#include "game_state.h"
+#include "stm32f30x_flash.h"
+ 
+//----------------player Physics----------------------
+player p; 
+
+void player_init(){
+	// movement
+	p.x=X_COORDINATE/6;
+	p.y=Y_COORDINATE/2;
+	p.vy=0;
+	p.ay=0;
+	p.prev_x=p.x;
+	p.prev_y=p.y;
+
+	//general attributes
+	p.score=0;
+	p.score_multiplier=1;
+	p.hp=5;
+
+	//physical attributes
+	p.height=ALIEN_HEIGHT_LVL_1;
+	p.width=ALIEN_WIDTH;
+	
+	//powerup effect status
+	p.forcefield_active = 0;
+	p.multiplier_active = 0;
+	p.forcefield_timer = 0;
+	p.multiplier_timer = 0;
+
+	//pickup inits
+	p.heart_pickup.active = 0;
+    p.heart_pickup.x = 0;
+    p.heart_pickup.y = 0;
+    p.heart_pickup.prev_x = 0;
+    p.heart_pickup.prev_y = 0;
+    p.heart_pickup.vx = 0;
+    p.heart_pickup.vy = 0;
+    p.heart_pickup.type = POWERUP_HEART;
+
+	p.forcefield_pickup.active = 0;
+    p.forcefield_pickup.x = 0;
+    p.forcefield_pickup.y = 0;
+    p.forcefield_pickup.prev_x = 0;
+    p.forcefield_pickup.prev_y = 0;
+    p.forcefield_pickup.vx = 0;
+    p.forcefield_pickup.vy = 0;
+    p.forcefield_pickup.type = POWERUP_FORCEFIELD;
+
+	p.multiplier_pickup.active = 0;
+    p.multiplier_pickup.x = 0;
+    p.multiplier_pickup.y = 0;
+    p.multiplier_pickup.prev_x = 0;
+    p.multiplier_pickup.prev_y = 0;
+    p.multiplier_pickup.vx = 0;
+    p.multiplier_pickup.vy = 0;
+    p.multiplier_pickup.type = POWERUP_MULTIPLIER;
+
+	//led stuff
+	p.led_timer = 0;
+}
+
+inline int bullet_height(const Bullet *b)
+{
+    switch (b->type) {
+        case 3:  // cannonball
+            return BULLET_HEIGHT_CANNON;
+        default: // regular, bouncing, sniper, etc.
+            return BULLET_HEIGHT_NORMAL;
+    }
+}
+
+
+bool player_collides_with_bullet(player *p, const Bullet *b){
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define bullet collision box
+	int bullet_left = b->x >> 8;
+	int bullet_right = bullet_left + BULLET_WIDTH;
+	int bullet_top = b->y >> 8;
+	int bullet_bottom = bullet_top + bullet_height(b);
+
+	// Check for overlap
+	if (player_left < bullet_right &&
+		player_right > bullet_left &&
+		player_top < bullet_bottom &&
+		player_bottom > bullet_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+bool heal_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define heal powerup collision box
+	int heal_left = p->heart_pickup.x >> 8;
+	int heal_right = heal_left + POWERUP_WIDTH;
+	int heal_top = p->heart_pickup.y >> 8;
+	int heal_bottom = heal_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < heal_right &&
+		player_right > heal_left &&
+		player_top < heal_bottom &&
+		player_bottom > heal_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+bool multiplier_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define multiplier powerup collision box
+	int mult_left = p->multiplier_pickup.x >> 8;
+	int mult_right = mult_left + POWERUP_WIDTH;
+	int mult_top = p->multiplier_pickup.y >> 8;
+	int mult_bottom = mult_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < mult_right &&
+		player_right > mult_left &&
+		player_top < mult_bottom &&
+		player_bottom > mult_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+bool forcefield_collides_with_player(player *p) {
+	// Define player collision box
+	int player_left = p->x >> 8;
+	int player_right = player_left + p->width;
+	int player_top = p->y >> 8;
+	int player_bottom = player_top + p->height;
+
+	// Define forcefield powerup collision box
+	int ff_left = p->forcefield_pickup.x >> 8;
+	int ff_right = ff_left + POWERUP_WIDTH;
+	int ff_top = p->forcefield_pickup.y >> 8;
+	int ff_bottom = ff_top + POWERUP_HEIGHT;
+
+	// Check for overlap
+	if (player_left < ff_right &&
+		player_right > ff_left &&
+		player_top < ff_bottom &&
+		player_bottom > ff_top) {
+		return true;  // Collision detected
+	}
+	return false;  // No collision
+}
+
+void update_player(player* p, uint8_t joystick, GameContext *ctx){
+// -----movement physics-----
+	if (joystick & 0x01){
+		p->ay = -16; //op
+	}
+	else if (!(joystick == 0x01)){
+		p->ay = 8; //gravity
+	}
+	// -----score update-----
+	p->score += p->score_multiplier;
+	
+    if (p->score > p->highscore) {
+        p->highscore = p->score;
+    }
+	// -----position update-----
+	p->vy += p->ay;
+	p->y += p->vy;
+
+	// -----boundary conditions-----
+	switch (ctx->level)
+	{
+	case 1:
+		/* code */
+	if (p->y < Y_MIN + 256){
+		p->y = Y_MIN + 256;
+		p->vy = 0;
+		
+	}
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_1 - 1) << 8);
+		p->vy = 0;
+	}
+		break;
+	case 2:
+	if (p->y < Y_MIN + 256){
+		p->y = Y_MIN + 256;
+		p->vy = 0;
+	}
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_2 - 1) << 8);
+		p->vy = 0;
+	
+	}
+		break;
+	case 3:
+	if (p->y < Y_MIN + 256){
+		p->y = Y_MIN + 256;
+		p->vy = 0;
+	}
+	else if (p->y > Y_MAX - ((ALIEN_HEIGHT_LVL_3 - 1) << 8)){
+		p->y = Y_MAX - ((ALIEN_HEIGHT_LVL_3 - 1) << 8);
+		p->vy = 0;
+	}
+		break;
+	}
+	// -----height update-----
+	if (ctx->level == 1){
+		p->height = ALIEN_HEIGHT_LVL_1;
+		p->width = ALIEN_WIDTH;
+	}
+	if (ctx->level == 2){
+		p->height = ALIEN_HEIGHT_LVL_2;
+		p->width = ALIEN_WIDTH;
+	}
+	else if (ctx->level == 3){
+		p->height = ALIEN_HEIGHT_LVL_3;
+		p->width = ALIEN_WIDTH;
+	}
+}
+
+
+\end{lstlisting}
+\texttt{powerup.c}
+\begin{lstlisting}
+    #include "Physics.h"
+#include "bullets.h"
+#include "Ascii.h"
+#include <math.h>
+#include <stdint.h>
+#include "game_state.h"
+#include <stdbool.h>
+#include "powerup.h"
+
+void spawn_powerup(player *p, GameContext *ctx) {
+    uint32_t t = ctx->timer_counter;
+
+   if ((t+600) % 900 == 0 && !p->heart_pickup.active) {
+        p->heart_pickup.active = 1;
+        p->heart_pickup.type = POWERUP_HEART;
+        p->heart_pickup.x = DISPLAY_WIDTH << 8;
+        p->heart_pickup.y = 5 << 8;
+        p->heart_pickup.vx = -128;
+        p->heart_pickup.vy = 0;
+    }
+    
+
+    if ((t+300) % 900 == 0 && !p->forcefield_pickup.active) {
+        // spawn forcefield
+        p->forcefield_pickup.active = 1;
+        p->forcefield_pickup.type = POWERUP_FORCEFIELD;
+        p->forcefield_pickup.x = DISPLAY_WIDTH << 8;
+        p->forcefield_pickup.y = 12 << 8;
+        p->forcefield_pickup.vx = -128;
+        p->forcefield_pickup.vy = 0;
+    }
+
+    if (t % 900 == 0 && !p->multiplier_pickup.active) {
+        // spawn multiplier
+        p->multiplier_pickup.active = 1;
+        p->multiplier_pickup.type = POWERUP_MULTIPLIER;
+        p->multiplier_pickup.x = DISPLAY_WIDTH << 8;
+        p->multiplier_pickup.y = 20 << 8;
+        p->multiplier_pickup.vx = -128;
+        p->multiplier_pickup.vy = 0;
+    }
+}
+
+void powerup_heal_player(player *p) { //should be called when there is collision with heal powerup
+        p->hp += 2; // Heal 2 HP
+        if (p->hp > 5) {  // Assuming max HP is 5
+            p->hp = 5;
+        }
+}
+
+void powerup_score_multiplier_init(player *p) { //should be called when there is collision with score multiplier powerup
+            p->score_multiplier = 2;  // Double score
+            p->multiplier_active = 1;
+            p->multiplier_timer = 300;  // Set timer for 300 ticks
+    
+}
+
+
+void powerup_forcefield_init(player *p) { //should be called when there is collision with forcefield powerup
+            p->forcefield_active = 1;
+            p->forcefield_timer = 300;
+        
+   
+}
+
+void powerup_effects_update(player *p) {
+    //------multiplier effect update------
+    {
+    if (p->multiplier_timer > 0) {
+        p->multiplier_timer--;
+        if (p->multiplier_timer == 0) {
+            p->score_multiplier = 1;  // Reset to normal score
+            p->multiplier_active = 0;
+        }
+    }
+}
+    //------forcefield effect update------
+    if (p->forcefield_timer > 0) {
+        p->forcefield_timer--;
+        if (p->forcefield_timer == 0) {
+            p->forcefield_active = 0;
+        }
+    }
+}
+void powerup_forcefield_apply(player *p, Bullet *b) {
+
+    int32_t player_center_x = (int32_t)p->x + ((int32_t)p->width << 8);
+    int32_t player_center_y = (int32_t)p->y + ((int32_t)p->height << 8);
+    int32_t bullet_center_x = (int32_t)b->x + ((int32_t)BULLET_WIDTH << 8);
+    int32_t bullet_center_y = (int32_t)b->y + ((int32_t)bullet_height(b) << 8);
+
+    int32_t dx_fixed = bullet_center_x - player_center_x; // fixed 8.8
+    int32_t dy_fixed = bullet_center_y - player_center_y; // fixed 8.8
+
+    float dx_pix = dx_fixed / 256.0f;
+    float dy_pix = dy_fixed / 256.0f;
+    float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
+    if (dist <= 0.0f) return; // safety
+
+    const float EFFECT_RADIUS = 15; // pixels
+    if (dist < EFFECT_RADIUS) {
+        float nx = dx_pix / dist;
+        float ny = dy_pix / dist;
+
+        // Strength scales with proximity: closer -> stronger push
+        // Tweak the constant to get desired gameplay feel
+        float strength_pixels = (EFFECT_RADIUS - dist) * 0.005f; // pixels/tick^2
+
+        // Convert to 8.8 fixed point for ax/ay
+        int ax_fixed = (int)(nx * strength_pixels * 256.0f);
+        int ay_fixed = (int)(ny * strength_pixels * 256.0f);
+
+        // Apply acceleration away from player (add because nx points from player->bullet)
+        b->ax += ax_fixed;
+        b->ay += ay_fixed;
+    } else {
+        // Outside effect radius: reset acceleration to 0
+        b->ax = 0;
+        b->ay = 0;
+    }
+}
+
+
+// Updates powerups using random test powerups
+// Bevæger sig vandret og bouncer af vægge (hvis vi vil bruge denne funktion)
+void powerups_Update(GameContext *ctx, player *p) {
+    // Only do anything if the game is in play mode
+    
+
+    // --- Erase old powerups ---
+    if (p->heart_pickup.active)
+        erasePowerup(p);
+    if (p->forcefield_pickup.active)
+        erasePowerup(p);
+    if (p->multiplier_pickup.active)
+        erasePowerup(p);
+
+
+    // --- move ---
+ if (p->heart_pickup.active) {
+        p->heart_pickup.prev_x = p->heart_pickup.x;
+        p->heart_pickup.prev_y = p->heart_pickup.y;
+        p->heart_pickup.x += p->heart_pickup.vx;
+        p->heart_pickup.y += p->heart_pickup.vy;
+
+        // Deactivate if off screen
+        if ((p->heart_pickup.x >> 8) < 0 || (p->heart_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->heart_pickup.y >> 8) < 0 || (p->heart_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->heart_pickup.active = 0;
+    }
+    }
+
+    if (p->forcefield_pickup.active) {
+        p->forcefield_pickup.prev_x = p->forcefield_pickup.x;
+        p->forcefield_pickup.prev_y = p->forcefield_pickup.y;
+        p->forcefield_pickup.x += p->forcefield_pickup.vx;
+        p->forcefield_pickup.y += p->forcefield_pickup.vy;
+
+        // Deactivate if off screen
+    if ((p->forcefield_pickup.x >> 8) < 0 || (p->forcefield_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->forcefield_pickup.y >> 8) < 0 || (p->forcefield_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->forcefield_pickup.active = 0;
+    }
+    }
+
+    if (p->multiplier_pickup.active) {
+        p->multiplier_pickup.prev_x = p->multiplier_pickup.x;
+        p->multiplier_pickup.prev_y = p->multiplier_pickup.y;
+        p->multiplier_pickup.x += p->multiplier_pickup.vx;
+        p->multiplier_pickup.y += p->multiplier_pickup.vy;
+
+        // Deactivate if off screen
+        if ((p->multiplier_pickup.x >> 8) < 0 || (p->multiplier_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->multiplier_pickup.y >> 8) < 0 || (p->multiplier_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->multiplier_pickup.active = 0;
+    }
+    }
+    //---------collision-----------
+     if (p->heart_pickup.active && heal_collides_with_player(p)) {
+        p->heart_pickup.active = 0;
+        powerup_heal_player(p);
+    }
+
+    if (p->multiplier_pickup.active && multiplier_collides_with_player(p)) {
+        p->multiplier_pickup.active = 0;
+        powerup_score_multiplier_init(p);
+    }
+
+    if (p->forcefield_pickup.active && forcefield_collides_with_player(p)) {
+        p->forcefield_pickup.active = 0;
+        powerup_forcefield_init(p);
+    }
+
+
+    // --- Draw updated powerups ---
+    if (p->heart_pickup.active)
+        drawPowerup(p);
+    if (p->forcefield_pickup.active)
+        drawPowerup(p);
+    if (p->multiplier_pickup.active)
+        drawPowerup(p);
+
+}
+
+
+
+\end{lstlisting}

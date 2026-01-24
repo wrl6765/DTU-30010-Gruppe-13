@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+  \draw[fill=lightgray] (0,0) rectangle (3,5);
+  \draw[fill=lightgray] (6,0) rectangle (9,5);
+  \draw[color=blue] (2.8,0.6) node[left] {\texttt{ADC1}} -- (6.2,0.6) node[right] {PC\_3};
+  \draw[color =green] (2.8,1) node[left]{\texttt{ADC2}} -- (6.2,1) node[right] {PC\_2};
+  \draw[color=black] (2.8,2.2) node[left] {\texttt{GND}} -- node[below] {Ground} (6.2,2.2);
+  \draw[color=red] (2.8,2.8) node[left] {\texttt{VDD}} -- node[above]{3.3 V} (6.2,2.8);
+  \draw[color=green] (2.8,4) node[left] {\texttt{B1}} -- (6.2,4) node[right] {PA\_6};
+  \draw[color=yellow] (2.8,4.4) node[left] {\texttt{B2}} -- (6.2,4.4) node[right] {PA\_7};
+  \node at (7.5,4.8) {NUCLEO};
+  \node at (1.5,4.8) {30010 Joystick};
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+\chapter{Projektverifikation}
+For at bekræfte programmeringsprojektet er der behov for systematisk testning af programmet. Dette gøres gennem en række af tests med fokus på både udviklingsprocessen og det færdige produkt. 
+Testningen har til formål at sikre, at programmet fungerer som forventet, det er brugervenligt og lever op til de opstillede krav.
+Der vil her beskrives hvordan test af udvikling har kørt under udviklingen af projektet, men fokus vil her ligge på test af produktet. 
+
+\section{Test af udvikling}
+\vspace{0.5em}
+Test af udvikling foregår løbende gennem hele projektets udviklingsfase. Her testes de enkelte funktioner og elementer og dele af programmet, efterhånden som de programmeres og implementeres. Formålet er at kunne identificere fejl eller mangler, så det kan rettes, inden de påvirker resten af programmet.
+
+En vigtig del af udviklingsprocessen er at have gentagne iterationer med fokus på user experience design (UX design). Her afprøver brugere programmet og spillet, og deres interaktioner observeres. Feedback fra disse tests bruges til at forbedre funktionaliteten og designet af spillet. Denne proces gentages flere gange. Dette reducerer risikoen for støre fejl i projektet.
+
+Den generelle struktur af programmet er således at forskellige funktioner og structs er opdelt i forskellige filer i projektet. Dette sikrer at når programmet køres, vil det fremstå præcis hvilke linjer i filer og hermed funktioner som resulterer i et problem, og problemerne med funktionerne kan isoleres, imens de resterende funktioner bevares som er. Dette gør fejlfinding mere overskuelig.
+
+Et konkret eksempel på et problem, der blev identificeret under udviklingstesten, var implementeringen af 30010 joystick-funktionalitet. Den oprindelige idé var, at 30010 joysticket (det store joystick) skulle anvendes til at navigere i menuerne, mens SW1-knappen på 30010 joystick-boardet skulle bruges til at styre spilleren i selve spillet. Under test viste denne løsning sig dog at være problematisk og uhensigtsmæssig, hvilket påvirkede brugeroplevelsen negativt. Gennem gentagende tests og gentagelser blev det derfor besluttet at ændre styresystemets opbygning.
+
+\section{Test af produkt}
+\vspace{0.5em}
+I forbindelse med test af det færdige produkt var der begrænset tid til at gennemføre omfattende brugertests. Dette betød, at antallet af testpersoner og gentagelser af tests var færre end oprindeligt ønsket, grundet at tiden blev brugt på at udvikle spillet i stedet. På trods af dette blev der stadig lagt vægt på at identificere de mest kritiske fejl og mangler gennem tests af produktets kernefunktioner.
+
+Hvis der havde været mere tid til rådighed, vil teststrategien have været at køre flere brugerbaserede tests med forskellige typer af brugere. Disse tests kunne have givet mere detaljeret feedback på brugervenlighed, spiloplevelse og eventuelle fejlagtige eller problematiske elementer i programmet. Feedback fra brugertests ville være blevet analyseret og anvendt til løbende forbedringer af dele af programmet gennem gentagne tests.
+
+Eventuelle problemer i funktioner der blev identificeret under testningen håndteres og vurderes ud fra deres alvor i programmet. Kritiske fejl prioriteres og rettes hurtigst og bedst muligt, mens mindre problemer håndteres systematisk. Denne tilgang sikrer en struktureret løsning og løbende forbedring af programmet.
+
+Som en del af produkttesten blev den endelige løsning på 30010 joystick-problematikken vurderet og implementeret. I stedet for at anvende 30010 joysticket til at navigere menuen blev mikrocontrollerens knapper brugt til både navigation i menuen og styring af spilleren under spillet. 30010 joysticket blev i stedet anvendt til at styre start accelerationen af bullets i spillet. Denne løsning resulterede i en mere effektiv styring og gjorde det muligt at implementere et player-versus-player (PVP) format med to spillere, hvor styringen er tydeligt opdelt mellem spillerne.

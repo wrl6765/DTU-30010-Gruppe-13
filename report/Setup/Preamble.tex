@@ -1,0 +1,79 @@
+\documentclass[11pt, a4paper, twoside]{report}                % 11pt font size, A4 paper, two-sided printing, REPORT document class
+
+\usepackage[danish]{babel}                                     % Package for desired language hyphenation e.g. (danish,english,spanish)
+\usepackage{fontspec}                                          % Package for custom fonts
+\usepackage{lmodern}                                           % Package for more choice in fontsize
+
+\usepackage[]{geometry}                                        % Package for changing page margins (must be put before fancyhdr) 
+\usepackage{fancyhdr}                                          % Package to changing header and footer
+\pagestyle{fancy}                                              % Enables the custom headers/footers
+\usepackage{textpos}                                           % Package to enable custom positioning of text blocks in headers and footers 
+\usepackage{parskip}                                           % Package to tweak paragraph skipping 
+\setlength{\parskip}{1em}                                      % Define length of line space
+\usepackage{graphicx}                                          % Package for inserting images into the document
+\usepackage{subcaption}                                        % Package for inserting images with subfigures into the document
+\usepackage{float}                                             % Package for inserting 'floating' figures in the correct place in the text
+\usepackage{calc}                                              % Package for latex to calculate (3pt+2pt) 
+\usepackage{tikz}                                              % Package for drawing geometric figures
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{tikz-3dplot}                                       % Package for drawing 3D geometric figures
+\usepackage{pgfplots}                                          % Package for creating (simple) graphs and charts
+\pgfplotsset{compat=1.18}                                      % Define specific version of pgfplots to be loaded 
+\usepackage{xcolor}                                            % Package for defining a custom DTU colour palette 
+
+\usepackage{amsmath,amsfonts,amsthm}                           % Package for aligning equations with each other and nicer type setting
+\usepackage{siunitx}                                           % Package for SI units in tables and equations
+\usepackage{textcomp}                                          % Package for adding a variety of useful symbols e.g. \textdegree = °C
+
+\usepackage{booktabs}                                          % Package for nicer tables
+\usepackage{multirow}                                          % Package for enabling fusing of multiple table rows
+\usepackage{caption}                                           % Package for better captions beneath Figures/Tables/Equations
+\usepackage{lastpage}                                          % Package to determine the number of pages in the document
+\usepackage{titling}                                           % Package to customise titles
+\usepackage{titlesec, blindtext, color}                        % Package to customise chapters
+\usepackage{listings}                                          % Package to insert nice looking code listings
+
+\usepackage{dirtytalk}                                         % Package to define quotation function, English notation
+\PassOptionsToPackage{hyphens}{url}                            % Enable ability to line break urls at hyphens
+\usepackage{hyperref}                                          % Package for cross-referencing (also loads url package)
+\usepackage[danish]{cleveref}                                  % Package for better reference options
+\usepackage{csquotes}                                          % For biblatex with babel
+\usepackage[backend=biber,style=authoryear-ibid]{biblatex} % Package for bibliography (citing)
+\bibliography{bibliography.bib}                                % Define where the bibliography is to be found      
+\raggedbottom                                                  % Allow LaTeX to construct pages without the need to space out it's contents equally.
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem} % noget i forhold til lister ? 
+\usepackage{graphicx} % til billeder
+\usepackage{wrapfig}  % til wrapfigure
+\usepackage{svg}
+
+% til tabeller 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage[danish]{babel}
+\usepackage{ltablex} % Gør det muligt for tabularx at gå over flere sider
+\usepackage{booktabs}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{longtable}
+\lstset{
+  language=C,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  frame=single,
+  breaklines=true,
+  tabsize=2
+}
+
+\usepackage{pdfpages} % til at hente pdf
+
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}

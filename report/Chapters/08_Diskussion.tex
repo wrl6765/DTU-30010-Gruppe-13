@@ -1,0 +1,63 @@
+\chapter{Diskussion} \label{chap:diskussion}
+\begin{tabular}{|p{2.4cm}|p{3.6cm}|p{7.4cm}|}
+\hline
+\textbf{Kategori} & \textbf{Krav} & \textbf{Diskussion og opfyldelse} \\
+\hline
+
+Gameplay &
+Asteroids / planets with potential field &
+Opfyldt. I stedet for et tiltrækkende potentialefelt er der implementeret en forcefield power-up, som får bullets til at accelerere væk fra spilleren. Dette blev vurderet som en mere naturlig løsning i forhold til spillets design. \\
+\hline
+
+Gameplay &
+3+ stages docked spaceship &
+Opfyldt. Spillet indeholder flere stadier, hvor spillerens figur ændrer størrelse over tid. Sværhedsgraden øges gennem mere avancerede projektiltyper og flere samtidige projektiler. \\
+\hline
+
+Gameplay &
+3+ bullet types + 5+ shot angles &
+Opfyldt. Flere projektiltyper (regulær bullet, cannonball og bouncing bullet) er implementeret med forskellig skade, størrelse og hastighed. Skudretninger genereres tilfældigt inden for et 60 graders interval. \\
+\hline
+
+Gameplay &
+Power-ups &
+Opfyldt. Power-ups såsom ekstra liv, score-multiplikator og forcefield spawner hvert tiende sekund og bidrager til variation og strategiske valg. \\
+\hline
+
+Gameplay &
+Points and lives &
+Opfyldt. Spilleren optjener point over tid, og spillet anvender et liv-system, hvor spillet afsluttes, når antallet af liv når nul. \\
+\hline
+
+Gameplay &
+Random delta-angle &
+Opfyldt. Projektilernes skudretning bestemmes ved en randomiseret delta-vinkel, hvilket reducerer forudsigelighed og øger sværhedsgraden. \\
+\hline
+
+UI &
+Menu, help screen and boss key &
+Opfyldt. Spillet indeholder startmenu, hjælpeskærm og boss key, som gør det muligt at pause spillet og returnere til menuen. \\
+\hline
+
+UI &
+Score / high score display &
+Opfyldt. Score og highscore vises både på LCD-displayet og i Putty-terminalen og opdateres løbende. \\
+\hline
+
+UI &
+RGB LED feedback &
+Opfyldt. RGB LED’en giver visuel feedback om spillets tilstand, herunder livstab og aktivt gameplay. \\
+\hline
+
+UI &
+Partial / full game on LCD &
+Opfyldt. LCD-displayet viser score, highscore og antal liv og fungerer som primær visuel feedback. \\
+\hline
+
+Controls &
+Game controlled by 30010 joystick &
+Opfyldt. Spillet styres via 30010-joysticket, som anvendes til både spillerbevægelse og påvirkning af projektiladfærd. \\
+\hline
+
+\end{tabular}
+

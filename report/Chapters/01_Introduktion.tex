@@ -1,0 +1,13 @@
+\chapter{Introduktion} \label{chap:intro}
+
+Indlejrede systemer spiller en central rolle i moderne teknologi og anvendes i mange felter såsom forbrugerelektronik og transportsystemer. Udvikling af software til mikrocontroller-baserede systemer kræver en velstruktureret og effektiv kode samt forståelse af tilhørende hardware, da ressourcer som hukommelse, energi og regnekraft er begrænsede. I 30010 Programmeringsprojekt kurset er formålet nemlig at arbejde med disse udfordringer gennem et design og implementering af et større softwareprojekt i C på en ARM-baseret mikrocontroller.
+
+Dette programmeringsprojekt omhandler udviklingen af et arkadeinspireret spil med temaet SpaceShip. Det udarbejdes på en ARM Cortex-M4 mikrocontroller ved brug af STM32CubeIDE. Spillet simulerer en rumrejse hvor spilleren styrer en alien gennem et fjendtligt miljø med forskellige projektiler der skader spilleren undervejs, og spilleren kan påvirke potentialfeltet på disse. Undervejs håndterer spilleren begrænsede ressourcer, undgår forhindringer og forsøger at overleve skaden fra de forskellige projektiler af varierende type og skudvinkler.
+
+Udover selve spilfunktionaliteten har projektet også et stærkt fokus på softwarearkitektur og især modularitet. Programmet er opdelt i tre lag: Application Layer, Application Interface Layer, og Hardware Abstraction Layer (HAL). Denne opdeling gør koden nemmere at genbruge, forstå og vedligeholde. Samtidig er der krav om dokumentation i form af flowcharts, block-diagrammer og modulbeskrivelser, hvilket hjælper med at sikre en struktureret tilgang til projektet.
+
+Projektet bruger mange mikrocontroller-periferienheder, herunder GPIO, timere, interrupts, joystick, RGB-LED, LCD-display samt kommunikation vha. UART til en terminal på en computer. Numeriske beregninger vil være implementeret ved hjælp af fixed-point aritmetik, hvilket bruges og er nødvendigt i ressourcebegrænsede systemer.
+
+Formålet med projektet er dermed ikke kun at udvikle et funktionelt spil, men også at vise, at vi kan håndtere hele processen fra idé til implementering.
+
+Projektets overordnede rammer og krav er fastlagt i den udleverede projektbeskrivelse \cite{DTU30010ProjectDescription}.

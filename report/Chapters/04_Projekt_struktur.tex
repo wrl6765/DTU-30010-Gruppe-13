@@ -1,0 +1,395 @@
+\chapter{Projekt struktur} \label{chap:analyse}
+
+For at realisere de opstillede krav og den beskrevne softwarearkitektur, er projektet opdelt i en hardware orienteret del og en software orienteret del. Dette sikrer en klar adskillelse mellem lavniveaus-drivere og den overordnede spillogik. Det er her de fysiske input transformeres til data, som spillets logik kan reagere på.
+
+
+
+
+\section{Hardware Abstraction layer (HAL)} \label{chap:Projektstruktur_sec:hardwere}
+\vspace{0.5em}
+
+\vspace{3pt}
+\subsection{Timer}
+\vspace{3pt}
+
+Spillet har sin egen timer indbygget via STM-mikrocontrolleren. 
+
+\vspace{1em}
+\begin{lstlisting}
+     RCC->APB1ENR |= 0x00000001;
+	    TIM2->PSC = 6399; 
+	    TIM2->ARR = 332;   
+	    TIM2->CNT = 0x0000;  
+	    TIM2->DIER = 0x0001;
+	    TIM2->CR1 = 0x0001; 
+        NVIC->ISER[0] = 0x10000000; 
+	    NVIC->IP[28] = 0x10;
+\end{lstlisting}
+\vspace{-2em}
+
+Koden foroven er en liste af "indstillinger" som timeren indholdet. \lstinline!APB1ENR! indeholder initieringen for timeren, hvor LSB indeholder skal være hot for aktiveringen af \lstinline!TM2!. \lstinline!PSC! indeholder prescaleren som er justeret til 30 hz. \lstinline!ARR! indeholder autoreload, samt \lstinline!CNT! som resetter vores \lstinline!TIM2!-timer. \lstinline!DIER! undersøger hvorledes en opdatering forekommer. 
+
+\vspace{3pt}
+\subsection{joystick-input}
+\vspace{3pt}
+
+Et simpelt joystick input for MBED, til det tilsvarende bitværdier for hhv. op, ned og knappen (center). Koden indencere bittet ud fra hvilket input den får.
+
+\vspace{1em}
+\begin{lstlisting}
+    RCC->AHBENR |= RCC_AHBPeriph_GPIOB;
+    GPIOB->MODER &= ~(0x3 << (5 * 2));   
+    GPIOB->PUPDR &= ~(0x3 << (5 * 2));
+    GPIOB->PUPDR |=  (0x2 << (5 * 2)); 
+\end{lstlisting}
+\vspace{-2em}
+
+Koden forover indencere hex-tallet for at give en byte-række one-hot kodet, så rækkens indencering svarer til et return på indencering af bit-stringen. Dette gør det nemt at overfører joystick-input til eventuelle if-statements i andre filer via et function-call.
+
+\vspace{1em}
+\begin{lstlisting}
+     return (GPIOB->IDR & (1 << 5)) ? 1 : 0;
+\end{lstlisting}
+\vspace{-2em}
+
+Som ser sådanne ud, altså et simpelt ternary statement, hvis 1, returner 1, hvis 0 returner 0. Man kun undre sig over hvorfor man ikke bare kan returnere selve værdien for \lstinline!GPIOB!, men et function call acceptere kun en conditional.
+
+\vspace{3em}
+
+\vspace{3pt}
+\subsection{LCD}
+\vspace{3pt}
+
+Der benyttes en 128x32 monokrom dot matrix LCD skærm til at visualisere spillets gang. Skærmen styres gennem en Serial Peripheral Interface (SPI) bus, som transmitterer data en byte af gangen. Da hver pixel på skærmen kun kræver en bit (tændt eller slukket), opdeler man skærmen i 512 grupper af 8 vertikale pixels. Dette betyder at en byten der sendes til skærmen opdatere en vertikal stribe på 8 pixels, hvilket optimere opdateringen på displayet. For at styre denne software benytter vi en skærm buffer (\lstinline!unit8_t lcd_buffe[512]!), som fungere som et lokalt kort over skærmes pixels. 
+For at visualisere spildata som score og liv, har vi implementerede et brugerdefineret tegnsæt (\lstinline!character_data!). Her er hvert tegn defineret som en 5 byte matrix, der repræsentere bogstavets form.
+Funktionerne \lstinline!lcd_write_string! tager en tekststreng og mapper den direkte til bufferen. Alle ændringer (score opdatering, liv opdatering og spille graftik) skrives først til \lstinline!lcd_buffer!, for at sikre en stabil fremvisning. Når alle beregningerne er færdige kaldes \lstinline!lcd_commit!, som skubber hele bufferen til den fysiske skærm ved hjælp af \lstinline!lcd_push_buffer!. Dette sikre at spilleren altid ser et komplet og opdateret billede. 
+På samme måde som teksten bliver opdateret på skærmen bliver spillerens liv også displayet derpå, dog ud fra et \lstinline!tom_heart_data! og \lstinline!full_heart_data! i stedet.
+
+
+
+
+\section{Application Layer} \label{chap:Projektstruktur_sec:softwere}
+\vspace{0.5em}
+
+\vspace{3pt}
+\subsection{overall spil-mekanikker}
+\vspace{3pt}
+
+Spillet er opsat sådan, at over tid, spillerkarakteren (typisk referes i koden som \lstinline!ALIEN!)  udvikler sig større, dermed en større hitbox, hvilket essentiel gør spillet sværere, da bevægelseshastigheden ikke ændres, så man som spiller er nødt til at kunne reagere hurtigere på skud. der findes et mere spil mekanik, der øger vanskeligheden af spillet. 3 muligheder for at forøge sin scorer i form af "powerups". Skrevet i koden som \lstinline!!
+
+\vspace{3pt}
+\subsubsection{Gravity}
+\vspace{3pt}
+
+Der er implementeres en accelererede tyngdekraft på spiller-spriten, som konstant trækker spilleren ned mod "gulvet". siden spillet kører med et begrænse antal karakterer, samt et konstant antal pladser på vores 100x32 grid, skal 
+
+\vspace{1em}
+\begin{lstlisting}
+    void update_player(player *p, uint8_t joystick){.
+        p->score += 1;
+        p->vy += p->ay;
+        p->y += p->vy;
+        if (p->y < Y_MIN + 256){
+		      p->y = Y_MIN + 256;
+		      p->vy = 0;  
+        }
+	    else if (p->y > Y_MAX - 512){
+		      p->y = Y_MAX - 512;
+		      p->vy = 0;
+	    }
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Dette beskriver tyngdekraftens virkning på spilleren. \lstinline{Y_MIN} defineres med pointeren \lstinline!p! for structen \lstinline!Player!, som konstant ændre hastigheden af faldet, pr ændring i position, som essentielt er et konstant accelererende legeme uden en begrænsning, men siden skærmen forudsager, at spiller-karakteren opnår så høj en hastighed, virker løsningen fint til lejligheden. En aktiv tyngdekraft er et af 
+
+\vspace{3pt}
+\subsubsection{Sprites}
+\vspace{3pt}
+
+Når der omtales sprites, menes der bevægelige figurer som f.eks. Player-karateren, der består af mere end én karakter. dette er mere af den "front-end" mæssige aspekter af projektet. 
+
+\vspace{1em}
+\begin{lstlisting}
+    static const char level1[ALIEN_HEIGHT_LVL_1][ALIEN_WIDTH +1] = {
+	"<@@>",
+	"/||\\",
+	"/__\\"
+	};
+\end{lstlisting}
+\vspace{-2em}
+
+koden forover et eksempel på en af projektets sprites. En spiller-karakter, der flyttes med brugerens input via joystick. Spriten er ikke konstant, da den ændret 2 gange til en større figur
+
+
+
+
+\section{Prioriteret funktioner}
+\vspace{0.5em}
+
+Denne sektion fokusere på en række udvalgte funktioner, som vi mener har en høj relevans for sammensætningen af spillet, samt noget interessant at sige om den individuelle funktion.
+
+\vspace{3pt}
+\subsection{Gameloop}
+\vspace{3pt}
+
+Kan findes i \lstinline!game_state.c!, Denne funktion virker som primus motor for hele spillets gentagende processor, som looper i timerens 30 Hz. Funktionen er kun kaldt en gang i \lstinline!game_state_update! i samme fil. 
+
+\vspace{1em}
+\begin{lstlisting}
+    ctx->timer_counter++;
+
+    if(ctx->timer_counter > 2700){
+        ctx->timer_counter = 1800;
+    }
+    if(ctx->timer_counter % 900 == 0){
+        if(ctx->level < 3){
+            ctx->level++;
+            bullets_set_max(ctx, &bullet_system); 
+        }
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Første del af funktionen ser man \lstinline!TIM2!-timeren gå op 30 gange i sekundet, hvor første if statement bestemmer overflow, siden timeren er en 30, har vi et reset 900 pr level, så counter ikke bliver for høj, men stadig viser den rigtige værdi. Næste if-statement bestemmer efter 900 iterations, som på 30 Hz vil være 30 sekunder, at \lstinline!ctx->level! øges med 1. Resten af funktionen kører en masse andre funktioner, der er med til at få hele spillet til at virke.
+
+\vspace{3pt}
+\subsection{Menu Update}
+\vspace{3pt}
+
+Kan findes i \lstinline!menu.c!. Denne funktion det første man møder, når man kører spillet. Den initialisere logikken for menuen og læner sig meget op af Hardware abstraction layer, da den kommunikere med \lstinline!HAL.c!, for at få inputtet fra onboard joystick, som opdatere switch casen \lstinline!menu_mode!, inden i \lstinline!GameContext!-structen, som kan findes i \lstinline!game_state.h!.
+
+\vspace{3em}
+\begin{lstlisting}
+if (ctx->menu_mode == MENU_MODE_PLAY && ctx->game_state == GAME_STATE_MENU) {
+    printf("\x1B[%d;%dH\033[41mPLAY\033[0m",(h/2)+2,(w/2)-2); 
+    printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
+    printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
+}
+else if (ctx->menu_mode == MENU_MODE_HELP && ctx->game_state == GAME_STATE_MENU) {
+    printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
+    printf("\x1B[%d;%dH\033[41mHELP\033[0m",(h/2)+4,(w/2)-2);
+    printf("\x1B[%d;%dHQUIT",(h/2)+6,(w/2)-2);
+}
+else if (ctx->menu_mode == MENU_MODE_QUIT && ctx->game_state == GAME_STATE_MENU) {
+    printf("\x1B[%d;%dHPLAY",(h/2)+2,(w/2)-2);
+    printf("\x1B[%d;%dHHELP",(h/2)+4,(w/2)-2);
+    printf("\x1B[%d;%dH\033[41mQUIT\033[0m",(h/2)+6,(w/2)-2);
+}
+\end{lstlisting}
+\vspace{-2em}
+
+Koden forover laver en meget simpel og rekursiv opdatering i ANSI-print via if-else statements, der fortæller brugeren hvilket menu type, der er valgt, ved at highlighte menutypen i rød.
+
+\vspace{3pt}
+\subsection{Bullet system}
+\vspace{3pt}
+
+Dette er en serie af funktioner, som for det meste kan findes \lstinline!bullets.c! og \lstinline!Physics.c!, funktionen \lstinline!spawn_simple_bullet!, gør nemlig det som navnet antager, den sætter skuddene ind på skærmen i tilfældigt position, langs y-aksen (\lstinline!DISPLAY_HEIGHT!), som ud fra en simpel indbygget \lstinline!rand()!-funktion. positionen bliver sat på y-aksen således: \lstinline!b->y = (2 + rand() % (DISPLAY_HEIGHT - 4)) << 8;!, så skuddene bliver sat tilfældigt, men undgår at clippe igennem skærmens grænser. Grunden til at \lstinline!DISPLAY_HEIGHT! bliver left-shifted med 8, er fordi den blev right-shifted med 8 tidligere i koden. Skuddene panere så fra højreside af skærmen, og ikke nok med at spawn-placering er tilfældig, vinkel fra hvor de skydes er også tilfældig ud fra en -30$^{\circ}$ til 30$^{\circ}$ begrænsning. Koden for dette er skrevet således:\\
+\lstinline!b->angle = (rand() % 61) - 30;!\\
+\lstinline!angle!, som er indenunder \lstinline!bullet!-type structen, tager et tilfældigt nummer, som modulus af 61 giver en arbitrer værdi der sætter linær funktion som hvor skuddet eksempelvis flytter sig 1 nedad, efter den normalt vil flyttes sig 3 til venstre. Siden spillet er opbygget sådan, at 30010 joysticket ændrer accelerationen og dermed hastigheden af skuddene.\\
+
+\begin{lstlisting}
+    if(screen_y < 2) {
+        bs->bullets[i].vy = -bs->bullets[i].vy;
+        bs->bullets[i].y = 2 << 8;
+    } else if(screen_y > (DISPLAY_HEIGHT - 2)) {
+        bs->bullets[i].vy = -bs->bullets[i].vy;
+        bs->bullets[i].y = (DISPLAY_HEIGHT - 2) << 8;
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Her er en funktion, der nok virker bekendt, da den beskriver type 2 skuddene (\lstinline!bs->bullets[i].type == 2)!), som mere eller mindre samme måde som kursets 'bouncing ball'-øvelse fra de tidligere dage. Dog er der få ændringer, f.eks. kan \lstinline!BULLET_TYPE_BOUNCE! kun "hoppe" fra de to horisontale side af skærmen, og forsvinder (\lstinline!bs->bullets[i].alive=0!), når den rammer et af de to vertikale sider af skærmen. Inden i funktionen \lstinline!update_bullets!, kører dette stykke kode helt i starten.\\
+
+\begin{lstlisting}
+    if(bs->bullets[i].alive){
+        bs->bullets[i].x += bs->bullets[i].vx;
+        bs->bullets[i].y += bs->bullets[i].vy;
+        bs->bullets[i].vx += bs->bullets[i].ax;
+        bs->bullets[i].vy += bs->bullets[i].ay;
+        if(player_collides_with_bullet(&p, &bs->bullets[i])){
+            if (bs->bullets[i].type == BULLET_TYPE_CANNON) {
+                p.hp -= 2;
+            } else {
+                p.hp -= 1;
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Her ses mekanismen, der får spillet til reelt at blive et spil og ikke bare en simulation. Siden PVP mekanismen blev indført, har hvert skud nu en opdaterende acceleration fra spawn-punktet. Det vil sige at ikke nok med at hastighen pr. skud-type, ændres, men også den "nye" hastigheden bliver bestemt ud fra \lstinline!bs->bullets[i].ax!, som er styret af bruger-input.
+
+\vspace{3pt}
+\subsection{Powerup}
+\vspace{3pt}
+
+Powerup-systemet er implementeret for at give spilleren midlertidige fordele og skabe variation i gameplayet. Systemet er opbygget som en del af Application Layer og interagerer med spiller-structen (player) samt den overordnede spiltilstand (GameContext), og er tidsbaseret.
+
+Systemet understøtter tre forskellige powerups:
+
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{3pt}
+    \setlength{\parsep}{0pt}
+    \item Heart (heal) - genskaber 2 liv for spilleren
+    \item Multiplier - fordobler spillerens score i en begrænset periode
+    \item Forcefield - afbøjer fjendtlige projektiler omkring spilleren
+\end{itemize}
+
+Alle powerups er repræsenteret som separate instanser af Powerup-structen inde i player-structen, hvilket sikrer, at der maksimalt kan eksistere én aktiv powerup af hver type ad gangen.
+
+Hver powerup er repræsenteret ved en \texttt{Powerup}-struct som indeholder tilstands- og positionsdata såsom om den er aktiv, type, position, hastighed samt forrige position. Dette gør det muligt at behandle powerups på samme måde som øvrige objekter der bevæger sig i spillet og genbruge eksisterende logik for bevægelse, kollision og tegning.
+
+Spawn af powerups styres i funktionen \texttt{spawn\_powerup()} og er direkte afhængig af spillets interne timer (\texttt{ctx->timer\_counter}), som opdateres i gameloopet med 30 Hz. Spawn logikken bruger modulus-operatoren til at fordele powerups jævnt over tid:\\
+
+\begin{lstlisting} 
+void spawn_powerup(player *p, GameContext *ctx) {
+    uint32_t t = ctx->timer_counter;
+
+   if ((t+600) % 900 == 0 && !p->heart_pickup.active) {
+        p->heart_pickup.active = 1;
+        p->heart_pickup.type = POWERUP_HEART;
+        p->heart_pickup.x = DISPLAY_WIDTH << 8;
+        p->heart_pickup.y = 5 << 8;
+        p->heart_pickup.vx = -128;
+        p->heart_pickup.vy = 0;
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Ved at forskyde timer-værdien med 600 opnås løbende spawning af powerups inden for samme 900-tick interval (svarer til 30 sekunder).
+
+Alle powerups spawner i højre side af skærmen (\texttt{DISPLAY\_WIDTH << 8}) og bevæger sig vandret mod venstre med konstant hastighed.
+
+Opdatering af powerups sker i funktionen \texttt{powerups\_Update()}, som følger samme overordnede struktur som andre bevægelige objekter i spillet. Først slettes tidligere tegnede positioner, derefter opdateres positionen, hvorefter kollision og redraw bliver kørt:\\
+
+\begin{lstlisting} 
+if (p->heart_pickup.active) {
+        p->heart_pickup.prev_x = p->heart_pickup.x;
+        p->heart_pickup.prev_y = p->heart_pickup.y;
+        p->heart_pickup.x += p->heart_pickup.vx;
+        p->heart_pickup.y += p->heart_pickup.vy;
+\end{lstlisting}
+\vspace{-2em}
+
+Hvis en powerup bevæger sig uden for skærmens grænser deaktiveres den automatisk:\\
+
+\begin{lstlisting} 
+if ((p->heart_pickup.x >> 8) < 0 || (p->heart_pickup.x >> 8) >= DISPLAY_WIDTH ||
+        (p->heart_pickup.y >> 8) < 0 || (p->heart_pickup.y >> 8) >= DISPLAY_HEIGHT) {
+        p->heart_pickup.active = 0;
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Kollision mellem spiller og powerups kontrolleres eksplicit for hver type af powerup. Ved kollision mellem disse to deaktiveres poweruppen, og den tilhørende effekt aktiveres:\\
+
+\begin{lstlisting} 
+if (p->heart_pickup.active && heal_collides_with_player(p)) {
+        p->heart_pickup.active = 0;
+        powerup_heal_player(p);
+    }
+\end{lstlisting}
+\vspace{-2em}
+
+Effekterne initialiseres i separate funktioner for at bevare modularitet i systemet der køres i projektet. Eksempelvis bliver score-multiplieren initialiseret således:\\
+
+\begin{lstlisting} 
+void powerup_score_multiplier_init(player *p) {
+            p->score_multiplier = 2;
+            p->multiplier_active = 1;
+            p->multiplier_timer = 300;
+}
+\end{lstlisting}
+\vspace{-2em}
+
+Forcefield-poweruppen er anderledes fra de øvrige ved at direkte kunne påvirke fjendtlige projektiler frem for selve spilleren. I funktionen \texttt{powerup\_forcefield\_apply()} beregnes vektoren mellem spillerens center og projektilets center. Hvis projektilet befinder sig inden for en fast defineret radius, påføres en acceleration væk fra spilleren i samme retning som den ankom med:\\
+
+\begin{lstlisting} 
+    float dx_pix = dx_fixed / 256.0f;
+    float dy_pix = dy_fixed / 256.0f;
+    float dist = sqrtf(dx_pix * dx_pix + dy_pix * dy_pix);
+\end{lstlisting}
+\vspace{-2em}
+
+Retningsvektoren normaliseres og accelerationen skaleres ud fra afstanden fra projektilet til spilleren, hvilket vil give en naturlig afbøjning.
+Resultatet konverteres tilbage til 8.8 fixed-point formattet:\\
+
+\begin{lstlisting} 
+    int ax_fixed = (int)(nx * strength_pixels * 256.0f);
+    int ay_fixed = (int)(ny * strength_pixels * 256.0f);
+    b->ax += ax_fixed;
+    b->ay += ay_fixed;
+\end{lstlisting}
+\vspace{-2em}
+
+
+
+\section{Structs}
+\vspace{0.5em}
+
+\vspace{3pt}
+\subsection{Player}
+\vspace{1em}
+
+    \begin{lstlisting} 
+typedef struct player {
+    int16_t x, y, vy, ay;
+    int16_t score, score_multiplier, highscore;
+    int16_t width, height;
+    int16_t prev_x, prev_y;
+    uint8_t hp;
+    uint8_t alien_level;
+
+    Powerup heart_pickup;
+    Powerup forcefield_pickup;
+    Powerup multiplier_pickup;
+
+	uint16_t forcefield_active;
+	uint16_t multiplier_active;	
+	uint16_t forcefield_timer;
+	uint16_t multiplier_timer;
+
+	uint16_t led_timer;
+
+} player;
+    \end{lstlisting}
+\vspace{-2em}
+
+Denne struct indeholder alle variabler der hyppigt bruges når mekanikker der påvirker spiller bliver skrevet. Dette setup definerer en form for attributter for structens navn, og gør det nemt at anvende de samme variabler i andre funktioner og andre file med includes.
+
+
+\vspace{3pt}
+\subsection{Gamecontext}
+\vspace{3pt}
+
+\lstinline!GameContext!-structen er simpel nok. Denne struct fungerer som den centrale samling af alle tilstande for spillet, som skal være tilgængeligt på tværs af filer og funktioner. Structen bruges til at styre spillets tilstand, menu-navigation, tid og niveau-logik og fungerer som ledet mellem hardware input og applikationslaget.
+
+Herunder ses et udsnit af vores \texttt{game\_state.h}-kode. 
+
+\vspace{1em}
+ \begin{lstlisting}
+typedef struct {
+    uint8_t game_state;
+    uint8_t menu_mode;
+    uint8_t prev_joystick;
+    uint8_t prev_sw1;
+    uint32_t timer_counter;
+    uint8_t level;
+    uint32_t highscore;
+    int16_t joy_ax;
+    int16_t joy_ay;
+    int16_t joy_x; 
+    int16_t joy_y;
+
+} GameContext;
+ \end{lstlisting}
+\vspace{-2em}
+
+ Spillets generelle flow styres vha. variablen \texttt{game\_state} som styrer hvilket logiske forløb der udføres i \texttt{game\_state\_update()}, fx. menu, om spillet er aktivt, pause eller game over. Menu-navigation håndteres vha. \texttt{menu\_mode}.
+
+ Logikken for tid er samlet i variablen \texttt{timer\_counter} som stiger med én for hver iteration af gameloopet. Denne variabel bruges til styring af niveau-progression, powerup-spawns samt andre tidsafhængige mekanikker. For eksempel øges spillets sværhedsgrad for hvert 900. tick, som svarer til 30 sekunder.
+
+ Variablen \texttt{level} bestemmer spillets aktuelle sværhedsgrad og bliver blandt andet brugt til den dynamiske ændring af antallet af aktive projektiler. Highscoren gemmes i \texttt{highscore}.
+
+ Joystickets position gemmes i værdierne \texttt{joy\_x} og \texttt{joy\_y} samt de tilhørende accelerationsværdier \texttt{joy\_ax} og \texttt{joy\_ay}, i GameContext. Ved at gemme disse værdier i GameContext holdes inputaflæsningen adskilt fra bevægelsen af spilleren.
